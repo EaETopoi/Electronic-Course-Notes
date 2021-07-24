@@ -1,0 +1,1536 @@
+\documentclass[12pt]{article}
+
+%------------ Packages -----------
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+%set margins to 1 inch
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}  % AMS theorem environments and proof environment -- load after amsmath
+\usepackage{physics}
+\usepackage{bm}
+\renewcommand\qedsymbol{$\blacksquare$}
+\usepackage{latexsym}
+\usepackage{graphicx}    % standard LaTeX graphics tool
+\usepackage{xypic}      % commutative diagrams
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+        colorlinks,
+        citecolor=black,
+        filecolor=black,
+        linkcolor=black,
+        urlcolor=black
+}
+\usepackage{float}
+\usepackage[scientific-notation=true]{siunitx}
+\usepackage{scalerel,stackengine}
+\stackMath
+\newcommand\reallywidehat[1]{%
+        \savestack{\tmpbox}{\stretchto{%
+                  \scaleto{%
+                              \scalerel*[\widthof{\ensuremath{#1}}]{\kern-.6pt\bigwedge\kern-.6pt}%
+                                  {\rule[-\textheight/2]{1ex}{\textheight}}%WIDTH-LIMITED BIG WEDGE
+                }{\textheight}% 
+        }{0.5ex}}%
+        \stackon[1pt]{#1}{\tmpbox}%
+}
+%------------- Headers -----------
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Phys 341 Definitions and Facts}
+\rhead{December 5 2020}
+\chead{}
+%\lfoot{Author's Name}
+%\cfoot{}
+%\rfoot{Page \thepage}
+
+
+%------------- Environments -------
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}  %%%% [thm] means number in sequence with Theorem
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{axi}[thm]{Axiom}
+\newtheorem{law}[thm]{Law}
+\newtheorem{pri}[thm]{Principle}
+\newtheorem{for}[thm]{Formula}
+%%% definition style
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{xca}[thm]{Exercise}
+\newtheorem{conj}[thm]{Conjecture}
+%%% remark style
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem*{qst}{Question}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem*{note}{Note} %%%%%%%%%% no numbering for notes
+\numberwithin{equation}{section}
+
+%------------- Macros -------------
+\newcommand\C{\mathbb C}    %%%%%%%%% the set of complex numbers
+\newcommand\R{\mathbb R}    %%%%%%%%% the set of real numbers
+\newcommand\Z{\mathbb Z}    %%%%%%%%% the set of integers
+\newcommand\N{\mathbb N}    %%%%%%%%% the natural numbers
+\newcommand\Q{\mathbb Q}    %%%%%%%% the rational numbers
+\newcommand\B[1]{\textbf{#1}}
+%% math operators
+\DeclareMathOperator{\arcosh}{arcCosh}
+\DeclareMathOperator{\arsinh}{arcsinh}
+\DeclareMathOperator{\artanh}{arctanh}
+\DeclareMathOperator{\arsech}{arcsech}
+\DeclareMathOperator{\arcsch}{arcCsch}
+\DeclareMathOperator{\arcoth}{arcCoth} 
+
+%------------- Begin --------------
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Phys 341 Definitions and Facts}
+\author{Elijah Thompson}
+\maketitle
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Formulas}
+
+\subsection{Vectors}
+
+
+\begin{for}[Dot Product]
+        For any vectors $\B{v},\B{w} \in \R^3$, we have that the dot product between the two vectors is 
+        \begin{equation}
+                \B{v}\cdot\B{w} = v_xw_x+v_yw_y+v_zw_z
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Cross Product]
+        For any vectors $\B{v},\B{w} \in \R^3$, we have that the cross product between the two vectors is 
+        \begin{equation}
+                \B{v}\times\B{w} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\
+                        v_x & v_y & v_z \\
+                        w_x & w_y & w_z 
+                \end{vmatrix} = 
+                        \begin{bmatrix} v_yw_z - v_zw_y, & v_zw_x - v_xw_z, & v_xw_y - v_yw_x
+                \end{bmatrix}^T
+        \end{equation}
+        Moreover, \begin{equation}
+                ||\B{v}\times\B{w}|| = ||\B{v}||||\B{w}||\sin(\theta)
+        \end{equation}
+        and $\B{v}\times \B{w} = -\B{w} \times \B{v}$. Note that the derivative when $\B{v}$, and $\B{w}$ are functions is \begin{equation}
+                \frac{d}{dt}(\B{v}(t)\times \B{w}(t)) = \frac{d\B{v}(t)}{dt}\times\B{w}(t) + \B{v}(t)\times \frac{d\B{w}(t)}{dt}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+
+\subsection{Hyperbolic Trig and Trig Identities}
+
+\vspace{15pt}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Functions and Derivatives}
+        \begin{tabular}{c|c}
+                Function & Derivative \\ \hline
+                $\sin(x)$ & $\cos(x)$ \\
+                $\cos(x)$ & $-\sin(x)$ \\
+                $\tan(x)$ & $\sec^2(x)$ \\
+                $\sec(x)$ & $\sec(x)\tan(x)$ \\
+                $\csc(x)$ & $-\csc(x)\cot(x)$ \\
+                $\cot(x)$ & $-\csc^2(x)$ \\
+                $\arcsin(x)$ & $\frac{1}{\sqrt{1-x^2}}$ \\
+                $\arccos(x)$ & $\frac{-1}{\sqrt{1-x^2}}$ \\
+                $\arctan(x)$ & $\frac{1}{1+x^2}$ \\
+                $\arccot(x)$ & $\frac{-1}{1+x^2}$ \\
+                $\arcsec(x)$ & $\frac{1}{|x|\sqrt{x^2-1}}$ \\
+                $\arccsc(x)$ & $\frac{-1}{|x|\sqrt{x^2-1}}$ \\
+                $\sinh(x) = \frac{e^x-e^{-x}}{2}$ & $\cosh(x)$ \\
+                $\cosh(x) = \frac{e^x+e^{-x}}{2}$ & $\sinh(x)$ \\
+                $\tanh(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}$ & $\sech^2(x)$ \\
+                $\coth(x)$ & $-\csch^2(x)$ \\
+                $\sech(x)$ & $-\tanh(x)\sech(x)$ \\
+                $\csch(x)$ & $-\csch(x)\cot(x)$ \\
+                $\arsinh(x)$ & $\frac{1}{\sqrt{x^2+1}}$ \\
+                $\arcosh(x)$ & $\frac{1}{\sqrt{x^2-1}}$ \\
+                $\artanh(x)$ & $\frac{1}{1-x^2}$ $(|x| < 1)$ \\
+                $\arcoth(x)$ & $\frac{1}{1-x^2}$ $(|x| > 1)$ \\
+                $\arsech(x)$ & $\frac{-1}{x\sqrt{1-x^2}}$ \\
+                $\arcsch(x)$ & $\frac{-1}{|x|\sqrt{1+x^2}}$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+\vspace{15pt}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Trig Identities}
+        \begin{tabular}{c|c}
+                LHS & RHS \\ \hline
+                $\sin^2(x) + \cos^2(x)$ & $1$ \\
+                $\tan^2(x) + 1$ & $\sec^2(x)$ \\
+                $1 + \cot^2(x)$ & $\csc^2(x)$ \\
+                $\sin(\alpha \pm \beta)$ & $\sin(\alpha)\cos(\beta) \pm \sin(\beta)\cos(\alpha)$ \\
+                $\cos(\alpha \pm \beta)$ & $\cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta)$ \\
+                $\tan(\alpha \pm \beta)$ & $\frac{\tan(\alpha) \pm \tan(\beta)}{1 \mp \tan(\alpha)\tan(\beta)}$ \\
+                $\sin(2x)$ & $2\cos(x)\sin(x)$ \\
+                $\cos(2x)$ & $\cos^2(x) - \sin^2(x)$ \\
+                & $2\cos^2(x) - 1$ \\
+                & $1 - 2\sin^2(x)$ \\
+                $\tan(2x)$ & $\frac{2\tan(x)}{1-\tan^2(x)}$ \\
+                $\cosh^2(x) - \sinh^2(x)$ & $1$ \\
+                $1 - \tanh^2(x)$ & $\sech^2(x)$ \\
+                $\coth^2(x) - 1$ & $\csch^2(x)$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+
+\subsection{Coordinates}
+
+
+\begin{for}[Cartesian]
+        Any vector $\B{v} \in \R^3$ can be represented in cartesian coordinates, $(x,y,z)$, as
+        \begin{equation}
+                \B{v} = v_x\hat{x} + v_y\hat{y} + v_z\hat{z}
+        \end{equation}
+        Additionally, if $\B{v}:\R^3 \rightarrow \R^3$ is a vector valued function, it has derivatives 
+        \begin{equation}
+                \dot{\B{v}} = \dot{v_x}\hat{x} + \dot{v_y}\hat{y} + \dot{v_z}\hat{z}
+        \end{equation}
+        and
+        \begin{equation}
+                \ddot{\B{v}} = \ddot{v_x}\hat{x} + \ddot{v_y}\hat{y} + \ddot{v_z}\hat{z}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Cylindrical]
+        Any vector $\B{v} \in \R^3$ can be represented in cylindrical coordinates, $(\rho,\phi,z)$, as
+        \begin{equation}
+                \B{v} = v_{\rho}\hat{\rho} + v_z\hat{z}
+        \end{equation}
+        Additionally, if $\B{v}:\R^3 \rightarrow \R^3$ is a vector valued function, it has derivatives 
+        \begin{equation}
+                \dot{\B{v}} = \dot{v_{\rho}}\hat{\rho} + v_{\rho}\dot{v_{\phi}}\hat{\phi} + \dot{v_z}\hat{z}
+        \end{equation}
+        and
+        \begin{equation}
+                \ddot{\B{v}} = (\ddot{v_{\rho}}-v_{\rho}\dot{v_{\phi}}^2)\hat{\rho}+(v_{\rho}\ddot{v_{\phi}}+\dot{v_{\rho}}\dot{v_{\phi}})\hat{\phi} + \ddot{v_z}\hat{z}
+        \end{equation}
+        Where we define
+        \begin{equation}
+                v_{\rho} = \sqrt{v_x^2+v_y^2}\; \text{and}\; v_{\phi} = \arctan\left(\frac{v_x}{v_y}\right)
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{for}[Spherical]
+        Any vector $\B{v} \in \R^3$ can be represented in spherical coordinates, $(r,\theta,\phi)$, as
+        \begin{equation}
+                \B{v} = v_r\hat{r}
+        \end{equation}
+        Additionally, if $\B{v}:\R^3 \rightarrow \R^3$ is a vector valued function, it has derivatives 
+        \begin{equation}
+                \dot{\B{v}} = \dot{v_r}\hat{r} + v_r\dot{v_{\theta}}\hat{\theta} + v_r\sin(v_{\theta})\dot{v_{\phi}}\hat{\phi}
+        \end{equation}
+        and
+        \begin{align}
+                \ddot{\B{v}} = (\ddot{v_r}-v_r\dot{v_{\theta}}^2-v_r\sin^2(v_{\theta})\dot{v_{\phi}}^2)\hat{r}+(v_r\ddot{v_{\theta}}+\dot{v_r}\dot{v_{\theta}}-v_r\sin(v_{\theta})\cos(v_{\theta})\dot{v_{\phi}}^2)\hat{\theta}& \\
+                + (\dot{v_r}\sin(v_{\theta})\dot{v_{\phi}}+v_r\cos(v_{\theta})\dot{v_{\theta}}\dot{v_{\phi}}+v_r\sin(v_{\theta})\ddot{v_{\phi}})\hat{\phi}&
+        \end{align}
+        Where we define
+        \begin{equation}
+                \B{v} = v_r\hat{r},\; v_{\theta} = \arctan\left\{\frac{\sqrt{v_x^2+v_y^2}}{v_z}\right\},\; \text{and} \;v_{\phi} = \arctan\left(\frac{v_x}{v_y}\right)       
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Spherical Gradient]
+         \begin{equation}
+                \vec{\nabla}f = \hat{r}\frac{\partial f}{\partial r} + \hat{\theta}\frac{1}{r}\frac{\partial f}{\partial \theta} + \hat{\phi}\frac{1}{r\sin(\theta)}\frac{\partial f}{\partial \phi}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{note}[Inertial Frames]
+        The center of mass of a system is an inertial reference frame.
+\end{note}
+\vspace{15pt}
+
+
+\subsection{Linear Air Resistance}
+
+
+
+\begin{for}[drag]
+        We approximate the magnitude of the drag force, given by $\B{f}=-f(\B{v})\hat{v}$, for speeds less than that of the speed of sound as \begin{equation}
+                f(v) \approx bv + cv^2
+        \end{equation}
+        where $b = \beta D$ and $c = \gamma D^2$, where D is the diameter of the object, $\beta = \num{1.6E-4}\;\si{N\cdot s/m^2}$ and $\gamma =0.25\;\si{N\cdot s^2/m^4}$.
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Ratio]
+        We can relate the ratio of $f_{quad}$ to $f_{lin}$ to the parameters $\nu$, viscosity, and $\rho$, density, for the fluid with \B{Reynold's Number} \begin{equation}
+                \frac{f_{quad}}{f_{lin}} \sim R = \frac{DV\rho}{\nu}
+        \end{equation}
+\end{for}
+
+
+
+\vspace{15pt}
+
+\begin{for}[Linear]
+        The x-coordinate for the solution to the equation of motion for linear drag is \begin{equation}
+                x(t) = x_{\infty}\left(1-e^{-t/\tau}\right)
+        \end{equation}
+        where $x_{\infty} = v_{x0}\tau$, and $\tau = \frac{m}{b}$. For the y-coordinate we have the solution \begin{equation}
+                y(t) = v_{ter}t + (v_{y0}-v_{ter})\tau\left(1-e^{-t/\tau}\right)
+        \end{equation}
+        with $y$ measured downwards (down $= +$), and $v_{ter} = \frac{mg}{b}=g\tau$ is the terminal velocity (you may change $v_{ter}\mapsto -v_{ter}$ for measuring $y$ upwards, or you may just take $v_{ter}$ as a negative value).
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{for}[Range]
+        First, we recall the previous solution and replace $v_{ter} \rightarrow -v_{ter}$ as we now measure y upward: \begin{equation}
+                \left.\begin{array}{ccc}
+                        x(t) & = &v_{x0}\tau\left(1-e^{-t/\tau}\right) \\
+                        y(t) & = & (v_{y0} + v_{ter})\tau\left(1-e^{-t/\tau}\right)-v_{ter}t
+                \end{array}\right\}
+        \end{equation}
+        Solving for t in the first equation then substituting into the second we obtain \begin{equation}
+                y = \frac{v_{y0}+v_{ter}}{v_{x0}}x+v_{ter}\tau ln\left(1-\frac{x}{v_{x0}\tau}\right)
+        \end{equation}
+        In a vacuum the horizontal range is given by \begin{equation}
+                R_{vac} = \frac{2v_{x0}v_{y0}}{g}
+        \end{equation}
+        while in a system with linear drag we solve for the second root of our previous equation:\begin{equation}
+                \frac{v_{y0}+v_{ter}}{v_{x0}}R+v_{ter}\tau ln\left(1-\frac{R}{v_{x0}\tau}\right) = 0
+        \end{equation}
+        or we also have the approximation for small drag of \begin{equation}
+                R \approx R_{vac}\left(1-\frac{4v_{y0}}{3v_{ter}}\right)
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\subsection{Quadratic Drag}
+
+
+\begin{for}[Quadratic]
+        The solely x-motion we have that \begin{equation}
+                x(t) = x_0 +v_0\tau \ln\left(1+\frac{t}{\tau}\right)
+        \end{equation}
+        where $\tau = \frac{m}{cv_0}$. For solely y-motion we have that \begin{equation}
+                y(t) = \frac{v_{ter}^2}{g}\ln\left[\cosh\left(\frac{gt}{v_{ter}}\right)\right]
+        \end{equation}
+        where $v_{ter} = \sqrt{\frac{mg}{c}}$.
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{obs}[Function of x]
+        If the force acting on a particle is only a function of x, then its equation of motion can be solved as \begin{equation}
+                v^2 = v_0^2 + \frac{2}{m}\int\limits_{x_0}^xF(x')dx'
+        \end{equation}
+        by using the chain rule to get the identity \begin{equation}
+                \dot{v} = v\frac{dv}{dx} = \frac{1}{2}\frac{dv^2}{dx}
+        \end{equation}
+\end{obs}
+
+
+\vspace{15pt}
+
+\subsection{Magnetic and Electric Fields}
+
+
+
+\begin{for}[Lorentz Force]
+        \begin{equation}
+                \B{F} = q(\B{E} + \B{v}\times\B{B})
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Magnetic Solution]
+        For a charge moving in a constant magnetic field, it experiences a force $\B{F} = q\B{v}\times\B{B}$, and has a solution to its equation of motion of:
+        \begin{equation}
+                x+iy = (x_0+iy_0)e^{-\omega t}
+        \end{equation}
+        where $\omega = \frac{qB}{m}$.
+\end{for}
+
+
+\vspace{15pt}
+
+\subsection{Rockets}
+
+
+\begin{for}[Thrust]
+        \begin{equation}
+                m\dot{v}+\dot{m}v_{ex} = F^{ext}
+        \end{equation}
+        where $v_{ex}$ is the speed of the exhaust relative to the ship, and for $F^{ext} = 0$, \begin{equation}
+                m\dot{v} = -\dot{m}v_{ex}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{for}[Solution]
+        \begin{equation}
+                v = v_0+v_{ex}ln(m_0/m)
+        \end{equation}
+\end{for}
+
+
+
+\vspace{15pt}
+
+\subsection{Center of Mass}
+
+
+\begin{for}[Integral Form]
+        \begin{equation}
+                \B{R}_{CM} = \frac{1}{M}\int\B{r}dm = \frac{1}{M}\int\int\int\boldsymbol{\varrho(r)}\B{r}dV
+        \end{equation}
+        Note that this integral can be done component wise for X, Y, and Z seperately (or whatever orthonormal basis you are using).
+\end{for}
+
+\vspace{15pt}
+
+\subsection{Angular Momentum}
+
+
+\begin{for}[Angular Momentum]
+        \begin{equation}
+                \B{l} = \B{r} \times \B{p}
+        \end{equation}
+        and \begin{equation}
+                \dot{\B{l}} = \B{r} \times \B{F} = \boldsymbol{\Gamma}
+        \end{equation}
+        and for a rigid body rotating about a fixed axis, \begin{equation}
+                \B{L} = I\boldsymbol{\omega}
+        \end{equation}
+\end{for}
+
+
+
+\vspace{15pt}
+
+\begin{for}[Kepler's Law]
+         \begin{equation}
+                \frac{dA}{dt} = \frac{l}{2m}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Angular Momentum Magnitude]
+        \begin{equation}
+                l = m\omega r^2
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\subsection{Moment of Inertia}
+
+
+\begin{for}[Moment of Inertia]
+        \begin{equation}
+                I_A = \sum\limits_{n=1}^Nm_nr_n^2
+        \end{equation}
+        which gives $\B{L}_A = I_A\boldsymbol{\omega}$, where $\boldsymbol{\omega}$ is the angular velocity of the object about A.\begin{equation}
+                I_A = \int\int\int r^2 dV
+        \end{equation}
+        where $r$ is the distance from a particle to the axis of rotation.
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Kinetic Rotational Energy]
+        Rigid object rotating about a fixed axis\begin{equation}
+                T = \frac{1}{2}I\omega^2
+        \end{equation}
+        total kinetic energy of a rigid object spinning about a fixed axis: \begin{equation}
+                T = \frac{1}{2}Mv_{CM}^2 + \frac{1}{2}I_{CM}\omega_{CM}^2
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Perpendicular Axis Theorem]
+        For perpendicular axis x, y, and z, if a planar lamina lies in the xy-plane, then the perpendicular axis theorem states that \begin{equation}
+                I_z = I_x + I_y
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\subsection{Central Forces}
+
+\begin{for}[Gravity]
+        The force of gravity on a mass 2 by a mass 1, with $\hat{r}$ pointing from 1 to 2 is:
+        \begin{equation}
+                \B{F}_g = -\frac{Gm_1m_2}{r^2}\hat{r}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{for}[Coloumb]
+        The Coloumb force on a charge 2 by a charge 1, with $\hat{r}$ pointing from 1 to 2, is:
+        \begin{equation}
+                \B{F}_C = \frac{1}{4\pi \varepsilon_0}\frac{q_1q_2}{r^2}\hat{r}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\subsection{Energy}
+
+
+\begin{for}[General Energy]
+        \begin{equation}
+                \Delta E = \Delta(T + U) = W_{nc}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Kinetic Energy]
+        \begin{equation}
+                T = \frac{1}{2}mv^2\;\text{and}\;\frac{dT}{dt} = m\dot{\B{v}}\cdot\B{v} = \B{F} \cdot\B{v}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Work Energy Thm]
+        The change in kinetic energy between points A and B is given by:
+        \begin{equation}
+                \Delta T = T_B - T_A = \int\limits_{A}^B\B{F}\cdot d\B{r} = W(A\rightarrow B)
+        \end{equation}
+        where $\B{F}$ is the net force, so $W(A\rightarrow B)$ can be written as:
+        \begin{equation}
+                W(A\rightarrow B) = \sum\limits_{n=1}^NW_n(A\rightarrow B)
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{for}[Potential]
+        Given a conservative force $\B{F}$, we can define a potential function with zero potential at $\B{r}_0$ by \begin{equation}
+                U(\B{r}) = U(\B{r}) - U(\B{r}_0) = -\int\limits_{\B{r}_0}^{\B{r}}\B{F(r')}\cdot d\B{r'}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Solution for 1D Conservative Systems]
+        For a one dimensional conservative system, the mechanical energy is given by $E = \frac{1}{2}m\dot{x}^2+U$, which can then be solved by separation of variables as \begin{equation}
+                t_2 - t_1 = \pm \int\limits_{x_1}^{x_2}\sqrt{\frac{m}{2}}\frac{dx}{\sqrt{E-U(x)}}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+
+\subsection{Oscillators}
+
+
+\begin{for}[Hooke's Law]
+        \begin{equation}
+                F_x(x) = -kx
+        \end{equation}
+        and
+        \begin{equation}
+                U = \frac{1}{2}kx^2
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{for}[SHM]
+       \begin{equation}
+                \ddot{x} = -\frac{k}{m}x = -\omega_0^2x
+        \end{equation}
+        where $\omega_0^2 = \frac{k}{m}$. The solution to this differential equation can be given as \begin{equation}
+                x(t) = A\cos(\omega_0 t - \delta)
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Weak Damping]
+        $\beta < \omega_0$\begin{equation}
+                x(t) = Ae^{-\beta t}\cos(\omega_1 t - \delta)
+        \end{equation}
+        where $\omega_1 = \sqrt{\omega_0^2 - \beta^2}$.
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Strong Damping]
+        $\beta > \omega_0$\begin{equation}
+                x(t) = C_1e^{-(\beta - \sqrt{\beta^2 - \omega_0^2})t}+C_2e^{-(\beta+\sqrt{\beta^2-\omega_0^2})t}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Critical Damping]
+        $\beta = \omega_0$\begin{equation}
+                x(t) = C_1e^{-\beta t} + C_2te^{-\beta t}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Driven Damped Oscillator]
+        Given $f(t) = f_0\cos(\omega t)$, we have \begin{equation}
+                x(t) = A\cos(\omega t - \delta) + C_1e^{r_1t}+C_2e^{r_2t}
+        \end{equation}
+        \begin{equation}
+                A = \frac{f_0}{\sqrt{(\omega_0^2-\omega^2)^2+4\beta^2\omega^2}}\label{A}
+        \end{equation}
+        and \begin{equation}
+                \delta = \arctan\left\{\frac{2\beta\omega}{\omega_0^2-\omega^2}\right\}\label{delta}
+        \end{equation}
+\end{for}
+
+
+
+\vspace{15pt}
+
+\begin{for}[Weak Damping Special Case]
+        \begin{equation}
+                x(t) = A\cos(\omega t - \delta) + A_{tr}e^{-\beta t}\cos(\omega_1 t - \delta_{tr})
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\subsection{Resonance}
+
+
+\begin{for}[Amplitude]
+        For $\beta << \omega_0$, resonance occurs at $\omega \approx \omega_0$, which gives a max of \begin{equation}
+                A_{max} \approx \frac{f_0}{2\beta\omega_0}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[FWHM]
+        \begin{equation}
+                FWHM \approx 2\beta
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Quality Factor]
+        \begin{equation}
+                Q = \frac{\omega_0}{2\beta}
+        \end{equation}
+        or \begin{equation}
+                Q = \frac{\omega_0}{2\beta} = \pi\frac{1/\beta}{2\pi/\omega_0} = \pi\frac{\text{decay time}}{\text{period}}
+        \end{equation}
+\end{for}
+
+
+
+
+
+\clearpage
+\section{Newton's Laws}
+
+
+\subsection{Classical Model}
+
+\begin{law}[Newton's First Law]
+        In the absence of a force, a particle moves with constant velocity \textbf{v}
+\end{law}
+\vspace{15pt}
+
+\begin{rmk}
+        Newton's First Law is what defines intertial reference frames.
+\end{rmk}
+
+
+\vspace{15pt}
+
+\begin{law}[Newton's Second Law]
+        For any particle of mass m, the net force \textbf{F} on the particle is always equal to the mass m times the particle's acceleration: \begin{equation}
+                \B{F} = m\B{a}
+        \end{equation}
+        Equivalenetly (at low speeds), since $\B{p} = m\B{v}$, and hence $\dot{\B{p}} = m\dot{\B{v}}$ we find that \begin{equation}
+                \B{F} = \dot{\B{p}}
+        \end{equation}
+\end{law}
+
+\vspace{15pt}
+
+
+\begin{law}[Newton's Third Law]
+        If object 1 exerts a force $\B{F}_{21}$ on object 2, then object 2 exerts a force $\B{F}_{12}$ on object 1 given by: \begin{equation}
+                \B{F}_{12}=-\B{F}_{21}
+        \end{equation}
+\end{law}
+
+\vspace{15pt}
+
+\begin{pri}[Principle of Conservation of Momentum]
+        In the absence of an external force, the momentum of a system is conserved, or equivalently 
+        \begin{equation}
+                \dot{\B{P}}_{sys} = \B{F}^{ext} = \sum\limits_{n=1}^{N}\B{F}_n^{ext}
+        \end{equation}
+        where $\B{F}^{ext}$ is the net force on an N-particle system.
+\end{pri}
+
+\vspace{15pt}
+
+
+\subsection{Coordinates}
+
+
+\begin{defn}[Cartesian]
+        In Cartesian coordinates the equation of motion for a particle is $$\B{F} = m\ddot{\B{r}}$$ with $\B{F} = F_x\hat{x} + F_y\hat{y} + F_z\hat{z}$ and $\ddot{\B{r}} = \ddot{x}\hat{x} + \ddot{y}\hat{y} + \ddot{z}\hat{z}$, so 
+        \begin{equation}
+                \B{F} = m\ddot{\B{r}} \iff \left\{\begin{array}{c}
+                        F_x = m\ddot{x} \\
+                        F_y = m\ddot{y} \\
+                        F_z = m\ddot{z} 
+                \end{array}\right.
+        \end{equation}
+\end{defn}
+
+
+\vspace{15pt}
+
+\begin{defn}[Cylindrical]
+        In cylindrical coordinates we define $\rho = \sqrt{x^2+y^2}$ and $\phi = \arctan\left(\frac{x}{y}\right)$. Moreover, it follows that $\hat{\rho} = \cos(\phi)\hat{x} + \sin(\phi)\hat{y} + 0\hat{z}$ and $\hat{\phi} = -\sin(\phi)\hat{x}+\cos(\phi)\hat{y} + 0\hat{z}$. It follows that $$\B{r} = \rho\hat{\rho} + z\hat{z}$$ $$\dot{\B{r}} = \dot{\rho}\hat{\rho} + \rho\dot{\phi}\hat{\phi} + \dot{z}\hat{z}$$ and $$\ddot{\B{r}} = (\ddot{\rho}-\rho\dot{\phi}^2)\hat{\rho}+(\rho\ddot{\phi}+\dot{\rho}\dot{\phi})\hat{\phi} + \ddot{z}\hat{z}$$ So the equation of motion in cylindrical coordinates is 
+        \begin{equation}
+                \B{F} = m\ddot{\B{r}} \iff \left\{\begin{array}{c}
+                        F_{\rho} = m(\ddot{\rho}-\rho\dot{\phi}^2) \\
+                        F_{\phi} = m(\rho\ddot{\phi}+\dot{\rho}\dot{\phi}) \\
+                        F_z = m\ddot{z} 
+                \end{array}\right.
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+
+\begin{defn}[Spherical]
+        In spherical coordinates we define $\B{r} = r\hat{r}$, $\theta = \arctan\left\{\frac{\sqrt{x^2+y^2}}{z}\right\}$, and $\phi = \arctan\left(\frac{x}{y}\right)$. Moreover, it follows that $\hat{r} = \sin(\theta)\cos(\phi)\hat{x} + \sin(\theta)\sin(\phi)\hat{y} + \cos(\theta)\hat{z}$, $\hat{\phi} = -\sin(\phi)\hat{x} + \cos(\phi)\hat{y} + 0\hat{z}$, and $\hat{\theta} = \cos(\theta)\cos(\phi)\hat{x}+\cos(\theta)\sin(\phi)\hat{y} - \sin(\theta)\hat{z}$. It follows that $$\dot{\B{r}} = \dot{r}\hat{r} + r\dot{\theta}\hat{\theta} + r\sin(\theta)\dot{\phi}\hat{\phi}$$ and $$\ddot{\B{r}} = (\ddot{r}-r\dot{\theta}^2-r\sin^2(\theta)\dot{\phi}^2)\hat{r}+(r\ddot{\theta}+\dot{r}\dot{\theta}-r\sin(\theta)\cos(\theta)\dot{\phi}^2)\hat{\theta} + (\dot{r}\sin(\theta)\dot{\phi}+r\cos(\theta)\dot{\theta}\dot{\phi}+r\sin(\theta)\ddot{\phi})\hat{\phi}$$ So the equation of motion in spherical coordinates is 
+        \begin{equation}
+                \B{F} = m\ddot{\B{r}} \iff \left\{\begin{array}{c}
+                        F_{r} = m(\ddot{r}-r\dot{\theta}^2-r\sin^2(\theta)\dot{\phi}^2) \\
+                        F_{\theta} = m(r\ddot{\theta}+\dot{r}\dot{\theta}-r\sin(\theta)\cos(\theta)\dot{\phi}^2) \\
+                        F_{\phi} = m(\dot{r}\sin(\theta)\dot{\phi}+r\cos(\theta)\dot{\theta}\dot{\phi}+r\sin(\theta)\ddot{\phi})
+                \end{array}\right.
+        \end{equation}
+\end{defn}
+
+
+\clearpage
+
+\section{Projectiles and Charged Particles}
+
+
+
+\subsection{Air Resistance}
+
+
+\begin{defn}[Drag Force]
+        In general, a drag force acting on a particle with velocity $\B{v}$ is given by \begin{equation}
+                \B{f} = -f(v)\B{v}
+        \end{equation}
+        where $f(v)$ is complicated a positive scalar valued function. We can approximate this function using a 2nd degree Taylor polynomial \begin{equation}
+                f(v) \approx bv + cv^2 =f_{lin} + f_{quad}
+        \end{equation}
+        where $b = \beta D$ and $c = \gamma D^2$, wher $D$ is the diameter of the particle.
+\end{defn}
+\vspace{15pt}
+
+\begin{qst}
+        How do we determine which dominates? Well we look at the ratio \begin{equation}
+                \frac{f_{quad}}{f_{lin}} = \frac{\gamma}{\beta}Dv
+        \end{equation}
+        Equivalently, we define a constant called \B{Reynold's Number} which is on the same order of magnitude of this ratio, and is \begin{equation}
+                R = \frac{Dv\varrho}{\nu}
+        \end{equation}
+        where $\nu$ is the viscosity and $\varrho$ is the density of the fluid.
+\end{qst}
+
+\vspace{15pt}
+
+
+\subsection{Magnetic and Electric Forces}
+
+
+\begin{defn}[Lorentz Force]
+        We define the Lorentz force as the general force experienced by a particle with charge $q$ in an electric field $\B{E}$ and magnetic field $\B{B}$, which is given by \begin{equation}
+                \B{F} = q(\B{E}+\B{v}\times\B{B})
+        \end{equation}
+\end{defn}
+
+
+
+
+\clearpage
+\section{Momentum and Angular Momentum}
+
+
+\subsection{Momentum}
+
+
+\begin{pri}[Principle of Conservation of Momentum]
+        If the net external force for a system of N particles is given by $\B{F}^{ext}$, then the change in the system's total mechanical momentum $\B{P} = \sum_{n=1}^Nm_n\B{v}_n$ is given by \begin{equation}
+                \dot{\B{P}} = \B{F}^{ext}
+        \end{equation}
+        and when the external force is zero, $\B{P}$ is constant.
+\end{pri}
+
+\vspace{15pt}
+
+
+
+\subsection{Rockets}
+
+
+
+\begin{defn}[Thrust]
+        For a rocket ejecting fuel and experiencing an external force $\B{F}^{ext}$ along the direction of its motion, we have that \begin{equation}
+                F^{ext} = m\dot{v}+\dot{m}v_{ex}
+        \end{equation}
+        which when $F^{ext} = 0$, simplifies to the thrust equation \begin{equation}
+                m\dot{v} = -\dot{m}v_ex
+        \end{equation}
+        where $v_{ex} \geq 0$ is the speed of the exhaust relative to the rocket.
+\end{defn}
+
+
+\vspace{15pt}
+
+\subsection{Center of Mass}
+
+
+\begin{defn}[Center of Mass]
+        The center of mass of an N particle system is givem by \begin{equation}
+                \B{R}_{CM} = \frac{1}{M}\sum\limits_{n=1}^Nm_n\B{r}_n = \frac{m_1\B{r}_1+\hdots+m_N\B{r}_N}{M}
+        \end{equation}
+        where $M = \sum_{n=1}^Nm_n$. Note that 
+        \begin{equation}
+                \B{R}_{CM} =  \frac{1}{M}\sum\limits_{n=1}^Nm_n\B{r}_n \iff \left\{\begin{array}{c}
+                        X_{CM} = \frac{1}{M}\sum\limits_{n=1}^Nm_nx_n \\
+                        Y_{CM} = \frac{1}{M}\sum\limits_{n=1}^Nm_ny_n \\
+                        Z_{CM} = \frac{1}{M}\sum\limits_{n=1}^Nm_nz_n                \end{array}\right.
+        \end{equation}
+        In general, for an object with a density function $\boldsymbol{\varrho(r)}$, we kind find the center of mass as \begin{equation}
+                \B{R}_{CM} = \frac{1}{M}\int\B{r}dm = \frac{1}{M}\int\int\int\boldsymbol{\varrho(r)}\B{r}dV
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[System Momentum]
+        From the definition of the center of mass of an N particle system, we find that the momentum can be given by \begin{equation}
+                \B{P} = M\B{R}_{CM}
+        \end{equation}
+        so \begin{equation}
+                \B{F}^{ext} = M\ddot{\B{R}}_{CM}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+
+\subsection{Angular Momentum}
+
+\begin{defn}[Angular Momentum]
+        Angular momentum, $\B{l}$, in a coordinate system \emph{O}, for a single particle with position $\B{r}$ relative to \emph{O}, and translational momentum $\B{p}$ is \begin{equation}
+                \B{l} = \B{r}\times \B{p}
+        \end{equation}
+        where its derivitive is given by \begin{equation}
+                \dot{\B{l}} = \dot{\B{r}}\times \B{p} + \B{r}\times \dot{\B{p}} = \B{r}\times \dot{\B{p}}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Torque]
+        From the above definition we see that the derivitive of a particle's angular momentum can be represented by \begin{equation}
+                \dot{\B{l}} = \B{r}\times \B{F}
+        \end{equation}
+        where $\B{F}$ is the net force on the particle. We now define the Torque on the particle as \begin{equation}
+                \boldsymbol{\Gamma} := \B{r}\times \B{F}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{law}[Kepler's Second Law]
+        When a particle experiencing elliptical motion about some origin \emph{O}, the rate at which area is traced out by the particles position vector is given by \begin{equation}
+                \frac{dA}{dt} = \frac{l}{2m}
+        \end{equation}
+        where $l$ is the magnitude of the particle's angular momentum about \emph{O}. Moreover, for a central force, such as gravity, the derivative of the particle's angular momentum is \begin{equation}
+                \dot{\B{l}} = \B{r}\times\B{F} = \B{0}
+        \end{equation}
+        so the rate at which area is traced out will be constant in this case.
+\end{law}
+
+\vspace{15pt}
+
+\begin{rmk}[Angular momentum]
+        Note that $$|\B{l}| = |\B{r}\times\B{p}| = mrv\sin(\theta)$$, where $v\sin(\theta) = r\omega$. Thus, we have that \begin{equation}
+                l = m\omega r^2
+        \end{equation}
+\end{rmk}
+
+\vspace{15pt}
+
+\begin{defn}[System Angular Momentum]
+        We define the total angular momentum of a system of N particles about an origin \emph{O} as follows:
+        \begin{equation}
+                \B{L} = \sum\limits_{n=1}^N\B{l}_n = \sum\limits_{n=1}^N\B{r}_n\times \B{p}_n
+        \end{equation}
+        Differentiating with respect to time we obtain 
+        \begin{equation}
+                \dot{\B{L}} = \sum\limits_{n=1}^N\dot{\B{l}}_n = \sum\limits_{n=1}^N\B{r}_n\times \B{F}_n = \boldsymbol{\Gamma}_{net}
+        \end{equation}
+        where \begin{equation}
+                \B{F}_n = \sum\limits_{m=1}^N\B{F}_{nm} + \B{F}^{ext}_n
+        \end{equation}
+        with $\B{F}_{nn} := \B{0}$. Since the cross product is linear we then have that \begin{equation}
+                \dot{\B{L}}= \sum\limits_{n=1}^N\sum\limits_{m=1}^N\B{r}_n\times\B{F}_{nm} + \sum\limits_{n=1}^N\B{r}_n\times\B{F}^{ext}_n
+        \end{equation}
+        After regrouping we can see that \begin{equation}
+                \dot{\B{L}}= \sum\limits_{n=1}^N\sum\limits_{m>n}^N(\B{r}_n-\B{r}_m)\times\B{F}_{nm} + \boldsymbol{\Gamma}^{ext}
+        \end{equation}
+        where the first sum goes to zero if all forces are central and obey Newton's Third Law.
+\end{defn}
+
+\vspace{15pt}
+
+
+\begin{pri}[Principle of Conservation of Angular Momentum]
+        If the net external torque on an N particle system is zero, and all internal forces are central and obey Newton's Third Law, then the system's total angular momentum \begin{equation}
+                \B{L} = \sum\limits_{n=1}^N\B{r}_n\times \B{F}_n
+        \end{equation}
+        is constant.
+\end{pri}
+
+\vspace{15pt}
+
+
+\subsection{Moment of Inertia}
+
+\begin{defn}[Moment of Inertia]
+        The moment of inertia of for a rigid object rotating about an axis A is given by \begin{equation}
+                I_A = \sum\limits_{n=1}^Nm_nr_n^2
+        \end{equation}
+        which gives $\B{L}_A = I_A\boldsymbol{\omega}$, where $\boldsymbol{\omega}$ is the angular velocity of the object about A. Since the object has an ``infinite" number of particles, we must use the integral to find the moment of inertia:\begin{equation}
+                I_A = \int\int\int r^2 dV
+        \end{equation}
+        where $r$ is the distance from a particle to the axis of rotation.
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Kinetic Rotational Energy]
+        For a rigid object rotating about a fixed axis, its kinetic energy is given by \begin{equation}
+                T = \frac{1}{2}I\omega^2
+        \end{equation}
+        In general, the total kinetic energy of a rigid object spinning about a fixed axis is \begin{equation}
+                T = \frac{1}{2}Mv_{CM}^2 + \frac{1}{2}I_{CM}\omega_{CM}^2
+        \end{equation}
+\end{defn}
+\vspace{15pt}
+
+
+\begin{thm}[Perpendicular Axis Theorem]
+        For perpendicular axis x, y, and z, if a planar lamina lies in the xy-plane, then the perpendicular axis theorem states that \begin{equation}
+                I_z = I_x + I_y
+        \end{equation}
+\end{thm}
+
+
+\vspace{15pt}
+
+\section{energy}
+
+\subsection{Kinetic Energy}
+
+
+\begin{defn}[Kinetic Energy]
+        The kinetic energy of a single particle with mass m and speed v is given by \begin{equation}
+                T = \frac{1}{2}mv^2
+        \end{equation}
+        with a derivative of \begin{equation}
+                \frac{dT}{dt} = m\dot{\B{v}}\cdot\B{v} = \B{F}\cdot\B{v}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Work]
+        We define the work done on a particle by a force $\B{F}$ between points A and B to be the line or path integral\begin{equation}
+                W := \int\limits_{A}^B\B{F}\cdot d\B{r}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{thm}[Work-Kinetic Energy Theorem]
+        The work kinetic energy theorem states that \begin{equation}
+                \Delta T \equiv T_B - T_A = \int\limits_A^B\B{F}\cdot d\B{r} \equiv W(A\rightarrow B)
+        \end{equation}
+        where $\B{F}$ is the net force exerted on the particle, which implies that \begin{equation}
+                W(A\rightarrow B) = \int\limits_A^B\sum\limits_{n=1}^N\B{F}_n\cdot d\B{r} = \sum\limits_{n=1}^N\int\limits_A^B\B{F}_n\cdot d\B{r} = \sum\limits_{n=1}^NW_n(A\rightarrow B)
+        \end{equation}
+\end{thm}
+
+
+\vspace{15pt}
+
+\subsection{Potential Energy}
+
+
+\begin{defn}[Conservative Forces]
+        A force $\B{F}$ is conservative if and only if it satisfy's the two following conditions:
+        \begin{enumerate}
+                \item $\B{F}$ is a function of $\B{r}$ only, so $\B{F} = \B{F}(\B{r})$.
+                \item For any two points A and B, the work $W(A\rightarrow B)$ done by $\B{F}$ is the same regardless of the path the particle travels.
+        \end{enumerate}
+        Equivalently, the force is conservative if and only if its curl is zero everywhere, that is \begin{equation}
+                \vec{\nabla}\times\B{F}(\B{r}) = \B{0}, \forall \B{r} \in \R^3
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Potential Energy]
+        Given a conservative force $\B{F}$, we can define a potential energy function $U(\B{r})$. First, we must choose a position $\B{r}_0$ where $U$ is defined to be zero. Then, we define $U(\B{r})$ at an arbitrary point $\B{r} \in \R^3$ by declaring \begin{equation}
+                U(\B{r}) = U(\B{r}) - U(\B{r}_0) := -W(\B{r}_0\rightarrow \B{r}) \equiv -\int\limits_{\B{r}_0}^{\B{r}}\B{F}(\B{r}')\cdot d\B{r}'
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Equilibrium Positions]
+        We say that a position, $\B{r}_0$, is an equilibrium position if the gradient of the potential is zero. Furthermore, the equilibrium is stable if there exists a radius r such that for all $\norm{\B{r}_0 - \B{r}} < r$, $f(\B{r}) \geq f(\B{r}_0)$. The equilibrium is unstable if around the equilibrium position we instead have that $f(\B{r}) \leq f(\B{r}_0)$.
+\end{defn}
+
+\vspace{15pt}
+
+\begin{obs}[Work Difference]
+        From the definition of the definite we have that \begin{equation}
+                W(\B{r}_0\rightarrow \B{r}_2) = W(\B{r}_0\rightarrow \B{r}_1) + W(\B{r}_1 \rightarrow \B{r}_2)
+        \end{equation}
+        It follows that \begin{equation}
+                W(\B{r}_1 \rightarrow \B{r}_2) = W(\B{r}_0\rightarrow \B{r}_2) - W(\B{r}_0\rightarrow \B{r}_1) = -[U(\B{r}_2) - U(\B{r}_1] = -\Delta U(\B{r}_1\rightarrow \B{r}_2)
+        \end{equation}
+\end{obs}
+
+\vspace{15pt}
+
+\begin{defn}[Mechanical Energy]
+        From the previous observation we find that \begin{equation}
+                \Delta T = W(\B{r}_1 \rightarrow \B{r}_2) = -\Delta U
+        \end{equation}
+        so we find that \begin{equation}
+                \Delta (T + U) = 0
+        \end{equation}
+        With these facts we define the total mechanical energy of our particle to be \begin{equation}
+                E = T+U
+        \end{equation}
+        and we observe that when only conservative forces are present, $E$ is conserved.
+\end{defn}
+
+
+\vspace{15pt}
+
+\begin{pri}[Principle of Energy Conservation for One Particle]
+        If all N forces $\B{F}_n$ acting on a particle are conservative, then we may define a potential energy function $U_n(\B{r})$ for each, and the total mechanical energy given by \begin{equation}
+                E \equiv T + U \equiv T + U_1(\B{r}) + \hdots + U_N(\B{r})
+        \end{equation}
+        is constant in time.
+\end{pri}
+
+\vspace{15pt}
+
+\begin{rmk}[Non-conservative Force]
+        We may split the net force on a particle into the net conservative force, $\B{F}_c$, and the net non-conservative force, $\B{F}_{nc}$. From this fact and the linearity of the definite integral we have that \begin{equation}
+                \Delta T = W_c + W_{nc}
+        \end{equation}
+        which implies that \begin{equation}
+                \Delta E = \Delta(T + U) = W_{nc}
+        \end{equation}
+\end{rmk}
+
+\vspace{15pt}
+
+\subsection{Gradient}
+
+\begin{defn}[Differential]
+        For a single variable function $f(x)$, the differential of $f$ is given by \begin{equation}
+                df = \frac{df}{dx}dx
+        \end{equation}
+        For a function of three variables, $U(x,y,z)$, the differential becomes \begin{equation}
+                dU = \frac{\partial U}{\partial x}dx +  \frac{\partial U}{\partial y}dy +  \frac{\partial U}{\partial z}dz
+        \end{equation}
+\end{defn}
+
+
+\vspace{15pt}
+
+\begin{defn}[Gradient]
+        Given a three dimensional scalar field $f(\B{r})$, we define the gradient of $f$ to be \begin{equation}
+                \vec{\nabla} f = \hat{x} \frac{\partial f}{\partial x} + \hat{y} \frac{\partial f}{\partial y} + \hat{z}  \frac{\partial f}{\partial z}
+        \end{equation}
+\end{defn}
+
+
+\vspace{15pt}
+
+\begin{thm}[Gradient Potential]
+        For any conservative force $\B{F}$ with a potential $U$, we find that \begin{equation}
+                \B{F} = -\vec{\nabla} U
+        \end{equation}
+        This statement is equivalent to saying that $\B{F}$ is derivable from a potential energy.
+\end{thm}
+
+\vspace{15pt}
+
+\begin{rmk}[Differential Gradient]
+        From the definition of the gradient and the differential of a multivariable function, we find that given a scalar field $f$, its differential is \begin{equation}
+                df = \vec{\nabla}f\cdot d\B{r}
+        \end{equation}
+\end{rmk}
+
+\vspace{15pt}
+
+\subsection{Time-Dependent Potential (Optional)}
+
+
+
+
+
+
+\subsection{Central Forces}
+
+
+\begin{defn}[Central]
+        A central force $\B{F}$ is a force that can be represented as \begin{equation}
+                \B{F} = f(\B{r})\hat{r}
+        \end{equation}
+        where $f$ is some scalar field that gives the magnitude of the force.
+\end{defn}
+\begin{rmk}
+		In general a central force $\B{F}$ between two particles at         positions $\B{r}_1$ and $\B{r}_2$ is given by: \begin{equation}
+		        \B{F} = f(\B{r}_1 - \B{r}_2)\reallywidehat{r_1-r_2}
+		\end{equation}
+\end{rmk}
+		        
+
+
+\vspace{15pt}
+
+\begin{defn}[Rotationally Invariant]
+        A force is rotationally invariant, or spherically symmetric, if its magnitude is only dependent on the magnitude of $\B{r}$.
+\end{defn}
+
+\vspace{15pt}
+
+\begin{thm}[Conservative Central Forces]
+        A central force is conservative if and only if it is spherically symmetric.
+\end{thm}
+
+\vspace{15pt}
+
+\begin{defn}[Spherical Gradient]
+        In spherical coordinates we can see that $$d\B{r} = dr\hat{r} + rd\theta\hat{\theta}+r\sin(\theta)d\phi\hat{\phi}$$
+        Then from before we have that for a scalar field $f(x,y,z)$, $df = \vec{\nabla}f\cdot d\B{r}$, so \begin{equation}
+                df = \left(\vec{\nabla}f\right)_{r}dr + \left(\vec{\nabla}f\right)_{\theta}rd\theta + \left(\vec{\nabla}f\right)_{\phi}r\sin(\theta)d\phi
+        \end{equation}
+        Similarly, $df = \frac{\partial f}{\partial r}dr+\frac{\partial f}{\partial \theta}d\theta + \frac{\partial f}{\partial \phi}d\phi$. Equating terms we find the gradient in spherical coordinates to be \begin{equation}
+                \vec{\nabla}f = \hat{r}\frac{\partial f}{\partial r} + \hat{\theta}\frac{1}{r}\frac{\partial f}{\partial \theta} + \hat{\phi}\frac{1}{r\sin(\theta)}\frac{\partial f}{\partial \phi}
+        \end{equation}
+\end{defn}
+
+
+
+\vspace{15pt}
+
+\subsection{Potential Energies between Particles}
+
+
+\begin{defn}[Translationally invariant]
+        A translationally invariant force remains constant under translation. In the case of a two particle system, the force is only dependent on $(\B{r}_1 - \B{r}_2)$. In fact, any isolated system must be translationally invariant.
+\end{defn}
+
+
+\vspace{15pt}
+
+\begin{rmk}[Pair-wise Potentials]
+        Given any pair of particles with a pair of conservative forces following Newton's Third Law between them, the potential energy of the system can be described by a single potential energy function $U$. Then \begin{equation}
+                E = T_1 + T_2 + U
+        \end{equation}
+\end{rmk}
+
+\vspace{15pt}
+
+\begin{defn}[Elastic Collision]
+        An elastic collision between two particles is a short interaction via conservative forces that go to zero as the particle separation goes to infinity.
+\end{defn}
+
+\vspace{15pt}
+
+
+\subsection{Multiparticle System}
+
+
+\begin{defn}[N Particle System]
+        For an N particle system, the total kinetic energy is given by \begin{equation}
+                T = \sum\limits_{n=1}^N\frac{1}{2}m_nv_n^2
+        \end{equation}
+        and assuming all forces, internal and external, are conservative, we have the total potential energy of the system as \begin{equation}
+                U = U^{int}+U^{ext}=\sum\limits_{n=1}^N\sum\limits_{m>n}^NU_{nm}+\sum\limits_{n=1}^NU_n^{ext}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Net Force on a Particle in a System]
+        The net force on a particle $\alpha$ is given by \begin{equation}
+                \B{F}_{\alpha}^{net} = -\vec{\nabla}_{\alpha}U
+        \end{equation}
+        where $U$ is defined as above.
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Rigid Body]
+        For a rigid object, we have from before that the total kinetic energy is given by \begin{equation}
+                T = \frac{1}{2}Mv_{CM}^2 + \frac{1}{2}I_{CM}\omega_{CM}^2
+        \end{equation}
+        and the internal potential energy is \begin{equation}
+                U^{int} = \sum\limits_{n=1}^N\sum\limits_{m>n}^NU_{nm}(\B{r}_n - \B{r}_m) 
+        \end{equation}
+        or for central internal forces \begin{equation}
+                U^{int} = \sum\limits_{n=1}^N\sum\limits_{m>n}^NU_{nm}(|\B{r}_n - \B{r}_m|) 
+        \end{equation}
+        If the body is truly rigid then these distances are constant, so $U^{int}$ is constant and hence can be ignored.
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\section{Oscillations}
+
+
+\subsection{Hooke's Law}
+
+\begin{law}[Hooke's Law]
+        Hooke's Law asserts that the force executed by a spring is of the form \begin{equation}
+                F_x(x) = -kx
+        \end{equation}
+        where x is the displacement from the equilibrium position and k is a positive constant (This is also known as a restoring force). Note that this force is conservative, so we can equivalently state Hooke's Law by stating that the potential from which our force is derived is given by \begin{equation}
+                U = \frac{1}{2}kx^2
+        \end{equation}
+\end{law}
+
+\vspace{15pt}
+
+\begin{rmk}[Equilibrium Positions]
+        If we consider an arbitrary potential function $U(x)$, with stable equilibrium at $x = x_0$, if $U$ is analytic around $x_0$ then $U$ can be represented by its Taylor series \begin{equation}
+                U(x) = U(x_0) + U'(x_0)(x-x_0) + \frac{1}{2}U''(x_0)(x-x_0)^2+\hdots
+        \end{equation}
+        Then for $x$ sufficiently close to $x_0$ we can approximate $U$ by its second degree Taylor polynomial \begin{equation}
+                U(x) \approx U(x_0) + U'(x_0)(x-x_0) + \frac{1}{2}U''(x_0)(x-x_0)^2
+        \end{equation}
+        Then, note that $U(x_0)$ is just a constant so we can redefine the reference point for $U$ so that $U(x_0) = 0$. Additionally, since $x_0$ is a stable equilibrium position, $U'(x_0) = 0$ and $U''(x_0) = k > 0$. We then have that \begin{equation}
+                U(x) \approx \frac{1}{2}k(x-x_0)^2
+        \end{equation}
+        for $x$ close to $x_0$, or precisely, when $E(x) \approx U(x)$, or $T(x) \approx 0$.
+\end{rmk}
+
+
+\vspace{15pt}
+
+\subsection{Simple Harmonic Motion}
+
+
+
+\begin{defn}[SHM]
+        An object which experiences solely a force governed by Hooke's Law will undergo simple harmonic motion, with an equation of motion of \begin{equation}
+                \ddot{x} = -\frac{k}{m}x = -\omega_0^2x
+        \end{equation}
+        where $\omega_0^2 = \frac{k}{m}$. The solution to this differential equation can be given as \begin{equation}
+                x(t) = A\cos(\omega_0 t - \delta)
+        \end{equation}
+        where $\omega_0$ is characterized by the force exerted on, and the mass of, the object, while $A$ and $\delta$ are integration constants which are determined by initial conditions.
+\end{defn}
+
+
+\vspace{15pt}
+
+
+\subsection{Two-Dimensional Oscillators (Optional)}
+
+
+
+
+
+\subsection{Damped Oscillators}
+
+
+\begin{defn}[Linear damping]
+        When a particle has a force that abides Hooke's law exerted on it, as well as a linear drag force we observe damped oscillations. In particular, our equation of motion becomes \begin{equation}
+                \ddot{x} + 2\beta\dot{x} + \omega_0^2x = 0
+        \end{equation}
+        where $\omega_0$ is defined as above and $2\beta = \frac{b}{m}$, where $f(x) = -b\dot{x}$.
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Weak Damping]
+        Weak damping occurs when $\beta < \omega_0$, and gives the following solution to the equation of motion: \begin{equation}
+                x(t) = Ae^{-\beta t}\cos(\omega_1 t - \delta)
+        \end{equation}
+        where $A$, $\beta$, and $\delta$ are defined as before, and $\omega_1 = \sqrt{\omega_0^2 - \beta^2}$. We say that $\beta$ is the decay parameter in this case.
+\end{defn}
+
+\vspace{15pt}
+
+\begin{defn}[Strong Damping]
+        Strong damping occurs when $\beta > \omega_0$, and gives the following solution to the equation of motion: \begin{equation}
+                x(t) = C_1e^{-(\beta - \sqrt{\beta^2 - \omega_0^2})t}+C_2e^{-(\beta+\sqrt{\beta^2-\omega_0^2})t}
+        \end{equation}
+        We say that $\beta - \sqrt{\beta^2 - \omega_0^2}$ is the decay parameter in this case, since the first term dominates at large times as the other decays faster.
+\end{defn}
+
+\vspace{15pt}
+
+
+\begin{defn}[Critical Damping]
+        Critical damping occurs when $\beta = \omega_0$, and gives the following solution to the equation of motion: \begin{equation}
+                x(t) = C_1e^{-\beta t} + C_2te^{\beta t}
+        \end{equation}
+        We say that $\beta$ is the decay parameter in this case.
+\end{defn}
+
+\vspace{15pt}
+
+
+\subsection{Driven Damped Oscillators}
+
+
+\begin{defn}[Driven Oscillator]
+        A driven damped oscillator with linear damping and a driving force $F(t)$ is of the form \begin{equation}
+                m\ddot{x} + b\dot{x} + kx = F(t)
+        \end{equation}
+        We then let $f(t) = \frac{F(t)}{m}$, and define the other constants as above, giving \begin{equation}
+                \ddot{x} + 2\beta\dot{x} + \omega_0^2x + f(t)
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+
+\begin{rmk}[Operator]
+        For subsequent definitions we shall use the following differential operator \begin{equation}
+                D := \frac{d^2}{dt^2} + 2\beta\frac{d}{dt}+\omega_0^2
+        \end{equation}
+        which changes the differential equation to \begin{equation}
+                Dx = f
+        \end{equation}
+\end{rmk}
+
+\vspace{15pt}
+
+
+\begin{defn}[Solution]
+        The general solution for the differential equation $Dx = f$, with the driving force being given by $f(t) = f_0\cos(\omega t)$ is \begin{equation}
+                x(t) = A\cos(\omega t - \delta) + C_1e^{r_1t}+C_2e^{r_2t}
+        \end{equation}
+        where $r_1$ and $r_2$ follows from the values of $\omega_0$ and $\beta$, as described in the damped harmonic oscillator section. In this equation $A$ and $\delta$ are determined by the system, while $C_1$ and $C_2$ result from initial conditions. In particular, \begin{equation}
+                A = \frac{f_0}{\sqrt{(\omega_0^2-\omega^2)^2+4\beta^2\omega^2}}\label{A}
+        \end{equation}
+        and \begin{equation}
+                \delta = \arctan\left\{\frac{2\beta\omega}{\omega_0^2-\omega^2}\right\}\label{delta}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{obs}[Transients]
+        The homogeneous terms in our general solution are called transients as they die out exponentially. As the system evolves, the transient parts decay away, leaving the oscillator to oscillate at the frequency of the driving force. For this reason, the oscillator for the driving force,\begin{equation}
+                x(t) = A\cos(\omega t - \delta)
+        \end{equation}
+        is called an \B{attractor}.
+\end{obs}
+
+\vspace{15pt}
+
+\begin{cor}[Weak Damping Special Case]
+        In the case of weak damping our general solution for a driven damped oscillator is given by \begin{equation}
+                x(t) = A\cos(\omega t - \delta) + A_{tr}e^{-\beta t}\cos(\omega_1 t - \delta_{tr})
+        \end{equation}
+        Note that $A_{tr}$ and $\delta_{tr}$ are arbitrary constants that depend on your initial conditions, while $A$ and $\delta$ are determined by constants of the system, as described above in equations \ref{A} and \ref{delta}.
+\end{cor}
+
+
+\vspace{15pt}
+
+\begin{obs}[Summary]
+        We find the following angular frequencies describe our system \begin{align}
+                \omega_0 &= \sqrt{\frac{k}{m}} = \text{natural frequency of undamped oscillator} \\
+                \omega_1 &= \sqrt{\omega_0^2-\beta^2} = \text{frequency of damped oscillator} \\
+                \omega &= \text{frequency of driving force} \\
+                \omega_2 &= \sqrt{\omega_0^2-2\beta^2} = \text{value of $\omega$ at which resonance occurs}
+        \end{align}
+\end{obs}
+
+
+
+
+\vspace{15pt}
+
+\subsection{Resonance}
+
+
+For this section we assume that $\beta$ is very small relative to the frequency of the driving force, $\omega$ ($\beta < 0.1\omega$).
+
+
+\begin{defn}[Resonance]
+        Resonance is the phenomenon in which a dramatically greater response is observed for an oscillator when driven at the right frequency. Mathematically, resonance occurs when $A$ is largest, or equivalently. when \begin{equation}
+                A^2 = \frac{f_0^2}{(\omega_0^2-\omega^2)^2+4\beta^2\omega^2}
+        \end{equation}
+        is at a maximum, or $(\omega_0^2-\omega^2)^2+4\beta^2\omega^2$ is at a minimum.
+\end{defn}
+
+\vspace{15pt}
+
+\begin{rmk}[Varying]
+        When we vary $\omega_0$ while keeping $\omega$ constant, resonance occurs when $\omega_0 = \omega$. On the other hand, if $\omega$ is varied while $\omega_0$ is held constant, and the maximum occurs when \begin{equation}
+                \omega = \omega_2 = \sqrt{\omega_0^2-2\beta^2}
+        \end{equation}
+        For $\beta << \omega_0$, resonance occurs at $\omega \approx \omega_0$, which gives a max of \begin{equation}
+                A_{max} \approx \frac{f_0}{2\beta\omega_0}
+        \end{equation}
+\end{rmk}
+\vspace{15pt}
+
+
+
+\begin{defn}[FWHM]
+        The \B{full width at half-max} is the width of the interval between the points where $A^2$ is equal to half its maximum height. These half maximum points occur at $\omega \approx \omega_0 \pm \beta$, so \begin{equation}
+                FWHM \approx 2\beta
+        \end{equation}
+\end{defn}
+
+
+\vspace{15pt}
+
+\begin{defn}[Quality Factor]
+        We define the quality factor, $Q$, as \begin{equation}
+                Q = \frac{\omega_0}{2\beta}
+        \end{equation}
+        where $2\beta$ indicates the FWHM of resonance, and $\omega_0$ indicates the position of resonance. A large $Q$ indicates a narrow resonance, and vice-versa. Equivalently, \begin{equation}
+                Q = \frac{\omega_0}{2\beta} = \pi\frac{1/\beta}{2\pi/\omega_0} = \pi\frac{\text{decay time}}{\text{period}}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+
+\begin{defn}[Phase Resonance]
+        The phase difference $\delta$ indicates the phase by which the oscillator lags behind the driving force \begin{equation}
+                \delta = \arctan\left\{\frac{2\beta\omega}{\omega_0^2-\omega^2}\right\}
+        \end{equation}
+        For $\omega << \omega_0$, $\delta$ is very small and positive. As $\omega$ increases to $\omega_0$, $\delta$ increases. At resonance $\delta \approx \frac{\pi}{2}$. As $\omega > \omega_0$, $\delta$ increases past $\frac{\pi}{2}$, and in particular when $\omega >> \omega_0$, $\delta \approx \pi$.
+\end{defn}
+
+
+
+
+        
+
+
+
+
+
+%-------------- end ----------------
+
+\end{document}

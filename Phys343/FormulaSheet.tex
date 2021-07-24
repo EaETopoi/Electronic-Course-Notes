@@ -1,0 +1,889 @@
+\documentclass[12pt]{article}
+
+%------------ Packages -----------
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+%set margins to 1 inch
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}  % AMS theorem environments and proof environment -- load after amsmath
+\usepackage{physics}
+\usepackage{bm}
+\renewcommand\qedsymbol{$\blacksquare$}
+\usepackage{latexsym}
+\usepackage{graphicx}    % standard LaTeX graphics tool
+\usepackage{xypic}      % commutative diagrams
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+        colorlinks,
+        citecolor=black,
+        filecolor=black,
+        linkcolor=black,
+        urlcolor=black
+}
+\usepackage{float}
+\usepackage[scientific-notation=true]{siunitx}
+\usepackage{scalerel,stackengine}
+\stackMath
+\newcommand\reallywidehat[1]{%
+        \savestack{\tmpbox}{\stretchto{%
+                  \scaleto{%
+                                \scalerel*[\widthof{\ensuremath{#1}}]{\kern-.6pt\bigwedge\kern-.6pt}%
+                                  {\rule[-\textheight/2]{1ex}{\textheight}}%WIDTH-LIMITED BIG WEDGE
+                  }{\textheight}% 
+          }{0.5ex}}%
+\stackon[1pt]{#1}{\tmpbox}%
+}
+%------------- Headers -----------
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Phys 343 Formula Sheet}
+\rhead{February 23 2021}
+\chead{}
+%\lfoot{Author's Name}
+%\cfoot{}
+%\rfoot{Page \thepage}
+
+
+%------------- Environments -------
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}  %%%% [thm] means number in sequence with Theorem
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{axi}[thm]{Axiom}
+\newtheorem{law}[thm]{Law}
+\newtheorem{pri}[thm]{Principle}
+\newtheorem{for}[thm]{Formula}
+%%% definition style
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{xca}[thm]{Exercise}
+\newtheorem{conj}[thm]{Conjecture}
+%%% remark style
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem*{qst}{Question}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem*{note}{Note} %%%%%%%%%% no numbering for notes
+\numberwithin{equation}{section}
+
+%------------- Macros -------------
+\newcommand\C{\mathbb C}    %%%%%%%%% the set of complex numbers
+\newcommand\R{\mathbb R}    %%%%%%%%% the set of real numbers
+\newcommand\Z{\mathbb Z}    %%%%%%%%% the set of integers
+\newcommand\N{\mathbb N}    %%%%%%%%% the natural numbers
+\newcommand\Q{\mathbb Q}    %%%%%%%% the rational numbers
+\newcommand\B[1]{\textbf{#1}}
+%% math operators
+\DeclareMathOperator{\arcosh}{arcCosh}
+\DeclareMathOperator{\arsinh}{arcsinh}
+\DeclareMathOperator{\artanh}{arctanh}
+\DeclareMathOperator{\arsech}{arcsech}
+\DeclareMathOperator{\arcsch}{arcCsch}
+\DeclareMathOperator{\arcoth}{arcCoth} 
+
+%------------- Begin --------------
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Phys 343 Formula Sheet}
+\author{Elijah Thompson}
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Vectors}
+
+
+\begin{for}[Dot Product]
+        For any vectors $\B{v},\B{w} \in \R^3$, we have that the dot product between the two vectors is 
+        \begin{equation}
+                \B{v}\cdot\B{w} = v_xw_x+v_yw_y+v_zw_z
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Cross Product]
+        For any vectors $\B{v},\B{w} \in \R^3$, we have that the cross product between the two vectors is 
+        \begin{equation}
+                \B{v}\times\B{w} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\
+                        v_x & v_y & v_z \\
+                        w_x & w_y & w_z 
+                \end{vmatrix} = 
+                        \begin{bmatrix} v_yw_z - v_zw_y, & v_zw_x - v_xw_z, & v_xw_y - v_yw_x
+                \end{bmatrix}^T
+        \end{equation}
+        Moreover, \begin{equation}
+                ||\B{v}\times\B{w}|| = ||\B{v}||||\B{w}||\sin(\theta)
+        \end{equation}
+        and $\B{v}\times \B{w} = -\B{w} \times \B{v}$. Note that the derivative when $\B{v}$, and $\B{w}$ are functions is \begin{equation}
+                \frac{d}{dt}(\B{v}(t)\times \B{w}(t)) = \frac{d\B{v}(t)}{dt}\times\B{w}(t) + \B{v}(t)\times \frac{d\B{w}(t)}{dt}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+
+\subsection{Hyperbolic Trig and Trig Identities}
+
+\vspace{15pt}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Functions and Derivatives}
+        \begin{tabular}{c|c}
+                Function & Derivative \\ \hline
+                $\sin(x)$ & $\cos(x)$ \\
+                $\cos(x)$ & $-\sin(x)$ \\
+                $\tan(x)$ & $\sec^2(x)$ \\
+                $\sec(x)$ & $\sec(x)\tan(x)$ \\
+                $\csc(x)$ & $-\csc(x)\cot(x)$ \\
+                $\cot(x)$ & $-\csc^2(x)$ \\
+                $\arcsin(x)$ & $\frac{1}{\sqrt{1-x^2}}$ \\
+                $\arccos(x)$ & $\frac{-1}{\sqrt{1-x^2}}$ \\
+                $\arctan(x)$ & $\frac{1}{1+x^2}$ \\
+                $\arccot(x)$ & $\frac{-1}{1+x^2}$ \\
+                $\arcsec(x)$ & $\frac{1}{|x|\sqrt{x^2-1}}$ \\
+                $\arccsc(x)$ & $\frac{-1}{|x|\sqrt{x^2-1}}$ \\
+                $\sinh(x) = \frac{e^x-e^{-x}}{2}$ & $\cosh(x)$ \\
+                $\cosh(x) = \frac{e^x+e^{-x}}{2}$ & $\sinh(x)$ \\
+                $\tanh(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}$ & $\sech^2(x)$ \\
+                $\coth(x)$ & $-\csch^2(x)$ \\
+                $\sech(x)$ & $-\tanh(x)\sech(x)$ \\
+                $\csch(x)$ & $-\csch(x)\cot(x)$ \\
+                $\arsinh(x)$ & $\frac{1}{\sqrt{x^2+1}}$ \\
+                $\arcosh(x)$ & $\frac{1}{\sqrt{x^2-1}}$ \\
+                $\artanh(x)$ & $\frac{1}{1-x^2}$ $(|x| < 1)$ \\
+                $\arcoth(x)$ & $\frac{1}{1-x^2}$ $(|x| > 1)$ \\
+                $\arsech(x)$ & $\frac{-1}{x\sqrt{1-x^2}}$ \\
+                $\arcsch(x)$ & $\frac{-1}{|x|\sqrt{1+x^2}}$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+\vspace{15pt}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Trig Identities}
+        \begin{tabular}{c|c}
+                LHS & RHS \\ \hline
+                $\sin^2(x) + \cos^2(x)$ & $1$ \\
+                $\tan^2(x) + 1$ & $\sec^2(x)$ \\
+                $1 + \cot^2(x)$ & $\csc^2(x)$ \\
+                $\sin(\alpha \pm \beta)$ & $\sin(\alpha)\cos(\beta) \pm \sin(\beta)\cos(\alpha)$ \\
+                $\cos(\alpha \pm \beta)$ & $\cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta)$ \\
+                $\tan(\alpha \pm \beta)$ & $\frac{\tan(\alpha) \pm \tan(\beta)}{1 \mp \tan(\alpha)\tan(\beta)}$ \\
+                $\sin(2x)$ & $2\cos(x)\sin(x)$ \\
+                $\cos(2x)$ & $\cos^2(x) - \sin^2(x)$ \\
+                & $2\cos^2(x) - 1$ \\
+                & $1 - 2\sin^2(x)$ \\
+                $\tan(2x)$ & $\frac{2\tan(x)}{1-\tan^2(x)}$ \\
+                $\cosh^2(x) - \sinh^2(x)$ & $1$ \\
+                $1 - \tanh^2(x)$ & $\sech^2(x)$ \\
+                $\coth^2(x) - 1$ & $\csch^2(x)$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+
+\subsection{Coordinates}
+
+
+\begin{for}[Cartesian]
+        Any vector $\B{v} \in \R^3$ can be represented in cartesian coordinates, $(x,y,z)$, as
+        \begin{equation}
+                \B{v} = v_x\hat{x} + v_y\hat{y} + v_z\hat{z}
+        \end{equation}
+        Additionally, if $\B{v}:\R^3 \rightarrow \R^3$ is a vector valued function, it has derivatives 
+        \begin{equation}
+                \dot{\B{v}} = \dot{v_x}\hat{x} + \dot{v_y}\hat{y} + \dot{v_z}\hat{z}
+        \end{equation}
+        and
+        \begin{equation}
+                \ddot{\B{v}} = \ddot{v_x}\hat{x} + \ddot{v_y}\hat{y} + \ddot{v_z}\hat{z}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Cylindrical]
+        Any vector $\B{v} \in \R^3$ can be represented in cylindrical coordinates, $(\rho,\phi,z)$, as
+        \begin{equation}
+                \B{v} = v_{\rho}\hat{\rho} + v_z\hat{z}
+        \end{equation}
+        Additionally, if $\B{v}:\R^3 \rightarrow \R^3$ is a vector valued function, it has derivatives 
+        \begin{equation}
+                \dot{\B{v}} = \dot{v_{\rho}}\hat{\rho} + v_{\rho}\dot{v_{\phi}}\hat{\phi} + \dot{v_z}\hat{z}
+        \end{equation}
+        and
+        \begin{equation}
+                \ddot{\B{v}} = (\ddot{v_{\rho}}-v_{\rho}\dot{v_{\phi}}^2)\hat{\rho}+(v_{\rho}\ddot{v_{\phi}}+\dot{v_{\rho}}\dot{v_{\phi}})\hat{\phi} + \ddot{v_z}\hat{z}
+        \end{equation}
+        Where we define
+        \begin{equation}
+                v_{\rho} = \sqrt{v_x^2+v_y^2}\; \text{and}\; v_{\phi} = \arctan\left(\frac{v_x}{v_y}\right)
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{for}[Spherical]
+        Any vector $\B{v} \in \R^3$ can be represented in spherical coordinates, $(r,\theta,\phi)$, as
+        \begin{equation}
+                \B{v} = v_r\hat{r}
+        \end{equation}
+        Additionally, if $\B{v}:\R^3 \rightarrow \R^3$ is a vector valued function, it has derivatives 
+        \begin{equation}
+                \dot{\B{v}} = \dot{v_r}\hat{r} + v_r\dot{v_{\theta}}\hat{\theta} + v_r\sin(v_{\theta})\dot{v_{\phi}}\hat{\phi}
+        \end{equation}
+        and
+        \begin{align}
+                \ddot{\B{v}} = (\ddot{v_r}-v_r\dot{v_{\theta}}^2-v_r\sin^2(v_{\theta})\dot{v_{\phi}}^2)\hat{r}+(v_r\ddot{v_{\theta}}+\dot{v_r}\dot{v_{\theta}}-v_r\sin(v_{\theta})\cos(v_{\theta})\dot{v_{\phi}}^2)\hat{\theta}& \\
+                + (\dot{v_r}\sin(v_{\theta})\dot{v_{\phi}}+v_r\cos(v_{\theta})\dot{v_{\theta}}\dot{v_{\phi}}+v_r\sin(v_{\theta})\ddot{v_{\phi}})\hat{\phi}&
+        \end{align}
+        Where we define
+        \begin{equation}
+                \B{v} = v_r\hat{r},\; v_{\theta} = \arctan\left\{\frac{\sqrt{v_x^2+v_y^2}}{v_z}\right\},\; \text{and} \;v_{\phi} = \arctan\left(\frac{v_x}{v_y}\right)       
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Spherical Gradient]
+         \begin{equation}
+                \vec{\nabla}f = \hat{r}\frac{\partial f}{\partial r} + \hat{\theta}\frac{1}{r}\frac{\partial f}{\partial \theta} + \hat{\phi}\frac{1}{r\sin(\theta)}\frac{\partial f}{\partial \phi}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{note}[Inertial Frames]
+        The center of mass of a system is an inertial reference frame.
+\end{note}
+\vspace{15pt}
+
+
+
+\subsection{Center of Mass}
+
+
+\begin{for}[Integral Form]
+        \begin{equation}
+                \B{R}_{CM} = \frac{1}{M}\int\B{r}dm = \frac{1}{M}\int\int\int\boldsymbol{\varrho(r)}\B{r}dV
+        \end{equation}
+        Note that this integral can be done component wise for X, Y, and Z seperately (or whatever orthonormal basis you are using).
+\end{for}
+
+\vspace{15pt}
+
+\subsection{Angular Momentum}
+
+
+\begin{for}[Angular Momentum]
+        \begin{equation}
+                \B{l} = \B{r} \times \B{p}
+        \end{equation}
+        and \begin{equation}
+                \dot{\B{l}} = \B{r} \times \B{F} = \boldsymbol{\Gamma}
+        \end{equation}
+        and for a rigid body rotating about a fixed axis, \begin{equation}
+                \B{L} = I\boldsymbol{\omega}
+        \end{equation}
+\end{for}
+
+
+
+\vspace{15pt}
+
+\begin{for}[Kepler's Law]
+         \begin{equation}
+                \frac{dA}{dt} = \frac{l}{2m}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Angular Momentum Magnitude]
+        \begin{equation}
+                l = m\omega r^2
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\subsection{Rotational Motion of Rigid Bodies}
+
+
+\begin{for}[Moment of Inertia]
+        \begin{equation}
+                I_A = \sum\limits_{n=1}^Nm_nr_n^2
+        \end{equation}
+        which gives $\B{L}_A = I_A\boldsymbol{\omega}$, where $\boldsymbol{\omega}$ is the angular velocity of the object about A.\begin{equation}
+                I_A = \int\int\int r^2 dV
+        \end{equation}
+        where $r$ is the distance from a particle to the axis of rotation.
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Kinetic Rotational Energy]
+        Rigid object rotating about a fixed axis\begin{equation}
+                T = \frac{1}{2}I\omega^2
+        \end{equation}
+        total kinetic energy of a rigid object spinning about a fixed axis: \begin{equation}
+                T = \frac{1}{2}Mv_{CM}^2 + \frac{1}{2}I_{CM}\omega_{CM}^2
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Perpendicular Axis Theorem]
+        For perpendicular axis x, y, and z, if a planar lamina lies in the xy-plane, then the perpendicular axis theorem states that \begin{equation}
+                I_z = I_x + I_y
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Angular Momentum]
+        The total angular momentum of a system is define as \begin{equation}
+                \vec{L} := \sum_i\vec{l}_i = \sum_i\vec{r}_i\times m_i\dot{\vec{r}}_i = \vec{R}\times M\dot{\vec{R}} + \sum_i\vec{r}_i'\times m_i\dot{\vec{r}}_i'
+        \end{equation}
+        where $\vec{r}_i = \vec{R} + \vec{r}_i'$. Moreover, we have that the time derivative is \begin{equation}
+                \frac{d\vec{L}}{dt} = \sum_i\vec{r}_i'\times \vec{F}_{ext,i} + \vec{R}\times \vec{F}_{ext} = \vec{\Gamma}_{ext,cm} + \vec{\Gamma}_{ext}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{for}[Kinetic Energy of a Rigid Body]
+        For a rigid body we have that the kinetic energy is \begin{equation}
+                T = \sum_i\frac{1}{2}m_i\dot{\vec{r}}_i\cdot \dot{\vec{r}}_i = \underbrace{\frac{1}{2}M\dot{\vec{R}} \cdot \dot{\vec{R}}}_{\text{Motion of CM}} + \underbrace{\sum_i\frac{1}{2}m_i\dot{\vec{r}}_i'\cdot \dot{\vec{r}}_i'}_{\text{Rotation about CM}}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{rmk}
+        Suppose we made the above derivation with $\vec{R}$ not the CM, but a point $p$ that is momentarily at rest, so $\dot{\vec{R}} = \vec{0}$. Then \begin{equation}
+                T = \sum_i\frac{1}{2}m_i\dot{\vec{r}}_i'\cdot \dot{\vec{r}}_i'
+        \end{equation}
+\end{rmk}
+
+\vspace{15pt}
+
+\begin{for}[Products and Moments of Inertia]
+        Given a rigid object, we define the moment of inertia's of the object as \begin{equation}
+                I_{xx} = \sum_im_i(y_i^2+z_i^2), \;\; I_{yy} = \sum_im_i(x_i^2+z_i^2), \;\; I_{zz} = \sum_im_i(x_i^2+y_i^2)
+        \end{equation}
+        and the products of inertia as \begin{equation}
+                I_{xy} = I_{yx} = -\sum_im_ix_iy_i, \;\; I_{xz} = I_{zx} = -\sum_im_ix_iz_i, \;\; I_{yz} = I_{zy} = -\sum_im_iy_iz_i
+        \end{equation}
+        For continuous mass distributions we can extend these discrete summations to continuous definite integrals. 
+\end{for}
+
+\vspace{15pt}
+
+
+\begin{rmk}[Mirror Symmetry]
+        Suppose a rigid body has mirror symmetry about a plane $\alpha = 0$, for $\alpha \in \{x,y,z\}$. Then for all $\beta \in \{x,y,z\}\backslash\{\alpha\}$, the perpendicular products of inertia $I_{\alpha\beta}$ are zero. For example, if we have mirror symmetry about the $z = 0$ plane, then $I_{zy}$ and $I_{zx}$ are zero.
+\end{rmk}
+
+\vspace{15pt}
+
+\begin{rmk}[Rotational Symmetry]
+        Any object with rotational symmetry about an axis can be thought of as being built up with thin circular hoops. Due to this, each product of inertia is $0$.
+\end{rmk}
+
+\vspace{15pt}
+
+\begin{for}[Inertia Tensor and Angular Momentum]
+        For a rigid body and a given choice of orthonormal coordinates, we define the inertia tensor as \begin{equation}
+                \vec{\vec{I}} = \begin{bmatrix} I_{xx} & I_{xy} & I_{xz} \\ I_{yx} & I_{yy} & I_{yz} \\ I_{zx} & I_{zy} & I_{zz} \end{bmatrix}
+        \end{equation}
+        Then, if the body rotates with angular velocity $\vec{\omega} = [\omega_x \; \omega_y \; \omega_z]^T$, the angular momentum about the coordinate system's origin, for which the axis of rotation intersects, is \begin{equation}
+                \vec{L} = \vec{\vec{I}}\vec{\omega}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{for}[Parallel Axis Theorem]
+        Suppose a rigid body is rotating about a fixed axis $\alpha$. Then, the moment of inertia about $\alpha$ is \begin{equation}
+                I_{\alpha\alpha} = M||proj_{\alpha}(\vec{R}) - \vec{R}||^2 + I_{cm,para}
+        \end{equation}
+        where $I_{cm,para}$ is the moment of inertia about a parallel axis through the object's center of mass. In particular, if $\alpha$ is the z axis, $d$ is the distance from the object's center of mass and the z axis, and $x_i'$ and $y_i'$ are coordinates in the center of mass frame about a parallel $z'$ axis to $z$, then \begin{equation}
+                I_{zz} = Md^2+\sum_im_i(x_i'^2+y_i'^2)
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Perpendicular Axis Theorem]
+        Let $D$ be a Lamina, and choose its plane to be the $xy$-plane. Then we have that \begin{equation}
+                I_{zz} = I_{xx} + I_{yy}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Kinetic energy of a Rotating Rigid Body]
+        Given a rotating rigid object with angular velocity $\vec{\omega}$ and inertia tensor $\vec{\vec{I}}$, we have that \begin{equation}
+                T_{rot} = \sum_i\frac{1}{2}m_i\vec{v}_i \cdot \vec{v}_i = \frac{1}{2}\vec{\omega} \cdot (\vec{\vec{I}}\vec{\omega})
+        \end{equation}
+        If the object rotates about a fixed axis, say $z$, then $\vec{\omega} = [0\;0\;\omega]^T$ and \begin{equation}
+                T_{rot} = \frac{1}{2}I_{zz}\omega^2
+        \end{equation}
+\end{for}
+
+
+
+\subsection{Physical Pendulum}
+
+\begin{for}[General]
+        The equation of motion for a physical pendulum swinging about a fixed axis (say the z-axis) with no friction is \begin{equation}
+                \ddot{\theta} + \frac{mgd}{I_{zz}}\sin(\theta) = 0
+        \end{equation}
+        where $d$ is the distance between the pivot point and the center of mass. We can use energy conservation to obtain \begin{equation}
+                E = mgd(1-\cos(\theta_0)) = \frac{1}{2}I_zz\dot{\theta}^2+mgd(1-\cos(\theta))
+        \end{equation}
+        Solving by separation of variables we have that \begin{equation}
+                t = \sqrt{\frac{I_{zz}}{2mgd}}\int_0^{\theta'}\frac{d\theta}{\sqrt{\cos(\theta)-\cos(\theta_0)}}
+        \end{equation}
+        Define a new variabel $\phi$ such that $\sin(\phi) = \frac{1}{k}\sin(\frac{1}{2}\theta)$ with $k = \sin(\frac{1}{2}\theta_0)$. Note that $\cos(\theta) = 1 - 2\sin^2(\frac{1}{2}\theta)$, so $\cos(\theta)-\cos(\theta_0) = 2(\sin^2(\frac{1}{2}\theta_0) - \sin^2(\frac{1}{2}\theta))$ and we can then write $\cos(\theta) - \cos(\theta_0) = 2k^2(1-\sin^2(\phi)$. Then we have that $\cos(\phi)d\phi = \frac{1}{k}\frac{1}{2}\cos(\frac{1}{2}\theta)d\theta$. Note $$d\theta = \frac{2k\cos(\phi)d\phi}{\cos(\frac{1}{2}\theta)}d\phi = \frac{2k\sqrt{1-\sin^2(\phi)}}{\sqrt{1-k^2\sin^2(\phi)}}d\phi$$ Then we can rewrite \begin{align*}
+                t &= \sqrt{\frac{I_{zz}}{2mgd}}\int_0^{\phi}\frac{1}{\sqrt{2k^2(1-\sin^2(\phi))}}\frac{2k\sqrt{1-\sin^2(\phi)}}{\sqrt{1-k^2\sin^2(\phi)}}d\phi \\
+                &= \sqrt{\frac{I_{zz}}{2mgd}}\int_0^{\phi}\frac{\sqrt{2}d\phi}{\sqrt{1-k^2\sin^2(\phi)}}  \\
+                &=\sqrt{\frac{I_{zz}}{mgd}}\int_0^{\phi}\frac{d\phi}{\sqrt{1-k^2\sin^2(\phi)}}
+        \end{align*}
+        This integral is called the incomplete elliptical integral of the first kind, denoted by $F(k,\phi)$. When $\theta = \theta_0$, $\sin(\phi) = 1$, so $\phi = \frac{\pi}{2}$. This is a quarter of our oscillation, so we have that \begin{equation}
+                T = 4\sqrt{\frac{I_{zz}}{mgd}}\int_0^{\pi/2}\frac{d\phi}{\sqrt{1-k^2\sin^2(\phi)}}
+        \end{equation}
+        where the integral is now called the complete elliptical integral of the first kind, and denoted by $F(k,\pi/2)$. As $\theta_0$ becomes small, $F(k,\pi/2) \approx \pi/2$ and $T \approx T_0 = 2\pi\sqrt{\frac{I_{zz}}{mgd}}$. In particular we can write \begin{equation}
+                T = 4\sqrt{\frac{I_{zz}}{mgd}}F(k,\pi/2) = \frac{2}{\pi}T_0F(k,\pi/2)
+        \end{equation}
+\end{for}
+
+
+
+\begin{for}[Small Theta]
+        In the case of small $\theta$, $\sin(\theta) \sim \theta$ (in radians), so our equation becomes that of a simple harmonic oscillator \begin{equation}
+                \ddot{\theta} = -\frac{mgd}{I_{zz}}\theta
+        \end{equation}
+        which has angular velocity $\omega = \sqrt{\frac{mgd}{I_{zz}}}$. Then, for small angles the period of the physical pendulum is \begin{equation}
+                T_0 = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{I_{zz}}{mgd}}
+        \end{equation}
+\end{for}
+
+
+
+\vspace{15pt}
+
+
+\subsection{Euler's Equations}
+
+\begin{for}[General Case]
+        We consider an object moving in free fall and define an inertial frame $[x,y,z]$ and a principal axis frame in the object, $[\hat{e}_1,\hat{e}_2,\hat{e}_3]$. Then since we are in a principal axis frame in the body, the inertia tensor with respect to this frame is diagonal \begin{equation}
+                \vec{\vec{I}} = \begin{bmatrix} \lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 & \lambda_3 \end{bmatrix}
+        \end{equation}
+\end{for}
+
+
+
+\subsection{Central Forces}
+
+\begin{for}[Gravity]
+        The force of gravity on a mass 2 by a mass 1, with $\hat{r}$ pointing from 1 to 2 is:
+        \begin{equation}
+                \B{F}_g = -\frac{Gm_1m_2}{r^2}\hat{r}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{for}[Coloumb]
+        The Coloumb force on a charge 2 by a charge 1, with $\hat{r}$ pointing from 1 to 2, is:
+        \begin{equation}
+                \B{F}_C = \frac{1}{4\pi \varepsilon_0}\frac{q_1q_2}{r^2}\hat{r}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\subsection{Energy}
+
+
+\begin{for}[General Energy]
+        \begin{equation}
+                \Delta E = \Delta(T + U) = W_{nc}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Kinetic Energy]
+        \begin{equation}
+                T = \frac{1}{2}mv^2\;\text{and}\;\frac{dT}{dt} = m\dot{\B{v}}\cdot\B{v} = \B{F} \cdot\B{v}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Work Energy Thm]
+        The change in kinetic energy between points A and B is given by:
+        \begin{equation}
+                \Delta T = T_B - T_A = \int\limits_{A}^B\B{F}\cdot d\B{r} = W(A\rightarrow B)
+        \end{equation}
+        where $\B{F}$ is the net force, so $W(A\rightarrow B)$ can be written as:
+        \begin{equation}
+                W(A\rightarrow B) = \sum\limits_{n=1}^NW_n(A\rightarrow B)
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{for}[Potential]
+        Given a conservative force $\B{F}$, we can define a potential function with zero potential at $\B{r}_0$ by \begin{equation}
+                U(\B{r}) = U(\B{r}) - U(\B{r}_0) = -\int\limits_{\B{r}_0}^{\B{r}}\B{F(r')}\cdot d\B{r'}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Solution for 1D Conservative Systems]
+        For a one dimensional conservative system, the mechanical energy is given by $E = \frac{1}{2}m\dot{x}^2+U$, which can then be solved by separation of variables as \begin{equation}
+                t_2 - t_1 = \pm \int\limits_{x_1}^{x_2}\sqrt{\frac{m}{2}}\frac{dx}{\sqrt{E-U(x)}}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+
+\subsection{Non-inertial Frames}
+
+\begin{for}[Equation of Motion in a Linearly Accelerated Frame]
+        The equation of motion for an object with position $\vec{r}$ in a linearly accelerated frame, with acceleration $\vec{A}$ relative to an inertial frame, is \begin{equation}
+                m\ddot{\vec{r}} = \vec{F} + \vec{F}_{inertial}
+        \end{equation}
+        where $\vec{F}$ is the net force measured in the inertial frame, and \begin{equation}
+                \vec{F}_{inertial} = -m\vec{A}
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+
+\begin{defn}[Angular Velocity]
+        If an object is rotating about an a line with unit vector $\hat{u}$, where the direction is given by the right hand rule, at a rate $\omega$, then its angular velocity is given by \begin{equation}
+                \vec{\omega} = \omega\hat{u}
+        \end{equation}
+\end{defn}
+
+\vspace{15pt}
+
+\begin{for}[Rotating vector]
+        Suppose that $\vec{r} \in \R^3$ is rotating along with a rigid body with angular velocity $\vec{\omega}$. Then the derivative of $\vec{r}$ is given by \begin{equation}
+                \dot{\vec{r}} = \omega \times \vec{r}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Derivative in a rotating frame]
+        Suppose that we have right handed orthonormal coordinate systems $S_0 = (\hat{E_1}, \hat{E_2}, \hat{E_3})$ and $S = (\hat{e_1}, \hat{e_2}, \hat{e_3})$, where $S$ rotates with angular velocity $\vec{\omega}$ with respect to $S_0$, and $S$ and $S_0$ share the same origin. Then for a function $\vec{r}: \R^3\rightarrow \R^3$, we can write $\vec{r} = A_1\hat{E_1} + A_2\hat{E_2} + A_3\hat{E_3} = a_1\hat{e_1} + a_2\hat{e_2} + a_3\hat{e_3}$. Then, it follows that \begin{equation}
+                \frac{d\vec{r}}{dt} = \sum\limits_{i=1}^3\frac{dA_i}{dt}\hat{E_i} = \sum\limits_{i=1}^3\frac{da_i}{dt}\hat{e_i} + a_i(\omega\times \hat{e_i})
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Equation of Motion in a Rotating Frame]
+        If a frame $S$ is rotating with angular velocity $\vec{\Omega}$ with respect to an inertial frame $S_0$, then for a position $\vec{r}$ measured in $S$ we have the equation of motion \begin{equation}
+                m\ddot{\vec{r}} = \vec{F} + \vec{F}_{cor} + \vec{F}_{cf}
+        \end{equation}
+        where $\vec{F}$ is the net force on the object measured in $S_0$, \begin{equation}
+                \vec{F}_{cor} = -2m\vec{\Omega}\times \dot{\vec{r}} = 2m\dot{\vec{r}}\times \vec{\Omega}
+        \end{equation}
+        and \begin{equation}
+                \vec{F}_{cf} = -m\vec{\Omega}\times (\vec{\Omega} \times \vec{r}) = m(\vec{\Omega} \times \vec{r})\times \vec{\Omega}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Height of the tides]
+        Suppose we have two celestial bodies with masses $M_1$ and $M_2$, radii $R_1$ and $R_2$, and distance $d_0$ between their centers. Then the max height of the tides on $M_1$ due to the gravitational force from $M_2$ is \begin{equation}
+                h = \frac{3}{2}\left(\frac{M_2}{M_1}\right)\left(\frac{R_1}{d_0}\right)^3R_1
+        \end{equation}
+\end{for}
+
+
+\vspace{15pt}
+
+\begin{for}[Free-fall Acceleration on Earth]
+        Consider an object falling on Earth at an angle $\theta$ from the Earth's axis of rotation. Then its initial force is given by \begin{equation}
+                \vec{F}_{eff} = \vec{F}_{grav} + \vec{F}_{cf}
+        \end{equation}
+        Then write \begin{equation}
+                \vec{g} = \frac{\vec{F}_{eff}}{m} = \vec{g}_0 + \Omega^2R\sin(\theta)\hat{\rho}
+        \end{equation}
+        Splitting into components we have \begin{equation}
+                g_{rad} = g_0 - \Omega^2R\sin^2(\theta)
+        \end{equation}
+        and \begin{equation}
+                g_{tan} = \Omega^2R\sin(\theta)\cos(\theta)
+        \end{equation}
+        Note that the angle of deviation from the radial acceleration due to gravity is \begin{equation}
+                \tan(\alpha) = \frac{g_{tan}}{g_{rad}} = \frac{\Omega^2R\sin(\theta)\cos(\theta)}{g_0 - \Omega^2R\sin^2(\theta)} \approx \frac{\Omega^2R\sin(\theta)\cos(\theta)}{g_0}
+        \end{equation}
+        The product $\sin(\theta)\cos(\theta)$ is maximal for $\theta = \frac{\pi}{4}$, so \begin{equation}
+                \tan(\alpha_{max}) \approx \frac{\Omega^2R}{2g_0}
+        \end{equation}
+        Tgeb $\alpha_{max}$ is a small angle so $\tan(\alpha_{max}) \approx \alpha_{max}$ in rad, so $\alpha_{max} \approx 0.0017$ rad ($\approx 0.1$ degrees)
+\end{for}
+
+
+\vspace{15pt}
+
+\subsection{Variational Calculus and Lagrangians}
+
+\begin{for}[Euler-Lagrange Equation]
+        Suppose that $f$ is a function of $q_1,q_2,...,q_n$, $\dot{q_1},\dot{q_2},...,\dot{q_n}$ and possibly $t$, where $n \in \Z$ and $n \geq 1$. Then, define \begin{equation}
+                S(q_i, \dot{q_i}, t) = \int\limits_{t_1}^{t_2}f(q_i,\dot{q_i}, t)dt
+        \end{equation}
+        Then the $S$ is stationary when the functions $q_i$ and $\dot{q_i}$ satisfy the Euler-Lagrange equations \begin{equation}
+                \frac{\partial f}{\partial q_i} = \frac{d}{dt}\left[\frac{\partial f}{\dot{q_i}}\right],\;i \in \{1,2,...,n\}
+        \end{equation}
+\end{for}
+
+\vspace{15pt}
+
+\begin{for}[Lagrangian]
+        The \textbf{Lagrangian} for a conservative system is defined to be \begin{equation}
+                \mathcal{L} = T - U
+        \end{equation}
+        Moreover, for any \textbf{holonomic} system (degrees of freedom $=$ \# of generalized coordinates), Newton's Second Law is equivalent to the n lagrange equations \begin{equation}
+                \frac{\partial \mathcal{L}}{\partial q_i} = \frac{d}{dt}\left[\frac{\partial \mathcal{L}}{\partial \dot{q_i}}\right],\;i \in \{1,2,...,n\}
+        \end{equation}
+        where $q_i$ are the generalized coordinates of the system. This is equivalent to Hamilton's principle which states that system's evolve in time such that the action integral \begin{equation}
+                S = \int\limits_{t_1}^{t_2}\mathcal{L}(q_i,\dot{q_i},t)dt
+        \end{equation}
+        is stationary.
+\end{for}
+
+\vspace{15pt}
+
+\subsection{Hamltonian Formulaism}
+
+\begin{for}[Hamiltonian]
+        We define the \textbf{Hamiltonian} for a system with generalized coordinates $q_i$ and generalized momenta $p_i = \frac{\partial \mathcal{L}}{\partial \dot{q_i}}$ by \begin{equation}
+                \mathcal{H} := \left[\sum\limits_{i}p_i\dot{q}_i\right]-\mathcal{L}
+        \end{equation}
+        It is important to note that the Hamiltonian must be expressed solely in terms of the generalized momenta, $p_i$, and the generalized coordinates, $q_i$. From the Hamiltonian we obtain the pair of first order partial differential equations: \begin{equation}
+                \dot{q}_i = \frac{\partial \mathcal{H}}{\partial p_i}, \;\text{and}\;\dot{p}_i = -\frac{\partial \mathcal{H}}{\partial q_i},\; (i \in \{1,2,..,\})
+        \end{equation}
+        When the transformation between the generalized coordinates $q_i$ and the cartesian coordinates $e_i$ are independent of time, then the Hamiltonian is equal to \begin{equation}
+                \mathcal{H} = T + U
+        \end{equation}
+        the total energy of the system. Moreover, if the Lagrangian does not depend explicitly on time, then the Hamiltonian is conserved.
+\end{for}
+
+
+\vspace{15pt}
+
+\subsection{Two-body Problem}
+
+\begin{for}
+        Consider a system of two masses with a conservative central force between the masses which only depends on their distance. Hence, we can write the potential as $U(\vec{r}_1,\vec{r}_2) = U(|\vec{r}_1-\vec{r}_2|)$. Let $\vec{R}$ be the position of the center of mass and $\vec{r} = \vec{r}_1 - \vec{r}_2$. Then we can write \begin{equation}
+                \left\{\begin{array}{l} \vec{r}_1 = \vec{R} + \frac{m_2}{M}\vec{r}\\  \vec{r}_2 = \vec{R} - \frac{m_1}{M}\vec{r} \end{array}\right.
+        \end{equation}
+        We define the \textbf{reduced mass of the system} as \begin{equation}
+                \mu = \frac{m_1m_2}{m_1+m_2}
+        \end{equation}
+        Then we can write $T = \frac{1}{2}M\dot{\vec{R}}\cdot \dot{\vec{R}} + \frac{1}{2}\mu\dot{\vec{r}}\cdot \dot{\vec{r}}$. Then, we have that \begin{equation}
+                \mathcal{L} = \frac{1}{2}M\dot{\vec{R}}\cdot \dot{\vec{R}} + \frac{1}{2}\mu\dot{\vec{r}}\cdot \dot{\vec{r}} - U(r) = \mathcal{L}_{cm} + \mathcal{L}_{rel}
+        \end{equation}
+        The Lagrange equation for the center of mass is $M\ddot{\vec{R}} = \vec{0}$, so $M\dot{\vec{R}}$ is constant. Choosing the center of mass inertial coordinate system, \begin{equation}
+                \mathcal{L} = \mathcal{L}_{rel} = \frac{1}{2}\mu\dot{\vec{r}}\cdot \dot{\vec{r}} - U(r)
+        \end{equation}
+        Then, we have that $\mu\ddot{\vec{r}} = -\nabla U(r)$. Moreover, the angular momentum of the system (which is constant since there is no external force and the internal forces are central) can be written as $$L= \vec{r}\times \mu \dot{\vec{r}}$$ Then we have $$T=\frac{1}{2}\mu(\dot{r}^2+r^2\dot{\phi}^2)$$ in the CM frame. Solving the Lagrange equations we find $$\mu r^2 \dot{\phi} = \ell$$ is constant, where $l$ is the magnitude of the angular momentum, and substituting this into the radial equation $$\mu\ddot{r} = \mu r \dot{\phi}^2-\frac{du}{dr}$$ gives $$\mu\ddot{r} = \frac{\ell^2}{\mu r^3} - \frac{dU}{dr}$$ where the first term is the centrifugal force. The centrifugal force can be associated with the potential $$U_{cf} = \frac{\ell^2}{2\mu r^2}$$ wher $F_{cf} = -\frac{d}{dr}U_{cf}$. Then we have that \begin{equation}
+                \mu\ddot{r} = -\frac{d}{dr}(U_{cf} + U(r)) = -\frac{d}{dr}U_{eff}
+        \end{equation}
+        We assume that the central force is of the form $F(r) = -\frac{\gamma}{r^2}$ for $\gamma$ a constant, then we find that \begin{equation}
+                r(\phi) = \frac{c}{1+\varepsilon\cos(\phi)}
+        \end{equation}
+        where $\varepsilon = \frac{A\ell^2}{\gamma\mu}$, for $A$ an integration constant, is the eccentricity of our orbit, and $$c = \frac{\ell^2}{\gamma\mu}$$ is the latus rectum. For $\varepsilon < 1$ we have an ellipse, for $\varepsilon = 1$ a parabola, and for $\varepsilon > 1$ a hyperbola. For $\varepsilon < 1$ we also have \begin{equation}
+                r_{min} = \frac{c}{1+\varepsilon},\;\text{and}\;r_{max} = \frac{c}{1-\varepsilon}
+        \end{equation}
+\end{for}
+
+\begin{for}[Kepler's Laws]
+        Kepler's first law states that the orbit of a planet around the sun is an ellipse with the sun at one of the focal points (i.e. $\varepsilon < 1$). For $a$ the semi-major axis of the ellipse, the distance from the center $C$ to the focal point $F$ is $a\varepsilon$, and then $r_{min} = a(1-\varepsilon)$ and $r_{max} = a(1+\varepsilon)$. 
+
+        The line between two masses orbiting each other trace out equal areas in equal amounts of time, such that \begin{equation}
+                \frac{dA}{dt} = \frac{\ell}{2\mu}
+        \end{equation}
+        For a semi-minor axis of $b$, we have $b = a\sqrt{1-\varepsilon^2}$. Then, the period of the elliptical orbit is \begin{equation}
+                \tau^2 = 4\pi^2\frac{a^3c\mu^2}{\ell^2} =  4\pi^2\frac{a^3\mu}{\gamma}
+        \end{equation}
+        where $c = a(1-\varepsilon^2)$. In the case of gravity, so $\gamma = Gm_1m_2$, we have \begin{equation}
+                \tau^2 = \frac{4\pi^2}{G(m_1+m_2)}a^3
+        \end{equation}
+\end{for}
+
+
+\begin{for}[Energy]
+        Given a general inverse square force law $F(r) = \frac{-\gamma}{r^2}$, we have that the total energy of the orbit is \begin{equation}
+                E = U_{eff}(r_{min}) = -\frac{\gamma}{r_{min}} + \frac{\ell^2}{2\mu r_{min}^2} = \frac{\gamma^2\mu}{2\ell^2}(\varepsilon^2-1)
+        \end{equation}
+\end{for}
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+                eccentricity & energy & orbit \\
+                $\varepsilon = 0$ & $E < 0$ & circular \\
+                $0 < \varepsilon < 1$ & $E < 0$ & elliptical \\
+                $\varepsilon = 1$ & $E = 0$ & parabollic \\
+                $ \varepsilon > 1$ & $E > 0$ & hyperbolic
+        \end{tabular}
+\end{table}
+
+
+\begin{for}[Change of Orbits]
+        To change from one orbit to another we require the continuity condition \begin{equation}
+                \frac{c_1}{1+\varepsilon_1\cos(\theta_0 - \delta_1)} = \frac{c_2}{1+\varepsilon_2\cos(\theta_0 - \delta_2)}
+        \end{equation}
+        For a tangential thrust we can take, without loss of generality, $\phi_0 = \delta_1 = \delta_2 = 0$, when at perigee, so the continuity condition simplifies to \begin{equation}
+                \frac{c_1}{1+\varepsilon_1} = \frac{c_2}{1+\varepsilon_2}
+        \end{equation}
+        Define the ratio of the speeds before and after the thrust is applied to be \begin{equation}
+                \lambda := \frac{v_2}{v_1}
+        \end{equation}
+        If $\lambda > 1$ the thrust is forward and the satellite gains speed. If $0 < \lambda < 1$ then the thrust was backward and the satellite lost speed. At perigee (or apogee) we have $\ell = \mu rv$. The value of $r$ will not changing during the impulse (since we assume it to be instantaneous), and we may assume that the change in $\mu$ is negligible. Then we have that \begin{equation}
+                \ell_2 = \lambda \ell_1
+        \end{equation}
+        Moreover, since $c$ is proportional to $\ell^2$, we have that\begin{equation}
+                c_2 = \lambda^2 c_1
+        \end{equation}
+        It follows that \begin{equation}
+                \frac{1}{1+\varepsilon_1} = \frac{\lambda^2}{1+\varepsilon_2}
+        \end{equation}
+        so \begin{equation}
+                \varepsilon_2 = \lambda^2\varepsilon_1 + (\lambda^2 - 1)
+        \end{equation}
+\end{for}
+
+
+
+
+
+
+\subsection{Euler's Equations}
+
+
+\begin{for}
+        Euler's equation states that for an object either pivoting about a fixed point or without any fixed point (fre falling rotating object) we have that if the object rotates with angular velocity $\vec{\omega}$ in a frame with its principal axes, then \begin{equation}
+                \vec{L} = \begin{pmatrix} \lambda_1\omega_1 \\ \lambda_2\omega_2 \\ \lambda_3\omega_3 \end{pmatrix}
+        \end{equation}
+        since $\vec{\vec{I}}$ is diagonal. Then we have that \begin{equation}
+                \dot{\vec{L}} +\vec{\omega}\times \vec{L} = \vec{\Gamma}
+        \end{equation}
+        where $\vec{\Gamma}$ is the torque as measured in an inertial frame. Then we have the component Euler Equatiosn \begin{align}
+                \lambda_1\dot{\omega}_1 - (\lambda_2-\lambda_3)\omega_2\omega_3 &= \Gamma_1 \\
+                \lambda_2\dot{\omega}_2 - (\lambda_3-\lambda_1)\omega_3\omega_1 &= \Gamma_2 \\
+                \lambda_3\dot{\omega}_3 - (\lambda_1-\lambda_2)\omega_1\omega_2 &= \Gamma_3 
+        \end{align}
+        For the special case of $\vec{\Gamma} = \vec{0}$ we have \begin{align}
+                \lambda_1\dot{\omega}_1 &= (\lambda_2-\lambda_3)\omega_2\omega_3    \\ 
+                \lambda_2\dot{\omega}_2 &= (\lambda_3-\lambda_1)\omega_3\omega_1   \\      
+                \lambda_3\dot{\omega}_3 &= (\lambda_1-\lambda_2)\omega_1\omega_2 
+        \end{align}
+\end{for}
+
+
+\begin{for}
+        If $\vec{\omega}$ is parallel to a principal axis the time derivatives of its components are zero in the case of zero torque. Next, if $\vec{\omega} = [\omega_1 \;\omega_2\;\omega_3]^T$ such that $|\omega_1|, |\omega_2| << |\omega_3|$, we can approximate $\omega_1\omega_2$ as $0$ so $\dot{\omega}_3 \approx 0$. THen we have the equations \begin{align}
+                \lambda_1\dot{\omega}_1 &= [(\lambda_2-\lambda_3)\omega_2]\omega_3    \\ 
+                \lambda_2\dot{\omega}_2 &= [(\lambda_3-\lambda_1)\omega_3]\omega_1  
+        \end{align}
+        So we obtain \begin{equation}
+                \ddot{\omega}_1 = -\left[\frac{(\lambda_3 - \lambda_3)(\lambda_3 - \lambda_1)}{\lambda_1\lambda_2}\omega_3^2\right]\omega_1 
+        \end{equation}
+        where this equation gives a solution for a harmonic oscillator if and only if either $\lambda_3 > \lambda_2,\lambda_1$ or $\lambda_3 < \lambda_2,\lambda_1$. That is, we have stable rotation with $\omega_1$ remaining small if the object is rotating about its principal axis with the smallest or largest moment of inertia. We have unstable rotation otherwise.
+\end{for}
+
+
+\begin{for}
+        Consider $\lambda_1 = \lambda_2 = \lambda$, so $\dot{\omega}_3 = 0$. Define \begin{equation}
+                \Omega_b = \frac{(\lambda - \lambda_3)\omega_3}{\lambda}
+        \end{equation}
+        Then we have that \begin{equation}
+                \dot{\omega_1} = \Omega_b\omega_2
+        \end{equation}
+        and \begin{equation}
+                \dot{\omega_2} = -\Omega_b\omega_1
+        \end{equation}
+        Upon solving we obtain \begin{equation}
+                \vec{\omega} = \begin{pmatrix} \omega_0\cos(\Omega_b t) \\ -\omega_0\sin(\Omega_bt) \\ \omega_3\end{pmatrix}
+        \end{equation}
+        and \begin{equation}
+                \vec{L} = \begin{pmatrix}\lambda\omega_0\cos(\Omega_b t) \\ -\lambda\omega_0\sin(\Omega_bt) \\ \lambda_3\omega_3\end{pmatrix}
+        \end{equation}
+        It follows that $\vec{L}, \vec{\omega}$ and $\hat{e}_3$ lie in the same plane.
+\end{for}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

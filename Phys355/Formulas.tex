@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+
+%------------ Packages -----------
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+
+%set margins to 1 inch
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}  % AMS theorem environments and proof environment -- load after amsmath
+\usepackage{physics}
+\usepackage{esint}
+\usepackage{bm}
+\usepackage{tabularx}% http://ctan.org/pkg/tabularx
+\usepackage{colortbl}% http://ctan.org/pkg/colortbl
+\usepackage{xcolor}%
+\usepackage{longtable}
+\renewcommand\qedsymbol{$\blacksquare$}
+\usepackage{latexsym}
+\usepackage{graphicx}    % standard LaTeX graphics tool
+\usepackage{xypic}      % commutative diagrams
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+        colorlinks,
+        citecolor=black,
+        filecolor=black,
+        linkcolor=black,
+        urlcolor=black
+}
+\usepackage{multirow}
+\usepackage{changepage}
+\usepackage[scientific-notation=true]{siunitx}
+%\usepackage{pgfplots}
+
+
+%\pgfplotsset{every tick label/.style={inner sep=0pt,font=\scriptsize}}
+
+%------------- Headers -----------
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Phys 355 Formulas}
+\rhead{February 10 2021}
+\chead{}
+%\lfoot{Author's Name}
+%\cfoot{}
+%\rfoot{Page \thepage}
+
+
+%------------- Environments -------
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}  %%%% [thm] means number in sequence with Theorem
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{axi}[thm]{Axiom}
+\newtheorem{law}[thm]{Law}
+\newtheorem{pri}[thm]{Principle}
+\newtheorem{for}[thm]{Formula}
+\newtheorem{pro}[thm]{Property}
+\newtheorem{met}[thm]{Method}
+%%% definition style
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{xca}[thm]{Exercise}
+\newtheorem{conj}[thm]{Conjecture}
+%%% remark style
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem*{qst}{Question}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem*{note}{Note} %%%%%%%%%% no numbering for notes
+\numberwithin{equation}{section}
+
+%------------- Macros -------------
+\newcommand\C{\mathbb C}    %%%%%%%%% the set of complex numbers
+\newcommand\R{\mathbb R}    %%%%%%%%% the set of real numbers
+\newcommand\Z{\mathbb Z}    %%%%%%%%% the set of integers
+\newcommand\N{\mathbb N}    %%%%%%%%% the natural numbers
+\newcommand\Q{\mathbb Q}    %%%%%%%% the rational numbers
+\newcommand\B[1]{\textbf{ #1}}
+\newcommand\diriv[2]{\ensuremath{\frac{d #1}{d #2}}}
+\newcommand{\parti}[2]{
+        \ensuremath{\frac{\partial {#1}}{\partial {#2}}}
+}
+%% math operators
+\renewcommand{\arraystretch}{1.5}
+
+
+%------------- Begin --------------
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Phys 355 Formula Sheet}
+\author{Elijah Thompson}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c|c}
+                \rowcolor{black!80} \multicolumn{4}{c}{\textcolor{white}{Constants}} \\
+                $k_e = \num{8.99E9}\;\frac{Nm^2}{C^2}$ & $e = \num{1.602E-19}\;C$ & $m_p = \num{1.67E-27}\;kg$ & $m_e = \num{9.11E-31}\;kg$ \\
+                $\mu_0 = \num{4\pi E-7}\;\frac{Tm}{A}$ & $\varepsilon_0 = \num{8.85E-12}\;\frac{C^2}{Nm^2}$ & & $k_e = \frac{1}{4\pi\varepsilon_0}$ \\
+                $milli\;(m) = 10^{-3}$ & $micro\;(\mu) = 10^{-6}$ & $nano\;(n) = 10^{-9}$ & $pico\;(p) = 10^{-12}$
+        \end{tabular}
+\end{table}
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c|c}
+                \rowcolor{black!80} \multicolumn{4}{c}{\textcolor{white}{Geometry}} \\
+                $A_{circle} = \pi R^2$ & $V_{cylinder} = \pi R^2h$ & $V_{sphere} = \frac{4}{3}\pi R^3$ & $A_{sphere} = 4\pi R^2$ 
+        \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+                \rowcolor{black!80} \multicolumn{3}{c}{\textcolor{white}{Vectors}} \\
+                $|\vec{A} \times \vec{B}| = AB\sin(\theta)$ & $\vec{A}\cdot \vec{B} = AB\cos(\theta)$ & $\vec{A} \cdot \vec{B} = A_xB_x + A_yB_y + A_zB_z$ \\
+                \multicolumn{3}{c}{$\vec{A} \times \vec{B} = (A_yB_z - A_zB_y)\hat{i} + (A_zB_x - A_xB_z)\hat{j} + (A_xB_y - A_yB_x)\hat{k}$}
+        \end{tabular}
+\end{table}
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+                \rowcolor{black!80} \multicolumn{3}{c}{\textcolor{white}{Integrals}} \\
+                 $\int \frac{xdx}{\sqrt{x^2+y^2}} = \sqrt{x^2+y^2}$ & $\int \frac{dx}{\left(x^2+y^2\right)^{3/2}} = \frac{x}{y^2\sqrt{x^2+y^2}}$ & $\int \frac{xdx}{\left(x^2+y^2\right)^{3/2}} = -\frac{1}{\sqrt{x^2+y^2}}$ \\
+                \multicolumn{3}{c}{$\int \frac{dx}{\sqrt{x^2+y^2}} = \ln\left(x+\sqrt{x^2+y^2}\right)$}
+        \end{tabular}
+\end{table}
+
+
+\begin{longtable}{c|c|c}
+        \rowcolor{black!80} \multicolumn{3}{c}{\textcolor{white}{Electrostatics and Magnetostatics}} \\
+        $\vec{F}_e = \frac{k_eQq}{r^2}\hat{r}$ & $\vec{E} = \frac{k_eQ}{r^2}\hat{r}$ & $U = \frac{k_eQq}{r}$ \\
+        $V = \frac{k_eQ}{r}$ & $\vec{F}_e = q\vec{E}$ & $\vec{E} = -\nabla V$ \\
+        $\Delta V_{A\rightarrow B} = -\int_A^B\vec{E} \cdot d\vec{l}$ & $\Delta U = q \Delta V$ & $\vec{E}_{axis} = \frac{2k_er}{\left(r - \frac{s}{2}\right)^2\left(r+\frac{s}{2}\right)^2}\vec{p} \approx \frac{2k_e\vec{p}}{r^3}$ \\
+        $\vec{E}_{\perp} = \frac{-k_e}{\left[r^2 + \left(\frac{s}{2}\right)^2\right]^{3/2}}\vec{p} \approx -\frac{k_e}{r^3}\vec{p}$ & $|\vec{p}| = qs$ ($-$ to $+$) & \\
+        & & \\
+        $E_{plane} = \frac{\eta}{2\varepsilon_0}$ & $E_{capacitor} = \frac{\eta}{\varepsilon_0}$ & $E_{\infty line} = \frac{2k_e|\lambda|}{r}$ \\
+        $\left|E_{ring_z}\right| = \frac{k_ezQ}{\left(z^2+R^2\right)^{3/2}}$ & $\left|E_{disk_z}\right| = \frac{\eta}{2\varepsilon_0}\left[1 - \frac{z}{\sqrt{R^2+z^2}}\right]$ & $E_{insSphere} = \frac{k_eQ}{R^3}r, r < R$ \\
+        $\Delta V_{\infty line} = 2k_e\lambda\ln\left|\frac{r_A}{r_B}\right|$ & $V_{ring_z} = \frac{k_eQ}{\sqrt{R^2+z^2}}$ & $V_{disk_z} = \frac{k_eQ}{R}\left[\sqrt{R^2+z^2} - |z|\right]$ \\
+        Inside C: $\Delta V = 0$  & $V_{inside} = \frac{k_eQ}{R}$ (C sphere) & $V_{inside} = \frac{k_eQ}{2R}\left[3-\frac{r_A^2}{R^2}\right]$ (I sphere) \\
+        $\vec{E}_{ins} = \frac{\vec{E}_{app}}{\kappa}$ & $\Delta V_{ins} = \frac{\Delta V_{vac}}{\kappa}$ & $\kappa = $ dielectric constant \\
+        $\frac{\Delta U}{\Delta Volume} = \frac{1}{2}\varepsilon_0 E^2$ & $E = \frac{\eta}{\varepsilon_0}$ & Energy density - Capacitor \\
+        $d\vec{B} = \frac{\mu_0}{4\pi}\frac{Id\vec{s}\times \hat{r}}{r^2}$ & $\vec{B} = \frac{\mu_0}{4\pi}\frac{q\vec{v}\times \hat{r}}{r^2}$ & $B_{\infty wire} = \frac{\mu_0I}{2\pi d}$ \\
+        $B_{loop\;axis} = \frac{\mu_0IR^2}{2\left(R^2+z^2\right)^{3/2}}$ & $B_{solenoid} = \frac{\mu_0NI}{L}$ & $B_{wire} = \frac{\mu_0IL}{2\pi d\sqrt{L^2+d^2}}$ \\
+        $\vec{B}_{loop axis} = \frac{\mu_0}{4\pi}\frac{2\vec{\mu}}{r^3}$ & $\vec{\mu} = I\vec{A}$ & $\hat{A} = \hat{B}_{loop axis}$ \\
+        $\mu_{electron} = \frac{ev}{2\pi R}\pi R^2 = \frac{1}{2}eRv$ & $L_{electron} = Rmv$ & $\mu_{electron} = \frac{1}{2}\frac{e}{m}L$ \\
+        & &  \\
+        & Magnetic Force \& Flux &  \\
+        $\vec{F}_B = q\vec{v}\times \vec{B}$ & $R = \frac{mv\sin(\phi)}{qB}$ & $T = \frac{2\pi m}{qB}$ \\
+        Relativistic: $\left|\frac{d\vec{p}}{dt}\right| = |q|vB\sin(\phi)$ & $\omega = \frac{|q|B}{\gamma m}$ & $T = \frac{2\pi m\gamma}{|q|B}$ \\
+        $\vec{F}_{Lor} = q(\vec{E} + \vec{v} \times \vec{B})$ & Cyclo: $E_K = \Delta VqN$ & \\
+        $\vec{F}_{wire} = \int Id\vec{L}\times \vec{B}$ & $\vec{F}_{straight} = I\vec{L} \times \vec{B}$ & \\
+        Hall: & $V_H = wv_dB = \frac{IB}{dne}$ & $I = v_dAne = v_dwdne$ \\
+        EMF: $\Delta V = \epsilon = vLB$ & $F_B = ILB = \frac{\Delta V}{R}LB = \frac{(LB)^2v}{R}$ & $P = Fv = \frac{(LBv)^2}{R} = \frac{\Delta V^2}{R} = I\Delta V$ \\
+        $\Phi_B = \varoiint \vec{B}\cdot d\vec{A}$ & $\Phi_{B,flat} = \vec{B} \cdot \vec{A}$ & Unit: $1\;Wb = 1\;Tm^2$ \\
+        Law of Induction: & $\epsilon = -N\frac{d\Phi_B}{dt}$ & $E = -\frac{dB}{dt}\frac{r}{2}$ \\
+        Torque: & $\vec{\tau} = \vec{\mu}\times \vec{B}$ & $\vec{\mu} = I\vec{A}$ \\
+        $\Delta U_m = \int\limits_{\theta_i}^{\theta_f}\tau d\theta = \int\limits_{\theta_i}^{\theta_f}\mu B\sin(\theta)d\theta$ & $\Delta U_m = - \mu B\cos(\theta)\rvert_{\theta_i}^{\theta_f}$ & $U_m = -\vec{\mu} \cdot \vec{B}$ \\
+        & &  \\
+        & &  \\
+        $\overline{v} = uE_{net}$ & $u = \frac{e}{m_e}\overline{\Delta t}$ & $\vec{p} = \alpha\vec{E}$ \\
+        $i_e = n_eAv_d = n_eA\frac{e\tau}{m}E$ & $v_d = \overline{v_{xi}} + \frac{eE}{m}\overline{\Delta t} = \frac{e\tau}{m}E$ & $i_e = \frac{N_e}{\Delta t}$ \\
+        $n_e = $ e$^{-}$ density & $N_e = $ total \# of e$^{-}$s & $I = |q|nAv_d$ \\
+        $|q| = $ magnitude of single charge & $n = $ density of charges & $A = $ cross-sectional area \\
+        $\lambda = \frac{Q}{L}$ & $\eta = \frac{Q}{A}$ & $\rho = \frac{Q}{V}$ 
+\end{longtable}
+
+
+\begin{longtable}{c|c|c}
+        \rowcolor{black!80} \multicolumn{3}{c}{\textcolor{white}{Maxwell's Equations}} \\
+        $\Phi_E = \int\int \vec{E} \cdot d\vec{A}$ & & \\
+        Gauss' Law: & $\varepsilon_0\oiint \vec{E}\cdot d\vec{A} = q_{enc}$ & \\
+        Gauss' Law, Mag: & $\oiint \vec{B}\cdot d\vec{A} = 0$ & \\
+        Ampere's Law: & $\oint \vec{B} \cdot d\vec{r} = \mu_0 I_{enc}$ & only steady currents \\
+        $\nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0}$ & $\nabla^2V = \Delta V = -\frac{\rho}{\varepsilon_0}$ & $\nabla \times \vec{B} = \mu_o\vec{J}$ \\
+        $\oint \vec{B}\cdot d\vec{r} = \mu_0 i_{enc} + \mu_o\varepsilon_0\frac{d\Phi_E}{dt}$ & $\oint \vec{E} \cdot d\vec{s} = emf = -N\frac{d\Phi_B}{dt}$ & $N = 1$ if free space 
+\end{longtable}
+
+\begin{rmk}
+        If $\vec{E}$ and $d\vec{A}$ are either parallel, perpendicular, or constant, one can use Gauss' Law to determine $\vec{E}$. If similar conditions apply to $\vec{B}$ and $d\vec{r}$ we can determine $\vec{B}$ by Ampere's Law.
+\end{rmk}
+
+
+
+\begin{longtable}{c|c|c}
+        \rowcolor{black!80} \multicolumn{3}{c}{\textcolor{white}{Circuits}} \\
+        $\sum I_{in} = \sum I_{out}$ & $\sum\limits_{loop}\Delta V = 0$ & \\
+        $\left|\Delta V_{battery}\right| = E_C s = \frac{F_{NC}s}{e}$ & $\left|\Delta V_{resistor}\right| = EL$ & $i = nA\overline{v} = nAuE$ \\
+        & & \\
+        $i(t) = \frac{dq}{dt}$ & $q = \int\limits_0^ti(t)dt$ & $i = \int \vec{J}\cdot d\vec{A}$ \\
+        $q_{tot} = (nAL)e$ & $i = q/t = (nAL)e/(L/v_d) = nAev_d$ & \\
+        For uniform current: & $i = JA$ & $|\vec{J}| = (ne)|\vec{v}_d|$ \\
+        & & \\
+        $n = density\times \frac{N_Az}{Molar\;Mass}$ & & \\
+        & & \\
+        $R = \frac{V}{i}$ & $\rho = \frac{E}{J}$ & $\sigma = \frac{1}{\rho}$ \\
+        $R = \rho\frac{L}{A}$ & $\rho = \frac{m}{e^2n\tau}$ & $\rho = \rho_0(1+\alpha(T-T_0))$ \\
+        & & \\
+        $\frac{dU}{dt} = P = iV$ & & \\
+        & & \\
+        $R_{eq,s} = \sum\limits_{i=1}^nR_i$ & $\frac{1}{R_{eq,p}} = \sum\limits_{i=1}^n\frac{1}{R_i}$ \\
+\end{longtable}
+
+\begin{longtable}{c|c|c}
+        \rowcolor{black!80} \multicolumn{3}{c}{\textcolor{white}{Capacitors and Resistors}} \\
+        $q = C\Delta V$ & & a inner, b outer: \\
+        $C_{plate} = \frac{\varepsilon_0 A}{d}$ & $C_{cylinder} = \frac{2\pi L \varepsilon_0}{\ln\left|\frac{b}{a}\right|}$ & $C_{sphere} = \frac{4\pi \varepsilon_0}{\frac{1}{a} - \frac{1}{b}}$ \\
+        $\frac{1}{C_{eq,s}} = \sum\limits_{i=1}^n\frac{1}{C_i}$ & $C_{eq,p} = \sum\limits_{i=1}^nC_i$ & \\
+        & & \\
+        External: $U = \frac{q^2}{2C} = \frac{1}{2}CV^2$ & Density: $u = \frac{U}{Ad} = \frac{CV^2}{2Ad}$ & \\
+        & & \\
+        Charging: & $q(t) = \varepsilon C\left(1-e^{-t/RC}\right)$ & $V_C(t) = \varepsilon \left(1-e^{-t/RC}\right)$ \\
+        Discharging: & $q(t) = \varepsilon Ce^{-t/RC}$ & $V_C(t) = \varepsilon e^{-t/RC}$ \\
+\end{longtable}
+
+
+\begin{longtable}{c|c|c}
+        \rowcolor{black!80} \multicolumn{3}{c}{\textcolor{white}{Inductors}} \\
+        $L = \frac{N\Phi_B}{i}$ & $L = \mu_0n^2lA$ & $n = N/l$ \\
+        $\varepsilon_L = -N\frac{d\Phi_B}{dt} = -L\frac{di}{dt}$ \\
+        $\frac{dU_B}{dt} = Li\frac{di}{dt}$ & $U_B = \frac{1}{2}Li^2$ & $u_B = \frac{U_B}{Al} = \frac{Li^2}{2lA} = \frac{1}{2}\mu_0n^2i^2$ \\
+        Solenoid: & $B = \mu_0in$ & $u_B = \frac{B^2}{2\mu_0}$ \\
+        & & \\
+        & & \\
+        & LC Circuit & \\
+        $q(t) = Q_0\cos(\omega t+\phi_0)$ & $i(t) = i_{max}\sin(\omega t +\phi_0)$ & \\
+        $\omega = \frac{1}{\sqrt{LC}}$ & $\phi_0 = 0, q(0) = Q_0$ & $i_{max} = Q_0\omega$ \\
+        & & \\
+        & & \\
+        & RLC Circuit & \\
+        $i(t) = i_0\sin(\omega t+\phi_0)$ & $\omega = \frac{1}{\sqrt{LC}}$ & \\
+        $V_R(t) = Ri(t)$ & $V_L = -Li_0\omega\cos(\omega t+\phi_0)$ & $V_C = \frac{i_0}{\omega}\cos(\omega t+\phi_0)$ 
+\end{longtable}
+
+
+\begin{defn}[Accelerated Charges]
+		If a charge $q$ is accelerated briefly by $\vec{a}$, then at an angle $\theta$ around the particle relative to the acceleration vector, we have electric radiation of \begin{equation}
+				\vec{E}_{rad} = k_e\frac{-q\vec{a}_{\perp}}{c^2r}
+		\end{equation}
+		where $a_{\perp} = a\sin(\theta)$ and points in the direction $\vec{a} - proj_{\vec{r}}(\vec{a})$ (making a right triangle with one angle equal to $\theta$).
+\end{defn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
