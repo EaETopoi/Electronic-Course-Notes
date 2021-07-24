@@ -1,0 +1,20 @@
+\contentsline {chapter}{\numberline {1}Root Finding Methods}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Bisection Method}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Newton-Raphson Method}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Non-Linear ODEs}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Euler Method}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Trapezoid Rule}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Runge-Kutta}{6}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Numerical Fourier Analysis}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Fourier Series}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Simpson's Rule}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Fourier Integral}{9}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Discrete Fourier Transform}{10}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Curve-fitting and Optimization}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Least Squares}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Finite Differences}{13}{section.4.2}%
+\contentsline {chapter}{Appendices}{15}{section*.1}%
+\contentsline {section}{\numberline {.1}Lambda Functions}{16}{section.a..1}%
+\contentsline {section}{\numberline {.2}List Comprehension}{16}{section.a..2}%
+\contentsline {section}{\numberline {.3}ODE-int Solve}{16}{section.a..3}%
+\contentsfinish 

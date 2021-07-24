@@ -1,0 +1,267 @@
+%%%%%% PACKAGES %%%%%%%
+\usepackage{lipsum}
+\usepackage{amsmath} % Math display options
+\usepackage{amssymb} % Math symbols
+\usepackage{amsfonts} % Math fonts
+\usepackage{mathtools} % General math tools
+\usepackage{array} % Allows you to write arrays
+\usepackage{empheq} % For boxing equations
+\usepackage{latexsym}
+\usepackage{mathabx}
+\usepackage{mathrsfs}
+
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+
+\usepackage{txfonts}
+\usepackage{cancel}
+\usepackage[toc, page]{appendix}
+\usepackage{titletoc,tocloft}
+\setlength{\cftchapindent}{1em}
+\setlength{\cftsecindent}{2em}
+\setlength{\cftsubsecindent}{3em}
+\setlength{\cftsubsubsecindent}{4em}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage[framemethod=tikz]{mdframed}
+
+\usepackage{tikz} % For drawing commutative diagrams
+\usetikzlibrary{cd}
+\usetikzlibrary{calc}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75p
+
+\usepackage{datetime}
+\usepackage[margin=1in]{geometry}
+\setlength{\parskip}{1em}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[most]{tcolorbox}
+
+\usepackage{enumitem}
+
+\usepackage{url}
+\allowdisplaybreaks
+
+%%%%%% ENVIRONMENTS %%%
+\definecolor{purp}{rgb}{0.29, 0, 0.51}
+\tcbset{
+    thmbox/.style={
+        enhanced,
+        breakable,
+        sharp corners=all,
+        fonttitle=\bfseries\normalsize,
+        fontupper=\normalsize\itshape,
+         top=0mm,
+         bottom=0mm,
+         right=0mm,
+        colback=white,
+        colframe=white,
+        colbacktitle=white,
+        coltitle=black,
+        attach boxed title to top left,
+        boxed title style={empty, size=minimal, bottom=1.5mm},
+        overlay unbroken ={
+            \draw (title.south west)--(title.south east);
+            \draw ([xshift=3.5mm]frame.north west)|-%
+                  (frame.south east)--(frame.north east);},
+        overlay first={
+            \draw (title.south west)--(title.south east); 
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);
+            \draw (frame.north east)--(frame.south east);},
+        overlay middle={
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);
+            \draw (frame.north east)--(frame.south east);},
+        overlay last={
+            \draw ([xshift=3.5mm]frame.north west)|-%
+                  (frame.south east)--(frame.north east);},
+        },
+    S/.style={thmbox, 
+        overlay unbroken ={
+            \draw (title.south west)--(title.south east);
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay first={
+            \draw (title.south west)--(title.south east); 
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay middle={
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay last={
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        },
+    L/.style={thmbox, 
+        overlay unbroken ={
+            \draw (title.south west)--(title.south east);
+            \draw ([xshift=3.5mm]frame.north west)|-([xshift=15mm]frame.south west);},
+        overlay first={
+            \draw (title.south west)--(title.south east); 
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay middle={
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay last={
+            \draw ([xshift=3.5mm]frame.north west)|-([xshift=15mm]frame.south west);},
+        },
+    LQ/.style={thmbox, 
+        overlay unbroken ={
+            \draw (title.south west)--(title.south east);
+            \draw ([xshift=3.5mm]frame.north west)|-([xshift=15mm]frame.south west);
+            \node[anchor=east] at (frame.south east) {$\blacksquare$};},
+        overlay first={
+            \draw (title.south west)--(title.south east); 
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay middle={
+            \draw ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay last={
+            \draw ([xshift=3.5mm]frame.north west)|-([xshift=15mm]frame.south west);
+            \node[anchor=east] at (frame.south east) {$\blacksquare$};},
+   },
+}
+
+
+
+
+
+
+\tcbset{
+    nambox/.style={
+        enhanced,
+        breakable,
+        sharp corners=all,
+        fonttitle=\bfseries\Large,
+        fontupper=\normalsize\itshape,
+         top=0mm,
+         bottom=0mm,
+         right=0mm,
+        colback=white,
+        colframe=white,
+        colbacktitle=white,
+        coltitle=purp,
+        attach boxed title to top left,
+        boxed title style={empty, size=minimal, bottom=1.5mm},
+        overlay unbroken ={
+            \draw[line width = 0.7mm] (title.south west)--(title.south east);
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)|-%
+                  (frame.south east)--(frame.north east);},
+        overlay first={
+            \draw[line width = 0.7mm] (title.south west)--(title.south east); 
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);
+            \draw[line width = 0.7mm] (frame.north east)--(frame.south east);},
+        overlay middle={
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);
+            \draw[line width = 0.7mm] (frame.north east)--(frame.south east);},
+        overlay last={
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)|-%
+                  (frame.south east)--(frame.north east);},
+        },
+    N/.style={nambox, 
+        boxrule = 3.5mm,
+        overlay unbroken ={
+            \draw[line width = 0.7mm] (title.south west)--(title.south east);
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)|-([xshift=15mm]frame.south west);},
+        overlay first={
+            \draw[line width = 0.7mm] (title.south west)--(title.south east); 
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay middle={
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)--([xshift=3.5mm]frame.south west);},
+        overlay last={
+            \draw[line width = 0.7mm] ([xshift=3.5mm]frame.north west)|-([xshift=15mm]frame.south west);},
+        },
+}
+
+%%%%% \newtcbtheorem[<init options>]{<name>}{<display name>}{<options>}{<prefix>}
+\newtcbtheorem{namthm}{Theorem}{nambox,N}{thmname}
+
+\newtcbtheorem[number within = section]{thm}{Theorem}{thmbox,L}{thm}
+\newtcbtheorem{thms*}{Theorem}{thmbox,L}{thmnonum}
+\newtcbtheorem[number within = section, use counter from=thm]{lem}{Lemma}{thmbox,L}{lem}
+\newtcbtheorem[number within = section, use counter from=thm]{cor}{Corollary}{thmbox,L}{cor}
+\newtcbtheorem[number within = section, use counter from=thm]{prop}{Proposition}{thmbox,L}{prop}
+\newtcbtheorem[number within = section, use counter from=thm]{claim}{Claim}{thmbox,L}{clm}
+\newtcbtheorem[number within = section]{defn}{Definition}{thmbox,L}{defn}
+\newtcbtheorem[number within = section, use counter from=defn]{cons}{Construction}{thmbox,L}{cons}
+\newtcbtheorem[number within = section, use counter from=defn]{props}{Properties}{thmbox,L}{props}
+\newtcbtheorem[number within = section, use counter from=defn]{proc}{Process}{thmbox,L}{proc}
+\newtcbtheorem{eg}{Example}{thmbox,L}{eg}
+\newtcbtheorem{noneg}{Non-Example}{thmbox,L}{noneg}
+\newtcbtheorem{xca}{Exercises}{thmbox,L}{exc}
+\newtcbtheorem[number within = section, use counter from=thm]{conj}{Conjecture}{thmbox,L}{conj}
+\newtcbtheorem[number within = section]{rmk}{Remark}{thmbox,S}{rmk}
+\newtcbtheorem{qst}{Question}{thmbox,L}{qst}
+\newtcbtheorem{ans}{Answer}{thmbox,L}{ans}
+\newtcbtheorem[number within = section, use counter from=rmk]{obs}{Observation}{thmbox,L}{obs}
+\newtcbtheorem[number within = section, use counter from=rmk]{rec}{Recall}{thmbox,L}{rec}
+\newtcbtheorem[number within = section, use counter from=rmk]{nota}{Notation}{thmbox,L}{nota}
+\newtcbtheorem{note}{Note}{thmbox,L}{note}
+\newtcbtheorem{proof}{Proof.}{thmbox,LQ}{proof}
+\newtcbtheorem{prooflab}{Proof}{thmbox,LQ}{proof}
+
+
+\numberwithin{equation}{section}
+
+\newenvironment{qest}{
+    \begin{center}
+        \em
+    }
+    {
+    \end{center}
+    }
+
+%%%%%% MACROS %%%%%%%%%
+%% New Commands
+\newcommand{\ip}[1]{\langle#1\rangle} %%% Inner product
+\newcommand{\abs}[1]{\lvert#1\rvert} %%% Modulus
+\newcommand\diag{\operatorname{diag}} %%% diag matrix
+\newcommand\tr{\mbox{tr}\.} %%% trace
+\newcommand\C{\mathbb C} %%% Complex numbers
+\newcommand\R{\mathbb R} %%% Real numbers
+\newcommand\Z{\mathbb Z} %%% Integers
+\newcommand\Q{\mathbb Q} %%% Rationals
+\newcommand\N{\mathbb N} %%% Naturals
+\newcommand\F{\mathbb F} %%% An arbitrary field
+\newcommand\ste{\operatorname{St}} %%% Steinberg Representation
+\newcommand\GL{\mathbf{GL}} %%% General Linear group
+\newcommand\SL{\mathbf{SL}} %%% Special linear group
+\newcommand\gl{\mathfrak{gl}} %%% General linear algebra
+\newcommand\G{\mathbf{G}} %%% connected reductive group
+\newcommand\g{\mathfrak{g}} %%% Lie algebra of G
+\newcommand\Hbf{\mathbf{H}} %%% Theta fixed points of G
+\newcommand\X{\mathbf{X}} %%% Symmetric space X
+\newcommand{\catname}[1]{\normalfont\textbf{#1}}
+\newcommand{\Set}{\catname{Set}} %%% Category set
+\newcommand{\Grp}{\catname{Grp}} %%% Category group
+\newcommand{\Rmod}{\catname{R-Mod}} %%% Category r-modules
+\newcommand{\Mon}{\catname{Mon}} %%% Category monoid
+\newcommand{\Ring}{\catname{Ring}} %%% Category ring
+\newcommand{\Topp}{\catname{Top}} %%% Category Topological spaces
+\newcommand{\Vect}{$\catname{Vect}_{\mathcal{k}}$} %%% category vector spaces'
+\newcommand\Hom{\mathbf{Hom}} %%% Arrows
+
+\newcommand{\map}[2]{\begin{array}{c} #1 \\ #2 \end{array}}
+
+\newcommand{\Emph}[1]{\textbf{\ul{\emph{#1}}}}
+
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+
+
+%% Math operators
+\DeclareMathOperator{\ran}{Im} %%% image
+\DeclareMathOperator{\aut}{Aut} %%% Automorphisms
+\DeclareMathOperator{\spn}{span} %%% span
+\DeclareMathOperator{\ann}{Ann} %%% annihilator
+\DeclareMathOperator{\rank}{rank} %%% Rank
+\DeclareMathOperator{\ch}{char} %%% characteristic
+\DeclareMathOperator{\ev}{\bf{ev}} %%% evaluation
+\DeclareMathOperator{\sgn}{sign} %%% sign
+\DeclareMathOperator{\id}{Id} %%% identity
+\DeclareMathOperator{\supp}{Supp} %%% support
+\DeclareMathOperator{\inn}{Inn} %%% Inner aut
+\DeclareMathOperator{\en}{End} %%% Endomorphisms
+\DeclareMathOperator{\sym}{Sym} %%% Group of symmetries
+
+\newdateformat{monthdayyeardate}{%
+    \monthname[\THEMONTH]~\THEDAY, \THEYEAR}
+%%%%%%%%%%%%%%%%%%%%%%%
