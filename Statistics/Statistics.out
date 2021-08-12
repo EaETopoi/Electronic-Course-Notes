@@ -1,0 +1,75 @@
+\BOOKMARK [0][-]{chapter.1}{Probability}{}% 1
+\BOOKMARK [1][-]{section.1.1}{\247Introduction to Probability and Inference}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{\247Combinatorial Tools}{section.1.1}% 3
+\BOOKMARK [1][-]{section.1.2}{\247Conditional Probability}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{\247Laws of Probability}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{\247The Event-Comparison Method}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.5}{\247Bayes Theorem and The Law of Total Probability}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.6}{\247Numerical Events and Random Sampling}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Discrete Random Variables}{}% 9
+\BOOKMARK [1][-]{section.2.1}{\247Basic Definitions: DRV}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{\247Probability Distribution Definition for a DRV}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{\247Functions of a Random Variable}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{\247The Binomial Probability Distribution}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.5}{\247The Geometric Probability Distribution}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.6}{\247Negative Binomial Distribution}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.7}{\247The Hypergeometric Probability Distribution}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.8}{\247The Poisson Probability Distribution}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.9}{\247Moments and Moment-Generating Functions}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.10}{\247Tchebysheff's Theorem \(Discrete\)}{chapter.2}% 19
+\BOOKMARK [0][-]{chapter.3}{Continuous Random Variables}{}% 20
+\BOOKMARK [1][-]{section.3.1}{\247The Probability Distribution for a Continuous Random Variable}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.2}{\247Expected Values for Continuous Random Variables}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.3}{\247The Uniform Probability Distribution}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.4}{\247The Normal Probability Distribution}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.5}{\247The Gamma Probability Distribution}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.5.1}{The Chi-Square Probability Distribution}{section.3.5}% 26
+\BOOKMARK [2][-]{subsection.3.5.2}{The Exponential Probability Distribution}{section.3.5}% 27
+\BOOKMARK [1][-]{section.3.6}{\247The Beta Probability Distribution}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.7}{\247Tchebysheff's Theorem \(Continuous\)}{chapter.3}% 29
+\BOOKMARK [0][-]{chapter.4}{Multivariate Probability Distributions}{}% 30
+\BOOKMARK [1][-]{section.4.1}{\247Bivariate and Multivariate Probability Distributions}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.2}{\247Marginal and Conditional Probability Distributions}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.3}{\247Independent Variables}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.4}{\247The Covariance of Two Random Variables}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.5}{\247The Expected Value and Variance of Linear Functions of Random Variables}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.6}{\247Bivariate Normal Distribution}{chapter.4}% 36
+\BOOKMARK [0][-]{chapter.5}{Functions of Random Variables}{}% 37
+\BOOKMARK [1][-]{section.5.1}{\247Probability Distributions of Functions of Random Variables}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.2}{\247The Method of Distribution Functions}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.3}{\247The Method of Transformations}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.4}{\247Method of Moment-Generating Functions}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.5}{\247Multivariate Transformations}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.6}{\247Order Statistics}{chapter.5}% 43
+\BOOKMARK [0][-]{chapter.6}{Central Limit Theorem and Sampling}{}% 44
+\BOOKMARK [1][-]{section.6.1}{\247Sampling Distributions Related to the Normal Distribution}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.2}{\247The Central Limit Theorem}{chapter.6}% 46
+\BOOKMARK [0][-]{chapter.7}{Estimation}{}% 47
+\BOOKMARK [1][-]{section.7.1}{\247The Bias and Mean Square Error of Point Estimators}{chapter.7}% 48
+\BOOKMARK [1][-]{section.7.2}{\247Common Unbiased Point Estimators}{chapter.7}% 49
+\BOOKMARK [1][-]{section.7.3}{\247Evaluating the Goodness of a Point Estimator}{chapter.7}% 50
+\BOOKMARK [1][-]{section.7.4}{\247Confidence Intervals}{chapter.7}% 51
+\BOOKMARK [1][-]{section.7.5}{\247Large-Sample Confidence Intervals}{chapter.7}% 52
+\BOOKMARK [1][-]{section.7.6}{\247Selecting the Sample Size}{chapter.7}% 53
+\BOOKMARK [1][-]{section.7.7}{\247Small-Sample Confidence Intervals for Means and Mean Differences}{chapter.7}% 54
+\BOOKMARK [1][-]{section.7.8}{\247Large Normally Distributed Data and Two Sample Confidence Intervals}{chapter.7}% 55
+\BOOKMARK [1][-]{section.7.9}{\247Confidence Intervals for Variance}{chapter.7}% 56
+\BOOKMARK [0][-]{chapter.8}{Properties of Point Estimators and Methods of Estimation}{}% 57
+\BOOKMARK [1][-]{section.8.1}{\247Relative Efficiency}{chapter.8}% 58
+\BOOKMARK [1][-]{section.8.2}{\247Consistency}{chapter.8}% 59
+\BOOKMARK [1][-]{section.8.3}{\247The Method of Moments}{chapter.8}% 60
+\BOOKMARK [1][-]{section.8.4}{\247The Method of Maximum Likelihood}{chapter.8}% 61
+\BOOKMARK [0][-]{chapter.9}{Hypothesis Testing}{}% 62
+\BOOKMARK [1][-]{section.9.1}{\247Common Large-Sample Tests}{chapter.9}% 63
+\BOOKMARK [1][-]{section.9.2}{\247Common Confidence Intervals}{chapter.9}% 64
+\BOOKMARK [1][-]{section.9.3}{\247The Power of a Statistical Test}{chapter.9}% 65
+\BOOKMARK [1][-]{section.9.4}{\247Power of Tests and the Neyman-Pearson Lemma}{chapter.9}% 66
+\BOOKMARK [1][-]{section.9.5}{\247Likelihood Ratio Test}{chapter.9}% 67
+\BOOKMARK [0][-]{chapter.10}{Linear Models and Estimation by Least Squares}{}% 68
+\BOOKMARK [1][-]{section.10.1}{\247Linear Statistical Models}{chapter.10}% 69
+\BOOKMARK [1][-]{section.10.2}{\247Method of Least Squares}{chapter.10}% 70
+\BOOKMARK [2][-]{subsection.10.2.1}{Evaluating the Quality of the Linear Relationship}{section.10.2}% 71
+\BOOKMARK [1][-]{section.10.3}{\247Inferences Concerning the Parameters}{chapter.10}% 72
+\BOOKMARK [1][-]{section.10.4}{\247Simple Linear Regression}{chapter.10}% 73
+\BOOKMARK [1][-]{section.10.5}{\247Correlation}{chapter.10}% 74
+\BOOKMARK [1][-]{section.10.6}{\247Simple Linear Regressio: Bivariate Data}{chapter.10}% 75

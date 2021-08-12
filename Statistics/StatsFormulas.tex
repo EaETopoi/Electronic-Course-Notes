@@ -1,0 +1,1136 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\input{../book_packages}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt       
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%% TITLE PAGE %%%%%
+
+\begin{titlepage}
+    \centering
+    \scshape
+    \vspace*{\baselineskip}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}
+    
+    \vspace{0.75\baselineskip}
+    
+    {\LARGE Statistics: Formula Sheet}
+    
+    \vspace{0.75\baselineskip}
+    
+    \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+    \rule{\textwidth}{1.6pt}
+    
+    \vspace{2\baselineskip}
+    Stats \\
+    \vspace*{3\baselineskip}
+    \monthdayyeardate\today \\
+    \vspace*{5.0\baselineskip}
+    
+    {\scshape\Large Elijah Thompson, \\ Physics and Math Honors\\}
+    
+    \vspace{1.0\baselineskip}
+    \textit{Solo Pursuit of Learning}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Probability Basics}
+
+\section{Terminology}
+
+\begin{defn}{}{}
+    A \Emph{random experiment} is a process that leads to a single outcome, which cannot be predicted with certainty.
+\end{defn}
+
+
+\begin{defn}{}{}
+    A \Emph{sample space} (denoted $\mathbf{S}$) is the collection of all possible outcomes for a given experiment.
+\end{defn}
+
+\begin{defn}{}{}
+    An \Emph{event} is a subset of the sample space $\mathbf{S}$ for a given experiment.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The \Emph{probability} of an event $\mathbf{X}$, denoted $P(\mathbf{X})$, is the measurement of the likelihood that $\mathbf{X}$ will occur when an experiment is performed.
+\end{defn}
+
+\begin{cust*}[separator sign = {}]{Axioms of Probability}{}
+    Suppose event $\mathbf{A}$ is a subset of a sample space $\mathbf{S}$. Then:\begin{itemize}[leftmargin = 1in]
+        \item[\textbf{Axiom 1:}] $0\leq P(\mathbf{A})\leq 1$
+        \item[\textbf{Axiom 2:}] $P(\mathbf{S}) = 1$
+        \item[\textbf{Axiom 3:}] If $\mathbf{A}_1,\mathbf{A}_2,\mathbf{A}_3,...$ is a collection of events that do not share the same elements in $\mathbf{S}$ (i.e. they are mutually disjoint as sets), then \begin{equation*}
+                P\left(\bigcup\limits_{i=1}^{\infty}A_i\right) = \sum\limits_{i=1}^{\infty}P(\mathbf{A}_i)
+        \end{equation*}
+    \end{itemize}
+\end{cust*}
+
+
+\section{Set-Theoretic Identities}
+
+
+\begin{prop}{}{}
+    Let $\mathbf{A}$ be a subset of some universal set $\mathbf{S}$ of interest. Then the \Emph{complement rule} states that: \begin{equation*}
+        P(\mathbf{A}) + P(\mathbf{A}^C) = 1
+    \end{equation*}
+\end{prop}
+
+
+\begin{prop}{}{}
+    Let $\mathbf{A}$ and $\mathbf{B}$ be subsets of some universal set $\mathbf{S}$ of interest. Then the \Emph{additive rule} states that: \begin{equation*}
+        P(\mathbf{A}\cup\mathbf{B}) = P(\mathbf{A}) + P(\mathbf{A}^C) - P(\mathbf{A}\cap\mathbf{B})
+    \end{equation*}
+\end{prop}
+
+\begin{prop}{}{}
+    Let $\mathbf{A}$ and $\mathbf{B}$ be subsets of some universal set $\mathbf{S}$ of interest. Then the \Emph{law of total probability} states that: \begin{equation*}
+        P(\mathbf{A}) = P(\mathbf{A}\cap\mathbf{B}^C) + P(\mathbf{A}\cap\mathbf{B})
+    \end{equation*}
+\end{prop}
+
+
+
+\begin{namthm}{DeMorgan's Laws}{}
+    Let $\mathbf{A}$ and $\mathbf{B}$ be subsets of some universal set $\mathbf{S}$ of interest. Then the \Emph{DeMorgan's Laws} state that: \begin{equation*}
+        P(\mathbf{A}^C\cap\mathbf{B}^C) = P((\mathbf{A}\cup\mathbf{B})^C)
+    \end{equation*}
+    and \begin{equation*}
+        P(\mathbf{A}^C\cup\mathbf{B}^C) = P((\mathbf{A}\cap\mathbf{B})^C)
+    \end{equation*}
+\end{namthm}
+
+\begin{prop}{}{}
+    Let $\mathbf{A}$, $\mathbf{B}$, and $\mathbf{C}$ be subsets of some universal set $\mathbf{S}$ of interest. Then the \Emph{distributive laws} state that: \begin{equation*}
+        P(\mathbf{A}\cap(\mathbf{B}\cup\mathbf{C}) = P((\mathbf{A}\cap\mathbf{B})\cup(\mathbf{A}\cap\mathbf{C}))    
+    \end{equation*}
+    and \begin{equation*}
+        P(\mathbf{A}\cup(\mathbf{B}\cap\mathbf{C}) = P((\mathbf{A}\cup\mathbf{B})\cap(\mathbf{A}\cup\mathbf{C})) 
+    \end{equation*}
+    The \Emph{associative laws} state that: \begin{equation*}
+        P(\mathbf{A}\cap(\mathbf{B}\cap\mathbf{C}) = P((\mathbf{A}\cap\mathbf{B})\cap\mathbf{C})    
+    \end{equation*}
+    and \begin{equation*}
+        P(\mathbf{A}\cup(\mathbf{B}\cup\mathbf{C}) = P((\mathbf{A}\cup\mathbf{B})\cup\mathbf{C}) 
+    \end{equation*}
+\end{prop}
+
+
+\section{Conditional Probability}
+
+
+\begin{defn}{}{}
+    A \Emph{conditional probability} is a probability that reflects additional knowledge that may affect the outcome of an experiment.
+
+    Precisely, if $\mathbf{A}$ and $\mathbf{B}$ are events in a sample space $\mathbf{S}$, then the probability of $\mathbf{A}$ given $\mathbf{B}$, written $P(\mathbf{A}\vert\mathbf{B})$, is calculated by:\begin{equation*}
+        P(\mathbf{A}\vert\mathbf{B}) = \frac{P(\mathbf{A}\cap\mathbf{B})}{P(\mathbf{B})}
+    \end{equation*}
+    where $P(\mathbf{B}) > 0$.
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{A}$ and $\mathbf{B}$ be two events in a sample space $\mathbf{S}$. THen we say $\mathbf{A}$ and $\mathbf{B}$ are \Emph{independent} if and only if the three following equivalent conditions hold: \begin{enumerate}
+        \item $P(\mathbf{A}\vert\mathbf{B}) = P(\mathbf{A})$
+        \item $P(\mathbf{B}\vert\mathbf{A}) = P(\mathbf{B})$
+        \item $P(\mathbf{A}\cap\mathbf{B}) = P(\mathbf{A})P(\mathbf{B})$
+    \end{enumerate}
+\end{defn}
+
+\begin{prop}{}{}
+    If $\mathbf{A}$ and $\mathbf{B}$ are independent events, then so are $\mathbf{A}$ and $\mathbf{B}^C$, $\mathbf{A}^C$ and $\mathbf{B}$, and $\mathbf{A}^C$ and $\mathbf{B}^C$.
+\end{prop}
+
+
+\begin{defn}{}{}
+    A \Emph{contingency table} for two events $\mathbf{A}$ and $\mathbf{B}$ in a sample space $\mathbf{S}$ is given by:
+    \begin{table}[H]
+		\centering
+		\begin{tabular}{c||c|c||c}
+			& $\mathbf{A}$ & $\mathbf{A}^C$ & \\\hline\hline
+            $\mathbf{B}$ & $P(\mathbf{A}\cap\mathbf{B})$ & $P(\mathbf{A}^C\cap\mathbf{B})$ & $P(\mathbf{B})$ \\\hline
+            $\mathbf{B}^C$ & $P(\mathbf{A}\cap\mathbf{B}^C)$ & $P(\mathbf{A}^C\cap\mathbf{B}^C)$ & $P(\mathbf{B}^C)$ \\\hline\hline
+            & $P(\mathbf{A})$ & $P(\mathbf{A}^C)$ & $P(\mathbf{S})$
+		\end{tabular}
+	\end{table}
+\end{defn}
+
+\begin{namthm}{Law of Total Probability}{}
+    Let $\mathbf{A}_1,\mathbf{A}_2,...,\mathbf{A}_n$ be events which partition the sample space $\mathbf{S}$. That is, $$\bigcup\limits_{i=1}^n\mathbf{A}_i = \mathbf{S}$$
+    and $\mathbf{A}_i\cap\mathbf{A}_j =\emptyset$ for all $i \neq j$, and $P(\mathbf{A}_i) > 0$ for all $i$. Then \begin{equation*}
+        P(\mathbf{B}) = \sum\limits_{i=1}^nP(\mathbf{B}\cap\mathbf{A}_i) = \sum\limits_{i=1}^nP(\mathbf{B}\vert\mathbf{A}_i)P(\mathbf{A}_i)
+    \end{equation*}
+\end{namthm}
+
+
+\begin{namthm}{Bayes' Theorem}{}
+    Given events $\mathbf{A}_1,\mathbf{A}_2,...,\mathbf{A}_n$ which partition the sample space $\mathbf{S}$, for each event $\mathbf{B}$ with $P(\mathbf{B}) > 0$ we have for each $j \in \{1,2,...,n\}$: \begin{equation*}
+        P(\mathbf{A}_j,\mathbf{B}) = \frac{P(\mathbf{A}_j\cap\mathbf{B})}{P(\mathbf{B})} = \frac{P(\mathbf{B}\vert\mathbf{A}_j)P(\mathbf{A}_j)}{\sum\limits_{i=1}^nP(\mathbf{B}\vert\mathbf{A}_i)P(\mathbf{A}_i)}
+    \end{equation*}
+\end{namthm}
+
+
+\begin{defn}{}{}
+    A \Emph{tree diagram} for two events $\mathbf{A}$ and $\mathbf{B}$, where $\mathbf{A}$ is a condition for $\mathbf{B}$ is given by: 
+    \begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+
+%Straight Lines [id:da24684006577735862] 
+\draw    (110,180) -- (160,220) ;
+%Straight Lines [id:da6495124487889197] 
+\draw    (110,180) -- (160,140) ;
+%Straight Lines [id:da8016873219117782] 
+\draw    (200,140) -- (240,170) ;
+%Straight Lines [id:da016234073114670178] 
+\draw    (200,140) -- (240,110) ;
+%Straight Lines [id:da6130662536830012] 
+\draw    (200,220) -- (240,250) ;
+%Straight Lines [id:da9838550223138658] 
+\draw    (200,220) -- (240,190) ;
+
+% Text Node
+\draw (165,132.4) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$P( A)$};
+% Text Node
+\draw (161,212.4) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$P\left( A^{C}\right)$};
+% Text Node
+\draw (241,102.4) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$P( B|A)$};
+% Text Node
+\draw (241,161.4) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$P\left( B^{C} |A\right)$};
+% Text Node
+\draw (241,182.4) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$P\left( B|A^{C}\right)$};
+% Text Node
+\draw (245,241.4) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$P\left( B^{C} |A^{C}\right)$};
+
+
+\end{tikzpicture}
+    \end{center}
+\end{defn}
+
+
+\section{Counting}
+
+\begin{prop}{}{}
+    Let $\{\mathbf{A}_i\}_{i=1}^n$ be a collection of a sample space $\mathbf{S}$. Then the set of events is \Emph{mutually independent} if and only if for every $k \leq n$, and every $k$-sized subset of events $\{B_i\}_{i=1}^k\subseteq \{A_i\}_{i=1}^k$ we have \begin{equation*}
+        P\left(\bigcap_{i=1}^k\mathbf{B}_i\right) = \prod\limits_{i=1}^kP(\mathbf{B}_i)
+    \end{equation*}
+\end{prop}
+
+\begin{prop}{}{}
+    The \Emph{multiplication principle} states that $\mathbf{A}_1,...,\mathbf{A}_n$ are events, then \begin{equation*}
+        |\mathbf{A}_1\times...\times\mathbf{A}_n| = |\mathbf{A}_1|\cdot...\cdot|\mathbf{A}_n|
+    \end{equation*}
+\end{prop}
+
+
+\begin{defn}{}{}
+    A \Emph{permutation} is an arrangement of objects in which \emph{order matters}. If there are a total of $n$ objects, the number of ways we can order $r$ of them is: \begin{equation*}
+        {}_{n}P_{r} = \frac{n!}{(n-r)!}
+    \end{equation*}
+\end{defn}
+
+
+
+\begin{defn}{}{}
+    A \Emph{combination} is an arrangement of objects in which \emph{order doesn't matters}. If there are a total of $n$ objects, the number of ways we can select $r$ of them is: \begin{equation*}
+        {}_{n}C_{r} = \binom{n}{r} =  \frac{n!}{r!(n-r)!}
+    \end{equation*}
+\end{defn}
+
+
+\begin{thm}{}{}
+    The \Emph{binomial theorem} states that \begin{equation*}
+        (x+y)^n = \sum\limits_{i=0}^n\binom{n}{i}x^{n-i}y^i
+    \end{equation*}
+\end{thm}
+
+\begin{defn}{}{}
+    The number of ways of partitioning $N$ objects into $k$ distinct groups containing $n_1,n_2,...,n_k$ objects, respectively, is given by the \Emph{multinomial coefficient} \begin{equation*}
+        \binom{N}{n_1n_2...n_k} := \binom{N}{n_1}\binom{N-n_1}{n_2}...\binom{N - \sum_{i=1}^{k-1}n_i}{n_k} = \frac{N!}{n_1!n_2!...n_k!}
+    \end{equation*}
+\end{defn}
+
+
+
+
+
+
+\chapter{Discrete Random Variables}
+
+
+\section{Basic Terminology}
+
+\begin{defn}{}{}
+    A \Emph{random variable} for a sample space $\mathbf{S}$ is a function \begin{equation*}
+        \mathbf{X}:\mathbf{S}\rightarrow \R
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    A \Emph{discrete random variable} is a function $\mathbf{X}:\mathbf{S}\rightarrow \R$ with a finite, or countably infinite, image. That is, the possible values $\mathbf{X}$ can take can be arranged in a (possibly infinite) sequence.
+\end{defn}
+
+
+\begin{defn}{}{}
+    A \Emph{continuous random variable} are functions $\mathbf{X}:\mathbf{S}\rightarrow \R$ in which the image of $\mathbf{X}$ is uncountable, and $\mathbf{X}$ satisfies certain other conditions to be discussed later.
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{probability distribution} of a discrete random variable is a listing or graph that specifies every possible value that a random variable can assume along with the probabilities associated with each of these values.
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{probability distribution table} for a finite random variable $\mathbf{X}$ is given by: 
+    \begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+            \hline
+		    $\mathbf{X} = x$ & $x_1$ & $x_2$ & $\hdots$ & $x_n$ \\\hline
+            $P(\mathbf{X} = x)$ & $P(\mathbf{X} = x_1)$ & $P(\mathbf{X} = x_2)$ & $\hdots$ & $P(\mathbf{X} = x_n)$ \\\hline
+        \end{tabular}
+	\end{table}
+    where $P(\mathbf{X} = x) = P(x) = p_{\mathbf{X}}(x)$ is the \Emph{probability mass function (pmf)} for $\mathbf{X}$, which assigns the likelihood that any event or element in the sample space can occur.
+\end{defn}
+
+\begin{defn}{}{}
+    The probability mass function for a discrete random variable $\mathbf{X}$ must satisfy the following conditions: \begin{enumerate}
+        \item $0<P(\mathbf{X}=x_i)<1$ for $i \in \{1,2,...,n\}$
+        \item $\sum\limits_{i=1}^nP(\mathbf{X}=x_i) = 1$
+    \end{enumerate}
+\end{defn}
+
+
+\begin{defn}{}{}
+    A \Emph{probability distribution graph} plots probability on the $y$-axis and the values of the random variable on the $x$-axis.
+
+    A \Emph{symmetric} graph is one that is invariant under reflection about some vertical line, located at it's ``middle."
+
+    A \Emph{right-skewed} graph is one that has a ``tail" pointing off in the right direction (the mass of the graph is on the left-hand side).
+
+    A \Emph{left-skewed} graph is one that has a ``tail" pointing off in the left direction (the mass of the graph is on the right-hand side).
+\end{defn}
+
+\section{Expected Values and Variance}
+
+\begin{defn}{}{}
+    The \Emph{expected value} of a discrete random variable $\mathbf{X}$ is the long-run average value of $\mathbf{X}$ over an infinite number of repetitions of an experiment: \begin{equation*}
+        E[\mathbf{X}] = \mu_{\mathbf{X}} = \mu = \sum\limits_{i=1}^nx_iP(\mathbf{X}=x_i)
+    \end{equation*}
+    where $x_i$ is the $i$th value that $\mathbf{X}$ can assume.
+\end{defn}
+
+\begin{prop}{}{}
+    Let $\mathbf{X}$ be a discrete random variable, and let $g(\mathbf{X})$ be a real-valued function of $\mathbf{X}$. Then the expected value of $g(\mathbf{X})$ is given by:
+    \begin{equation*}
+        E[g(\mathbf{X})] = \sum\limits_{all\;x}g(x)P(\mathbf{X} = x)
+    \end{equation*}
+\end{prop}
+
+\begin{prop}{}{}
+    Let $\mathbf{X}$ be a discrete random variable, $g(\mathbf{X}), g_1(\mathbf{X}),...,g_k(\mathbf{X})$ real-valued functions of $\mathbf{X}$, and $c \in \R$. Then: \begin{enumerate}
+        \item $E[c] = c$
+        \item $E[cg(\mathbf{X})] = cE[g(\mathbf{X})]$
+        \item $E\left[\sum\limits_{i=1}^kg_i(\mathbf{X})\right] = \sum\limits_{i=1}^kE[g_i(\mathbf{X})]$
+    \end{enumerate}
+\end{prop}
+
+\begin{defn}{}{}
+    The \Emph{variance} of a discrete random variable $\mathbf{X}$ is a measure of the variability of $\mathbf{X}$ over an infinite number of repetitions of an experiment. It determines the average squared deviation from the expected value of $\mathbf{X}$: \begin{equation*}
+        VAR[\mathbf{X}] = V[\mathbf{X}] = \sigma_{\mathbf{X}}^2 = \sigma^2 = E[(\mathbf{X}-\mu)^2] = E[\mathbf{X}^2] - E[\mathbf{X}]^2
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{standard deviation} of a discrete random variable $\mathbf{X}$ is another measure of variability of $\mathbf{X}$ and is the positive square root of the variance: \begin{equation*}
+        SD[\mathbf{X}] = \sigma_{\mathbf{X}} = \sigma = \sqrt{VAR[\mathbf{X}]}
+    \end{equation*}
+\end{defn}
+
+\begin{prop}{}{}
+    Let $\mathbf{X}$ be a discrete random variable and $c \in \R$. Then: \begin{enumerate}
+        \item $VAR[c] = 0$
+        \item $VAR[c\mathbf{X}] = c^2VAR[\mathbf{X}]$
+    \end{enumerate}
+\end{prop}
+
+
+\section{Bernoulli Random Variables}
+
+\begin{defn}{}{}
+    A scenario or experiment with the following characteristics produces a \Emph{Bernoulli random variable}: \begin{itemize}
+        \item The experiment consists of a single trial
+        \item The trial results in one of two outcomes (a ``success" or a ``failure")
+        \item The probability of a ``success" - denoted $p$ - is the same for all similar trials 
+        \item The \Emph{Bernoulli random variable} itself takes on a value of $1$ if a ``success" is achieved and a value of $0$ if a ``failure" is achieved
+    \end{itemize}
+    Such an experiment is called a \Emph{Bernoulli trial}.
+\end{defn}
+
+\begin{defn}{}{}
+    The values that define a random variable's probability distribution are called \Emph{parameters}.
+\end{defn}
+
+\begin{defn}{}{}
+    A Bernoulli random variable depends on one parameter: \begin{equation*}
+        p - \text{the probability of a success}
+    \end{equation*}
+    If a random variable $\mathbf{X}$ follows a Bernoulli distribution we write $$\mathbf{X}\sim Bernoulli(p)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pmf for a Bernoulli random variable $\mathbf{X}$ is \begin{equation*}
+        P(\mathbf{X} = x) = p^x(1-p)^{1-x} = \left\{\begin{array}{lc} 1-p, & x=0 \\ p, & x=1\end{array}\right.
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    The MGF for a Bernoulli random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = pe^t+(1-p)
+    \end{equation*}
+\end{defn}
+
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim Bernoulli(p)$. Then \begin{equation*}
+        E[\mathbf{X}] = p
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = p(1-p) = pq
+    \end{equation*}
+\end{defn}
+
+
+\section{Binomial Random Variables}
+
+\begin{defn}{}{}
+    A scenario or experiment with the following characteristics produces a \Emph{binomial random variable}: \begin{itemize}
+        \item The experiment consists of a fixed number of $n$ independent, identical Bernoulli trials
+        \item Each trial results in one of two outcomes (a ``success" or a ``failure")
+        \item The probability of a ``success" - denoted $p$ - is the same from trial to trial
+        \item The \Emph{binomial random variable} itself is the number of successes out of the $n$ trials
+    \end{itemize}
+\end{defn}
+
+
+\begin{defn}{}{}
+    A binomial random variable depends on two parameters: \begin{align*}
+        p &- \text{the probability of a success} \\
+        n &- \text{the number of trials}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a binomial distribution we write $$\mathbf{X}\sim binomial(n,p)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pmf for a binomial random variable $\mathbf{X}$ is \begin{equation*}
+        P(\mathbf{X} = x) = \binom{n}{x}p^x(1-p)^{n-x} 
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim binomial(n,p)$. Then \begin{equation*}
+        E[\mathbf{X}] = np
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = np(1-p) = npq
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for a binomial random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = [pe^t+(1-p)]^n
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim binomial(n,p)$. To find $P(\mathbf{X} = a)$ in $R$, write: \begin{equation*}
+        \text{dbinom(a, $size = n$, $prob = p$)}
+    \end{equation*}
+    To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{pbinom(a, $size = n$, $prob = p$)}\;\text{ or }\;\text{sum(dbinom(start:a, $size = n$, $prob = p$))}
+    \end{equation*}
+\end{defn}
+
+
+\section{Negative Binomial Random Variables}
+
+\begin{defn}{}{}
+    A scenario or experiment with the following characteristics produces a \Emph{negative binomial random variable}: \begin{itemize}
+        \item The experiment consists of independent, identical Bernoulli trials
+        \item Each trial results in one of two outcomes (a ``success" or a ``failure")
+        \item The probability of a ``success" - denoted $p$ - is the same from trial to trial
+        \item The \Emph{negative binomial random variable} itself is the number of trials needed to yield $r$ successes
+    \end{itemize}
+\end{defn}
+
+
+\begin{defn}{}{}
+    A negative binomial random variable depends on two parameters: \begin{align*}
+        p &- \text{the probability of a success} \\
+        r &- \text{the number of successes we are interested in observing}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a negative binomial distribution we write $$\mathbf{X}\sim negative\;binomial(r,p)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pmf for a binomial random variable $\mathbf{X}$ is \begin{equation*}
+        P(\mathbf{X} = x) = \binom{x-1}{r-1}p^r(1-p)^{x-r} 
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim negative\;binomial(r,p)$. Then \begin{equation*}
+        E[\mathbf{X}] = \frac{r}{p}
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \frac{r(1-p)}{p^2} = \frac{rq}{p^2}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for a negative binomial random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = \left[\frac{pe^t}{1-(1-p)e^t}\right]^r
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim negative\;binomial(r,p)$. To find $P(\mathbf{X} = a)$ in $R$, write: \begin{equation*}
+        \text{dnbinom(a-r, $size = r$, $prob = p$)}
+    \end{equation*}
+    To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{pnbinom(a-r, $size = r$, $prob = p$)}\;\text{ or }\;\text{sum(dnbinom(start:a-r, $size = r$, $prob = p$))}
+    \end{equation*}
+\end{defn}
+
+
+\section{Geometric Random Variables}
+
+\begin{defn}{}{}
+    A scenario or experiment with the following characteristics produces a \Emph{geometric random variable}: \begin{itemize}
+        \item The experiment consists of independent, identical Bernoulli trials
+        \item Each trial results in one of two outcomes (a ``success" or a ``failure")
+        \item The probability of a ``success" - denoted $p$ - is the same from trial to trial
+        \item The \Emph{geometric random variable} itself is the number of the trial on which the first success occurs
+    \end{itemize}
+\end{defn}
+
+
+\begin{defn}{}{}
+    A geometric random variable depends on one parameters: \begin{align*}
+        p &- \text{the probability of a success}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a geometric distribution we write $$\mathbf{X}\sim geometric(p)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pmf for a geometric random variable $\mathbf{X}$ is \begin{equation*}
+        P(\mathbf{X} = x) = (1-p)^{x-1}p 
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim geometric(p)$. Then \begin{equation*}
+        E[\mathbf{X}] = \frac{1}{p}
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \frac{(1-p)}{p^2} = \frac{q}{p^2}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for a geometric random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = \frac{pe^t}{1-(1-p)e^t}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim geometric(p)$. To find $P(\mathbf{X} = a)$ in $R$, write: \begin{equation*}
+        \text{dgeom(a-1, $prob = p$)}
+    \end{equation*}
+    To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{pgeom(a-1, $prob = p$)}\;\text{ or }\;\text{sum(dgeom(start:a-1, $prob = p$))}
+    \end{equation*}
+\end{defn}
+
+
+\section{Hypergeometric Random Variables}
+
+\begin{defn}{}{}
+    A scenario or experiment with the following characteristics produces a \Emph{hypergeometric random variable}: \begin{itemize}
+        \item The experiment involves randomly selecting $n$ elements (without replacement) from a total number of elements $N$
+        \item Each trial results in one of two outcomes (a ``success" or a ``failure")
+        \item The total number of ``successes" is known to be a certain number $r$
+        \item The \Emph{hypergeometric random variable} itself is the number of successes in the set of $n$ selected elements drawn from $N$
+    \end{itemize}
+\end{defn}
+
+
+\begin{defn}{}{}
+    A hypergeometric random variable depends on three parameters: \begin{align*}
+        r &- \text{the the total number of ``successes" in $N$} \\
+        N &- \text{the total number of elements we are drawing from (the ``population")} \\
+        n &- \text{the number of elements drawn from $N$ (the ``sample")}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a hypergeometric distribution we write $$\mathbf{X}\sim hyper\;geometric(r,N,n)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pmf for a binomial random variable $\mathbf{X}$ is \begin{equation*}
+        P(\mathbf{X} = x) = \frac{\binom{r}{x}\binom{N-r}{n-x}}{\binom{N}{n}}
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim negative\;binomial(r,p)$. Then \begin{equation*}
+        E[\mathbf{X}] = \frac{nr}{N}
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = n\cdot\frac{r}{N}\cdot\frac{N-r}{N}\cdot\frac{N-n}{N-1}
+    \end{equation*}
+\end{defn}
+
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim hyper\;geometric(r,N,k)$. To find $P(\mathbf{X} = a)$ in $R$, write: \begin{equation*}
+        \text{dhyper(a, $m = r$, $n = N-r$, $k = k$)}
+    \end{equation*}
+    To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{phyper(a, $m = r$, $n = N-r$, $k=k$)}\;\text{ or }\;\text{sum(dhyper(start:a, $m = r$, $n = N-r$, $k = k$)}
+    \end{equation*}
+\end{defn}
+
+\section{Poisson Random Variables}
+
+\begin{defn}{}{}
+    A scenario or experiment with the following characteristics produces a \Emph{Poisson random variable}: \begin{itemize}
+        \item The experiment involves an event occurring during a given interval (of time, area, distance, volume, etc.)
+        \item The probability that an event occurs in an interval is the same for all other equal intervals
+        \item The number of events that occur in one interval is independent of the number of events that occur in other intervals
+        \item There is a known average or expected number of events, $\lambda$, that occur during/in the interval
+        \item The \Emph{Poisson random variable} itself is the number of times an event has occurred in a given interval
+    \end{itemize}
+\end{defn}
+
+
+\begin{defn}{}{}
+    A Poisson random variable depends on one parameter: \begin{align*}
+        \lambda &- \text{the average number of events during a specified interval}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a Poisson distribution we write $$\mathbf{X}\sim Poisson(\lambda)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pmf for a Poisson random variable $\mathbf{X}$ is \begin{equation*}
+        P(\mathbf{X} = x) = \frac{\lambda^xe^{-\lambda}}{x!}
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim Poisson(\lambda)$. Then \begin{equation*}
+        E[\mathbf{X}] = \lambda
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \lambda
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for a Poisson random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = \operatorname{exp}[\lambda(e^t-1)]
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim Poisson(\lambda)$. To find $P(\mathbf{X} = a)$ in $R$, write: \begin{equation*}
+        \text{dpois(a, $lambda = lambda$)}
+    \end{equation*}
+    To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{ppois(a, $lambda = lambda$)}\;\text{ or }\;\text{sum(dpois(start:a, $lambda = lambda$))}
+    \end{equation*}
+\end{defn}
+
+
+
+\section{Moment-Generating Functions}
+
+\begin{defn}{}{}
+    The $k$th moment of a random variable $X$ about the origin (the \Emph{standardized moment}) is defined as $E[X^k]$ where \begin{equation*}
+        E[X^k] = \sum\limits_{\text{all } x} x^kP(X=x)
+    \end{equation*}
+    The $k$th moment of a random variable $X$ about its mean (the \Emph{central moment}) is defined as $E[(X-\mu)^k]$ where \begin{equation*}
+        E[(X-\mu)^k] = \sum\limits_{\text{all } x} (x-\mu)^kP(X=x)
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    The first standardized moment is the \Emph{mean}. It is a measure of central tendency and gives an idea of where our distribution is centered.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The second central moment is the \Emph{variance}. It is a measure of spread, and gives the squared deviation of the random variable from its mean.
+\end{defn}
+
+\begin{defn}{}{}
+    The third central moment is the \Emph{skewness}. It gives an idea of the symmetry of the probability distribution about the mean. A perfectly symmetric distribution will have a skewness of $0$, a left-skewed distribution will have a negative skewness, and a right-skewed distribution will have a positive skewness.
+\end{defn}
+
+\begin{defn}{}{}
+    The fourth central moment is \Emph{kurtosis}. It gives an idea of how ``thick" the tails of a distribution are in comparison to the normal distribution of the same variance.
+\end{defn}
+
+
+\begin{defn}{}{}
+    A \Emph{moment generating function} (MGF) is a function that allows us to find any moment of a distribution. In particular, for a random variable $X$ its MGF exists if there is a constant $b > 0$ such that for $|t| \leq b$ the expectation $E[e^{tX}]$ exists, and it is defined as: \begin{equation*}
+        M_X(t) = E[e^{tX}] = \left\{\begin{array}{lc} \sum\limits_{all\;x}e^{tx}P(X=x) & when\;discrete \\ \int e^{tx}P(X=x)dx & when\;continuous\end{array}\right.
+    \end{equation*}
+    We can find the $k$th moment of $X$ as follows: \begin{equation*}
+        E[X^k] = \frac{d^k}{dt^k}[M_X(t)]\Big\rvert_{t=0} = M_X^{(k)}(t)\Big\rvert_{t=0}
+    \end{equation*}
+\end{defn}
+
+\begin{rmk}{}{}
+    THe moment-generating function uniquely determines the distribution. In particular if $X$ and $Y$ are random variables with cdf $F_X$ and $F_Y$, then if $M_X(t) = M_Y(t)$ for all values of $t$, then $F_X(x) = F_Y(x)$ for all $x$.
+\end{rmk}
+     
+
+
+
+\chapter{Continuous Random Variables}
+
+
+\section{Basic Definitions: Continuous Random Variables}
+
+\begin{props}{}{}
+    Let $X$ be a continuous random variable. Then: \begin{itemize}
+        \item For all $x \in \R$, $P(X= x) = 0$.
+        \item For all $x \in \R$, $P(X\leq x) = P(X < x)$ and $P(X\geq x) = P(X > x)$.
+    \end{itemize}
+\end{props}
+
+
+\begin{defn}{}{}
+    The \Emph{cumulative distribution function} (cdf) $F(x)$ of a random variable $X$ gives the probability that $X$ will take a value less than or equal to that value $x$: \begin{equation*}
+        F(X = x) = F(x) = P(X\leq x)
+    \end{equation*}
+    If $X$ is continuous, then \begin{equation*}
+        F(x) = P(X\leq x) = P(X < x) = \int_{-\infty}^xf(t)dt
+    \end{equation*}
+    where $f(x) = \frac{d}{dx}F(x) = F'(x)$ is the \Emph{probability density function} (pdf) of $X$.
+\end{defn}
+
+\begin{rmk}{}{}
+    For a continuous random variable $X$ we have that \begin{equation*}
+        P(a\leq X\leq b) = P(X\leq b) - P(X<a) = F(b)-F(a) = \int_a^bf(x)dx
+    \end{equation*}
+\end{rmk}
+
+
+\begin{props}{}{}
+    Let $F(x)$ be a cdf. Then \begin{itemize}
+        \item $F(-\infty):= \lim\limits_{x\rightarrow -\infty}F(x) = 0$
+        \item $F(\infty) := \lim\limits_{x\rightarrow \infty}F(x) = 1$
+        \item $F(x)$ is a nondecreasing, nonnegative function of $x$, meaning that $x_1 < x_2 \implies F(x_1) < F(x_2)$
+    \end{itemize}
+    If $X$ is a continuous random variable, then: \begin{itemize}
+        \item $f(x) \geq 0$ for all $x \in \R$.
+        \item $\int_{-\infty}^{\infty}f(x)dx = 1$
+    \end{itemize}
+\end{props}
+
+
+\begin{defn}{}{}
+    The expected value for a continuous random variable $X$ is given by: \begin{equation*}
+        E[X] = \mu_X = \mu = \int_{-\infty}^{\infty}xf(x)dx
+    \end{equation*}
+    The limits of integration are called the \Emph{support} of $X$.
+\end{defn}
+
+\begin{thm}{}{}
+    Let $X$ be a continuous random variable with pdf $f(x)$ and let $g(X)$ be a real-valued function of $X$. Then the expected value of $g(X)$ is given by: \begin{equation*}
+        E[g(X)] = \int_{-\infty}^{\infty}g(x)f(x)dx
+    \end{equation*}
+\end{thm}
+
+\begin{defn}{}{}
+    The variance for a continuous random variable $X$ is defined as follows: \begin{equation*}
+        VAR[X] = V[X] = \sigma^2_X = \sigma^2 = E[(X-\mu)^2] = E[X^2]-(E[X])^2
+    \end{equation*}
+    The standard deviation of $X$ is defined as: \begin{equation*}
+        SD[X] = \sigma_X = \sigma = \sqrt{VAR[X]}
+    \end{equation*}
+\end{defn}
+
+\section{Uniform Random Variables}
+
+\begin{defn}{}{}
+    The continuous \Emph{uniform distribution} is a family of symmetric probability distributions such that all intervals of the same length on the distribution's support are equally likely/probable.
+\end{defn}
+
+\begin{defn}{}{}
+    A uniform random variable depends on two parameters: \begin{align*}
+        a &- \text{the minimum value of the support} \\
+        b &- \text{the maximum value of the support}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a uniform distribution we write $$\mathbf{X}\sim uniform(a,b)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pdf for a uniform random variable $\mathbf{X}$ is \begin{equation*}
+        f(x) = \left\{\begin{array}{cc} \frac{1}{b-a} & a \leq x \leq b \\ 0 & elsewhere \end{array}\right.
+    \end{equation*}
+    The cdf for a uniform  random variable $\mathbf{X}$ is \begin{equation*}
+        F(X = x) = P(X\leq x) =  \left\{\begin{array}{cc} 0 & x < a \\ \frac{x-a}{b-a} & a \leq x < b \\ 1 & x \geq b \end{array}\right.
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim uniform(a,b)$. Then \begin{equation*}
+        E[\mathbf{X}] = \frac{a+b}{2}
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \frac{(b-a)^2}{12}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for a uniform random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = \frac{e^{tb}-e^{ta}}{t(b-a)}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim uniform(a,b)$. To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{punif(a, $min = min$, $max = max$)}
+    \end{equation*}
+    To find $x_0$ such that $P(\mathbf{X} \leq x_0) = p$ in $R$, write: \begin{equation*}
+        \text{qunif(p, $min = min$, $max = max$)}
+    \end{equation*}
+\end{defn}
+
+
+
+\section{Normal Random Variables}
+
+\begin{defn}{}{}
+    The \Emph{normal or Gaussian distribution} is a family of symmetric probability distributions that are bell-shaped.
+\end{defn}
+
+Note not all bell-shaped distributions are normal.
+
+
+\begin{defn}{}{}
+    A normal random variable depends on two parameters: \begin{align*}
+        \mu &- \text{the mean} \\
+        \sigma &- \text{the standard deviation}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a normal distribution we write $$\mathbf{X}\sim normal(\mu,\sigma)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pdf for a normal random variable $\mathbf{X}$ is \begin{equation*}
+        f(x\vert\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-\mu)^2}{2\sigma^2}}
+    \end{equation*}
+    The cdf for a normal random variable $\mathbf{X}$ is \begin{equation*}
+        F(X = x) = P(X\leq x) = \int_{-\infty}^x\frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(t-\mu)^2}{2\sigma^2}}dt
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim normal(\mu,\sigma)$. Then \begin{equation*}
+        E[\mathbf{X}] = \mu \approx \frac{\sum_{i=1}^nx_i}{n}\;\;\;(\text{sample mean})
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \sigma \approx \frac{\sum_{i=1}^n(x_i-\mu)^2}{n}\;\;\;(\text{sample variance})
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for a normal random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = \operatorname{exp}\left\{\mu t + \frac{\sigma^2t^2}{2}\right\}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim normal(\mu,\sigma)$. To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{pnorm(a, $mean = \mu$, $sd = \sigma$)}
+    \end{equation*}
+    To find $x_0$ such that $P(\mathbf{X} \leq x_0) = p$ in $R$, write: \begin{equation*}
+        \text{qnorm(p, $mean = \mu$, $sd = \sigma$)}
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{standard normal distribution} is a special case of the normal distribution in which $\mu = 0$ and $\sigma = 1$. 
+
+    If we let $X$ be a normal random variable with mean $\mu$ and standard deviation $\sigma$, we define the \Emph{standardized score} or \Emph{z-score} of $X$ to be: \begin{equation*}
+        Z = \frac{X-\mu}{\sigma}
+    \end{equation*}
+\end{defn}
+
+\section{Gamma Random Variables}
+
+\begin{defn}{}{}
+    The \Emph{gamma distribution} is a two-parameter family of continuous probability distributions which are always non-negative and right-skewed.
+\end{defn}
+
+\begin{defn}{}{}
+    A gamma random variable depends on two parameters: \begin{align*}
+        \alpha &- \text{the shape parameter (a format of skewness)} \\
+        \beta &- \text{the scale parameter (breadth of viable scope)}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a gamma distribution we write $$\mathbf{X}\sim gamma(\alpha,\beta)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pdf for a gamma random variable $\mathbf{X}$ is \begin{equation*}
+        f(x\vert\alpha,\beta) = \frac{x^{\alpha-1}e^{-x/\beta}}{\beta^{\alpha}\Gamma(\alpha)}
+    \end{equation*}
+    The cdf for a gamma random variable $\mathbf{X}$ is \begin{equation*}
+        F(X = x) = P(X\leq x) = \int_{0}^x\frac{t^{\alpha-1}e^{-t/\beta}}{\beta^{\alpha}\Gamma(\alpha)}dt
+    \end{equation*}
+    where $\Gamma(\alpha)$ is the gamma function.
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{gamma function} is defined for all complex numbers $\alpha \in \C$ such that $\mathfrak{R}(\alpha) > 0$, and is defined by: \begin{equation*}
+        \Gamma(\alpha) = \int_0^{\infty}x^{\alpha - 1}e^{-x}dx,\;\;\;\;\mathfrak{R}(\alpha) > 0
+    \end{equation*}
+    The following are some properties of the gamma function: \begin{itemize}
+        \item $\Gamma(n) = (n-1)!$ for all $n \in \Z^+$
+        \item $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$ for all $\mathfrak{R}(\alpha) > 0$
+        \item $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$
+        \item By definition we have the identity: \begin{equation*}
+                \int_0^{\infty}x^{\alpha-1}e^{-x/\beta}dx = \beta^{\alpha}\Gamma(\alpha)
+        \end{equation*}
+            or equivalently \begin{equation*}
+                \int_0^{\infty}x^{\alpha}e^{-x/\beta}dx = \beta^{\alpha+1}\Gamma(\alpha+1)
+            \end{equation*}
+    \end{itemize}
+\end{defn}
+
+
+
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim gamma(\alpha,\beta)$. Then \begin{equation*}
+        E[\mathbf{X}] = \alpha\beta
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \alpha\beta^2
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for a gamma random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = (1-\beta t)^{-\alpha}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim gamma(\alpha,\beta)$. To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{pgamma(a, $shape = \alpha$, $scale = \beta$)} (or\;\; rate = 1/\beta)
+    \end{equation*}
+    To find $x_0$ such that $P(\mathbf{X} \leq x_0) = p$ in $R$, write: \begin{equation*}
+        \text{qgamma(p, $shape = \alpha$, $scale = \beta$)}
+    \end{equation*}
+\end{defn}
+
+
+\section{Exponential Random Variables}
+
+\begin{defn}{}{}
+    The \Emph{exponential distribution} is a special case of the gamma distribution when $\alpha = 1$
+\end{defn}
+
+\begin{defn}{}{}
+    An exponential random variable depends on one parameter: \begin{align*}
+        \beta &- \text{the scale parameter (breadth of viable scope)}
+    \end{align*}
+    In certain applications we write $\beta = 1/\lambda$ to emphasize the relationship between the Exponential and Poisson distributions. If a random variable $\mathbf{X}$ follows an exponential distribution we write $$\mathbf{X}\sim exponential(\beta)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pdf for an exponential random variable $\mathbf{X}$ is \begin{equation*}
+        f(x\vert\beta) = \frac{e^{-x/\beta}}{\beta}
+    \end{equation*}
+    The cdf for an exponential random variable $\mathbf{X}$ is \begin{equation*}
+        F(X = x) = P(X\leq x) = \int_{0}^x\frac{e^{-t/\beta}}{\beta}dt
+    \end{equation*}
+    A useful result is that for $x > 0$, \begin{equation*}
+        F(X = x) = 1 - e^{-x/\beta}
+    \end{equation*}
+\end{defn}
+
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim exponential(\beta)$. Then \begin{equation*}
+        E[\mathbf{X}] = \beta = \frac{1}{\lambda}
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \beta^2 = \frac{1}{\lambda^2}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The MGF for an exponential random variable $\mathbf{X}$ is: \begin{equation*}
+        M_{\mathbf{X}}(t) = (1-\beta t)^{-1}
+    \end{equation*}
+\end{defn}
+
+\begin{props}{}{}
+    If $X \sim exponential(\beta)$, then for any $a,b \in \R$, \begin{equation*}
+        P(X > t+s\vert X >t) = P(X > s)
+    \end{equation*}
+    and \begin{equation*}
+        P(X < t+s\vert X > t) = P(X < s)
+    \end{equation*}
+\end{props}
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim exponential(\beta)$. To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{pexp(a, $rate = 1/\beta$)} 
+    \end{equation*}
+    To find $x_0$ such that $P(\mathbf{X} \leq x_0) = p$ in $R$, write: \begin{equation*}
+        \text{qexp(p, $rate = 1/\beta$)}
+    \end{equation*}
+\end{defn}
+
+
+
+
+\section{Beta Random Variables}
+
+\begin{defn}{}{}
+    The \Emph{beta distribution} is a two-parameter family of continuous probability distributions defined on the interval $[0,1]$. 
+\end{defn}
+
+\begin{defn}{}{}
+    A beta random variable depends on two parameters: \begin{align*}
+        \alpha &- \text{a shape parameter} \\
+        \beta &- \text{a shape parameter}
+    \end{align*}
+    If a random variable $\mathbf{X}$ follows a beta distribution we write $$\mathbf{X}\sim beta(\alpha,\beta)$$
+\end{defn}
+
+\begin{defn}{}{}
+    The pdf for a beta random variable $\mathbf{X}$ is \begin{equation*}
+        f(x\vert\alpha,\beta) = \left\{\begin{array}{cc} \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)} & 0 \leq x \leq 1 \\ 0 & elsewhere, \end{array}\right.
+    \end{equation*}
+    The cdf for a beta random variable $\mathbf{X}$ is \begin{equation*}
+        F(X = x) = P(X\leq x) = \int_{0}^x\frac{t^{\alpha-1}(t-1)^{\beta-1}}{B(\alpha,\beta)}dt
+    \end{equation*}
+    where $B(\alpha,\beta)$ is the beta function.
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{beta function} is defined for all complex numbers $\alpha,\beta \in \C$ such that $\mathfrak{R}(\alpha),\mathfrak{R}(\beta) > 0$, and is defined by: \begin{equation*}
+        B(\alpha,\beta) = \int_0^1x^{\alpha-1}(1-x)^{\beta-1}dx = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}
+    \end{equation*}
+\end{defn}
+
+
+
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim beta(\alpha,\beta)$. Then \begin{equation*}
+        E[\mathbf{X}] = \frac{\alpha}{\alpha+\beta}
+    \end{equation*}
+    and
+    \begin{equation*}
+        VAR[\mathbf{X}] = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+    \end{equation*}
+\end{defn}
+
+
+
+\begin{defn}{}{}
+    Let $\mathbf{X}\sim beta(\alpha,\beta)$. To find $P(\mathbf{X} \leq a)$ in $R$, write: \begin{equation*}
+        \text{pbeta(a, $shape1 = \alpha$, $shape2 = \beta$)}
+    \end{equation*}
+    To find $x_0$ such that $P(\mathbf{X} \leq x_0) = p$ in $R$, write: \begin{equation*}
+        \text{qbeta(p, $shape1 = \alpha$, $shape2 = \beta$)}
+    \end{equation*}
+\end{defn}
+
+\chapter{Bivariate Probabilities}
+
+\section{Bivariate Data Structures}
+
+\begin{defn}{}{}
+    The \Emph{joint probability function} for discrete random variables $X$ and $Y$ is \begin{equation*}
+        P(X = x\cap Y = y) = P(X = x, Y = y)
+    \end{equation*}
+    and it has the following properties: \begin{enumerate}
+        \item $0 \leq p(x,y) \leq 1$; $\forall x \in Dom(X), \forall y \in Dom(Y)$.
+        \item $\sum\limits_{all\;x}\sum\limits_{all\;y}p(x,y) = 1$
+    \end{enumerate}
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{joint distribution function} for discrete random variables $X$ and $Y$ is \begin{equation*}
+        F(X = x\cap Y = y) = P(X \leq x, Y \leq y) = \sum\limits_{t_1\leq x}\sum\limits_{t_2\leq y}p(t_1,t_2)
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Two random variables are \Emph{jointly continuous} if there exist a \Emph{joint density function} $f(x,y)$ which satisfies the density function axioms: \begin{enumerate}
+        \item $f(x,y) \geq 0$, $\forall x \in Dom(X),\forall y \in Dom(Y)$
+        \item $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dxdy =1$
+    \end{enumerate}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The \Emph{joint distribution function} for joint continuous random variables $X$ and $Y$ is \begin{equation*}
+        F(X = x\cap Y = y) = P(X \leq x, Y \leq y) = \int_{-\infty}^x\int_{-\infty}^yf(t_1,t_2)dt_2dt_1
+    \end{equation*}
+\end{defn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%-------------- End ---------------
+
+\end{document}

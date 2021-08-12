@@ -1,0 +1,3307 @@
+\documentclass[12pt, a4paper, twoside, openright, titlepage]{book}
+\usepackage[utf8]{inputenc}
+\raggedbottom
+\input{../book_packages}
+
+
+%%%%%% BEGIN %%%%%%%%%%
+
+
+\begin{document}
+
+%%%%%% TITLE PAGE %%%%%
+
+\begin{titlepage}
+    \centering
+    \scshape
+    \vspace*{\baselineskip}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}
+    
+    \vspace{0.75\baselineskip}
+    
+    {\LARGE Statistics: A Probabilistic Adventure}
+    
+    \vspace{0.75\baselineskip}
+    
+    \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+    \rule{\textwidth}{1.6pt}
+    
+    \vspace{2\baselineskip}
+    Stats \\
+    \vspace*{3\baselineskip}
+    \monthdayyeardate\today \\
+    \vspace*{5.0\baselineskip}
+    
+    {\scshape\Large Elijah Thompson, \\ Physics and Math Honors\\}
+    
+    \vspace{1.0\baselineskip}
+    \textit{Solo Pursuit of Learning}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%% P1
+\chapter{Probability}
+
+\section{\textsection Introduction to Probability and Inference}
+
+\begin{defn}{}{}
+    An \Emph{experiment} is the process by which observation is made.
+\end{defn}
+
+\begin{defn}{}{}
+    The possible outcomes of an experiment are called \Emph{events}.
+
+    An event which can be decomposed into other events is called a \Emph{compound event}.
+\end{defn}
+
+\begin{defn}{}{}
+    A \Emph{simple event} is an event that cannot be decomposed. Each simple event corresponds to one and only one \Emph{sample point}. 
+
+    In particular, a simple event is a singleton containing its sample point.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The \Emph{sample space} associated with an experiment is the set consisting of all possible sample points.
+\end{defn}
+
+
+\begin{defn}{}{}
+    A \Emph{discrete sample space} is one that contains either a finite or a countable number of distinct sample points.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    All distinct simple events correspond to mutually exclusive sets of simple events, and are thus mutually exclusive events.
+\end{rmk}
+
+\begin{defn}{}{}
+    An \Emph{event} in a discrete sample space $S$ is a collection of sample points\---that is a subset of $S$.
+\end{defn}
+
+\begin{defn}{Probability Model 1}{}
+    Suppose $S$ is a sample space associated with an experiment. To every event $A \subseteq S$, we assign a number, $P(A)$, called the \Emph{probability of $A$}, such that the following axioms hols \begin{enumerate}
+        \item[] \textbf{Axiom 1}: $0 \leq P(A) \leq 1$
+        \item[] \textbf{Axiom 2}: $P(S) = 1$
+        \item[] \textbf{Axiom 3}: If $A_1,A_2,A_3,...$ form a sequence of pairwise mutually exclusive events in $S$ (that is, $A_i\cap A_j =\emptyset$ if $i \neq j$), then \begin{equation}
+                P(A_1\cup A_2\cup A_3\cup ...) = \sum\limits_{i=1}^{\infty}P(A_i)
+        \end{equation}
+    \end{enumerate}
+    Axiom 3 also applies for a finite sequence $A_1,A_2,...,A_n$ of pairwise mutually exclusive events:\begin{equation}
+        P(A_1\cup A_2\cup ... \cup A_n) = \sum\limits_{i=1}^nP(A_i)
+    \end{equation}
+\end{defn}
+
+
+\begin{defn}{Sample-point Method}{}
+    To find the probability of an event with the sample-point method we proceed as follows:\begin{enumerate}
+        \item Define the experiment and clearly determine how to describe one simple event.
+        \item List the simple events associated with the experiment and test to make certain that it cannot be decomposed. This defines the sample space $S$.
+        \item Assign reasonable probabilities to the sample points in $S$, making certain that $0 \leq P(E_i) \leq 1$ and $\sum P(E_i) = P(S) = 1$.
+        \item Define the event of interest, $A$, as a specific collection of sample points.
+        \item Find $P(A)$ by summing the probabilities of the sample points in $A$.
+    \end{enumerate}
+\end{defn}
+
+
+\subsection{\textsection Combinatorial Tools}
+
+\begin{thm}{}{}
+    With $m$ elements $a_1,a_2,...,a_m$ and $n$ elements $b_1,b_2,...,b_n$, it is possible to form $mn = m\times n$ pairs containing one element from each group.
+\end{thm}
+
+\begin{defn}{}{}
+    An ordered arrangement of $r$ distinct objects is called a \Emph{permutation}. The number of ways of ordering $n$ distinct objects taken $r$ at a time will be designated by the symbol $P_r^n$.
+\end{defn}
+
+\begin{thm}{}{}
+    For $n \geq r$, we have that \begin{equation}
+        P_r^n = \frac{n!}{(n-r)!}
+    \end{equation}
+\end{thm}
+
+
+\begin{thm}{}{}
+    The number of ways of partitioning $n$ distinct objects into $k$ distinct groups containing $n_1,n_2,...,n_k$ objects, respectively, where each object appears in exactly one group and $\sum_{i=1}^kn_i = n$, is\begin{equation}
+        N = \binom{n}{n_1n_2...n_k} = \frac{n!}{n_1!n_2!...n_k!}
+    \end{equation}
+\end{thm}
+
+\begin{defn}{}{}
+    The number of \Emph{combinations} of $n$ objects taken $r$ at a time is the number of subsets, each of size $r$, that can be formed from the $n$ objects. This number will be denoted by $C_r^n$ or $\binom{n}{r}$.
+\end{defn}
+
+
+\begin{thm}{}{}
+    The number of unordered subsets of size $r$ chosen from $n$ available objects is \begin{equation}
+        \binom{n}{r} = C_r^n = \frac{P_r^n}{r!} = \frac{n!}{r!(n-r)!}
+    \end{equation}
+\end{thm}
+
+
+\section{\textsection Conditional Probability}
+
+\begin{defn}{}{}
+    The \Emph{conditional probability} of an event is the probability (relative frequency of occurence) of the event given the fact that one or more events have already occured. In particular, the conditional probability of an event $A$, given that an event $B$ has occured, is equal to \begin{equation}
+        P(A\vert B) = \frac{P(A\cap B)}{P(B)}
+    \end{equation}
+    provided $P(B) > 0$. The symbol $P(A\vert B)$ is read ``probability of $A$ given $B$."
+\end{defn}
+
+
+\begin{defn}{}{}
+    Two events $A$ and $B$ are said to be \Emph{independent} if any one of the following holds: \begin{align*}
+        P(A\vert B) &= P(A) \\
+        P(B\vert A) &= P(B) \\
+        P(A\cap B) &= P(A)P(B)
+    \end{align*}
+    Otherwise, the events are said to be \Emph{dependent}
+\end{defn}
+
+\section{\textsection Laws of Probability}
+
+\begin{thm}{Multiplicative Law of Probability}{}
+    The probability of the intersection of two events $A$ and $B$ is \begin{equation}
+        P(A\cap B) = \left\{\begin{array}{c} P(A)P(B\vert A) \\ P(B)P(A\vert B)\end{array}\right.
+    \end{equation}
+    If $A$ and $B$ are independent, then \begin{equation}
+        P(A\cap B) = P(A)P(B)
+    \end{equation}
+\end{thm}
+
+
+\begin{thm}{Additive Law of Probability}{}
+    The probability of the union of two events $A$ and $B$ is \begin{equation}
+        P(A\cup B) = P(A) + P(B) - P(A\cap B)
+    \end{equation}
+    If $A$ and $B$ are mutually exclusive events, $P(A\cap B) = 0$ and \begin{equation}
+        P(A\cup B) = P(A) + P(B)
+    \end{equation}
+\end{thm}
+
+
+\begin{thm}{}{}
+    If $A$ is an event, then \begin{equation}
+        P(A) = 1 - P(A^C)
+    \end{equation}
+\end{thm}
+
+
+\section{\textsection The Event-Comparison Method}
+
+\begin{defn}{Event-Comparison Method}{}
+    The event-comparison method is executed as follows: \begin{enumerate}
+        \item Define the experiment.
+        \item Visualize the nature of the sample points. Identify a few to clarify your thinking.
+        \item Write an equation expressing the event of interest, say $A$, as a composition of two or more events, using unions, intersections, and/or complements. Make certain that event $A$ and the event implied by the composition represent the same set of sample points.
+        \item Apply the additive and multiplicative laws of probability to the compositions obtained in step $3$ to find $P(A)$.
+    \end{enumerate}
+\end{defn}
+
+
+
+\section{\textsection Bayes Theorem and The Law of Total Probability}
+
+\begin{defn}{}{}
+    For some positive integer $k$, let the sets $B_1,B_2,...,B_k$ be such that \begin{enumerate}
+        \item $S = B_1 \cup ...\cup B_k$
+        \item $B_i\cap B_j = \emptyset$ for $i \neq j$
+    \end{enumerate}
+    Then the collection of sets $\{B_1,...,B_k\}$ is said to be a \Emph{partition} of $S$.
+\end{defn}
+
+\begin{rmk}{}{}
+    If $A \subseteq S$ and $\{B_1,...,B_k\}$ is a partition of $S$, then $A$ can be decomposed as \begin{equation*}
+        A = \bigcup\limits_{i=1}^k(A\cap B_i)
+    \end{equation*}
+\end{rmk}
+
+
+\begin{thm}{}{}
+    Assume that $\{B_1,...,B_k\}$ is a partition of $S$ such that $P(B_i) > 0$, for $i \in \{1,...,k\}$. Then for any event $A$:\begin{equation*}
+        P(A) = \sum\limits_{i=1}^kP(A\vert B_i)P(B_i)
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    Note any subset $A$ of $S$ can be written as \begin{equation*}
+        A = A\cap S = \bigcup\limits_{i=1}^k(A\cap B_i)
+    \end{equation*}
+    Note that because $\{B_1,...,B_k\}$ is a partition of $S$, for $i \neq j$\begin{equation*}
+        (A\cap B_i)\cap(A\cap B_j) = A\cap(B_i\cap B_j) = A\cap \emptyset = \emptyset
+    \end{equation*}
+    so these events are mutually exclusive. Thus by axiom $3$ of probabilities: \begin{align*}
+        P(A) &= \sum\limits_{i=1}^kP(A\cap B_i) \\
+        &= \sum\limits_{i=1}^lP(A\vert B_i)P(B_i)
+    \end{align*}
+    as desired.
+\end{proof*}
+
+
+\begin{namthm}{Bayes' Rule}{}
+    Assume that $\{B_1,...,B_k\}$ is a partition of $S$ such that $P(B_i) > 0$ for each $i \in \{1,...,k\}$. Then \begin{equation}
+        P(B_j\vert A) = \frac{P(B_j\cap A)}{P(A)} = \frac{P(A\vert B_j)P(B_j)}{\sum_{i=1}^kP(A\vert B_i)P(B_i)}
+    \end{equation}
+\end{namthm}
+
+
+\section{\textsection Numerical Events and Random Sampling}
+
+\begin{defn}{}{}
+    A \Emph{random variable} is a real-valued function for which the domain is the sample space.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    If $y$ denotes an observed value of the random variable $Y$, then $P(Y=y)$ is the sum of the probabilities of the sample points $E_i$ for which $Y(E_i) = y$.
+\end{rmk}
+
+\begin{defn}{}{}
+    Let $N$ and $n$ represent the numbers of elements in the population and sample, respectively. If the sampling is conducted in such a way that each of the $\binom{N}{n}$ samples has an equal probability of being selected, the sampling is said to be random, and the result is said to be a \Emph{random sample}.
+\end{defn}
+
+
+%%%%%%%%%%%%%%%%%%%% P2
+\chapter{Discrete Random Variables}
+
+
+\section{\textsection Basic Definitions: DRV}
+
+\begin{rec}{}{}
+    Recall that a \Emph{random variable} is a real-valued function defined over the sample space of the experiment. A random variable can be used to identitfy numerical events that are of interest in an experiment. 
+\end{rec}
+
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to be \Emph{discrete} if it can assume only a finite or countably infinite number of distinct values.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    The collection of probabilities for each value of a random variable is called the \Emph{probability distribution} of the discrete random variable.
+\end{rmk}
+
+\section{\textsection Probability Distribution Definition for a DRV}
+
+\begin{nota*}{}{}
+    For a random variable $Y$ and a specified observed value $y$, the expression $(Y=y)$ denotes \emph{the set of all points in $S$ assigned the value of $y$ by the random variable $Y$}.
+\end{nota*}
+
+\begin{defn}{}{}
+    The probability that $Y$ takes on the value $y$, $P(Y=y)$, is defined as the \emph{sum of the probabilites of all sample points in $S$} that are assigned the value of $y$. We sometimes denote $P(Y=y)$ by $p(y)$, and call $P$ the \emph{probability function} for $Y$.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The \Emph{probability distribution} for a discrete variable $Y$ can be represented by a formula, a table, or a graph that provides $p(y) = P(Y=y)$ for all $y$.
+\end{defn}
+
+
+\begin{thm}{}{}
+    For any discrete probability distribution, the following must be true: \begin{enumerate}
+        \item $0 \leq p(y) \leq 1$ for all $y$.
+        \item $\sum_yp(y) = 1$, where the summation is over all values of $y$ with non-zero probability.
+    \end{enumerate}
+\end{thm}
+
+
+\section{\textsection Functions of a Random Variable}
+
+\begin{defn}{}{}
+    Let $Y$ be a discrete random variable with probability function $p(y)$. Then the \emph{expected value} of $Y$, $E(Y)$, is defined to be \begin{equation*}
+        E(Y) = \sum_yyp(y)
+    \end{equation*}
+    This provides the mean of the population with distribution given by $p(y)$. This expected value if the sum is abolutely convergent: \begin{equation*}
+        \sum_y|y|p(y) < \infty
+    \end{equation*}
+\end{defn}
+
+\begin{rmk}{}{}
+    If $p(y)$ is an accurate characterization of the population frequency distribution, then $E(Y) = \mu$, the population mean.
+\end{rmk}
+
+
+\begin{thm}{}{}
+    Let $Y$ be a discrete random variable with probability function $p(y)$ and let $g(Y)$ be a real-valued function of $Y$. THen the expected value of $g(Y)$ is given by \begin{equation*}
+        E[g(Y)] = \sum\limits_{\text{all }y}g(y)p(y)
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    We prove the case for $Y$'s codomain being finite; $y_1,y_2,...,y_n$. Because the function $g(y)$ may not be one-to-one, suppose $g(Y)$ takes on values $g_1,g_2,...,g_m$, where $m \leq n$. It follows that $g(Y)$ is a random variable cuh that for $i = 1,2,...,m$, \begin{equation*}
+        P[g(Y)=g_i] = \sum\limits_{\begin{array}{c} \text{all } y_j\text{ such that} \\ g(y_j) = g_i\end{array}}p(y_j) = p^*(g_i)
+    \end{equation*}
+    Thus by definition of the expected value of a random variable, \begin{align*}
+        E[g(Y)] &= \sum\limits_{i=1}^mg_ip^*(g_i) \\
+        &= \sum\limits_{i=1}^mg_i\left\{\sum\limits_{\begin{array}{c} \text{all } y_j\text{ such that} \\ g(y_j) = g_i\end{array}}p(y_j)\right\} \\
+        &= \sum\limits_{i=1}^m\sum\limits_{\begin{array}{c} \text{all } y_j\text{ such that} \\ g(y_j) = g_i\end{array}}g_ip(y_j) \\
+            &= \sum\limits_{j=1}^ng(y_j)p(y_j)
+    \end{align*}
+\end{proof*}
+
+\begin{defn}{}{}
+    If $Y$ is a random variable with mean $E(Y) = \mu$, the \Emph{varianve} of a random variable $Y$ is defined to be the expected value of $(Y-\mu)^2$. That is, \begin{equation*}
+        V(Y) = E[(Y-\mu)^2]
+    \end{equation*}
+    The \Emph{standard deviation} of $Y$ is the positive square root of $V(Y)$.
+\end{defn}
+
+\begin{rmk}{}{}
+    If $p(y)$ is an accurate characterization of the population frequency distribution, then $E(Y) = \mu$, $V(Y) = \sigma^2$, the \Emph{population variance}, and $\sigma$ is the \Emph{population standard deviation}.
+\end{rmk}
+
+\begin{thm}{}{}
+    Let $Y$ be a discrete random variable with probability function $p(y)$ and let $c$ be a constant. Then $E(c) = c$.
+\end{thm}
+\begin{proof*}{}{}
+    Consider the function $g(Y) \equiv c$. By our previous theorem \begin{equation*}
+        E(c) = \sum_ycp(y) = c\sum_yp(y)
+    \end{equation*}
+    But $\sum_yp(y) = 1$, and hence $E(c) = c$.
+\end{proof*}
+
+
+\begin{thm}{}{}
+    Let $Y$ be a discrete random variable with probability function $p(y)$, let $g(Y)$ be a function of $Y$, and let $c$ be a constant. Then \begin{equation*}
+        E[cg(Y)] = cE[g(Y)]
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    By our preceding theorems, \begin{equation*}
+        E[cg(Y)] = \sum_ycg(y)p(y) = c\sum_yg(y)p(y) = cE[g(Y)]
+    \end{equation*}
+\end{proof*}
+
+
+\begin{thm}{}{}
+    Let $Y$ be a discrete random variable with probability function $p(y)$ and $g_1(Y), g_2(Y),...,g_k(Y)$ be $k$ functions of $Y$. Then \begin{equation*}
+        E[g_1(Y)+g_2(Y) + ... + g_k(Y)] = E[g_1(Y)] + E[g_2(Y)] + ... + E[g_k(Y)]
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    Observe that \begin{align*}
+        E\left[\sum\limits_{i=1}^kg_i(Y)\right] &= \sum\limits_y\left[\sum\limits_{i=1}^kg_i(y)\right]p(y) \\
+        &=\sum\limits_y\sum\limits_{i=1}^kg_i(y)p(y) \\
+        &=\sum\limits_{i=1}^k\sum\limits_yg_i(y)p(y) \\
+        &= \sum\limits_{i=1}^kE[g_i(Y)]
+    \end{align*}
+\end{proof*}
+
+
+\begin{thm}{}{}
+    Let $Y$ be a discrete random variable with probability function $p(y)$ and mean $E(Y) = \mu$; then \begin{equation*}
+        V(Y) = \sigma^2 = E[(Y-\mu)^2] = E(Y^2) - \mu^2
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    Observe that \begin{align*}
+        \sigma^2 &= E[(Y-\mu)^2] \\
+        &= E(Y^2-2\mu Y+\mu^2) \\
+        &- E(Y^2) - E(2\mu Y) + E(\mu^2)
+    \end{align*}
+    Noting that $\mu$ is constant, we find that \begin{equation*}
+        \sigma^2 = E(Y^2) - 2\mu E(Y) + \mu^2
+    \end{equation*}
+    But, $\mu = E(Y)$, so \begin{equation*}
+        \sigma^2 = E(Y^2)-2\mu^2+\mu^2 = E(Y^2)-\mu^2
+    \end{equation*}
+\end{proof*}
+
+
+\section{\textsection The Binomial Probability Distribution}
+
+\begin{defn}{}{}
+    A \Emph{binomial experiment} possesses the following properties: \begin{enumerate}
+        \item The experiment consists of a fixed number, $n$, of identical trials.
+        \item Each trial results in one of two outcomes: success, $S$, or failure, $F$.
+        \item The probability of success on a single trial is equal to some value $p$ and and remains the same from trial to trial. The probability of failure is equal to $q = (1-p)$.
+        \item The trials are independent.
+        \item The random variable of interest is $Y$, the number of successes observed during the $n$ trials.
+    \end{enumerate}
+\end{defn}
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{binomial distribution} based on $n$ trials with success probability $p$ if and only if \begin{equation*}
+        p(y) = \binom{n}{y}p^yq^{n-y},\;\;\;\; y =0,1,2,...,n\;\text{ and }\;0\leq p \leq 1
+    \end{equation*}
+    where $q = 1-p$
+\end{defn}
+
+\begin{cor}{}{}
+    If a random variable $Y$ has a binomial distribution based on $n$ trials with success $p$, then \begin{equation*}
+        \sum\limits_y p(y) = \sum\limits_{y=0}^n\binom{n}{y}p^yq^{n-y} = (q+p)^n = 1^n = 1
+    \end{equation*}
+\end{cor}
+
+
+\begin{thm}{}{}
+    Let $Y$ be a binomial random variable based on $n$ trials and success probability $p$. Then \begin{equation*}
+        \mu = E(Y) = np\;\;\text{ and }\;\;\sigma^2 = V(Y) = npq
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    By definition we have that \begin{equation*}
+        E(Y) = \sum\limits_y yp(y) = \sum\limits_{y=0}^ny\binom{n}{y}p^yq^{n-y}
+    \end{equation*}
+    Notice for $y = 0$ we have zero, so we can write \begin{align*}
+        E(Y) &= \sum\limits_{y=1}^ny\frac{n!}{(n-y)!y!}p^yq^{n-y} \\
+        &= \sum\limits_{y=1}^n\frac{n!}{(n-y)!(y-1)!}p^yq^{n-y}
+    \end{align*}
+    If we factor out $np$ from each term and let $z = y-1$, we can write \begin{align*}
+        E(Y) &= np\sum\limits_{y=1}^n\frac{(n-1)!}{(n-y)!(y-1)!}p^{y-1}q^{n-y} \\
+        &= np\sum\limits_{z=0}^{n-1}\frac{(n-1)!}{(n-1-z)!z!}p^zq^{n-1-z} \\
+        &= np\sum\limits_{z=0}^{n-1}\binom{n-1}{z}p^zq^{n-1-z} \\
+        &= np(p+q)^{n-1} \\
+        &= np\cdot 1^{n-1} \\
+        &= np
+    \end{align*}
+    as desired.
+
+    Next, we know that $V(Y) = E(Y^2) - E(Y)^2$. Thus, let us first calculate $E(Y^2)$ \begin{equation*}
+        E(Y^2) = \sum\limits_{y=0}^ny^2p(y) = \sum\limits_{y=0}^ny^2\binom{n}{y}p^yq^{n-y} = \sum\limits_{y=0}^ny^2\frac{n!}{y!(n-y)!}p^yq^{n-y}
+    \end{equation*}
+    Next, notice that \begin{equation*}
+        E[Y(Y-1)] = E(Y^2-Y) = E(Y^2)-E(Y)
+    \end{equation*}
+    and, therefore, \begin{equation*}
+        E(Y^2) = E[Y(Y-1)] + E(Y)
+    \end{equation*}
+    Now, observe that \begin{align*}
+        E[Y(Y-1)] &= \sum\limits_{y=0}^ny(y-1)\frac{n!}{y!(n-y)!}p^yq^{n-y} \\
+        &= \sum\limits_{y=2}^n\frac{n!}{(y-2)!(n-y)!}p^yq^{n-y} \\
+        &= n(n-1)p^2\sum\limits_{y=2}^n\frac{(n-2)!}{(y-2)!(n-y)!}p^{y-2}q^{n-y} \\
+        &= n(n-1)p^2\sum\limits_{z=0}^{n-2}\frac{(n-2)!}{z!(n-2-z)!}p^zq^{n-2-z} \\
+        &= n(n-1)p^2\sum\limits_{z=0}^{n-2}\binom{n-2}{z}p^zq^{n-2-z} \\
+        &= n(n-1)p^2(p+q)^{n-2} \\
+        &= n(n-1)p^2
+    \end{align*}
+    Thus, we have that \begin{equation*}
+        E(Y^2) = E[Y(Y-1)]+E(Y) = n(n-1)p^2+np
+    \end{equation*}
+    and finally \begin{equation*}
+        V(Y) = E(Y^2)-E(Y)^2 = n(n-1)p^2+np-n^2p^2 = np(1-p) = npq
+    \end{equation*}
+\end{proof*}
+
+
+\section{\textsection The Geometric Probability Distribution}
+
+\begin{defn}{}{}
+    A \Emph{geometric experiment} possesses the following properties: \begin{enumerate}
+        \item The experiment consists of a fixed number, $n$, of identical trials.
+        \item Each trial results in one of two outcomes: success, $S$, or failure, $F$.
+        \item The probability of success on a single trial is equal to some value $p$ and and remains the same from trial to trial. The probability of failure is equal to $q = (1-p)$.
+        \item The trials are independent.
+        \item The random variable of interest is $Y$, is the number of the trial on which the first success occurs.
+    \end{enumerate}
+\end{defn}
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{geometric probability distribution} if and only if \begin{equation*}
+        p(y) = q^{y-1}p,\;\;\;y = 1,2,3,..., 0\leq p \leq 1
+    \end{equation*}
+\end{defn}
+
+
+\begin{thm}{}{}
+    If $Y$ is a random variable with a geometric distribution, \begin{equation*}
+        E(Y) = \frac{1}{p}\;\;\text{ and }\;\;V(Y) = \frac{1-p}{p^2}
+    \end{equation*}
+\end{thm}
+\begin{proof*}
+    First note that,
+    \begin{align*}
+        E(Y) &= \sum\limits_{y=1}^{\infty}yq^{y-1}p = p\sum\limits_{y=1}^{\infty}yq^{y-1}
+    \end{align*}
+    Then observe that $$\frac{d}{dq} \left(\sum\limits_{y=1}^{\infty}q^y\right) = \sum\limits_{y=1}^{\infty}yq^{y-1}$$
+    But this is a geometric series with well known summation \begin{equation*}
+        \sum\limits_{y=1}^{\infty}q^y = \frac{q}{1-q}
+    \end{equation*}
+    Hence, we have that \begin{equation*}
+        E(Y) = p\frac{d}{dq}\left(\frac{q}{1-q}\right) = p\frac{1}{(1-q)^2} = \frac{p}{p^2} = \frac{1}{p}
+    \end{equation*}
+    
+
+    Next, for the variance we have \begin{equation*}
+        V(Y) = E(Y^2)-E(Y)^2 = \sum\limits_{y=1}^{\infty}y^2q^{y-1}p - \frac{1}{p^2}
+    \end{equation*}
+    First, observe that $$\frac{d}{dq} \left(\sum\limits_{y=1}^{\infty}yq^y\right) = \sum\limits_{y=1}^{\infty}y^2q^{y-1}$$
+    Then, that \begin{equation*}
+        \sum\limits_{y=1}^{\infty}yq^{y-1} = \frac{1}{(1-q)^2}
+    \end{equation*}
+    Then it follows that \begin{align*}
+        \sum\limits_{y=1}^{\infty}yq^y = q\sum\limits_{y=1}^{\infty}yq^{y-1} = \frac{q}{(1-q)^2}
+    \end{align*}
+    Then it follows that \begin{align*}
+        V(Y) &= p\frac{d}{dq}\left(\frac{q}{(1-q)^2}\right) -\frac{1}{p^2} \\
+        &= p\frac{1+q}{(1-q)^3} - \frac{1}{p^2} \\
+        &= p\frac{2-p}{p^3} - \frac{1}{p^2} \\
+        &= \frac{2-p-1}{p^2} \\
+        &=\frac{1-p}{p^2} \\
+        &= \frac{q}{p^2}
+    \end{align*}
+    as desired.
+\end{proof*}
+
+\section{\textsection Negative Binomial Distribution}
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{negative binomial probability distribution} if and only if \begin{equation*}
+        p(y) = \binom{y-1}{r-1}p^rq^{y-r},\;\;\;\; y = r,r+1,r+2,...., 0\leq p \leq 1
+    \end{equation*}
+\end{defn}
+
+
+\begin{thm}{}{}
+    If $Y$ is a random variable with a negative binomial distribution, \begin{equation*}
+        \mu = E[Y] = \frac{r}{p} \;\text{ and }\; \sigma^2 = V[Y] = \frac{r(1-p)}{p^2}
+    \end{equation*}
+\end{thm}
+
+
+
+\section{\textsection The Hypergeometric Probability Distribution}
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{hypergeometric probability distribution} if and only if \begin{equation*}
+        p(y) = \frac{\binom{r}{y}\binom{N-r}{n-y}}{\binom{N}{n}}
+    \end{equation*}
+    where $y$ is an integer $0,1,2,...,n$, subject to the restriction $y \leq r$ and $n-y \leq N-r$.
+\end{defn}
+
+
+\begin{claim}{}{}
+    I claim that given $r \in \Z^+$, we have \begin{equation*}
+        \sum\limits_{i=0}^{n}\binom{r}{i}\binom{N-r}{n-i} = \binom{N}{n}
+    \end{equation*}
+\end{claim}
+\begin{proof*}{}{}
+    (To be completed)
+\end{proof*}
+
+
+\begin{thm}{}{}
+    If $Y$ is a random variable with hypergeometric distribution, the expected value and variance of $Y$ is \begin{equation*}
+        \mu = E[Y] = \frac{nr}{N}\;\;\text{ and }\;\;\sigma^2 = V[Y] = n\left(\frac{r}{N}\right)\left(\frac{N-r}{N}\right)\left(\frac{N-n}{N-1}\right)
+    \end{equation*}
+\end{thm}
+
+
+
+\section{\textsection The Poisson Probability Distribution}
+
+
+\begin{cons}{}{}
+    Suppose we have a time in which events of interest occur, and suppose we split up this time into individual intervals where at most one event can occur. Then, if the occurrence of events can be regarded as independent from interval to interval, with equal probability, the number of total event has a binomial distribution.
+
+
+    Let $n$ be the number of interval divisions and $p$ the probability in a given interval. Note that as $n$ increases $p$ will decrease. Suppose $\lambda = np$ is a fixed constant. Then taking the limit of the binomial probability $p(y) = \binom{n}{y}p^y(1-p)^{n-y}$ as $n \rightarrow \infty$, we have: \begin{align*}
+        \lim\limits_{n\rightarrow \infty}\binom{n}{y}p^y(1-p)^{n-y} &= \lim\limits_{n\rightarrow\infty}\frac{n(n-1)\hdots(n-y+1)}{y!}\left(\frac{\lambda}{n}\right)^2\left(1-\frac{\lambda}{n}\right)^{n-y} \\
+        &= \lim\limits_{n\rightarrow \infty}\frac{\lambda^y}{y!}\left(1-\frac{\lambda}{n}\right)^{n-1}\frac{n(n-1)\hdots(n-y+1)}{n^y} \\
+        &= \frac{\lambda^y}{y!} \lim\limits_{n\rightarrow \infty}\left(1-\frac{\lambda}{n}\right)^n\left(1-\frac{\lambda}{n}\right)^{-y}\left(1-\frac{1}{n}\right) \\
+        &\times \left(1-\frac{2}{n}\right)\times \hdots \times \left(1-\frac{y-1}{n}\right) \\
+        &= \frac{\lambda^y}{y!}e^{-\lambda}
+    \end{align*}
+    noting that \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}\left(1-\frac{\lambda}{n}\right)^n = e^{-\lambda}
+    \end{equation*}
+    and that all other terms to the right of the limit have a limit of $1$. A random variable possessing this distribution is said to have a Poisson distribution.
+\end{cons}
+
+
+Due to the limiting factor of the Poisson distribution from the binomial distribution, under specific curcumstances one can use the Poisson probabilities to approximate their binomial counterparts.
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{Poisson probability distribution} if and only if \begin{equation*}
+        p(y) = \frac{\lambda^y}{y!}e^{-\lambda},\;\;\; y = -,1,2,...,\;\lambda > 0.
+    \end{equation*}
+\end{defn}
+
+
+\begin{thm}{}{}
+    If $Y$ is a random variable possessing a Poisson distribution with parameter $\lambda$, then \begin{equation*}
+        \mu = E[Y] = \lambda\;\;\text{ and }\;\;\sigma^2 = V[Y] = \lambda
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    By definition, \begin{equation*}
+        E[Y] = \sum_yyp(y) = \sum\limits_{y=0}^{\infty}y\frac{\lambda^ye^{-\lambda}}{y!}
+    \end{equation*}
+    As the first term in this sum is $0$, we can write \begin{equation*}
+        E[Y] = \sum\limits_{y=1}^{\infty}\frac{\lambda^ye^{-\lambda}}{(y-1)!}
+    \end{equation*}
+    Factoring out a term of $\lambda$ and substituting the variable $z = y-1$, we obtain the sum \begin{equation*}
+        E[Y] = \lambda\sum\limits_{z=0}^{\infty}\frac{\lambda^ze^{-\lambda}}{z!}
+    \end{equation*}
+    where the sum is again the sum of a Poisson distribution over all $z$, and is hence equal to $1$. Thus, $E[Y] = \lambda$.
+
+    For the variance, first observe that \begin{align*}
+        E[Y(Y-1)] &= \sum\limits_{y=0}^{\infty}y(y-1)\frac{\lambda^ye^{-\lambda}}{y!} \\
+        &= \lambda^2\sum\limits_{y=2}^{\infty}\frac{\lambda^{y-2}e^{-\lambda}}{(y-2)!} \\
+        &= \lambda^2\sum\limits_{x=0}^{\infty}\frac{\lambda^xe^{-\lambda}}{x!} \\
+        &= \lambda^2
+    \end{align*}
+    Then the variance is found as \begin{align*}
+        VAR[Y] &= E[Y(Y-1)] + E[Y] - E[Y]^2 \\
+        &= \lambda^2+\lambda-\lambda^2 \\
+        &= \lambda
+    \end{align*}
+    as desired.
+\end{proof*}
+
+
+\section{\textsection Moments and Moment-Generating Functions}
+
+In this section we consider a set of numerical descriptive measures that under certain conditions uniquely determine the probability distribution of a random variable.
+
+\begin{defn}{}{}
+    The $k$th \Emph{moment of a random variable $Y$ taken about the origin} is defined to be $E[Y^k]$ and is denoted by $\mu_k'$.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The $k$th \Emph{moment of a random variable $Y$ taken about its mean}, or the $k$th \Emph{central moment of $Y$}, is defined to be $E[(Y-\mu)^k]$ and is denoted by $\mu_k$.
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{moment-generating function $m(t)$ for a random variable $Y$} is defined to be $m(t) = E[e^{tY}]$. We say that a moment-generating function for $Y$ exists if there exists a positive constant $b$ such that $m(t)$ is finite for $|t| \leq b$.
+\end{defn}
+
+From a series expansion for $e^{ty}$, we have \begin{equation*}
+    e^{ty} = 1 + ty + \frac{(ty)^2}{2!} + \frac{(ty)^3}{3!} + \frac{(ty)^4}{4!} + \hdots.
+\end{equation*}
+Assuming that $\mu_k'$ is finite for $k = 1,2,3,...$, we have \begin{align*}
+    E[e^{tY}] &= \sum\limits_ye^{ty}p(y) = \sum\limits_y\left[ 1 + ty + \frac{(ty)^2}{2!} + \frac{(ty)^3}{3!} + \hdots\right]p(y) \\
+    &= \sum\limits_yp(y) + t\sum\limits_yyp(y) + \frac{t^2}{2!}\sum\limits_yy^2p(y) + \frac{t^3}{3!}\sum\limits_yy^3p(y) + \hdots \\
+    &= 1 + t\mu_1' + \frac{t^2}{2!}\mu_2' + \frac{t^3}{3!}\mu_3' + \hdots 
+\end{align*}
+This interchange of summations is possible if the series is convergent, that is $m(t)$ exists. Thus, $E[e^{tY}]$ is a function of all the moments $\mu_k'$ about the origin. 
+
+
+\begin{thm}{}{}
+    If $m(t)$ exists, then for any positive integer $k$, \begin{equation*}
+        \frac{d^km(t)}{dt^k}\Bigg]_{t=0} = m^{(k)}(0) = \mu_k'
+    \end{equation*}
+    In other words, find the $k$th derivative of $m(t)$ with respect to $t$ and then set $t = 0$ to obtain $\mu_k'$.
+\end{thm}
+
+\begin{rmk}{}{}
+    It can be seen that the moment-generating function for a Poisson random variable is \begin{equation*}
+        m(t) = \sum\limits_{y=0}^{\infty}e^{ty}\frac{\lambda^ye^{-\lambda}}{y!} = e^{-\lambda}e^{\lambda e^t} = e^{\lambda(e^t-1)}
+    \end{equation*}
+\end{rmk}
+
+The primary application of a moment-generating function is to prove that a random variable possesses a particular probability distribution $p(y)$. If $m(t)$ exists for a probability distribution $p(y)$, it is unique. Also, if the moment-generating functions for two random variables $Y$ and $Z$ are equal (for all $|t| < b$ for some $b > 0$), then $Y$ and $Z$ must have the same probability distribution. It follows that, if we can recognize the moment-generating function of a random variable $Y$ to be one associated with a specific distribution, then $Y$ must have that distribution.
+
+
+\section{\textsection Tchebysheff's Theorem (Discrete)}
+
+\begin{namthm}{Tchebysheff's Theorem (Discrete)}{tch}
+    Let $Y$ be a random variable with mean $\mu$ and finite variance $\sigma^2$. Then, for any constant $k > 0$, \begin{equation*}
+        P(|Y-\mu|<k\sigma) \geq 1 - \frac{1}{k^2}\;\;or\;\;P(|Y-\mu|\geq k\sigma) \leq \frac{1}{k^2}
+    \end{equation*}
+\end{namthm}
+
+
+%%%%%%%%%%%%%%%%%%%% P3
+\chapter{Continuous Random Variables}
+
+A random variable is called \Emph{continuous} if it can take on any value in an interval (i.e. it can take on an uncountable number of different values).
+
+
+
+\section[\textsection The Probability Distribution for a Continuous Random Variable]{\textsection The Probability Distribution \\ for a Continuous Random Variable}
+
+
+\begin{defn}{}{}
+    Let $Y$ denote any random variable. The \Emph{(cumulative) distribution function} of $Y$, denoted by $F(y)$, is such that $F(y) = P(Y\leq y)$ for $-\infty < y < \infty$.
+\end{defn}
+
+
+\begin{thm}{Properties of a Distribution Function} 
+    If $F(y)$ is a distribution function, then \begin{enumerate}
+        \item $F(-\infty) \equiv \lim\limits_{y\rightarrow -\infty}F(y) = 0$
+        \item $F(\infty) \equiv \lim\limits_{y\rightarrow \infty}F(y) = 1$
+        \item $F(y)$ is a nondecreasing function of $y$. If $y_1 < y_2$ are any two values, then $F(y_1)\leq F(y_2)$.
+    \end{enumerate}
+\end{thm}
+
+\begin{defn}{}{}
+    A random variable $Y$ with distribution function $F(y)$ is said to be \Emph{continuous} if $F(y)$ is continuous, for $-\infty < y < \infty$. We also require that the first derivative of $F(y)$ exist and be continuous except for, at most, a finite numbr of points in any finite interval. 
+\end{defn}
+
+
+It is important to note that if $Y$ is a continuous random variable, then for any real number $y$, \begin{equation*}
+    P(Y = y) = 0
+\end{equation*}
+If this were not true and $P(Y = y_0) = p_0 > 0$, then $F(y)$ would have a discontinuity (jump) of size $p_0$ at the point $y_0$, violating the assumption that $Y$ was continuous.
+
+\begin{defn}{}{}
+    Let $F(y)$ be the distribution function for a continuous random variable $Y$. Then $f(y)$, given by \begin{equation*}
+        f(y) = \frac{dF(y)}{dy} = F'(y)
+    \end{equation*}
+    wherever the derivative exists, is called the \Emph{probability density function} for the random variable $Y$.
+\end{defn}
+
+It follows from these previous definitions and the Fundamental Theorem of Calculus that $F(y)$ can be written as \begin{equation*}
+    F(y) = \int_{-\infty}^y f(t)dt
+\end{equation*}
+
+The probability density function is a \Emph{theoretical model} for the frequencey distribution (histogram) of a population of measurements. The relationship between the probability density function and distribution function is given by:
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+
+%Shape: Axis 2D [id:dp7292853178694632] 
+\draw [color={rgb, 255:red, 10; green, 10; blue, 10 }  ,draw opacity=1 ] (113.67,259) -- (525,259)(154.8,76) -- (154.8,279.33) (518,254) -- (525,259) -- (518,264) (149.8,83) -- (154.8,76) -- (159.8,83)  ;
+%Curve Lines [id:da6316189997826525] 
+\draw [color={rgb, 255:red, 10; green, 10; blue, 10 }  ,draw opacity=1 ]   (154.8,259) .. controls (190.43,174.76) and (261.93,151.52) .. (436.09,258.52) ;
+%Straight Lines [id:da951155413170222] 
+\draw [color={rgb, 255:red, 10; green, 10; blue, 10 }  ,draw opacity=1 ][fill={rgb, 255:red, 83; green, 37; blue, 37 }  ,fill opacity=1 ]   (327.47,202.84) -- (327.93,258.03) ;
+%Curve Lines [id:da2716207524325558] 
+\draw [fill={rgb, 255:red, 139; green, 138; blue, 138 }  ,fill opacity=0.41 ]   (154.8,259) .. controls (197.77,140.39) and (327.01,203.33) .. (327.47,202.84) .. controls (327.93,202.36) and (327.47,229.95) .. (327.93,258.03) ;
+
+% Text Node
+\draw (208.1,218.69) node [anchor=north west][inner sep=0.75pt]    {$F( y_{0})$};
+% Text Node
+\draw (320.67,258.73) node [anchor=north west][inner sep=0.75pt]    {$y_{0}$};
+% Text Node
+\draw (529.33,253.07) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (118,72.73) node [anchor=north west][inner sep=0.75pt]    {$f( y)$};
+
+
+\end{tikzpicture}
+
+
+\begin{thm}{Properties of a Density Function}{}
+    If $f(y)$ is a density function for a continuous random variable, then \begin{enumerate}
+        \item $f(y) \geq 0$ for all $y$, $-\infty < y < \infty$.
+        \item $\int_{-\infty}^{\infty}f(y)dy = 1$.
+    \end{enumerate}
+\end{thm}
+
+
+\begin{defn}{}{}
+    Let $Y$ denote any random variable. If $0 < p < 1$, the $p$th \Emph{quantile} of $Y$, denoted by $\phi_p$, is the smallest value such that $P(Y \leq \phi_p) = F(\phi_p) \geq p$. If $Y$ is continuous, $\phi_p$ is the smallest value such that $F(\phi_p) = P(Y\leq \phi_p) = p$. 
+\end{defn}
+
+A special case is $p = 1/2$, and $\phi_{0.5}$ is the \Emph{median} of the random variable $Y$.
+
+
+\begin{thm}{}{}
+    If $a < b$, we have that \begin{equation*}
+        P(a<Y\leq b) = P(Y\leq b) - P(Y\leq a) = F(b) - F(a) = \int_a^bf(y)dy
+    \end{equation*}
+    But, because $P(Y=a) = 0$, we have the following result: if the random variable $Y$ has density function $f(y)$ and $a < b$, then the probability that $Y$ falls in the interval $[a,b]$ is \begin{equation*}
+        P(a\leq Y \leq b) = \int_a^bf(y)dy
+    \end{equation*}
+\end{thm}
+
+
+
+\section{\textsection Expected Values for Continuous Random Variables}
+
+\begin{defn}{}{}
+    The expected value of a continuous random variable $Y$ is: \begin{equation*}
+        E[Y] = \int_{-\infty}^{\infty}yf(y)dy,
+    \end{equation*}
+    provided that the integral exists. In particular, we say $E[Y]$ exists if \begin{equation*}
+        \int_{-\infty}^{\infty}|y|f(y)dy < \infty
+    \end{equation*}
+\end{defn}
+
+\begin{thm}{}{}
+    Let $g(Y)$ be a function of $Y$; then the expected value of $g(Y)$ is given by: \begin{equation*}
+        E[g(Y)] = \int_{-\infty}^{\infty}g(y)f(y)dt,
+    \end{equation*}
+    provided that the integral exists.
+\end{thm}
+
+
+\begin{thm}{}{}
+    Let $c \in \R$ be a constant and let $g(Y), g_1(Y),g_2(Y),...,g_k(Y)$ be functions of a continuous random variable $Y$. Then the following results hold: \begin{enumerate}
+        \item $E[c] = c$
+        \item $E[cg(Y)] = cE[g(Y)]$
+        \item $E\left[\sum\limits_{i=1}^kg_i(Y)\right] = \sum\limits_{i=1}^kE[g_i(Y)]$
+    \end{enumerate}
+\end{thm}
+
+
+\section{\textsection The Uniform Probability Distribution}
+
+Intuitively a random variable has a uniform distribution if in some interval the probability is constant, and everywhere else it is zero.
+
+\begin{defn}{}{}
+    If $\theta_1<\theta_2$, a random variable $Y$ is said to have a continuous \Emph{uniform probability distribution} on the interval $(\theta_1,\theta_2)$ if and only if the density function of $Y$ is \begin{equation*}
+        f(y) = \left\{\begin{array}{lc} \frac{1}{\theta_2-\theta_1}, & \theta_1\leq y \leq \theta_2 \\ 0, & elsewhere \end{array}\right.
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The constants that determine the specific form of a density function are called \Emph{parameters} of the density function.
+\end{defn}
+
+\begin{thm}{}{}
+    If $\theta_1 < \theta_2$ and $Y$ is a random variable uniformly distributed on the interval $(\theta_1,\theta_2)$, then \begin{equation*}
+        \mu = E[Y] = \frac{\theta_1+\theta_2}{2}\;\;and\;\;\sigma^2 = VAR[Y] = \frac{(\theta_2-\theta_1)^2}{12}
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    By definition: \begin{align*}
+        E[Y] &= \int_{-\infty}^{\infty}yf(y)dy \\
+        &= \int_{\theta_1}^{\theta_2}y\left(\frac{1}{\theta_2-\theta_1}\right)dy \\
+        &= \left(\frac{1}{\theta_2-\theta_1}\right)\frac{y^2}{2}\Bigg\rvert_{\theta_1}^{\theta_2} \\
+        &= \frac{\theta_2^2 - \theta_1^2}{2(\theta_2-\theta_1)} \\
+        &= \frac{\theta_2+\theta_1}{2}
+    \end{align*}
+    and \begin{align*}
+        E[Y^2] &= \int_{-\infty}^{\infty}y^2f(y)dy \\
+        &= \int_{\theta_1}^{\theta_2}y^2\left(\frac{1}{\theta_2-\theta_1}\right)dy \\
+        &= \left(\frac{1}{\theta_2-\theta_1}\right)\frac{y^3}{3}\Bigg\rvert_{\theta_1}^{\theta_2} \\
+        &= \frac{\theta_2^3 - \theta_1^3}{3(\theta_2-\theta_1)} \\
+        &= \frac{\theta_2^2+\theta_2\theta_1+\theta_1^2}{3}
+    \end{align*}
+    So we find that \begin{align*}
+        VAR[Y] &= E[Y^2] - E[Y]^2 \\
+        &= \frac{\theta_2^2+\theta_2\theta_1+\theta_1^2}{3} - \frac{\theta_2^2+2\theta_2\theta_1+\theta_1^2}{4} \\
+        &= \frac{\theta_2^2-2\theta_2\theta_1+\theta_1^2}{12} \\
+        &= \frac{(\theta_2-\theta_1)^2}{12}
+    \end{align*}
+\end{proof*}
+
+\section{\textsection The Normal Probability Distribution}
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{normal probability distribution} if and only if, for $\sigma > 0$ and $-\infty < \mu < \infty$, the density function of $Y$ is \begin{equation*}
+        f(y) = \frac{1}{\sigma \sqrt{2\pi}}\operatorname{exp}\left\{\frac{-(y-\mu)^2}{2\sigma^2}\right\},\;\;\;\;-\infty < y < \infty
+    \end{equation*}
+\end{defn}
+
+\begin{thm}{}{}
+    If $Y$ is a normally distributed random variable with parameters $\mu$ and $\sigma$, then \begin{equation*}
+        E[Y] = \mu\;\;\text{ and } \;\;VAR[Y] = \sigma^2
+    \end{equation*}
+\end{thm}
+
+We note that evaluation of areas under the density function corresponding to $P(a\leq Y \leq b)$ require evaluating the integral \begin{equation*}
+    \int_a^b\frac{1}{\sigma \sqrt{2\pi}}\operatorname{exp}\left\{\frac{-(y-\mu)^2}{2\sigma^2}\right\}
+\end{equation*}
+which does not have a closed form expression. Thus, numerical integration techniques must be used to determine probabilities.
+
+\begin{defn}{}{}
+    We can transform a normal random variable $Y$ to a standard normal random variable $Z$ by using the relationship: \begin{equation*}
+        Z := \frac{Y-\mu}{\sigma}
+    \end{equation*}
+\end{defn}
+
+
+\section{\textsection The Gamma Probability Distribution}
+
+A gamma distribution is used when we wish to model continuous random variables which are nonnegative and right-skewed.
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{gamma distribution} with parameters $\alpha > 0$ and $\beta > 0$ if and only if the density function of $Y$ is \begin{equation*}
+        f(y) = \left\{\begin{array}{lc} \frac{y^{\alpha - 1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)}, & 0\leq y < \infty \\ 0, & elsewhere \end{array}\right.
+    \end{equation*}
+    where \begin{equation*}
+        \Gamma(\alpha) = \int_0^{\infty}y^{\alpha -1}e^{-y}dy
+    \end{equation*}
+    is the \Emph{gamma function}.
+\end{defn}
+
+
+\begin{props}{}{}
+    $\Gamma(\alpha) = (\alpha-1)\Gamma(\alpha -1)$ for all $\alpha$ with $\mathfrak{R}(\alpha) > 0$, and $\Gamma(n) = (n-1)!$ for any positive integer $n$.
+\end{props}
+
+If $\alpha$ is not an integer, there is no closed form expression for \begin{equation*}
+    \int_c^d\frac{y^{\alpha-1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)}dy
+\end{equation*}
+for $0 < c < d < \infty$.
+
+\begin{thm}{}{}
+    If $Y$ has a gamma distribution with parameters shape $\alpha$ and scale $\beta$, then \begin{equation*}
+        \mu = E[Y] = \alpha\beta\;\text{ and }\;\sigma^2 = VAR[Y] = \alpha\beta^2
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    By definition we have that \begin{equation*}
+        E[Y] = \int_{-\infty}^{\infty}yf(y)dy = \int_0^{\infty}y\left(\frac{y^{\alpha - 1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)}\right)dy
+    \end{equation*}
+    By definition, the gamma density function is such that \begin{equation*}
+        \int_0^{\infty}y\left(\frac{y^{\alpha - 1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)}\right)dy = 1
+    \end{equation*}
+    so we have \begin{equation*}
+        \int_0^{\infty}y^{\alpha -1}e^{-y/\beta}dy = \beta^{\alpha}\Gamma(\alpha)
+    \end{equation*}
+    It follows that \begin{align*}
+        E[Y] &=  \int_0^{\infty}y\left(\frac{y^{\alpha - 1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)}\right)dy \\
+        &= \frac{1}{\beta^{\alpha}\Gamma(\alpha)}\int_0^{\infty}y^{\alpha}e^{-y/\beta}dy \\
+        &= \frac{1}{\beta^{\alpha}\Gamma(\alpha)}\left[\beta^{\alpha+1}\Gamma(\alpha+1)\right] \\
+        &= \frac{\beta\alpha\Gamma(\alpha)}{\Gamma(\alpha)} \\
+        &= \alpha\beta
+    \end{align*}
+    Then, observe that \begin{align*}
+        E[Y^2] &= \int_0^{\infty}y^2\left(\frac{y^{\alpha - 1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)}\right)dy \\
+        &= \frac{1}{\beta^{\alpha}\Gamma(\alpha)}\int_0^{\infty}y^{\alpha+1}e^{-y/\beta}dy \\
+        &= \frac{1}{\beta^{\alpha}\Gamma(\alpha)}\left[\beta^{\alpha+2}\Gamma(\alpha+2)\right] \\
+        &= \frac{\beta^2\alpha(\alpha+1)\Gamma(\alpha)}{\Gamma(\alpha)} \\
+        &= \alpha(\alpha+1)\beta^2
+    \end{align*}
+    Then it follows that \begin{equation*}
+        VAR[Y] = E[Y^2]-E[Y]^2 = \alpha\beta^2
+    \end{equation*}
+\end{proof*}
+
+
+\subsection{The Chi-Square Probability Distribution}
+
+
+\begin{defn}{}{}
+    Let $\nu$ be a positive integer. A random variable $Y$ is said to have a \Emph{chi-square distribution with $\nu$ degrees of freedom} if and only if $Y$ is a gamma distributed random varaible with parameters $\alpha = \nu/2$ and $\beta = 2$.
+\end{defn}
+
+\begin{thm}{}{}
+    If $Y$ is a chi-square random varaible with $\nu$ degrees of freedom, then \begin{equation*}
+        \mu = E[Y] = \nu \;\;\text{ and }\;\;\sigma^2 = VAR[Y] = 2\nu
+    \end{equation*}
+\end{thm}
+
+\subsection{The Exponential Probability Distribution}
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have an \Emph{exponential distibution with parameter $\beta > 0$} if and only if the density function of $Y$ is \begin{equation*}
+        f(y) = \left\{\begin{array}{lc} \frac{e^{-y/\beta}}{\beta}, & 0 \leq y < \infty \\ 0, & elsewhere \end{array}\right.
+    \end{equation*}
+\end{defn}
+
+\begin{thm}{}{}
+    If $Y$ is an exponential random variable with parameter $\beta$, then \begin{equation*}
+        \mu = E[Y] = \beta\;\text{ and }\;\sigma^2 = VAR[Y] = \beta^2
+    \end{equation*}
+\end{thm}
+
+\begin{props}
+    Let $a, b >0$. Then observe that for an exponential random variable $Y$, \begin{align*}
+        P(Y > a+b \vert Y >a) &= \frac{P(Y>a+b)}{P(Y>a)} \\
+        &= \frac{\int_{a+b}^{\infty}\frac{e^{-y/\beta}}{\beta}dy}{\int_{a}^{\infty}\frac{e^{-y/\beta}}{\beta}dy} \\
+        &= \frac{e^{-(a+b)/\beta}}{e^{-a/\beta}} \\
+        &= e^{-b/\beta} \\
+        &= P(Y > b)
+    \end{align*}
+    This property of the exponential distribution is called the \Emph{memoryless property} of the distribution.
+\end{props}
+
+
+\section{\textsection The Beta Probability Distribution}
+
+The beta density function is a two-parameter density function defined over the closed interval $0 \leq y \leq 1$: it is often used for modeling proportions.
+
+\begin{defn}{}{}
+    A random variable $Y$ is said to have a \Emph{beta probability distribution with shape parameters $\alpha > 0$ and $\beta > 0$} if and only if the density function of $Y$ is \begin{equation*}
+        f(y) = \left\{\begin{array}{lc} \frac{y^{\alpha - 1}(1-y)^{\beta -1}}{B(\alpha,\beta)}, & 0 \leq y \leq 1 \\ 0, & elsewhere, \end{array}\right.
+    \end{equation*}
+    where \begin{equation*}
+        B(\alpha,\beta) = \int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}
+    \end{equation*}
+\end{defn}
+
+The beta density function can apply to a random variable defined on the interval $c \leq y \leq d$ by defining a new variable $y^* = (y-c)/(d-c)$ so that $0 \leq y^*\leq 1$.
+
+\begin{defn}{}{}
+    The cdf for a beta random varaible is called the \Emph{incomplete beta function} and is denoted by: \begin{equation*}
+        F(y) = \int_0^y\frac{t^{\alpha -1}(1-t)^{\beta-1}}{B(\alpha,\beta)}dt = I_y(\alpha,\beta)
+    \end{equation*}
+    If $\alpha$ and $\beta$ are both integers, then \begin{equation*}
+        F(y) = \sum\limits_{i=\alpha}^n\binom{n}{i}y^i(1-y)^{n-i}
+    \end{equation*}
+    for $n = \alpha+\beta -1$.
+\end{defn}
+
+
+\begin{thm}{}{}
+    If $Y$ is a beta-distributed random variable with parameters $\alpha > 0$ and $\beta > 0$, then \begin{equation*}
+        \mu = E[Y] = \frac{\alpha}{\alpha + \beta} \;\;\text{ and }\;\;\sigma^2 = VAR[Y] = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    By definition we have that \begin{align*}
+        E[Y] &= \int_{-\infty}^{\infty}yf(y)dy \\
+        &= \int_0^1y\left[\frac{y^{\alpha-1}(1-y)^{\beta-1}}{B(\alpha,\beta)}\right]dy \\
+        &= \frac{1}{B(\alpha,\beta)}\int_0^1y^{\alpha}(1-y)^{\beta-1}dy \\
+        &= \frac{B(\alpha+1,\beta)}{B(\alpha,\beta)} \\
+        &= \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+\beta+1)} \\
+        &=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta)\Gamma(\alpha+\beta)} \\ 
+        &= \frac{\alpha}{\alpha+\beta}
+    \end{align*}
+    Similarly, \begin{align*}
+        E[Y^2] &= \int_{-\infty}^{\infty}y^2f(y)dy \\
+        &= \int_0^1y^2\left[\frac{y^{\alpha-1}(1-y)^{\beta-1}}{B(\alpha,\beta)}\right]dy \\
+        &= \frac{1}{B(\alpha,\beta)}\int_0^1y^{\alpha+1}(1-y)^{\beta-1}dy \\
+        &= \frac{B(\alpha+2,\beta)}{B(\alpha,\beta)} \\
+        &= \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+\beta+2)} \\
+        &=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\alpha(\alpha+1)\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta)(\alpha+\beta+1)\Gamma(\alpha+\beta)} \\ 
+        &= \frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}
+    \end{align*}
+    so \begin{align*}
+        VAR[Y] &= E[Y^2] - E[Y]^2 \\
+        &= \frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)} - \frac{\alpha^2}{(\alpha+\beta)^2} \\
+        &= \frac{\alpha^3+\alpha^2\beta+\alpha^2+\alpha\beta-(\alpha^3+\alpha^2\beta+\alpha^2)}{(\alpha+\beta)^2(\alpha+\beta+1)} \\
+        &= \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+    \end{align*}
+    as claimed.
+\end{proof*}
+
+
+
+\section{\textsection Tchebysheff's Theorem (Continuous)}
+
+\begin{namthm}{Tchebysheff's Theorem (Continuous)}{tchcont}
+    Let $Y$ be a random variable with mean $\mu$ and finite variance $\sigma^2$. Then, for any constant $k > 0$, \begin{equation*}
+        P(|Y-\mu|<k\sigma) \geq 1 - \frac{1}{k^2}\;\;or\;\;P(|Y-\mu|\geq k\sigma) \leq \frac{1}{k^2}
+    \end{equation*}
+\end{namthm}
+\begin{proof*}{}{}
+    Let $f(y)$ denote the density function of $Y$. Then \begin{align*}
+        V[Y] &= \int_{-\infty}^{\infty}(y-\mu)^2f(y)dy \\
+        &= \int_{-\infty}^{\mu-k\sigma}(y-\mu)^2f(y)dy + \int_{\mu-k\sigma}^{\mu+k\sigma}(y-\mu)^2f(y)dy \\
+        &+ \int_{\mu+k\sigma}^{\infty}(y-\mu)^2f(y)dy
+    \end{align*}
+    TNote that $(y-\mu)^2 \geq k^2\sigma^2$ for all values of $y$ between the limits of integration for the first and third integrals. If we replace the second integral by $0$ and substitute $k^2\sigma^2$ for $(y-\mu)^2$ in the first and thid integrals to obtain the inequality \begin{equation*}
+        V[Y] \geq \int_{-\infty}^{\mu-k\sigma}k^2\sigma^2f(y)dy + \int_{\mu+k\sigma}^{\infty}k^2\sigma^2f(y)dy
+    \end{equation*}
+    Then \begin{equation*}
+        \sigma^2 \geq k^2\sigma^2\left[\int_{-\infty}^{\mu-k\sigma}f(y)dy + \int_{\mu+k\sigma}^{\infty}f(y)dy\right]
+    \end{equation*}
+    or \begin{equation*}
+        \sigma^2 \geq k^2\sigma^2[P(Y\leq \mu-k\sigma) +P(Y\geq \mu+k\sigma)] = k^2\sigma^2P(|Y-\mu|\geq k\sigma)
+    \end{equation*}
+    Dividing by $k^2\sigma^2$ we obtain \begin{equation*}
+        P(|Y-\mu|\geq k\sigma) \leq \frac{1}{k^2}
+    \end{equation*}
+    or, equivalently, \begin{equation*}
+        P(|Y-\mu| < k\sigma) \geq 1 - \frac{1}{k^2}
+    \end{equation*}
+\end{proof*}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% P4
+\chapter{Multivariate Probability Distributions}
+
+\section{\textsection Bivariate and Multivariate Probability Distributions}
+
+\begin{defn}{}{}
+    Let $Y_1$ and $Y_2$ be discrete random variables. The \Emph{joint (or bivariate) probability function} for $Y_1$ and $Y_2$ is given by: \begin{equation*}
+        p(y_1,y_2) = P(Y_1 = y_1, Y_2 = y_2), \;\;\;-\infty < y_1 < \infty, - \infty < y_2 < \infty
+    \end{equation*}
+\end{defn}
+
+Note that the joint probability function for discrete random variables assigns nonzero probabilities to only finitely many or countably infinitely many pairs of values. Furthermore, the nonzero probabilities must sum to $1$.
+
+\begin{thm}{}{}
+    If $Y_1$ and $Y_2$ are discrete random variables with joint probability function $p(y_1,y_2)$, then: \begin{enumerate}
+        \item $p(y_1,y_2) \geq 0$ for all $y_1,y_2$.
+        \item $\sum_{y_1}\sum_{y_2}p(y_1,y_2) = 1$, where the sum is over all values $(y_1,y_2)$ that are assigned nonzero probabilities.
+    \end{enumerate}
+\end{thm}
+
+\begin{defn}{}{}
+    For any random variables $Y_1$ and $Y_2$, the joint (bivariate) distribution function $F(y_1,y_2)$ is: \begin{equation*}
+        F(y_1,y_2) = P(Y_1 \leq y_1, Y_2 \leq y_2), \;\;\; -\infty < y_1 < \infty, -\infty < y_2 < \infty
+    \end{equation*}
+    If both variables are discrete we have that: \begin{equation*}
+        F(y_1,y_2) = \sum\limits_{t_1\leq y_1}\sum\limits_{t_2 \leq y_2}p(t_1,t_2)
+    \end{equation*}
+\end{defn}
+
+Two random variables are said to be \Emph{jointly continuous} if their joint distribution function $F(y_1,y_2)$ is continuous in both arguments.
+
+\begin{defn}{}{}
+    Let $Y_1$ and $Y_2$ be continuous random variables with joint distribution function $F(y_1,y_2)$. If there exists a nonnegative function $f(y_1,y_2)$, such that \begin{equation*}
+        F(y_1,y_2) = \int_{-\infty}^{y_1}\int_{-\infty}^{y_2}f(t_1,t_2)dt_2dt_1
+    \end{equation*}
+    for all $-\infty < y_1 < \infty, -\infty < y_2 < \infty$, then $Y_1$ and $Y_2$ are said to be \Emph{jointly continuous random variables}. The function $f(y_1,y_2)$ is called the \Emph{joint probability density function}.
+\end{defn}
+
+\begin{thm}{}{}
+    If $Y_1$ and $Y_2$ are random variables with joint distribution function $F(y_1,y_2)$, then \begin{enumerate}
+        \item $F(-\infty,-\infty) = F(-\infty,y_2) = F(y_1,-\infty) = 0$
+        \item $F(\infty,\infty) = \lim\limits_{y_1\rightarrow \infty}\lim\limits_{y_2\rightarrow \infty}F(y_1,y_2) = 1$
+        \item If $y_1^* \geq y_1$ and $y_2^* \geq y_2$, then \begin{equation*}
+                F(y_1^*,y_2^*) - F(y_1^*,y_2) - F(y_1,y_2^*) + F(y_1,y_2) \geq 0
+        \end{equation*}
+            which follows as this expression is equal to $P(y_1 < Y_1\leq y_1^*, y_2 < Y_2 \leq y_2^*) \geq 0$.
+    \end{enumerate}
+\end{thm}
+
+\begin{thm}{}{}
+    If $Y_1$ and $Y_2$ are jointly continuous random varaibels with a joint density function given by $f(y_1,y_2)$, then \begin{enumerate}
+        \item $f(y_1,y_2) \geq 0$ for all $y_1,y_2$.
+        \item $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(y_1,y_2)dy_1dy_2 = 1$
+    \end{enumerate}
+\end{thm}
+
+Note that volumes under the $f(y_1,y_2)$ surface correspond to probabilities.
+
+This concepts can be straight-forwardly be extended to the case of $n$ joint random variables.
+
+\section{\textsection Marginal and Conditional Probability Distributions}
+
+\begin{defn}{}{}
+    \leavevmode
+    \begin{enumerate}
+        \item Let $Y_1$ and $Y_2$ be jointly discrete random variables with probability function $p(y_1,y_2)$. THen the \Emph{marginal probability functions} of $Y_1$ and $Y_2$, respectively, are given by: \begin{equation*}
+                p_1(y_1) = \sum\limits_{all\;y_2}p(y_1,y_2)\;\;and\;\;p_2(y_2) = \sum\limits_{all\;y_1}p(y_1,y_2)
+        \end{equation*}
+        \item Let $Y_1$ and $Y_2$ be jointly continuous random variables with joint density function $f(y_1,y_2)$. Then the \Emph{marginal density functions} of $Y_1$ and $Y_2$, respectively, are given by: \begin{equation*}
+            f_1(y_1) = \int_{-\infty}^{\infty}f(y_1,y_2)dy_2\;\;and\;\;f_2(y_2) = \int_{-\infty}^{\infty}f(y_1,y_2)dy_1
+        \end{equation*}
+    \end{enumerate}
+\end{defn}
+
+
+
+\begin{defn}{}{}
+    If $Y_1$ and $Y_2$ are jointly discrete random variables with joint probability function $p(y_1,y_2)$ and marginal probability functions $p_1(y_1)$ and $p_2(y_2)$, respectively, then the \Emph{conditional discrete probability function} of $Y_1$ given $Y_2$ is \begin{equation*}
+        p(y_1\vert y_2) = P(Y_1=y_1\vert Y_2 = y_2) = \frac{P(Y_1=y_1,Y_2=y_2)}{P(Y_2=y_2)} = \frac{p(y_1,y_2)}{p_2(y_2)}
+    \end{equation*}
+    provided that $p_2(y_2) > 0$.
+\end{defn}
+
+\begin{defn}{}{}
+    If $Y_1$ and $Y_2$ are jointly continuous random variables with joint density function $f(y_1,y_2)$, then the \Emph{conditional distribution function} of $Y_1$ given $Y_2 = y_2$ is \begin{equation*}
+        F(y_1\vert y_2) = P(Y_1\leq y_1\vert Y_2 = y_2)
+    \end{equation*}
+    which has the property that \begin{equation*}
+        F(y_1) = \int_{-\infty}^{\infty}F(y_1\vert y_2)f_2(y_2)dy_2
+    \end{equation*}
+    Moreover, we have the following: \begin{align*}
+        F(y_1) &= \int_{-\infty}^{y_1}f_1(t_1)dt_1 = \int_{-\infty}^{y_1}\left[\int_{-\infty}^{\infty}f(t_1,y_2)dy_2\right]dt_1 \\
+        &= \int_{-\infty}^{\infty}\int_{-\infty}^{y_1}f(t_1,y_2)dt_1dy_2
+    \end{align*}
+    Equating these expressions we find that \begin{equation*}
+        F(y_1\vert y_2)f_2(y_2) = \int_{-\infty}^{y_1}f(t_1,y_2)dt_1
+    \end{equation*}
+    or \begin{equation*}
+        F(y_1\vert y_2)= \int_{-\infty}^{y_1}\frac{f(t_1,y_2)}{f_2(y_2)}dt_1
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}{}{}
+    Let $Y_1$ and $Y_2$ be jointly continuous random variables with joint density function $f(y_1,y_2)$ and marginal densities $f_1(y_1)$ and $f_2(y_2)$, respectively. For any $y_2$ such that $f_2(y_2) > 0$, the conditional density of $Y_1$ given $Y_2 = y_2$ is given by: \begin{equation*}
+        f(y_1\vert y_2) = \frac{f(y_1,y_2)}{f_2(y_2)}
+    \end{equation*}
+    and, for any $y_1$ such that $f_1(y_1) > 0$, the conditional density of $Y_2$ given $Y_1 = y_1$ is given by: \begin{equation*}
+        f(y_2\vert y_1) = \frac{f(y_1,y_2)}{f_1(y_1)}
+    \end{equation*}
+\end{defn}
+
+
+\section{\textsection Independent Variables}
+
+
+\begin{defn}{}{}
+    Let $Y_1$ have distribution function $F_1(y_1)$, $Y_2$ have distribution function $F_2(y_2)$, and $Y_1$ and $Y_2$ have joint distribution function $F(y_1,y_2)$. Then $Y_1$ and $Y_2$ are said to be \Emph{independent} if and only if \begin{equation*}
+        F(y_1,y_2) = F_1(y_1)F_2(y_2)
+    \end{equation*}
+    for every pair of real numbers $(y_1,y_2)$.
+
+    If $Y_1$ and $Y_2$ are not independent, they are said to be \Emph{dependent}.
+\end{defn}
+
+\begin{thm}{}{}
+    If $Y_1$ and $Y_2$ are discrete random variables with joint probability function $p(y_1,y_2)$ and marginal probability functions $p_1(y_1)$ and $p_2(y_2)$, respectively, then $Y_1$ and $Y_2$ are independent if and only if \begin{equation*}
+        p(y_1,y_2) = p_1(y_1)p_2(y_2)
+    \end{equation*}
+    for all pairs of real numbers $(y_1,y_2)$.
+
+    If $Y_1$ and $Y_2$ are continuous random variables with joint density function $f(y_1,y_2)$ and marginal density functions $f_1(y_1)$ and $f_2(y_2)$, respectively, then $Y_1$ and $Y_2$ are independent if and only if \begin{equation*}
+        f(y_1,y_2) = f_1(y_1)f_2(y_2)
+    \end{equation*}
+    for all pairs of real numbers $(y_1,y_2)$.
+\end{thm}
+
+\begin{thm}{}{}
+    Let $Y_1$ and $Y_2$ have a joint density function $f(y_1,y_2)$ that is positive if and only if $a \leq y_1 \leq b$ and $c \leq y_2 \leq d$, for constants $a,b,c$ and $d$; and $f(y_1,y_2) = 0$ otherwise. Then $Y_1$ and $Y_2$ are independent random variables if and only if \begin{equation*}
+        f(y_1,y_2) = g(y_1)h(y_2)
+    \end{equation*}
+    where $g(y_1)$ is a nonnegative function of $y_1$ along and $h(y_2)$ is a nonnegative function of $y_2$ along.
+\end{thm}
+
+These definitions can be analogously generalized to $n$ random variables.
+
+
+\section{\textsection The Covariance of Two Random Variables}
+
+\begin{defn}{}{}
+    If $Y_1$ and $Y_2$ are random variables with means $\mu_1$ and $\mu_2$, respectively, the \Emph{covariance} of $Y_1$ and $Y_2$ is \begin{equation*}
+        COV(Y_1,Y_2) = E[(Y_1-\mu_1)(Y_2-\mu_2)]
+    \end{equation*}
+\end{defn}
+
+Note that positive values indicate that $Y_1$ increases as $Y_2$ increases, and negative valus indicate that $Y_1$ decreases as $Y_2$ increases. A zero value of covariance indicates that the variables are \Emph{uncorrelated} and that there is no linear dependence between $Y_1$ and $Y_2$.
+
+\begin{defn}{}{}
+    We can standardize this value using the \Emph{correlation coefficient}, $\rho$, defined as \begin{equation*}
+        \rho := \frac{COV(Y_1,Y_2)}{\sqrt{VAR[Y_1]VAR[Y_2]}}
+    \end{equation*}
+    Evidently, the correlation coefficient satisfies the inequality $-1 \leq \rho \leq 1$.
+\end{defn}
+
+$\rho = +1$ implies perfect correlation, with all points falling on a straight line with positive slope. A value of $\rho = 0$ implies zero covariance and no correlation. Finally, a $\rho = -1$ implies perfect correlation, with all points falling on a straight line with negative slope.
+
+\begin{thm}{}{}
+    If $Y_1$ and $Y_2$ are random variables with means $\mu_1$ and $\mu_2$, respectively, then \begin{equation*}
+        COV(Y_1,Y_2) = E[(Y_1-\mu_1)(Y_2-\mu_2)] = E[Y_1Y_2] - E[Y_1]E[Y_2]
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    \begin{align*}
+        COV(Y_1,Y_2) &= E[(Y_1-\mu_1)(Y_2-\mu_2)] \\
+        &= E[Y_1Y_2-\mu_1Y_2-\mu_2Y_1+\mu_1\mu_2] \\
+        &= E[Y_1Y_2] - E[Y_1]E[Y_2] - E[Y_1]E[Y_2] + E[Y_1]E[Y_2] \\
+        &= E[Y_1Y_2] - E[Y_1]E[Y_2]
+    \end{align*}
+\end{proof*}
+
+
+\begin{defn}{}{}
+    Let $g(Y_1,Y_2,...,Y_k)$ be a function of the discrete random variables, $Y_1,Y_2,...,Y_k$, which have probability function $p(y_1,y_2,...,y_k)$. Then the \Emph{expected value of $g(Y_1,Y_2,...,Y_k)$} is \begin{equation*}
+        E[g(Y_1,Y_2,...,Y_k)] = \sum\limits_{all\;y_k}\hdots \sum\limits_{all\;y_2}\sum\limits_{all\;y_1}g(y_1,y_2,...,y_k)p(y_1,y_2,...,y_k)
+    \end{equation*}
+    If $Y_1,Y_2,...,Y_k$ are continuous random variables with joint density function $f(y_1,y_2,...,y_k)$, then \begin{equation*}
+        E[g(Y_1,...,Y_k)] = \int_{-\infty}^{\infty}\hdots\int_{-\infty}^{\infty}g(y_1,...,y_k)f(y_1,...,y_k)dy_1...dy_k
+    \end{equation*}
+\end{defn}
+
+\begin{rmk}{}{}
+    We now show our definition of $E[Y_1]$ lines up with this definition when considering two random variables $Y_1$ and $Y_2$ with density function $f(y_1,y_2)$. In particular, we wish to find the expected value of $g(Y_1,Y_2) = Y_1$. Then from this definition we have \begin{align*}
+        E[Y_1] &= \int_{-\infty}^{\infty}y_1f(y_1,y_2)dy_2dy_1 \\
+        &= \int_{-\infty}^{\infty}y_1\left[\int_{-\infty}^{\infty}f(y_1,y_2)dy_2\right]dy_1 \\
+        &= \int_{-\infty}^{\infty}y_1f_1(y_1)dy_1
+    \end{align*}
+    which agrees with our previous definition.
+\end{rmk}
+
+
+\begin{thm}{}{}
+    Let $Y_1$ and $Y_2$ be independent random variables and $g(Y_1)$ and $h(Y_2)$ be functions of only $Y_1$ and $Y_2$, respectively. Then \begin{equation*}
+        E[g(Y_1)h(Y_2)] = E[g(Y_1)]E[h(Y_2)]
+    \end{equation*}
+    provided the expectations exist.
+\end{thm}
+\begin{proof*}{}{}
+    We shall prove the result for the continuous case. Let $f(y_1,y_2)$ denote the joint density function of $Y_1$ and $Y_2$. The product $g(Y_1)h(Y_2)$ is a function of $Y_1$ and $Y_2$. Hence, \begin{align*}
+        E[g(Y_1)h(Y_2)] &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(y_1)h(y_2)f(y_1,y_2)dy_2dy_1 \\
+        &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(y_1)h(y_2)f_1(y_1)f_2(y_2)dy_2dy_1 \\
+        &= \int_{-\infty}^{\infty}g(y_1)f_1(y_1)\left[\int_{-\infty}^{\infty}h(y_2)f_2(y_2)dy_2\right]dy_1 \\
+        &= \int_{-\infty}^{\infty}g(y_1)f_1(y_1)E[h(Y_2)]dy_1 \\
+        &= E[h(Y_2)]\int_{-\infty}^{\infty}g(y_1)f_1(y_1)dy_1 \\
+        &= E[h(Y_2)]E[g(Y_1)] \\
+    \end{align*}
+\end{proof*}
+
+
+\begin{thm}{}{}
+    If $Y_1$ and $Y_2$ are independent random variables, then \begin{equation*}
+        COV(Y_1,Y_2) = 0
+    \end{equation*}
+    Thus, indepedent random variables must be uncorrelated.
+\end{thm}
+\begin{proof*}{}{}
+    \begin{align*}
+        COV(Y_1,Y_2) &= E[Y_1Y_2] - E[Y_1]E[Y_2] \\
+        &= E[Y_1]E[Y_2] -E[Y_1]E[Y_2] \\
+        &= 0
+    \end{align*}
+\end{proof*}
+
+
+\section{\textsection The Expected Value and Variance of Linear Functions of Random Variables}
+
+\begin{thm}{}{}
+    Let $Y_1,...,Y_n$ and $X_1,...,X_m$ be random variables with $E[Y_i] = \mu_i$ and $E[X_j] = \xi_j$. Define \begin{equation*}
+        U_1 = \sum\limits_{i=1}^na_iY_1\;\;and\;\;U_2 = \sum\limits_{j=1}^mb_jX_j
+    \end{equation*}
+    for constants $a_1,a_2,...,a_n$ and $b_1,b_2,...,b_m$. Them the following hold: \begin{enumerate}
+        \item $E[U_1] = \sum\limits_{i=1}^na_i\mu_i$
+        \item $V[U_1] = \sum\limits_{i=1}^na_i^2V[Y_i] + 2\sum\limits_{i=1}^{n-1}\sum\limits_{j=i+1}^na_ia_jCOV(Y_i,Y_j)$, where the double sum is over all pairs $(i,j)$ with $i < j$.
+        \item $COV(U_1,U_2) = \sum\limits_{i=1}^n\sum\limits_{j=1}^ma_ib_jCOV(Y_i,X_j)$
+    \end{enumerate}
+\end{thm}
+\begin{proof*}{}{}
+    $1.$ follows directly from the linearity of the expected value function. To proceed with $2.$ we appeal to the definition of variance and write: \begin{align*}
+        V[U_1] &= E[(U_1 - E(U_1))^2] = E\left[\left(\sum\limits_{i=1}^na_iY_i - \sum\limits_{i=1}^na_i\mu_i\right)^2\right] \\
+        &= E\left[\left(\sum\limits_{i=1}^na_i(Y_i - \mu_i)\right)^2\right] \\
+        &= E\left[\sum\limits_{i=1}^na_i^2(Y_i-\mu_i)^2 + \sum\limits_{i=1}^n\sum\limits_{j=1,j\neq i}^na_ia_j(Y_i-\mu_i)(Y_j-\mu_j)\right] \\
+        &= \sum\limits_{i=1}^na_i^2E[(Y_i-\mu_i)^2] + \sum\limits_{i=1}^n\sum\limits_{j=1,j\neq i}^na_ia_jE[(Y_i-\mu_i)(Y_j-\mu_j)] 
+    \end{align*}
+    By definition of variance and covariance, we have \begin{equation*}
+        V[U_1] = \sum\limits_{i=1}^na_i^2V[Y_i] + \sum\limits_{i=1}^n\sum\limits_{j=1,j\neq i}^na_ia_jCOV(Y_i,Y_j)
+    \end{equation*}
+    Because $COV(Y_i,Y_j) = COV(Y_j,Y_i)$, we can write \begin{equation*}
+        V[U_1] = \sum\limits_{i=1}^na_i^2V(Y_i) + 2\sum\limits_{i=1}^{n-1}\sum\limits_{j=i+1}^na_ia_jCOV(Y_i,Y_j)
+    \end{equation*}
+    We now apply similar steps to find $3.$: \begin{align*}
+        COV(U_1,U_2) = E[(U_1-E(U_1))(U_2-E(U_2))] \\
+        &= E\left[\left(\sum\limits_{i=1}^na_iY_i - \sum\limits_{i=1}^na_i\mu_i\right)\left(\sum\limits_{j=1}^mb_jX_j - \sum\limits_{j=1}^mb_j\xi_j\right)\right] \\
+        &= E\left[\left(\sum\limits_{i=1}^na_i(Y_i - \mu_i)\right)\left(\sum\limits_{j=1}^mb_j(X_j - \xi_j)\right)\right] \\
+        &= E\left[\sum\limits_{i=1}^n\sum\limits_{j=1}^ma_ib_j(Y_i-\mu_i)(X_j-\xi_j)\right] \\
+        &= \sum\limits_{i=1}^n\sum\limits_{j=1}^ma_ib_jE[(Y_i-\mu_i)(X_j-\xi_j)] \\
+        &= \sum\limits_{i=1}^n\sum\limits_{j=1}^ma_ib_jCOV(Y_i,X_j)
+    \end{align*}
+    On observing $COV(Y_i,Y_i) = V(Y_i)$, we see that $2.$ is a special case of $3.$.
+\end{proof*}
+
+\begin{claim}{}{}
+    Let $Y_1,..,Y_n$ be independent random variables with $E[Y_i] = \mu$ and $V[Y_i] = \sigma^2$. Define \begin{equation*}
+        \overline{Y} := \frac{1}{n}\sum\limits_{i=1}^nY_i
+    \end{equation*}
+    then $E[\overline{Y}] = \mu$ and $V[\overline{Y}] = \sigma^2/n$.
+\end{claim}
+\begin{proof*}{}{}
+    Since $\overline{Y}$ is a linear function of random variables we have that \begin{equation*}
+        E[\overline{Y}] = \frac{1}{n}\sum\limits_{i=1}^nE[Y_i] = \frac{1}{n}n\mu = \mu
+    \end{equation*}
+    Next for the variance we have that \begin{equation*}
+        V[\overline{Y}] = \sum\limits_{i=1}^n\frac{1}{n}^2V[Y_i] + 2\sum\limits_{i=1}^{n-1}\sum\limits_{j=i+1}^n\frac{1}{n}\frac{1}{n}COV(Y_i,Y_j)
+    \end{equation*}
+    But each $Y_i$ and $Y_j$ are independent for $i\neq j$, so $COV(Y_i,Y_j) = 0$ for all $ i \neq j$. Thus \begin{equation*}
+        V[\overline{Y}] = \frac{1}{n^2}\sum\limits_{i=1}^n\sigma^2 = \frac{1}{n^2}n\sigma^2 = \frac{\sigma^2}{n}
+    \end{equation*}
+\end{proof*}
+
+
+\section{\textsection Bivariate Normal Distribution}
+
+\begin{defn}{}{}
+    Two continuous random variables $Y_1$ and $Y_2$ follow a bivariate normal distribution if their joint density function is: \begin{equation*}
+        f(y_1,y_2) = \frac{e^{-Q/2}}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}},\;\;-\infty < y_1 < \infty, -\infty < y_2 < \infty,
+    \end{equation*}
+    where \begin{equation*}
+        Q = \frac{1}{1-\rho^2}\left[\frac{(y_1-\mu_1)^2}{\sigma_1^2} - 2\rho\frac{(y_1-\mu_1)(y_2-\mu_2)}{\sigma_1\sigma_2} + \frac{(y_2-\mu_2)^2}{\sigma_2^2}\right]
+    \end{equation*}
+    The marginal distributions of $Y_1$ and $Y_2$ are normal distributions with means $\mu_1$ and $\mu_2$ and variances $\sigma_1^2$ and $\sigma_2^2$, respectively. Moreover, $COV(Y_1,Y_2) = \rho\sigma_1\sigma_2$.
+\end{defn}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% P5
+\chapter{Functions of Random Variables}
+
+\section{\textsection Probability Distributions of Functions of Random Variables}
+
+In this chapter we assume that the populations are large in comparison to the sample size so that the random variables obtained through a random sample are in fact independent of one another.
+
+In the discrete case this implies that the joint probability function for $Y_1,...,Y_n$, all sampled from the same population, is given by \begin{equation*}
+    p(y_1,...,y_n) = p(y_1)p(y_2)...p(y_n)
+\end{equation*}
+In the continuous case the joint density function is \begin{equation*}
+    f(y_1,...,y_n) = f(y_1)f(y_2)...f(y_n)
+\end{equation*}
+
+The statement ``$Y_1,...,Y_n$, is a random sample from a population with density $f(y)$" will mean that the random variables are independent with common density function $f(y)$.
+
+
+In the upcoming sections we will explore three methods for finding the probability distribution for a function of random variables, and one for finding the joint distribution of several functions of random variables.
+
+\section{\textsection The Method of Distribution Functions}
+
+\begin{rmk}{}{}
+    Consider random variables $Y_1,Y_2,...,Y_n$ and a function $U(Y_1,...,Y_n)$. The method of distribution functions is typically used when the $Y$'s have continuous distributions. First, find the distribution function for $U$, $F_U(u) = P(U\leq u)$, by using previous methods. To do so, we must find the region in the $y_1,y_2,...,y_n$ space for which $U \leq u$ and then find $P(U\leq u)$ by integrating $f(y_1,y_2,...,y_n)$ over this region. The density function for $U$ is then obtained by differentiating the distribution function, $F_U(u)$. 
+\end{rmk}
+
+
+\begin{eg}{}{}
+    Suppose $Y$ is a random variable with density function \begin{equation*}
+        f(y) = \left\{\begin{array}{lc} 2y, & 0 \leq y \leq 1, \\ 0, & elsewhere. \end{array}\right.
+    \end{equation*}
+    Define $U(Y) = 3Y - 1$. To employ the distribution function approach, we must find: \begin{equation*}
+        F_U(u) = P(U\leq u) = P(3Y - 1 \leq u) = P\left(Y \leq \frac{u+1}{3}\right)
+    \end{equation*}
+    If $u < -1$, then $(u+1)/3 < 0$ and, therefore, $F_U(u) = P(Y\leq (u+1)/3) = 0$. Also, if $u > 2$, then $(u+1)/3 > 1$, and $F_U(u) = P(Y\leq (u+1)/3) = 1$. However, if $-1 \leq u \leq 2$, the probability can be written as an integral of $f(y)$, and \begin{equation*}
+        P\left(Y\leq \frac{u+1}{3}\right) = \int_{0}^{(u+1)/3}2ydy = \left(\frac{u+1}{3}\right)^2
+    \end{equation*}
+    Thus the distribution of the random variable $U$ is given by \begin{equation*}
+        F_U(u) = \left\{\begin{array}{lc} 0, & u < -1, \\ \left(\frac{u+1}{3}\right)^2, & -1 \leq u \leq 2, \\ 1, & u > 2, \end{array}\right.
+    \end{equation*}
+    and the density function for $U$ is \begin{equation*}
+        f_U(u) = \frac{d}{du}(F_U(u)) = \left\{\begin{array}{lc} (2/9)(u+1), & -1 \leq u < 2, \\ 0, & elsewhere.\end{array}\right.
+    \end{equation*}
+\end{eg}
+
+In the bivariate case, let $Y_1$ and $Y_2$ be random variables with joint density $f(y_1,y_2)$ and let $U(Y_1,Y_2)$ be a function of $Y_1$ and $Y_2$. Then for every point $(y_1,y_2)$, there corresponds one and only one value of $U$. If we can find the region of values $(y_1,y_2)$ such that $U \leq u$, then the integral of the joint density function $f(y_1,y_2)$ over this region equals $P(U\leq u) = F_U(u)$.
+
+
+\begin{defn}{Distribution Function Method}{}
+    Let $U$ be a function of the random variables $Y_1,Y_2,...,Y_n$. \begin{enumerate}
+        \item Find the region $U = u$ in the $(y_1,y_2,...,y_n)$ space.
+        \item Find the region $U \leq u$.
+        \item Find $F_U(u) = P(U\leq u)$ by integrating $f(y_1,y_2,...,y_n)$ over the region $U \leq u$.
+        \item Find the density function $f_U(u)$ by differentiating $F_U(u)$. Thus, $f_U(u) = \frac{d}{du}F_U(u)$.
+    \end{enumerate}
+\end{defn}
+
+In certain instances it is possible to transform a random variable with a uniform distribution on $(0,1)$ into a random variable with some other specified distribution function.
+
+\begin{eg}{}{}
+    Let $U$ be a uniform random variable on $(0,1)$, we wish to find $G$ such that $G(U)$ possesses an exponential distribution with mean $\beta$.
+    
+    The distribution function of $U$ is \begin{equation*}
+        F_U(u) = \left\{\begin{array}{ll} 0, & u < 0, \\ u, & 0 \leq u \leq 1, \\ 1, & u > 1. \end{array}\right.
+    \end{equation*}
+    Let $Y$ denote a random variable with an exponential distribution with mean $\beta$: \begin{equation*}
+        F_Y(y) = \left\{\begin{array}{lc} 0, & y < 0, \\ 1 - e^{-y/\beta}, & y \geq 0 \end{array}\right.
+    \end{equation*}
+    Let $0 < u < 1$, then there is a unique $y$ such that $F_Y(y) = u$. Thus, $F^{-1}_Y(u)$, $0 < u < 1$, is well defined. In particular $F_Y^{-1}(u) = -\beta\ln(1-u)$. Consider the random variable $F^{-1}_Y(U) = -\beta\ln(1-U)$ and observe that if $y > 0$, \begin{align*}
+        P(F^{-1}_Y(U) \leq y) &= P[-\beta\ln(1-U)\leq y] \\
+        &= P[\ln(1-U)\geq -y/\beta] \\
+        &= P(U \leq 1 - e^{-y/\beta}) \\
+        &= 1 - e^{-y/\beta}
+    \end{align*}
+    Also, $P[F^{-1}_Y(U) \leq y] = 0$ if $y \leq 0$. Thus, $F^{-1}_Y(U) = -\beta\ln(1-U)$ possesses an exponential distribution with mean $\beta$, as desired.
+\end{eg}
+
+This technique is useful in conjunction with the methods computers often use to generate random numbers.
+
+
+\section{\textsection The Method of Transformations}
+
+\begin{rmk}{}{}
+    If we are given the density function of a random variable $Y$, the method of transformations results in a general expression for the density of $U = h(Y)$ for an increasing or decreasing function $h(y)$. Then if $Y_1$ and $Y_2$ have a bivaraite distribution, we can use the univariate result to find the joint density of $Y_1$ and $U = h(Y_1,Y_2)$. By integrating over $y_1$, we find the marginal probability density function of $U$, which is our objective.
+\end{rmk}
+
+Suppose that $h(y)$ is an increasing function of $y$ and that $U = h(Y)$, where $Y$ has density function $f_Y(y)$. Then $h^{-1}(u)$ is an increasing function of $u$: if $u_1 < u_2$, then $h^{-1}(u_1) = y_1 < y_2 = h^{-1}(u_2)$. The set of points $y$ such that $h(y) \leq u_1$ is precisely the same set as those $y$ such that $y \leq h^{-1}(u_1)$. Therefore, \begin{equation*}
+    P(U \leq u) = P(h(Y)\leq u) = P(Y\leq h^{-1}(u))
+\end{equation*}
+so $F_U(u) = F_Y(h^{-1}(u))$. Then differentiating with respect to $u$, we have \begin{equation*}
+    f_U(u) = \frac{d}{du}F_U(u) = \frac{d}{du}F_Y(h^{-1}(u)) = f_Y(h^{-1}(u))\frac{d}{du}(h^{-1}(u))
+\end{equation*}
+
+If $h(y)$ is a decreasing function of $y$, then $h^{-1}(u)$ is a decreasing function of $u$. That is, if $u_1 < u_2$, then $h^{-1}(u_1) = y_1 > y_2 = h^{-1}(u_2)$. The set of points $y$ such that $h(y) \leq u_1$ is then the same as the set of points such that $y \geq h^{-1}(u_1)$.
+
+It follows that for $U = h(Y)$: \begin{equation*}
+    P(U\leq u) = P(Y\geq h^{-1}(u))
+\end{equation*}
+so $F_U(u) = 1-F_Y(h^{-1}(u))$. If we differentiate with respect to $u$ we obtain: \begin{equation*}
+    f_U(u) = -f_Y(h^{-1}(u))\frac{d}{du}(h^{-1}(u))
+\end{equation*}
+
+\begin{defn}{}{}
+    The set of points $\{y:f_Y(y) > 0\}$ is called the \Emph{support} of the density function $f_Y(y)$.
+\end{defn}
+
+We only require that $h(\cdot)$ be increasing or decreasing on the support of $f_Y(y)$ in order to be able to apply this method. 
+
+\begin{thm}{}{}
+    Let $Y$ have a probability density function $f_Y(y)$. If $h(y)$ is increasing for all $y$ such that $f_Y(y) > 0$, then $U = h(Y)$ has density function \begin{equation*}
+        f_U(u) = f_Y(h^{-1}(u))\frac{d}{du}(h^{-1}(u))
+    \end{equation*}
+    and if $h(y)$ is decreasing the density function is \begin{equation*}
+        f_U(u) = -f_Y(h^{-1}(u))\frac{d}{du}(h^{-1}(u))
+    \end{equation*}
+\end{thm}
+
+\begin{defn}{Transformation Method}{}
+    Let $U = h(Y)$, where $h(y)$ is either an increasing or decreasing function of $y$ for all $y$ such that $f_Y(y) > 0$. \begin{enumerate}
+        \item Find the inverse function, $y = h^{-1}(u)$,
+        \item Evaluate $\frac{d}{du}(h^{-1}(u))$,
+        \item Find $f_U(u)$ by \begin{equation*}
+                f_U(u) = f_Y(h^{-1}(u))\left|\frac{d}{du}(h^{-1}(u))\right|
+        \end{equation*}
+    \end{enumerate}
+\end{defn}
+
+
+\begin{rmk}{}{}
+    If $Z = h(X,Y)$, and there exists an inverse such that $Y = g_Y^{-1}(x,z)$, then we have that \begin{equation*}
+        f_{XZ}(x,z) = f_{XY}(x, g_Y^{-1}(x,z))\left|\frac{d}{dz}g_Y^{-1}(x,z)\right|
+    \end{equation*}
+    Then we have that \begin{equation*}
+        f_Z(z) = \int\limits_{Support\;X}f_{XZ}(x,z)dx
+    \end{equation*}
+\end{rmk}
+
+
+
+
+
+\section{\textsection Method of Moment-Generating Functions}
+
+\begin{rmk}{}{}
+    This method is based on the uniqueness theoerm, which states that, if two random variables have identical moment-generating functions, the two random variables possess the same probability distributions. To use this method, we must find the moment-generating function for $U$ and compare it with the moment-generating functions for the common discrete and continuous distributions.
+\end{rmk}
+
+\begin{thm}{}{}
+    Let $m_X(t)$ and $m_Y(t)$ denote the moment-generating functions of random variables $X$ and $Y$, respectively. If both moment-generating functions exist and $m_X(t) = m_Y(t)$ for all values of $t$, then $X$ and $Y$ have the same probability distribution.
+\end{thm}
+
+\begin{rec}{}{}
+    Recall that \begin{equation*}
+        M_X(t) = E[e^{xt}] = \left\{\begin{array}{lc} \int_{all\;x}e^{xt}f_X(x)d & \text{for continuous RV} \\ \sum_{all\;x}e^{xt}P_X(X=x) & \text{for discrete RV} \end{array}\right.
+    \end{equation*}
+\end{rec}
+
+
+
+
+The first step in using this theorem is to find the moment-generating function of $U$: $m_U(t) = E[e^{tU}]$.
+
+\begin{thm}{}{}
+    Let $Y_1,Y_2,...,Y_n$ be independent random variables with moment-generating functions $m_{Y_1}(t),m_{Y_2}(t),...,m_{Y_n}(t)$, respectively. If $U = Y_1 + Y_2 + \hdots + Y_n$, then \begin{equation*}
+        m_U(t) = m_{Y_1}(t)\cdot m_{Y_2}(t)\cdot ... \cdot m_{Y_n}(t)
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    Recall that since the random variables $Y_1,Y_2,...,Y_n$ are independent, \begin{align*}
+        m_U(t) &= E[e^{t(Y_1+...+Y_n)}] \\
+        &= E[e^{tY_1}e^{tY_2}...e^{tY_n}] \\
+        &= E[e^{tY_1}]\cdot E[e^{tY_2}] \cdot ... \cdot E[e^{tY_n}]
+    \end{align*}
+    Thus by definition of moment-generating functions:\begin{equation*}
+        m_U(t) = m_{Y_1}(t)\cdot m_{Y_1}(t)\cdot ... \cdot m_{Y_n}(t)
+    \end{equation*}
+\end{proof*}
+
+The method of moment-generating functions can also be used to establish interesting and useful results about the distributions of functions of normally distributed random variables.
+
+\begin{thm}{}{}
+    Let $Y_1,Y_2,...,Y_n$ be independent normally distributed random variables with $E[Y_i] = \mu_i$ and $V[Y_i] = \sigma_i^2$, for $i \in \{1,2,...,n\}$, and let $a_1,a_2,...,a_n$ be constants. If \begin{equation*}
+        U = \sum\limits_{i=1}^na_iY_i
+    \end{equation*}
+    then $U$ is a normally distributed random variable with \begin{equation*}
+        E[U] = \sum\limits_{i=1}^na_i\mu_i
+    \end{equation*}
+    and \begin{equation*}
+        V[U] = \sum\limits_{i=1}^na_i^2\sigma_i^2
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    Because $Y_i$ is normally distributed with mean $\mu_i$ and variance $\sigma_i^2$, $Y_i$ has moment-generating function given by \begin{equation*}
+        m_{Y_i}(t) = \exp\left\{\mu_i t + \frac{\sigma_i^2t^2}{2}\right\}
+    \end{equation*}
+    Therefore, $a_iY_i$ has moment-generating function given by \begin{equation*}
+        m_{a_iY_i}(t) = E[e^{ta_iY_i}] = m_{Y_i}(a_it) = \exp\left\{\mu_ia_it + \frac{a_i^2\sigma_i^2t^2}{2}\right\}
+    \end{equation*}
+    Because the random variables $Y_i$ are independent, the random variables $a_iY_i$ are independent, for $i \in \{1,2,...,n\}$, and the previous theorem implies that \begin{align*}
+        m_U(t) &= m_{a_1Y_1}(t)\cdot...\cdot m_{a_nY_n}(t) \\
+        &= \exp\left\{\mu_1a_1t + \frac{a_1^2\sigma_1^2t^2}{2}\right\}\cdot...\cdot \exp\left\{\mu_na_nt + \frac{a_n^2\sigma_n^2t^2}{2}\right\} \\
+        &= \exp\left(t\sum\limits_{i=1}^na_i\mu_i + \frac{t^2}{2}\sum\limits_{i=1}^na_i^2\sigma_i^2\right)
+    \end{align*}
+    Thus, $U$ has a normal distribution with mean $\sum\limits_{i=1}^na_i\mu_i$ and variance $\sum\limits_{i=1}^na_i^2\sigma_i^2$.
+\end{proof*}
+
+\begin{thm}{}{}
+    Let $Y_1,Y_2,...,Y_n$ be independent normally distributed random variables with $E[Y_i] = \mu_i$ and $V[Y_i] = \sigma_i^2$, for $i \in \{1,2,...,n\}$. Define $Z_i$ by \begin{equation*}
+        Z_i = \frac{Y_i - \mu_i}{\sigma_i},\;\;i\in\{1,2,...,n\}
+    \end{equation*}
+    Then $\sum\limits_{i=1}^nZ_i^2$ has a $\chi^2$ distribution with $n$ degrees of freedom.
+\end{thm}
+\begin{proof*}{}{}
+    Note each $Z_i$ is normally distributed with mean $0$ and variance $1$. It can be shown that $Z_i$ has a $\chi^2$ distribution with $1$ degree of freedom. That is, \begin{equation*}
+        m_{Z_i^2}(t) = (1-2t)^{-1/2}
+    \end{equation*}
+    and with $V = \sum\limits_{i=1}^n$, \begin{align*}
+        m_V(t) &= m_{Z_1^2}(t)\cdot ... \cdot m_{Z_n^2}(t) \\
+        &= (1-2t)^{-1/2} \cdot ...\cdot (1-2t)^{-1/2} = (1-2t)^{-n/2}
+    \end{align*}
+    Because moment-generating functions are unique, $V$ has a $\chi^2$ distribution with $n$ degrees of freedom.
+\end{proof*}
+
+\begin{defn}{Moment-Generating Function Method}{}
+    Let $U$ be a function of the random variables $Y_1,...,Y_n$. \begin{enumerate}
+        \item Find the moment-generating function for $U$, $m_U(t)$.
+        \item Compare $m_U(t)$ with other well-known moment-generating functions. If $m_U(t) = m_V(t)$ for all values of $t$, uniqueness implies that $U$ and $V$ have identical distributions.
+    \end{enumerate}
+\end{defn}
+
+
+\section{\textsection Multivariate Transformations}
+
+\begin{defn}{Method}{}
+    If $U = h_1(X,Y)$ and $W = h_2(X,Y)$ are functions of joint continuous random variables with inverses $X = g_X^{-1}(u,w)$ and $Y = g_Y^{-1}(u,w)$. Then the joint density function of $U$ and $W$ is given by \begin{equation*}
+        f_{UW}(u,w) = f_{XY}(g_X^{-1}(u,w),g_Y^{-1}(u,w))\left|\frac{\partial(g_X^{-1},g_Y^{-1})}{\partial(u,w)}\right|
+    \end{equation*}
+\end{defn}
+
+This extends for $k$ functions of $k$ random variables.
+
+
+\section{\textsection Order Statistics}
+
+
+\begin{rmk}{}{}
+    We often order ovserved random variables according to their magnitudes. The resulting ordered variabels are called \Emph{order statistics}.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    Let $Y_1,...,Y_n$ denote independent continuous random variables with distribution function $F(y)$ and density function $f(y)$, we denote the ordered variables by \begin{equation*}
+        Y_{(1)} \leq Y_{(2)} \leq ... \leq Y_{(n)}
+    \end{equation*}
+    Then \begin{equation*}
+        Y_{(1)} = \min\limits_{1\leq i \leq n}Y_i, Y_{(n)} = \max\limits_{1\leq i \leq n}Y_i
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Note, $(Y_{(n)} \leq y)$ will occur if and only if $Y_i \leq y$ for all $i$, so we have \begin{equation*}
+        P(Y_{(n)} \leq y) = P(Y_1\leq y,..., Y_n \leq y)
+    \end{equation*}
+    and as the $Y_i$ are independent \begin{equation*}
+        F_{Y_{(n)}}(y) = P(Y_{(n)}\leq y) = \prod_{i=1}^nP(Y_i\leq y) = [F(y)]^n
+    \end{equation*}
+    so \begin{equation*}
+        f_{Y_{(n)}}(y) = n[F(y)]^{n-1}f(y)
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Note, $(Y_{(1)} > y)$ occurs if and only if $Y_i \geq y$ for all $i$, so \begin{equation*}
+        F_{Y_{(1)}}(y) = P(Y_{(1)} \leq y) = 1 - P(Y_{(1)} > y) = 1 - P(Y_1 \geq y,..., Y_n\geq y)
+    \end{equation*}
+    Then since the $Y_i$ are independent \begin{equation*}
+        F_{Y_{(1)}}(y) = 1-\prod_{i=1}^nP(Y_i>y) = 1 - [1-F(y)]^n
+    \end{equation*}
+    so \begin{equation*}
+        f_{Y_{(1)}}(y) = n[1-F(y)]^{n-1}f(y)
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    Let $Y_1,...,Y_n$ be i.i.d. random variables, then the joint density of $Y_{(1)},...,Y_{(n)}$ is \begin{equation*}
+        f_{(1)(2)...(n)}(y_1,y_2,...,y_n) = \left\{\begin{array}{lc} n!f(y_1)f(y_2)...f(y_n) & y_1 \leq y_2 \leq ... \leq y_n \\ 0, & elsewhere \end{array}\right.
+    \end{equation*}
+\end{defn}
+
+
+\begin{thm}{}{}
+    Let $Y_1,...,Y_n$ be i.i.d continuous random variables with common CDF $F(y)$ and common pdf $f(y)$. If $Y_{(k)}$ denotes the $k$th order statistic the pdf of $Y_{(k)}$ is \begin{equation*}
+        f_{(k)}(y_k) = \frac{n!}{(k-1)!(n-k)!}[F(y_k)]^{k-1}[1-F(y_k)]^{n-k}f(y_k)
+    \end{equation*}
+    If $1 \leq j \leq k \leq n$, the joint pdf of $Y_{(j)}$ and $Y_{(k)}$ is \begin{equation*}
+        f_{(j)(k)}(y_j,y_k) = \frac{n!}{(j-1)!(k-1-j)!(n-k)!}[F(y_j)]^{j-1}[F(y_k)-F(y_j)]^{k-1-j}[1-F(y_k)]^{n-k}f(y_j)f(y_k)
+    \end{equation*}
+    for $-\infty < y_j < y_k < \infty$.
+\end{thm}
+
+\begin{eg}{}{}
+    $X_1,...,X_n$ i.i.d uniform distributed random variables between $0$ to $1$. THen \begin{equation*}
+        f_{(k)}(x) = \frac{n!}{(k-1)!(n-k)!}x^{k-1}(1-x)^{n-k} = \frac{\Gamma(n-k+k+1)}{\Gamma(k)\Gamma(n-k+1)}x^{k-1}(1-x)^{(n-k+1)-1}
+    \end{equation*}
+    for $0 \leq x \leq 1$ so $X_{(k)} \sim beta(\alpha = k, \beta = n-k+1)$
+\end{eg}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% P6
+\chapter{Central Limit Theorem and Sampling}
+
+\section{\textsection Sampling Distributions Related to the Normal Distribution}
+
+\begin{defn}{}{}
+    Let $Y_1,...,Y_n$ be independent random variables with the same distribution. We estimate the population mean these random variables come from using the following random variable: \begin{equation*}
+        \overline{Y} = \frac{1}{n}\sum\limits_{i=1}^nY_i
+    \end{equation*}
+\end{defn}
+
+This random variable is an example of a \emph{statistic}.
+
+\begin{defn}{}{}
+    A \Emph{statistic} is a function of the observable random variables in a sample and known constants.
+\end{defn}
+
+Statistics are used to make inferences (estimates or decisions) about unknown population parameters. All statistics are random variables, and hence have probability distributions called their \Emph{sampling distributions}. 
+
+\begin{thm}{}{}
+    Let $Y_1,...,Y_n$ be a random sample of size $n$ from a normal distribution with mean $\mu$ and variance $\sigma^2$. Then \begin{equation*}
+        \overline{Y} = \frac{1}{n}\sum\limits_{i=1}^nY_i
+    \end{equation*}
+    is normally distributed with mean $\mu_{\overline{Y}} = \mu$ and variance $\sigma^2_{\overline{Y}} = \sigma^2/n$.
+\end{thm}
+\begin{proof*}{}{}
+    Because $Y_1,...,Y_n$ is a random sample from a normal distribution with mean $\mu$ and variance $\sigma^2$, $Y_i$ ($i \in \{1,2,...,n\}$) are independent, normally distributed variables, with $E[Y_1] = \mu$ and $VAR[Y_i] = \sigma^2$. Further, \begin{equation*}
+        \overline{Y} = \frac{1}{n}\sum\limits_{i=1}^nY_i
+    \end{equation*}
+    is a linear combination of the $Y_i$, and hence by a preceeding theorem, we can conclude that $\overline{Y}$ is normally distributed with \begin{equation*}
+        E[\overline{Y}] = E\left[\frac{1}{n}\sum\limits_{i=1}^nY_i\right] = \frac{1}{n}\sum\limits_{i=1}^n\mu = \mu
+    \end{equation*}
+    and \begin{equation*}
+        VAR[\overline{Y}] = VAR\left[\frac{1}{n}\sum\limits_{i=1}^nY_i\right] = \frac{1}{n^2}\sum\limits_{i=1}^n\sigma^2 = \sigma^2/n
+    \end{equation*}
+    since the $Y_i$ are independent. That is, the sampling distribution of $\overline{Y}$ is normal with mean $\mu_{\overline{Y}} = \mu$ and variance $\sigma^2_{\overline{Y}} = \sigma^2/n$.
+\end{proof*}
+
+\begin{cor}{}{}
+    $Z = \frac{\overline{Y}-\mu}{\sigma/\sqrt{n}} \sim normal(\mu = 0, \sigma = 1)$
+\end{cor}
+
+
+
+\begin{thm}{}{}
+    Let $Y_1,...,Y_n$ be a random sample of size $n$ from a normal distribution with mean $\mu$ and variance $\sigma^2$. Then $Z_i = (Y_i-\mu)/\sigma$ are independent, standard normal random variables, with $i \in \{1,2,...,n\}$, and \begin{equation*}
+        \sum\limits_{i=1}^nZ_i^2 = \sum\limits_{i=1}^n\left(\frac{Y_i-\mu}{\sigma}\right)^2
+    \end{equation*}
+    has a $\chi^2$ distribution with $n$ degrees of freedom.
+\end{thm}
+\begin{proof*}{}{}
+    Since the $Y_i$ is a random sample from a normal distribution with mean $\mu$ and variance $\sigma^2$, each of the $Z_i = (Y_i-\mu)/\sigma$ have a standard normal distribution. Further, the random variables $Z_i$ are independent because the random variables $Y_i$ are independent. The fact that $\sum_{i=1}^nZ_i^2$ has a $\chi^2$ distribution with $n$ degrees of freedom follows from a previous theorem.
+\end{proof*}
+
+
+\begin{thm}{Cochran's Theorem}{}
+    Let $Z_1^2,...,Z_n^2$ be a i.i.d chi-square random variables with their own respective degrees of freedom $\nu_1,...,\nu_n$. Then \begin{equation*}
+        \sum_{i=1}^nZ_i^2 \sim chi-squared(\nu = \sum_{i=1}^n\nu_i)
+    \end{equation*}
+\end{thm}
+
+
+
+\begin{defn}{}{}
+    The sample variance for a random sample $Y_1,Y_2,...,Y_n$ is given as follows \begin{equation*}
+        S^2 := \frac{1}{n-1}\sum\limits_{i=1}^n(Y_i-\overline{Y})^2
+    \end{equation*}
+    and it is an unbiased estimator of $\sigma^2$.
+\end{defn}
+
+\begin{thm}{}{}
+    Let $Y_1,...,Y_n$ be a random sample from a normal distribution with mean $\mu$ and variance $\sigma^2$. Then \begin{equation*}
+        \frac{(n-1)S^2}{\sigma^2} = \frac{1}{\sigma^2}\sum\limits_{i=1}^n(Y_i-\overline{Y})^2
+    \end{equation*}
+    has a $\chi^2$ distribution with $(n-1)$ degrees of freedom. Also, $\overline{Y}$ and $S^2$ are independent random variables.
+\end{thm}
+
+
+\begin{defn}{}{}
+    Let $Z$ be a standard normal random variable and let $W$ be a $\chi^2$-distributed variables with $\nu$ degrees of freedom. Then, if $Z$ and $W$ are independent, \begin{equation*}
+        T= \frac{Z}{\sqrt{W/\nu}}
+    \end{equation*}
+    is said to have a \Emph{$t$ distribution} with $\nu$ degrees of freedom. $T$ has a density function \begin{equation*}
+        f_T(t) = \frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\pi\nu}\Gamma\left(\frac{\nu}{2}\right)}\left(1+\frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}, -\infty < t < \infty
+    \end{equation*}
+\end{defn}
+
+If $Y_1,...,Y_n$ constitute a random sample from a normal population with mean $\mu$ and variance $\sigma^2$, $Z = \frac{(\overline{Y}-\mu)}{\sigma/\sqrt{n}}$ has a standard normal distribution. From a previous theorem we have that $W = (n-1)S^2/\sigma^2$ has a $\chi^2$ distribution with $\nu = n-1$ degrees of freedom and that $Z$ and $W$ are independent. Therefore, by our definition, \begin{equation*}
+    T = \frac{Z}{\sqrt{W/\nu}} = \frac{\sqrt{n}(\overline{Y}-\mu)/\sigma}{\sqrt{[(n-1)S^2/\sigma^2]/(n-1)}} = \sqrt{n}\left(\frac{\overline{Y} - \mu}{S}\right)
+\end{equation*}
+has a $t$ distribution with $(n-1)$ degrees of freedom.
+
+\begin{rmk}{}{}
+    For $\nu > 2$, the $T$ distributed random variable has $E[T] = 0$ and $VAR[T] = \frac{\nu}{\nu-2}$.
+\end{rmk}
+
+\begin{defn}{}{}
+    Let $W_1$ and $W_2$ be independent $\chi^2$-distributed random variables with $\nu_1$ and $\nu_2$ degrees of freedom, respectively. Then \begin{equation*}
+        F = \frac{W_1/\nu_1}{W_2/\nu_2}
+    \end{equation*}
+    is said to have an $F$ distribution with $\nu_1$ numerator degrees of freedom and $\nu_2$ denominator degrees of freedom. Then $F$ has the following density function \begin{equation*}
+        f_F(x) = \frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right)}{\Gamma\left(\frac{\nu_1}{2}\right)\Gamma\left(\frac{\nu_2}{2}\right)}\left(\frac{\nu_1}{\nu_2}\right)^{\frac{\nu_1}{2}}x^{\frac{\nu_1}{2}-1}\left(1+\frac{\nu_1}{\nu_2}x\right)^{-\frac{\nu_1+\nu_2}{2}}, x > 0
+    \end{equation*}
+\end{defn}
+
+Considering two indepenent random samples from normal distributions, we know that $W_1 = (n_1-1)S_1^2/\sigma_1^2$ and $W_2 = (n_2 - 1)S_2^2/\sigma_2^2$ have independent $\chi^2$-distributions with $\nu_1 = (n_1-1)$ and $\nu_2 = (n_2-1)$ degrees of freedom, respectively. Thus, by definition we have that \begin{equation*}
+    F = \frac{W_1/\nu_1}{W_2/\nu_2} = \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+\end{equation*}
+has an $F$ distribution with $(n_1-1)$ numerator degrees of freedom and $(n_2-1)$ denominator degrees of freedom.
+
+
+\begin{rmk}{}{}
+    If $\nu_2 > 2$, then $E[F] = \frac{\nu_2}{\nu_2-2}$, and if $\nu_2 > 4$, then \begin{equation*}
+        V[F] = \frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}
+    \end{equation*}
+\end{rmk}
+
+\begin{cor}{}{}
+    Let $T = \frac{\overline{X} - \mu}{S/\sqrt{n}}$ for $\overline{X}$ normally distributed with mean $\mu$ and standard deviation $\sigma$. Then $T = \frac{Z}{\sqrt{W/(n-1)}} \sim T_{df = n-1}$ where $W \sim \chi^2_{df = n-1}$. It then follows that \begin{equation*}
+        T^2 = \frac{Z^2/1}{W/(n-1)} \sim F_{dfnum = 1, dfden = n-1}
+    \end{equation*}
+\end{cor}
+
+
+
+
+\section{\textsection The Central Limit Theorem}
+
+\begin{namthm}{Central Limit Theorem}{}
+    Let $Y_1,Y_2,...,Y_n$ be indepedent and identically distributed random variables with $E[Y_i] = \mu$ and $V[Y_i] = \sigma^2 < \infty$. Define \begin{equation*}
+        U_n = \frac{\sum_{i=1}^nY_i - n\mu}{\sigma\sqrt{n}} = \frac{\overline{Y}-\mu}{\sigma/\sqrt{n}}
+    \end{equation*}
+    where $\overline{Y} = \frac{1}{n}\sum_{i=1}^nY_i$. Then the distribution function for $U_n$ converges to the standard normal distribution function as $n\rightarrow \infty$. That is, \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}P(U_n \leq u) = \int_{-\infty}^u\frac{1}{\sqrt{2\pi}}e^{-t^2/2}dt
+    \end{equation*}
+    for all $u$.
+\end{namthm}
+
+\begin{thm}{}{}
+    Let $Y$ and $Y_1,Y_2,Y_3,...,$ be random variables with moment-generating functions $m(t)$ and $m_1(t),m_2(t),m_3(t),...,$ respectively. If \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}m_n(t) = m(t)
+    \end{equation*}
+    for all real $t$, then the distribution function of $Y_n$ converges to the distribution function of $Y$ as $n\rightarrow \infty$.
+\end{thm}
+
+We now sketch a proof of the Central Limit Theorem:
+
+\begin{proof*}{}{}
+    Write \begin{equation*}
+        U_n = \sqrt{n}\left(\frac{\overline{Y}-\mu}{\sigma}\right) = \frac{1}{\sqrt{n}}\left(\frac{\sum_{i=1}^nY_i - n\mu}{\sigma}\right) = \frac{1}{\sqrt{n}}\sum\limits_{i=1}^nZ_i
+    \end{equation*}
+    where $Z_i = \frac{Y_i - \mu}{\sigma}$. Because the random variables $Y_i$'s are independent and identically distributed, $Z_i$, $i \in \{1,2,...,n\}$, are independent, and identically distributed with $E[Z_i] = 0$ and $V[Z_i] = 1$.
+
+    Since the moment-generating function of the sum of independent random variables is the product of their individual moment-generating functions, \begin{equation*}
+        m_{\sum Z_i}(t) = m_{Z_1}(t)\cdot ... \cdot m_{Z_n}(t) = [m_{Z_1}(t)]^n
+    \end{equation*}
+    and \begin{equation*}
+        m_{U_n}(t) = m_{\sum Z_i}(t/\sqrt{n}) = \left[m_{Z_1}(t/\sqrt{n})\right]^n
+    \end{equation*}
+    By Taylor's theorem, with remainder, \begin{equation*}
+        m_{Z_1}(t) = m_{Z_1}(0) + m'_{Z_1}(0)t + m''_{Z_1}(\xi)\frac{t^2}{2},
+    \end{equation*}
+    where $\xi \in (0,t)$, and because $m_{Z_1}(0) = E[e^{0Z_1}] = E[1] = 1$, and $m_{Z_1}(0) = E[Z_1] = 0$, \begin{equation*}
+        m_{Z_1}(t) = 1 + \frac{m''{Z_1}(\xi)}{2}t^2,
+    \end{equation*}
+    Therefore, \begin{equation*}
+        m_{U_n}(t) = \left[1+\frac{m''_{Z_1}(\xi_n)}{2}(t/\sqrt{n})^2\right]^n = \left[1+\frac{m''_{Z_1}(\xi_n)t^2/2}{n}\right]^n
+    \end{equation*}
+    for $\xi_n \in (0,t/\sqrt{n})$. Notice that as $n \rightarrow \infty$, $\xi_n \rightarrow 0$ and $m''_{Z_1}(\xi_n)t^2/2 \rightarrow m''_{Z_1}(0)t^2/2 = E[Z_1^2]t^2/2 = t^2/2$ because $E[Z_1^2] = V[Z_1] = 1$. Recall that if \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}b_n = b,\;\;then\;\;\lim\limits_{n\rightarrow \infty}\left(1 + \frac{b_n}{n}\right)^n = e^b
+    \end{equation*}
+    Finally, \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}m_{U_n}(t) = \lim\limits_{n\rightarrow \infty}\left[1+\frac{m''_{Z_1}(\xi_n)t^2/2}{n}\right]^n = e^{t^2/2}
+    \end{equation*}
+    the moment-generating function for a standard normal random variable. Applying the previous theorem, we conclude that $U_n$ has a distribution function that converges to the distribution function of the standard normal random variable.
+\end{proof*}
+
+Let $Y\sim binomial(n,p)$. Then $Y$ can be viewed as the sum $Y = \sum\limits_{i=1}^nX_i$, where each $X_i$ is an independent Bernoulli random variable with probability of success $p$. That is $E[X_i] = p$ and $V[X_i] = p(1-p)$ for each $i$, so consequently when $n$ is large, the sample fraction of successes \begin{equation*}
+    \frac{Y}{n} = \frac{1}{n}\sum\limits_{i=1}^nX_i = \overline{X}
+\end{equation*}
+possesses an approximately normal sampling distribution with mean $E[X_i] = p$ and variance $V[X_i]/n = p(1-p)/n$. It then follows that for large $n$, $Y \sim norm(\mu= np, \sigma^2 = np(1-p))$.
+
+Thus, using the Central Limit Theorem we establish that if $Y$ is a binomial random variable with parameters $n$ and $p$, and if $n$ is large, then $Y/n$ has approximately a normal distribution with mean $\mu = p$ and variance $\sigma^2 = p(1-p)/n$. Equivalently, for large $n$, we can think of $Y$ as having approximately a normal distribution with mean $\mu = np$ and variance $\sigma^2 = np(1-p)$.
+
+
+For the CLT to be used on proportions we require that either $n > 9\left(\frac{\text{larger of p and q}}{\text{smaller of p and q}}\right)$, or from a sample we have at least $10$ of each response/category.
+
+\begin{defn}{}{}
+    When we approximate $Y \sim norm(\mu = np, \sigma^2 = np(1-p))$ for $Y$ binomial for $n$ sufficiently large, the \Emph{continuity correction} takes $P(Y \leq d+0.5)$ and $P(Y\geq d-0.5)$ when approximating $P(Y\leq d)$ and $P(Y\geq d)$ for $d \in \Z$.
+\end{defn}
+
+
+
+
+\chapter{Estimation}
+
+Recall that populations are characterized by numerical descriptive measures, called \Emph{parameters}, so the objective of many statistical investigations is to estimate the value of one or more relevant parameters.
+
+In general, we call the parameter of interest in an experiment the \Emph{target parameter}.
+
+\begin{defn}{}{}
+    A \Emph{point estimate} of a parameter is a single value estimate.
+\end{defn}
+
+\begin{defn}{}{}
+    An \Emph{interval estimate} of a parameter is an open interval $(a,b)$ in which it is intended that the parameter of interest is enclosed in the interval.
+\end{defn}
+
+
+\begin{defn}{}{}
+    An \Emph{estimator} is a rule, often expressed as a formula, that tells how to calculate the value of an estimate based on the measurements contained in a sample.
+\end{defn}
+
+For example, the sample mean \begin{equation*}
+    \overline{Y} = \frac{1}{n}\sum\limits_{i=1}^nY_i
+\end{equation*}
+is one possible point estimator of the population mean $\mu$.
+
+
+\section{\textsection The Bias and Mean Square Error of Point Estimators}
+
+First, note that we cannot evaluate the ``goodness" of a point estimation procedure on the basis of the value of a single estimate. Rather, we must observe the results when the estimation procedure is used many, many times. 
+
+
+Now, suppose we wish to specify a point estimate for a population parameter $\theta$. The estimator of $\theta$ will be indicated by the symbol $\hat{\theta}$. It is highly desirable for the sampling distribution of the estimator, i.e. the distribution of estimates, to cluster about the target parameter. In other words, we would like the mean or expected value of the distribution of estimates to equal the parameter estimated: $E(\hat{\theta}) = \theta$. 
+
+\begin{defn}{}{}
+    Point estimators, $\hat{\theta}$, that satisfy this property, $E(\hat{\theta}) = \theta$, are said to be \Emph{unbiased}. If $E(\hat{\theta}) \neq \theta$, then $\hat{\theta}$ is said to be \Emph{biased}.
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{bias} of a point estimator $\hat{\theta}$ is given by $B(\hat{\theta}) = E(\hat{\theta}) - \theta$.
+\end{defn}
+
+
+\begin{defn}{}{}
+    Point estimators, $\hat{\theta}$, that satisfy $E(\hat{\theta}) > \theta$ are said to be \Emph{positively biased}.
+\end{defn}
+
+
+We also want the variance of the distribution of the estimator, $V(\hat{\theta})$, to be as small as possible.
+
+\begin{defn}{}{}
+    The \Emph{mean square error} of a point estimator $\hat{\theta}$ is \begin{equation*}
+        MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2]
+    \end{equation*}
+\end{defn}
+
+The mean square of an estimator $\hat{\theta}$, $MSE(\hat{\theta})$, is a function of both its variance and its bias. Indeed, if $B(\hat{\theta})$ denotes the bias of the estimator $\hat{\theta}$, then we have that \begin{align*}
+    MSE(\hat{\theta}) &= E[\hat{\theta}^2] - 2\theta E[\hat{\theta}] + \theta^2 \\
+    &= V[\hat{\theta}] + E[\hat{\theta}]^2-2\theta E[\hat{\theta}] + \theta^2 \\
+    &= V[\hat{\theta}] + (E[\hat{\theta}]-\theta)^2 \\
+    &= V[\hat{\theta}] + [B(\hat{\theta})]^2
+\end{align*}
+
+
+\section{\textsection Common Unbiased Point Estimators}
+
+First, we denote the variance of the sampling distribution of the estimator $\hat{\theta}$ by $\sigma_{\hat{\theta}}^2$, and the standard deviation $\sigma_{\hat{\theta}}$ of the sampling distribution of the estimator $\hat{\theta}$ is called the \Emph{standard error} of the estimator.
+
+Then for independent samples, the following are point estimators of often desirable quantities:
+
+\begin{table}[H]
+    \centering
+    \caption{Expected values and standard errors of common point estimators}
+    \begin{tabular}{c|c|c|c|c}
+        Target Parameter $\theta$ & Sample Size(s) & Point Estimator $\hat{\theta}$ & $E(\hat{\theta})$ & Standard Error $\sigma_{\hat{\theta}}$ \\ \hline
+        $\mu$ & $n$ & $\overline{Y}$ & $\mu$ & $\frac{\sigma}{\sqrt{n}}$ \\
+        $p$ & $n$ & $\hat{p} = \frac{Y}{n}$ & $p$ & $\sqrt{\frac{pq}{n}}$ \\
+        $\mu_1 - \mu_2$ & $n_1$ and $n_2$ & $\overline{Y}_1 - \overline{Y}_2$ & $\mu_1 - \mu_2$ & $\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}$ \\
+        $p_1 - p_2$ & $n_1$ and $n_2$ & $\hat{p}_1 - \hat{p}_2$ & $p_1 - p_2$ & $\sqrt{\frac{p_1q_1}{n_1} + \frac{p_2q_2}{n_2}}$ \\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        Parameter, $\theta$ & Estimator/statistic $\hat{\theta}$ \\ \hline
+        $E[X] = \mu$ the population mean & Sample mean $\overline{X} = \frac{1}{n}\sum_{i=1}^nX_i$, numeric data \\
+        $V[X] = \sigma^2$, population variance & Sample variance $S^2 = \frac{\sum_{i=1}^n(X_i - \overline{X})^2}{(n-1)}$, numeric data \\
+        $V[X] = \sigma^2$, population variance & Sample variance, $\frac{p(1-p)}{n}$, for categorical data \\
+        $E[X] = p$, population proportion & Sample proportion $\hat{p} = \frac{1}{n}\sum_{i=1}^nX_i$ for categorical data \\
+        $E[X] = \mu$, population mean & Sample mode $\dot{X}$ - most frequent data \\
+        $E[X] = \mu$, population mean & Sample median $\widetilde{X}$ center of ordered data \\
+        Population min & $X_{(1)} = \min(X_1,...,X_n)$ \\
+        Population max & $X_{(n)} = \max(X_1,...,X_n)$ \\
+    \end{tabular}
+\end{table}
+
+The expected values and standard errors for $\overline{Y}$ and $\overline{Y}_1 - \overline{Y}_2$ are valid regardless of the distribution of the population(s) from which the sample(s) is (are) taken. Moreover, all four estimators possess probability distributions that are approximately normal for large samples. The central limit theorem guarantees this for $\overline{Y}$ and $\hat{p}$, and the others are justified by similar theorems.
+
+\begin{defn}{}{}
+    The following is an unbiased estimator for the sample variance: \begin{equation*}
+        S^2 = \frac{\sum_{i=1}^n(Y_i-\overline{Y})^2}{n-1}
+    \end{equation*}
+    and the following is a biased estimator for the sample variance: \begin{equation*}
+        S'^2 = \frac{\sum_{i=1}^n(Y_i - \overline{Y})^2}{n} 
+    \end{equation*}
+\end{defn}
+
+
+\section{\textsection Evaluating the Goodness of a Point Estimator}
+
+\begin{defn}{}{}
+    The \Emph{error of estimation} $\varepsilon$ is the distance between an estimator and its target parameter. That is, $\varepsilon = |\hat{\theta} - \theta|$.
+\end{defn}
+
+Since $\hat{\theta}$ is a random variable, so is $\varepsilon$. If we take $b$ as a ``probabilistic bound" on the error of estimation, then $P(\varepsilon < b) = P(|\hat{\theta} - \theta| < b)$ provides a measure of the goodness of a single estimate (if $b$ can be regarded as small from some practical point of view).
+
+To determine the exact $b$ such that $P(\varepsilon < b) = p$ for some $0 < p < 1$ requires knowledge of the probability distribution or density function of $\hat{\theta}$. However, even if we don't know this we can find an approximate bound on $\varepsilon$ by expressing $b$ as a multiple of the standard error of $\hat{\theta}$. For example, if $k \geq 1$ and we let $b = k\sigma_{\hat{\theta}}$, then we know from Tchebysheff's theorem that $\varepsilon$ will be less that $k\sigma_{\hat{\theta}}$ with probability at least $1 - 1/k^2$.
+
+\section{\textsection Confidence Intervals}
+
+\begin{defn}{}{}
+    An \Emph{interval estimator} is a rule specifying the method for using the sample measurements to calculate two numbers that form the endpoints of the interval. Ideally, the resulting interval will have two properties: First, it will contain the target parameter $\theta$; second, it will be relatively narrow.
+
+    Interval estimators are also referred to as \Emph{confidence intervals}.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The upper and lower endpoints of a confidence interval are called the \Emph{upper} and \Emph{lower confidence limits}, respectively.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The probability that a random confidence interval will enclose the fixed quantity $\theta$ is called the \Emph{confidence coefficient}.
+\end{defn}
+
+\begin{defn}{}{}
+    Suppose that $\hat{\theta}_L$ and $\hat{\theta}_U$ are the random lower and upper confidence limits, respectively, for a parameter $\theta$. Then if \begin{equation*}
+        P(\hat{\theta}_L \leq \theta \leq \hat{\theta}_U) = 1- \alpha
+    \end{equation*}
+    the probability $(1-\alpha)$ is the \Emph{confidence coefficient}. The resulting random interval defined by $[\hat{\theta}_L,\hat{\theta}_U]$ is called a \Emph{two-sided confidence interval}.
+\end{defn}
+
+\begin{defn}{}{}
+    A \Emph{one-sided confidence interval} is an interval $[\hat{\theta}_L,\infty)$ or $(-\infty,\hat{\theta}_U]$, where \begin{equation*}
+        P(\hat{\theta}_L \leq \theta) = 1 - \alpha
+    \end{equation*}
+    or \begin{equation*}
+        P(\theta \leq \hat{\theta}_U) = 1- \alpha
+    \end{equation*}
+    respectively.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The \Emph{pivotal method} depends on finding a pivotal quantity that possesses two characteristics: \begin{enumerate}
+        \item It is a function of the sample measurements and the unknown parameter $\theta$, where $\theta$ is the only unknown quanitty.
+        \item Its probability distribution does not depend on the parameter $\theta$.
+    \end{enumerate}
+    If the probability distribution of the pivotal quantity is known, the following logic can be used to form the desired interval estimate: If $Y$ is any random variable, $c > 0$ is a constant, and $P(a\leq Y \leq b) = p$ for some $p \in (0,1)$, then certainly $P(ca \leq cY \leq cb) = p$. Similarly, $P(a+c\leq Y+c \leq b+c) = p$. Thus if we know the probability distribution of a pivotal quantity, we may be able to use operations like these to form the desired interval estimator.
+\end{defn}
+
+
+\section{\textsection Large-Sample Confidence Intervals}
+
+Recall that the parameters $\mu, p, \mu_1-\mu_2, p_1 - p_2$ have approximately normal sampling distributions with standard errors for large samples. Then for large samples if $\theta$ is one of these parameters, then \begin{equation*}
+    Z = \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}}
+\end{equation*}
+possesses approximately a standard normal distribution. Consequently, $Z$ forms approximately a pivotal quantity.
+
+When $\theta = \mu$ is the target parameter, then $\hat{\theta} = \overline{Y}$ and $\sigma_{\hat{\theta}}^2 = \sigma^2/n$, where $\sigma^2$ is the population variance. If $\sigma^2$ is unknown, and $n$ is large, then one can use the estimator $s^2$ to substitute for $\sigma^2$ in estimating the confidence interval. Similarly, if $\sigma_1^2$ and $\sigma_2^2$ are unknown and both $n_1$ and $n_2$ are large, $s_1^2$ and $s_2^2$ can be substituted for these values in the finding the confidence interval for $\theta = \mu_1 - \mu_2$.
+
+
+When $\theta = p$ is the target parameter, then $\hat{\theta} = \hat{p}$ and $\sigma_{\hat{p}} = \sqrt{pq/n}$. Because $p$ is the unknown target parameter, $\sigma_{\hat{p}}$ cannot be evaluated. If $n$ is large and we substitute $\hat{p}$ for $p$ and $\hat{q} = 1 - \hat{p}$ for $q$ in the formula for $\sigma_{\hat{p}}$, then the resulting confidence interval will have approximately the desired confidence coefficient. For $n_1$ and $n_2$ large, similar statements hold when $\hat{p}_1$ and $\hat{p}_2$ are used to estimate $p_1$ and $p_2$ respectively in the formula for $\sigma_{\hat{p}_1 - \hat{p}_2}^2$.
+
+
+
+\begin{prop}{}{}
+    Suppose $\sigma$ is known and $\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim norm(0,1)$, where $X_i$ are i.i.d sample and either $X_i \sim norm(\mu,\sigma)$ or $n$ is large enough for the central limit theorem to reasonably approximate $\overline{X} \sim norm(\mu,\sigma/\sqrt{n})$. Then the $(1-\alpha)100\%$ confidence interval for $\mu$ is \begin{equation*}
+        \overline{X} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}
+    \end{equation*}
+    where $P(Z\leq z_{\alpha/2}) = \alpha/2$ and $P(Z\geq z_{1-\alpha/2}) = \alpha/2$, $Z \sim norm(0,1)$.
+\end{prop}
+
+\begin{prop}{}{}
+    If $X_i$ are an i.i.d sample and either $X_i \sim norm(\mu, \sigma)$ or $n$ is large enough for the CLT to reasonably approximate that $\overline{X} \sim norm(\mu,\sigma/\sqrt{n})$, and if $\sigma$ is unknown, $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim T_{df = n-1}$ is the pivotal quantity for obtaining the following $(1-\alpha)100\%$ confidence interval for $\mu$:\begin{equation*}
+        \overline{X}\pm t_{\alpha/2,df = n-1}\frac{S}{\sqrt{n}}
+    \end{equation*}
+\end{prop}
+
+\begin{rmk}{}{}
+    Suppose $Y_1,...,Y_n$ represent a sample normal population with $\mu$ and $\sigma^2$ unknown. Suppose $n$ is small. Then \begin{equation*}
+        T = \frac{\overline{Y}-\mu}{S/\sqrt{n}}\sim T_{df = n-1}
+    \end{equation*}
+    $T$ serves as a pivotal quantity for $\mu$. Then we obtain the confidence interval \begin{equation*}
+        \overline{Y} \pm t_{\alpha/2}\frac{S}{\sqrt{n}}
+    \end{equation*}
+    for $\mu$.
+\end{rmk}
+
+\begin{rmk}{}{}
+    Suppose we have two normal populations, one with mean $\mu_1$ and variance $\sigma_1^2$, and the other with mean $\mu_2$ and variance $\sigma_2^2$. Suppose $\sigma_1 = \sigma_2$. Then \begin{equation*}
+        Z = \frac{(\overline{Y}_1 - \overline{Y}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}
+    \end{equation*}
+    is a pivotal quantity for $\mu_1 - \mu_2$. In this case $Z \sim norm(0,1)$.
+\end{rmk}
+
+\begin{defn}{}{}
+    For two populations $Y_{1,i}$ and $Y_{2,j}$, $1 \leq i \leq n_1, 1 \leq j \leq n_2$, with common variance $\sigma^2$, the \Emph{pooled estimator $S_p^2$} is \begin{equation*}
+        S_P^2 = \frac{\sum_{i=1}^{n_1}(Y_{1,i}-\overline{Y}_1)^2 + \sum_{j=1}^{n_2}(Y_{2,j}-\overline{Y}_2)^2}{n_1+n_2+2} = \frac{(n_1-1)S_1^2 + (n_2-1)S_1^2}{n_1+n_2-2}
+    \end{equation*}
+    Then \begin{equation*}
+        W = \frac{(n_1+n_2-2)S_P^2}{\sigma^2} = \frac{(n_1-1)S_1^2}{\sigma^2} + \frac{(n_2-1)S_2^2}{\sigma^2}
+    \end{equation*}
+    is the sum of two $\chi^2$ distributed random variables with $(n_1-1)$ and $(n_2-1)$ degrees of freedom, respectively. Thus $W \sim \chi^2_{df = n_1+n_2-2}$. THen \begin{equation*}
+        T = \frac{Z}{\sqrt{W/\nu}} = \frac{(\overline{Y}_1-\overline{Y}_2)-(\mu_1-\mu_2)}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
+    \end{equation*}
+    is $T_{df = n_1+n_2 - 2}$
+\end{defn}
+
+
+\begin{cor}{}{}
+    The confidence interval for $\mu_1 - \mu_2$ above is \begin{equation*}
+        (\overline{Y}_1 - \overline{Y}_2) \pm t_{\alpha/2}S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+    \end{equation*}
+\end{cor}
+
+\begin{rmk}{}{}
+    Let $\hat{p} = \frac{1}{n}\sum_{i=1}^nX_i$, where $X_i$ are an i.i.d sample with $X_i \sim bernoulli(p)$ and $n$ is large enough for the CLT to reasonably approximate that $\hat{p}\sim norm(\mu = p, \sigma = \sqrt{p(1-p)/n})$. Note if $n$ is large enough for CLT to approximate $\hat{p} \approx p$, then \begin{equation*}
+        \frac{\hat{p}-p}{\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}} \sim norm(0,1)
+    \end{equation*}
+    is a pivotal quantity for $p$, and the $(1-\alpha)100\%$ confidence interval for $p$ is \begin{equation*}
+        \hat{p} \pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+    \end{equation*}
+\end{rmk}
+
+
+
+
+\section{\textsection Selecting the Sample Size}
+
+
+\begin{defn}{}{}
+    The \Emph{sampling procedure} or \Emph{experimental design} affects the quantity of information per measurement. This together with the sample size $n$ controls the total amount of relevant information in a sample.
+\end{defn}
+
+\begin{eg}{}{}
+    An experimenter wishes to compare the effectiveness of two methods of training industrial employees to perform an assembly operation. The selected employees are to be divided into two groups of equal size, the first receiving training method $1$ and the second reveivving training method $2$. After training, each employee will perform the assembly operation, and the length of assembly time will be recorded. The experimenter expects the measurements for both groups to have a range of approximately $8$ minutes. If the estimate of the difference in mean assembly times is to be correct to within $1$ minute with probability $0.95$, how many workers must be included in each training group?
+
+
+    The manufacturer specified $1- \alpha = 0.95$, so $\alpha = 0.05$ and $z_{\alpha/2} = 1.96$. We want \begin{equation*}
+        1.96\sigma_{(\overline{Y}_1 - \overline{Y}_2)} = 1.96\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} = 1
+    \end{equation*}
+    Note we want $n_1 = n_2 = n$. The variability of each method of assembly is approximately the same, so $\sigma_1^2 = \sigma_2^2 = \sigma^2$, and because the range is $8$ minutes, we have $4\sigma \approx 8$, so $\sigma \approx 2$. Substituting in these values and solving for $n$ we obtain $n \approx 30.73$, so each group should contain $n = 31$ workers.
+\end{eg}
+
+
+\section{\textsection Small-Sample Confidence Intervals for Means and Mean Differences}
+
+The confidence intervals for a population mean $\mu$ that we discuss in this section are based on the assumption that the experimenter's sample has been randomly selected from a normal population.
+
+We assume that $Y_1,Y_2,...,Y_n$ represent a random sample selected from a normal population, and we let $\overline{Y}$ and $S^2$ represent the sample mean and sample variance, respectively. We wish to construct a confidence interval for the population mean when $V[Y_i] = \sigma^2$ is unknown and the sample size is too small to permit use of large-sample techniques from the previous section. Under these assumptions recall that \begin{equation*}
+    T = \frac{\overline{Y} - \mu}{S/\sqrt{n}}
+\end{equation*}
+has a $t$ distribution with $(n-1)$ degrees of freedom. The quantity $T$ serves as the pivotal quantity that we will use to form a confidence interval for $\mu$. We can find values $t_{\alpha}$ such that \begin{equation*}
+    P(-t_{\alpha/2} \leq T \leq t_{\alpha/2}) = 1-\alpha
+\end{equation*}
+
+Equivalently, we have that \begin{equation*}
+    P(\overline{Y} - t_{\alpha/2}\frac{S}{\sqrt{n}} \leq \mu \leq \overline{Y} + t_{\alpha/2}\frac{S}{\sqrt{n}}) = 1-\alpha
+\end{equation*}
+providing the desired confidence interval for $\mu$. Using similar methods we can find one sided confidence intervals.
+
+\vspace{15pt}
+
+Suppose we want to compare the means of two normal populations, one with mean $\mu_1$ and variance $\sigma_1^2$ and the other with mean $\mu_2$ and variance $\sigma_2^2$. If the samples are independent, the confidence intervals for $\mu_1-\mu_2$ based on a $t$-distributed random variable can be constructed if we assume that the two populations have a common but unknown variance, $\sigma_1^2 = \sigma_2^2 = \sigma^2$.
+
+
+If $\overline{Y}_1$ and $\overline{Y}_2$ are the respective sample means obtained from independent random samples from normal populations, the large-sample confidence interval for $(\mu_1 - \mu_2)$ is developed using \begin{equation*}
+    Z = \frac{(\overline{Y}_1 - \overline{Y}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} = \frac{(\overline{Y}_1 - \overline{Y}_2) - (\mu_1 - \mu_2)}{\sigma\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+\end{equation*}
+where $Z$ has a standard normal distribution since the sampled populations are assumed to be normally distruted.
+
+Let $Y_{11},Y_{12},...,Y_{1n_1}$ denote the random sample of size $n_1$ from the first population and let $Y_{21},Y_{22},...,Y_{2n_2}$ denote an independent random sample of size $n_2$ from the second population. The unbiased estimator of the common variance $\sigma^2$ is obtained by pooling the sample data to obtain the \Emph{pooled estimator} $S_p^2$: \begin{equation*}
+    S_p^2 = \frac{\sum_{i=1}^{n_1}(Y_{1i} - \overline{Y}_1)^2 + \sum_{i=1}^{n_2}(Y_{2i}-\overline{Y}_2)^2}{n_1+n_2-2} = \frac{(n_1 - 1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}
+\end{equation*}
+If $n_1 = n_2$, $S_p^2$ is the average of $S_1^2$ and $S_2^2$. Otherwise, it is a weighted average of the sample variances, with larger weight given to the sample variance associated with the larger sample size. Further, \begin{equation*}
+    W = \frac{(n_1+n_2-2)S_p^2}{\sigma^2} = \frac{\sum_{i=1}^{n_1}(Y_{1i}-\overline{Y}_1)^2}{\sigma^2} + \frac{\sum_{i=1}^{n_2}(Y_{2i}-\overline{Y}_2)^2}{\sigma^2}
+\end{equation*}
+is the sum of two independent $\chi^2$-distributed random variables with $(n_1-1)$ and $(n_2-1)$ degrees of freedom, respectively. Thus $W$ has a $\chi^2$-distribution with $\nu = (n_1-1)+(n_2-1)$ degrees of freedom. We can use the $\chi^2$-distributed variable $W$ and the independent standard normal quantity $Z$ defined in the previous paragraph to form a pivotal quantity: \begin{equation*}
+    T = \frac{Z}{\sqrt{W/\nu}} = \frac{(\overline{Y}_1-\overline{Y}_2) - (\mu_1-\mu_2)}{S_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+\end{equation*}
+a quantity that by construction has a $t$ distribution with $(n_1 - 1) + (n_2 - 1)$ degrees of freedom. It follows that the confidence interval for $(\mu_1 - \mu_2)$ has the form \begin{equation*}
+    \left((\overline{Y}_1 - \overline{Y}_2) - t_{\alpha/2}S_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}, (\overline{Y}_1 - \overline{Y}_2) + t_{\alpha/2}S_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\right)
+\end{equation*}
+where $t_{\alpha/2}$ is determined from the $t$ distribution with $(n_1 + n_2 - 2)$ degrees of freedom.
+
+\begin{defn}{}{}
+    The method of Small-Sample Confidence Intervals for Means of Normal Distributions with Unknown Variance(s) is summarized as follows: 
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{ccc}
+            \hline
+            Parameter & Confidence Interval & Degrees of Freedom \\ \hline
+            $\mu$ & $\left(\overline{Y} - t_{\alpha/2}S/\sqrt{n}, \overline{Y} + t_{\alpha/2}S/\sqrt{n}\right)$ & $\nu = n-1$ \\
+            $\mu_1 - \mu_2$ & $\left((\overline{Y}_1 - \overline{Y}_2) - t_{\alpha/2}S_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}, (\overline{Y}_1 - \overline{Y}_2) + t_{\alpha/2}S_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\right)$ & $\nu = n_1 + n_2 - 2$
+        \end{tabular}
+    \end{table}
+    where \begin{equation*}
+        S_p^2 = \frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2}{n_1 + n_2 -2} 
+    \end{equation*}
+    and we require that $\sigma_1^2 = \sigma_2^2$.
+\end{defn}
+
+When sample sizes are large the confidence intervals produced with these methods agree closely with those of the previous section. There is considerable empirical evidence that these intervals maintain their nominal confidence coefficient as long as the populations sampled have roughly mound-shaped distributions. If $n_1 \approx n_2$, the intervals for $\mu_1 - \mu_2$ also maintain their nominal confidence coefficients as long as the population variances are roughly equal.
+
+It is crucial that we have \Emph{independence of the samples} in order to use the confidence intervals developed in this section to compare two population means.
+
+
+\section{\textsection Large Normally Distributed Data and Two Sample Confidence Intervals}
+
+\begin{rmk}{}{}
+    Let $X,Y$ be independent $\chi^2$ distributed random variables with $\nu$ and $\delta$ degrees of freedom respectively. Then \begin{equation*}
+        F= \frac{X/\nu}{Y/\delta}
+    \end{equation*}
+    is $F$ distributed with $\nu$ numerator degrees of freedom and $\delta$ denominator degrees of freedom. \begin{equation*}
+        f_F(x) = \frac{\Gamma\left(\frac{\nu+\delta}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)\Gamma\left(\frac{\delta}{2}\right)}\left(\frac{\nu}{\delta}\right)^{\frac{\nu}{2}}x^{\frac{\nu}{2}-1}\left(1+\frac{\nu}{\delta}t\right)^{-\frac{\nu+\delta}{2}}, x > 0
+    \end{equation*}
+    It can be shown $E[F] = \frac{\delta}{\delta - 2}$ for $\delta > 2$, $V[F] = \frac{2\delta(\delta+\nu-2)}{\nu(\delta-2)^2(\delta-4)}$ for $\delta >4$. Then \begin{equation*}
+        \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}\sim F_{n_1-1,n_2-1}
+    \end{equation*}
+\end{rmk}
+
+\begin{rmk}{}{}
+    Suppose $S_j^2 = \frac{\sum_{i=1}^{n_j}(X_{i,j}-\overline{X}_j)^2}{n_j-1}$ where $X_{i,j}$ is an i.i.d sample from group $j \in \{1,2\}$, and either $X_{i,j} 
+    \sim norm(\mu_j,\sigma_j)$ or $n$ is large enough for the CLT to reasonably approximate $\overline{X} \sim norm(\mu_j,\sigma_j/\sqrt{n_j})$. Then \begin{equation*}
+        \frac{S_2^2\sigma_1^2}{S_1^2\sigma_2^2} \sim F_{n_2-1,n_1-1}
+    \end{equation*}
+    is a pivotal quantity for $\sigma_1^2/\sigma_2^2$, and the $(1-\alpha)100\%$ confidence interval for $\sigma_1^2/\sigma_2^2$ is \begin{equation*}
+        F_{\alpha/2,n_2-1,n_1-1}S_1^2/S_2^2 \leq \sigma_1^2/\sigma_2^2 \leq F_{1-\alpha/2,n_2-1,n_1-1}S_1^2/S_2^2
+    \end{equation*}
+    When our interval contains $1$, there is no significant evidence to say $\sigma_1^2$ does not equal $\sigma_2^2$
+
+
+    When our interval does NOT contain $1$, we have significant evidence to say $\sigma_1^2 \neq \sigma_2^2$.
+\end{rmk}
+
+\begin{note}{}{}
+    $F_{1-\alpha/2,n_1-1,n_2-1} = \frac{1}{F_{\alpha/2,n_2-1,n_1-1}}$
+\end{note}
+
+
+\begin{prop}{}{}
+    Let $X_{1,i}$, $1 \leq i \leq n_1$, be a random sample from a population with mean $\mu_1$ and variance $\sigma^2$. Let $X_{2,j}$, $1\leq j \leq n_2$, be a random sample from a population with mean $\mu_2$ and variance $\sigma^2$, where both populations have the same distribution which is either normal, or $n$ is high enough for it's mean to be approximately normally distributed by the CLT. A $(1-\alpha)100\%$ confidence interval estimate for the difference $\mu_1-\mu_2$ between population means is \begin{equation*}
+        \overline{X}_1 -\overline{X}_2 \pm t_{\alpha/2,df = n_1+n_2 - 2}\sqrt{S_P^2\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}
+    \end{equation*}
+    where \begin{equation*}
+        S_P^2 = \frac{(n_1-1)S_1^2 + (n_2 - 1)S_2^2}{n_1+n_2-2}
+    \end{equation*}
+\end{prop}
+    
+Even if $\sigma_1^2 = \sigma_2^2$, if the ratio of the variances has a $95\%$ confidence interval containing $1$, then this method can still be used.
+
+\begin{prop}{}{}
+    Let $X_{1,i}$, $1 \leq i \leq n_1$, be a random sample from a population with mean $\mu_1$ and variance $\sigma_1^2$. Let $X_{2,j}$, $1\leq j \leq n_2$, be a random sample from a population with mean $\mu_2$ and variance $\sigma_2^2$, where both populations have the same distribution which is either normal, or $n$ is high enough for it's mean to be approximately normally distributed by the CLT. A $(1-\alpha)100\%$ confidence interval estimate for the difference between the two population means $\mu_1 - \mu_2$ when $\sigma_1^2 \neq \sigma_2^2$ is \begin{equation*}
+        \overline{X}_1 - \overline{X}_2 \pm t_{\alpha/2,df}\sqrt{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)}
+    \end{equation*}
+    where \begin{equation*}
+        df = \frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}{\frac{1}{n_1-1}\left(\frac{S_1^2}{n_1}\right)^2+\frac{1}{n_2-1}\left(\frac{S_2^2}{n_2}\right)^2}
+    \end{equation*}
+\end{prop}
+
+\begin{prop}{}{}
+    Let $\hat{p}_j = \frac{1}{n_j}\sum_{i=1}^{n_j}X_{j,i}$, $j = 1,2$, where $X_{j,i}$ is an i.i.d sample with $X_{j,i} \sim bernoulli(p_j)$ and $n_j$ is large enough for the CLT to reasonably approximate $\hat{p}_j\sim norm(\mu = p_j,\sigma = \sqrt{p_j(1-p_j)/n_j})$ Note $n_j$ is large enough for the CLT to approximate $\hat{p}_j \approx p_j$. THen using the pivotal quantity $\frac{(\hat{p}_1-\hat{p}_2)-(p_1-p_2)}{\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}} \sim norm(0,1)$ so the $(1-\alpha)100\%$ confidence interval of $p_1-p_2$ is \begin{equation*}
+        (\hat{p}_1-\hat{p}_2) \pm z_{\alpha/2}\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
+    \end{equation*}
+    where by CLT $\hat{p}_1-\hat{p}_2 \sim norm(\mu = p_1-p_2, \sigma = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}})$
+\end{prop}
+
+
+
+
+
+
+
+\section{\textsection Confidence Intervals for Variance}
+
+First we require a pivotal quantity. Assume that we have a random sample $Y_1,Y_2,...,Y_n$ from a normal distribution with mean $\mu$ and variance $\sigma^2$, both unknown. We know that \begin{equation*}
+    \frac{\sum_{i=1}^n(Y_i-\overline{Y})^2}{\sigma^2} = \frac{(n-1)S^2}{\sigma^2}
+\end{equation*}
+has a $\chi^2$-distribution with $(n-1)$ degrees of freedom. We can then proceed by the pivotal method to find $\chi^2_L$ and $\chi^2_U$ such that \begin{equation*}
+    P\left[\chi_L^2 \leq \frac{(n-1)S^2}{\sigma^2}\leq \chi_U^2\right] = 1-\alpha
+\end{equation*}
+for any confidence coefficient $(1-\alpha)$. Since $\chi^2$ does not have a symmetric density function, we have some freedom in choosing $\chi^2_L$ and $\chi^2_U$. We would like to find the shortest interval that includes $\sigma^2$ with probability $(1-\alpha)$. Generally this requires trial and error, so we will compromise with points that cut off equal tail areas: \begin{equation*}
+    P\left[\chi_{1-(\alpha/2)}^2 \leq \frac{(n-1)S^2}{\sigma^2}\leq \chi_{\alpha/2}^2\right] = 1-\alpha
+\end{equation*}
+and a reordering of the inequality in the probability statement gives: \begin{equation*}
+    P\left[\frac{(n-1)S^2}{\chi^2_{\alpha/2}} \leq \sigma^2 \leq \frac{(n-1)S^2}{\chi^2_{1-(\alpha/2)}}\right] = 1-\alpha
+\end{equation*}
+
+\begin{prop}{}{}
+    It follows that the $100(1-\alpha)\%$ confidence interval for $\sigma^2$ is \begin{equation*}
+        \left(\frac{(n-1)S^2}{\chi^2_{\alpha/2}}, \frac{(n-1)S^2}{\chi^2_{1-(\alpha/2)}}\right)
+    \end{equation*}
+\end{prop}
+If the sampled population is not normally distributed, the intervals for $\sigma^2$ presented in this section can have confidence coefficients that differ markedly from the nominal level if the sampled population is not normally distributed.
+
+
+\begin{rmk}{}{}
+    Let $S^2 = \frac{\sum_{i=1}^n(X_i-\overline{X})^2}{n-1}$ where $X_i$ is an i.i.d sample and either $X_i \sim norm(\mu,\sigma)$ or $n$ is large enough for the CLT to reasonably approximate $\overline{X} \sim norm(\mu, \sigma/\sqrt{n})$. Then with pivotal quantity \begin{equation*}
+        \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{df = n-1}
+    \end{equation*}
+    we can construct the $(1-\alpha)100\%$ confidence interval for $\sigma,\sigma^2$: \begin{equation*}
+        \frac{(n-1)S^2}{\chi^2_{1-\alpha/2,df = n-1}} \leq \sigma^2 \leq \frac{(n-1)S^2}{\chi^2_{\alpha/2,df = n-1}} \iff \sqrt{\frac{(n-1)S^2}{\chi^2_{1-\alpha/2,df = n-1}}} \leq \sigma \leq \sqrt{\frac{(n-1)S^2}{\chi^2_{\alpha/2,df = n-1}}}
+    \end{equation*}
+\end{rmk}
+
+
+
+
+\chapter{Properties of Point Estimators and Methods of Estimation}
+
+\section{\textsection Relative Efficiency}
+
+\begin{defn}{}{}
+    Given two unbiased estimators $\hat{\theta}_1$ and $\hat{\theta}_2$ of a parameter $\theta$, with variances $V[\hat{\theta}_1]$ and $V[\hat{\theta}_2]$, respectively, then the \Emph{efficiency} of $\hat{\theta}_1$ relative to $\hat{\theta}_2$, denoted $eff(\hat{\theta}_1,\hat{\theta}_2)$, is defined to be the ratio \begin{equation*}
+        eff(\hat{\theta}_1,\hat{\theta}_2) = \frac{V(\hat{\theta}_2)}{V(\hat{\theta}_1)}
+    \end{equation*}
+\end{defn}
+
+If $eff(\hat{\theta}_1,\hat{\theta}_2) > 1$, then $V(\hat{\theta}_2) > V(\hat{\theta}_1)$ and $\hat{\theta}_1$ is a better unbiased estimator than $\hat{\theta}_2$. 
+
+
+\section{\textsection Consistency}
+
+\begin{defn}{}{}
+    The estimator $\hat{\theta}_n$ is said to be a \Emph{consistent estimator of $\theta$} if, for any positive number $\varepsilon$, \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}P(|\hat{\theta}_n-\theta| \leq \varepsilon) = 1
+    \end{equation*}
+    or equivalently, \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}P(|\hat{\theta}_n - \theta| > \varepsilon) = 0
+    \end{equation*}
+\end{defn}
+
+
+\begin{thm}{}{}
+    An unbiased estimator $\hat{\theta}_n$ for $\theta$ is a consistent estimator of $\theta$ if \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}V(\hat{\theta}_n) = 0
+    \end{equation*}
+\end{thm}
+\begin{proof*}{}{}
+    If $Y$ is a random variable with $E[Y] = \mu$ and $V[Y] = \sigma^2 < \infty$, and if $k$ is a nonnegative constant, Tchebysheff's Theorem implies that \begin{equation*}
+        P(|Y-\mu| > k\sigma) \leq \frac{1}{k^2} \iff P(|Y-\mu|\leq k\sigma) \geq 1 - \frac{1}{k^2}
+    \end{equation*}
+    Because $\hat{\theta}_n$ is an unbiased estimator for $\theta$, $E[\hat{\theta}_n] = \theta$. Then if $\sigma_{\hat{\theta}_n} = \sqrt{V(\hat{\theta}_n)}$, then \begin{equation*}
+        P(|\hat{\theta}_n-\theta| > k\sigma_{\hat{\theta}_n}) \leq  \frac{1}{k^2}
+    \end{equation*}
+    Let $n$ be fixed. For any $\varepsilon > 0$, let $k = \frac{\varepsilon}{\sigma_{\hat{\theta}_n}} > 0$. Then \begin{equation*}
+        P(|\hat{\theta}_n - \theta| > \varepsilon) = P(|\hat{\theta}_n - \theta| > \frac{\varepsilon}{\sigma_{\hat{\theta}_n}}\sigma_{\hat{\theta}_n}) \leq \frac{\sigma_{\hat{\theta}_n}^2}{\varepsilon^2} = \frac{V(\hat{\theta}_n)}{\varepsilon^2}
+    \end{equation*}
+    If $\lim\limits_{n\rightarrow \infty}V(\hat{\theta}_n) = 0$, then \begin{equation*}
+        0 = \lim\limits_{n\rightarrow \infty} 0 \leq \lim\limits_{n\rightarrow \infty}P(|\hat{\theta}_n-\theta| > \varepsilon) \leq \lim\limits_{n\rightarrow \infty}\frac{V(\hat{\theta}_n)}{\varepsilon^2} = 0
+    \end{equation*}
+    Thus $\hat{\theta}_n$ is a consistent estimator of $\theta$.
+\end{proof*}
+
+\begin{thm}{}{}
+    Suppose $\hat{\theta}_n$ converges in probability to $\theta$ and $\hat{\theta}_n'$ converges in probability to $\theta'$: \begin{itemize}
+        \item $\hat{\theta}_n + \hat{\theta}_n'$ converges in probability to $\theta+\theta'$
+        \item $\hat{\theta}_n\cdot\hat{\theta}_n'$ converges in probability to $\theta\cdot\theta'$
+        \item If $\theta'\neq 0$, $\hat{\theta}_n/\hat{\theta}_n'$ converges in probability to $\theta/\theta'$
+        \item If $g:\R\rightarrow \R$ is a real valued function that is continuous at $\theta$, then $g(\hat{\theta}_n)$ converges in probability to $g(\theta)$.
+    \end{itemize}
+\end{thm}
+
+\begin{thm}{}{}
+    Suppose that $U_n$ has a distribution function that converges to a standard normal distribution function as $n\rightarrow \infty$. If $W_n$ converges in probability to $1$, then the distribution function $U_n/W_n$ converges to a standard normal distribution function.
+\end{thm}
+
+\section{\textsection The Method of Moments}
+
+
+\begin{rec}{}{}
+    Recall the $k$th moment of a random variable taken about the origin is \begin{equation*}
+        \mu_k' = E(Y^k)
+    \end{equation*}
+    The corresponding $k$th sample moment is the average \begin{equation*}
+        m_k' = \frac{1}{n}\sum_{i=1}^nY_i^k
+    \end{equation*}
+\end{rec}
+
+
+\begin{proc}{Method of Moments}{}
+    Choose as estimates those values of the parameters that are solutions of the equations $\mu_k' = m_k'$ for $k=1,2,...,t,$ where $t$ is the number of parameters to be estimated.
+\end{proc}
+
+\begin{defn}{}{}
+    \leavevmode
+    \begin{enumerate}
+        \item $\mu_k' = E[X^k]$ is the kth (theoretical) moment of the distribution about the origin, for $k = 1,2,...$
+        \item $\mu_k^* = E[(X-\mu)^k]$ is the kth (theoretical) moment of the distribution about the mean, for $k = 1,2,...$
+        \item $M_k' = \frac{1}{n}\sum_{i=1}^nX_i^k$ is the kth sample moment about the origin, for $k = 1,2,...$
+        \item $M_k^* = \frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^k$ is the kth sample moment about the mean, for $k = 1,2,...$
+    \end{enumerate}
+\end{defn}
+
+\begin{proc}{Method}{}
+    Suppose you have k parameters, $\theta_1,...,\theta_k$ you want to estimate. Then \begin{enumerate}
+        \item Equate the $l$th sample moment aout the origin, $M_l' = \frac{1}{n}\sum_{i=1}^nX_i^l$ to the $l$th theoretical moment $E[X^l]$ for all $1 \leq l \leq k$ moments
+        \item Solve for the parameters
+    \end{enumerate}
+    Another form of the method is as follows: \begin{enumerate}
+        \item Equate the first sample moment about the origin $M_1' = \frac{1}{n}\sum_{i=1}^nX_i = \overline{X}$ to the first theoretical moment $E[X]$ 
+        \item Equate the second sample moment about the mean $M_2^* = \frac{1}{n}\sum_{i=1}^n(X_i - \overline{X})^2$ to the second theoretical moment about the mean $E[(X-\mu)^2] = V[X]$
+        \item Continue equating sample moments about the mean $M_K^*$ with the corresponding theoretical moments about the mean $E[(X-\mu)^k]$, $k =3,4,...$ until you have as many equations as you have paramaters
+        \item Solve for the parameters
+    \end{enumerate}
+\end{proc}
+
+\section{\textsection The Method of Maximum Likelihood}
+
+
+\begin{proc}{Method}{}
+    Suppose that the likelihood function depends on $k$ parameters $\theta_1,...,\theta_k$. Choose as estimates those values of the parameters that maximize the likelihood $L(y_1,..,y_n\vert \theta_1,...,\theta_k)$. This gives \Emph{maximum-likelihood estimators} or \Emph{MLEs}
+\end{proc}
+
+
+\begin{defn}{}{}
+    The range of possible values for a parameter $\theta$ is called the \Emph{parameter space}, $\Omega$.
+\end{defn}
+
+\begin{defn}{}{}
+    THe function of $X_1,...,X_n$ that is the statistic $u(X_1,...,X_n)$, used to estimate $\theta$ is called a \Emph{point estimator} of $\theta$.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    Suppose we have a random sample $X_1,...,X_n$ whose assumed probability distribution depends on some unknown parameter $\theta$. Our primary goal is to find a point estimator $u(X_1,...,X_n)$ such that $u(x_1,...,x_n)$ is a ``good" estimate of $\theta$, where $x_1,...,x_n$ are the observed values of the random sample.
+\end{rmk}
+
+
+\begin{note}{}{}
+    We aim to get an estimator of the unknown parameter by finding the value of $\theta$ that maximizes the probabiliy/likelihood of getting the data we observed.
+
+
+    Suppose $X_1,...,X_n$ is a random sample with pdf $f(x_i\vert\theta)$ for each $X_i$. Then the joint pdf of $X_1,...,X_n$ is \begin{equation*}
+        L(\theta) = f(x_1,...,x_n\vert\theta) = \prod_{i=1}^nf(x_i\vert\theta)
+    \end{equation*}
+    We wish to find the ``value" of $\theta$ which maximizes $L(\theta)$.
+\end{note}
+
+\begin{note}{}{}
+    Because the $\log$ function is a monotonically increasing function, the maximum of $L(\theta)$ with respect to $\theta$ occurs for the same $\theta$ as the maximum of $\log(L(\theta))$.
+\end{note}
+
+\begin{defn}{}{}
+    Let $X_1,...,X_n$ be a random sample from a distribution that depends on one or more unknown parameters $\theta_1,...,\theta_m$ with pdf $f(x_i\vert\theta_1,...,\theta_m)$. Suppose that $(\theta_1,...,\theta_m)$ is restricted to a given parameter space $\Omega$. Then: \begin{enumerate}
+        \item When regarded as a function of $\theta_1,...,\theta_m$, the joint pdf of $X_1,...,X_n$ \begin{equation*}
+                L(\theta_1,...,\theta_m) = \prod_{i=1}^nf(x_i\vert\theta_1,...,\theta_m)
+        \end{equation*}
+            $(\theta_1,...,\theta_m) \in \Omega$, the \Emph{likelihood function}
+        \item If $[u_1(x_1,...,x_n),...,u_m(x_1,...,x_n)]$ is the $m$-tuple that maximizes the likelihood function, then: \begin{equation*}
+                \hat{\theta}_i = u_i(x_1,...,x_n)
+        \end{equation*}
+            is the \Emph{maximum-likelihood estimator} for $\theta_i$, $1 \leq i \leq m$.
+        \item The corresponding observed values of the statistics, $u_i(x_1,...,x_n)$, are called the \Emph{maximum-likelihood estimates} of $\theta_i$, $1 \leq i \leq m$.
+    \end{enumerate}
+\end{defn}
+
+
+\chapter{Hypothesis Testing}
+
+
+Support for one theory is obtained by showing lack of support for its converse-like a proof by contradiction.
+
+\begin{cust*}{Elements of a Statistical Test}{}
+    \leavevmode
+    \begin{itemize}
+        \item The null hypothesis $H_0$
+        \item The alternative hypothesis $H_a$ (converse of the null) \begin{itemize}
+                \item Hypothesis to be accepted in case $H_0$ is rejected
+        \end{itemize}
+        \item Test statistic \begin{itemize}
+                \item Function of the sample measurements
+        \end{itemize}
+        \item Rejection region \begin{itemize}
+                \item Specifies the values of the test statistic for which the null hypothesis is to be rejected in favour of the alternative hypothesis. i.e. Sample falls in RR, reject $H_0$ and accept $H_a$, sample doesn't fall in RR accept $H_0$
+        \end{itemize}
+    \end{itemize}
+\end{cust*}
+
+
+\begin{defn}{}{}
+    A \Emph{Type I error} is made if $H_0$ is rejected when $H_0$ is true. The \Emph{probability of a Type I error} is denoted by $\alpha$. The value of $|alpha$ is called the \Emph{level of significance} of the test. 
+
+
+    A \Emph{Type II error} is made if $H_0$ is accepted when $H_a$ is true. The \Emph{probability of a type II error} is denoted by $\beta$.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    Hypothesis testing is a formal procedure that enables us to choose between two hypotheses when we are uncertain about our measurements.
+\end{rmk}
+
+\begin{defn}{}{}
+    The \Emph{null hypothesis}, $H_0$, is the conservative status quo statement about a population parameter. Often represents no change, no effect, or no difference, in the context of researching new ideas.
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{alternative hypothesis}, $H_a$, is the research hypothesis. It is usually a statement about the value of a parameter that we hope to demonstrate is true.
+\end{defn}
+
+\begin{proc}{}{}
+    \leavevmode
+    \begin{enumerate}
+        \item Start with a pair of hypotheses: In a formal hypothesis test, hypotheses are always statements about population parameters, $\theta_0$. We use statistics as evidence to justify our hypothesis. Hypotheses come in mutually exclusive pairs: \begin{itemize}
+        \item \textbf{Simple:} \begin{itemize}
+                \item is, $=$, versus is not, $\neq$
+        \end{itemize}
+        \item \textbf{Composite:} \begin{itemize}
+                \item Is or more, $\geq$, versus less $<$
+                \item Is or less, $\leq$, versus more $>$
+        \end{itemize}
+        \end{itemize}
+        Note that the equality is reserved for null hypotheses.
+        \item Forming the hypothesis
+    \end{enumerate}
+\end{proc}
+
+\begin{rmk}{}{}
+    The null hypothesis is by default assumed true. This means when no substantial evidence is provided, the null is ``not dethroned" - this does \emph{not} guarantee the truthfulness of the null, rather we just can't discount it at the moment.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    If $W$ is a test statistic, the \Emph{p-value}, or \Emph{attained significance level}, is the smallest level of significance $\alpha$ for which the observed data indicate that the null hypothesis should be rejected.
+\end{defn}
+
+The smaller the p-value the more compelling the evidence that the null hypothesis should be rejected. It is the smallest value of $\alpha$ for which the null hypothesis can be rejected. 
+
+\begin{rmk}{}{}
+    If our RR for a null $H_0$ and test statistic $W$ is $\{w \leq k\}$, the p-value associated with an observed value of $w_0$ of $W$ is \begin{equation*}
+        p-value = P(W \leq w_0\vert H_0\text{ is true})
+    \end{equation*}
+    (i.e. $H_0:W > k$, and $H_a: W \leq k$). If the RR is $\{w\geq k\}$, then the p-value is \begin{equation*}
+        p-value = P(W\geq w_0\vert H_0 \text{ is true})
+    \end{equation*}
+    If $H_0$ is of the form $\theta = \theta_0$ and $H_a:\theta \neq \theta_0$, then the $p-value$ for rejecting $H_0$ given $w_0$ is \begin{equation*}
+        p-value = P(|W| \geq |w_0|\vert H_0 \text{ is true})
+    \end{equation*}
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    If $H_0$ is rejected for a small value of $\alpha$ (or for a small $p-value$) this occurrence does not imply that the null hypothesis is wrong by a large amount. It does mean that the null hypothesis can be rejected based on a predure that incorrectly rejects the null hypothesis with a small probability.
+\end{rmk}
+
+\begin{rmk}{}{}
+    If we consider $H_a:\theta > \theta_0$, $\alpha = \max_{\theta \leq \theta_0}P(\text{test statistic in RR})$ typically occurs when $\theta = \theta_0$. Similarly, if $H_a:\theta < \theta_0$, $\alpha = \max_{\theta \geq \theta_0}P(\text{test statistic in RR})$ typically occurs when $\theta = \theta_0$.
+\end{rmk}
+
+
+\begin{note}{}{}
+    The null must always contain the `$=$'.
+\end{note}
+
+\begin{rmk}{}{}
+    If we do not have sufficient evidence against the null, we say we ``fail to reject the null"
+\end{rmk}
+
+\begin{rmk}{}{}
+    The \Emph{level of significance} $\alpha$ represents an amount of allowable error/tolerance to deviation. We aggregate the info from the sample into a test statistic which is converted into a p-value that we can compare to the significance level, $\alpha$. p-value refers to the probability of repeating the sampling process and comparing the theoretical results to what did happen: \begin{equation*}
+        p-value = P(f_X(x)[(\neq,>,<)\text{sign in the alternative hypothesis}]X\vert H_0\text{ is true})
+    \end{equation*}
+    where $X$ is the test statistic.
+\end{rmk}
+
+If $p-value \geq \alpha$, we conclude the null hypothesis is supported we fail to reject $H_0$. Implies if $H_0$ is true we got a typical response. If $p-value < \alpha$ we conclude the null hypothesis is not supported, we reject $H_0$. Implies if $H_0$ is true something rare has occurred.
+
+Often we take $\alpha = 0.05$.
+
+\begin{defn}{}{}
+    A \Emph{Type I error} is when we reject $H_0$ when it is actually true.
+\end{defn}
+
+\begin{defn}{}{}
+    A \Emph{Type II error} is when we fail to reject $H_0$ when it is actually false.
+\end{defn}
+
+\begin{rmk}{Conclusion Based on Truth}{}
+    $H_0$ true: \begin{itemize}
+        \item $RH_0$, \begin{align*}
+                \alpha &= \text{significance level} \\
+                &= P(RH_0\vert H_0\;true) \\
+                &= P(Type\;I\;error) 
+        \end{align*}
+    \item $FRH_0$, \begin{align*}
+            1-\alpha &= \text{confidence level} \\
+            &= P(FRH_0\vert H_0\;true) \\
+            &= P(no\;error)
+    \end{align*}
+    \end{itemize}
+    $H_0$ is false: \begin{itemize}
+        \item $RH_0$, \begin{align*}
+                1-\beta &= Power \\
+                &= P(RH_0\vert H_0\;false) \\
+                &= P(no \; error)
+            \end{align*}
+        \item $FRH_0$, \begin{align*}
+                \beta &= P(FRH_0\vert H_0\;false) \\
+                &= P(Type\;II\;error)
+        \end{align*}
+    \end{itemize}
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    We are free to choose any value for $\alpha$. But, as $\alpha$ gets small, $1-\beta$ gets smaller too. Although $\alpha$ and $\beta$ are inversely related, $1-\alpha \neq \beta$. We can lower both $\alpha$ and $\beta$ simultaneously if we increase the sample size $n$. Bigger samples should reduce the variance of consistent estimators and decrease rick of error.
+\end{rmk}
+
+Usually we set $\alpha$, then from $\alpha$ derive the corresponding decision rule for the rejection region.
+
+
+\section{\textsection Common Large-Sample Tests}
+
+Let $\theta$ be a parameter we are using hypothesis testing on, and $\theta_0$ is a specific value:
+
+If we are testing $H_0: \theta = \theta_0$ versus $H_a:\theta > \theta_0$ for test statistic $\hat{\theta}$ and rejection region $RR:\{\hat{\theta} > k\}$ for some $k$ determined by $\alpha$. If we are testing $H_0: \theta = \theta_0$ against $H_a:\theta < \theta_0$ our rejection region is $RR:\{\hat{\theta} < k\}$ for some $k$ determined by $\alpha$. In testing $H_0:\theta = \theta_0$ against $H_a:\theta \neq \theta_a$, we have rejection region $RR:\{\hat{\theta} < k_1\cup k_2 < \hat{\theta}\}$ where both cut off $\alpha/2$ in probability.
+
+\begin{summ}{}{}
+    \leavevmode
+    \begin{itemize}
+        \item $H_0:\theta = \theta_0$
+        \item \begin{equation*}
+                H_a:\left\{\begin{array}{cc} \theta > \theta_0 & (\text{upper-tail alternative}) \\ \theta < \theta_0 & (\text{lower-tail alternative}) \\ \theta\neq \theta_0 & (\text{two-tailed alternative}) \end{array}\right.
+        \end{equation*}
+        \item Test statistic: $Z = \frac{\hat{\theta} - \theta_0}{\sigma_{\hat{\theta}}}$
+        \item Rejection Region: \begin{equation*}
+                RR: \left\{\begin{array}{cc} \{z > z_{\alpha}\} & (\text{upper-tail RR}) \\ \{z < -z_{\alpha}\} & (\text{lower-tail RR}) \\ \{|z| > z_{\alpha/2}\} & (\text{two-tailed RR}) \end{array}\right.
+        \end{equation*}
+    \end{itemize}
+\end{summ}
+
+For the test $H_0:\theta = \theta_0$ versus $H_a: \theta > \theta_a$, we can calculate $\beta$ only for specific values for $\theta$ in $H_a$. Suppose we fix $\theta_a > \theta_0$ and our RR is of the form \begin{equation*}
+    RR = \{\hat{\theta}:\hat{\theta} > k\}
+\end{equation*}
+Then \begin{equation*}
+    \beta = P(\hat{\theta} \leq k\vert \theta = \theta_a) = P\left( \frac{\hat{\theta} - \theta_a}{\sigma_{\hat{\theta}}}\leq \frac{k-\theta_a}{\sigma_{\hat{\theta}}}\Bigg\rvert \theta = \theta_a\right)
+\end{equation*}
+If $\theta = \theta_a$, $(\hat{\theta}-\theta_a)/\sigma_{\hat{\theta}}\sim norm(0,1)$. Consequently, $\beta$ can be determined approximately by finding the area under a standard normal.
+
+
+
+\begin{claim}{}{}
+    For desired $\alpha$, $\beta$, the needed sample size for an upper-tail $\alpha$-level test is \begin{equation*}
+        n = \frac{(z_{\alpha}+z_{\beta})^2\sigma^2}{(\mu_a - \mu_0)^2}
+    \end{equation*}
+\end{claim}
+
+
+\section{\textsection Common Confidence Intervals}
+
+\begin{rmk}{}{}
+    \leavevmode
+    \begin{itemize}
+        \item $(1-\alpha)100\%$ confidence interval for $\mu$ when $\sigma$ is known, we use pivotal quantity: $Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}\sim norm(0,1)$ with either $X_i \sim norm(\mu,\sigma)$, or $n$ is large enough so CLT approximates $\overline{X} \sim norm(\mu, \sigma/\sqrt{n})$.
+        \item $(1-\alpha)100\%$ confidence interval for $\mu$ when $\sigma$ is unknown, we use pivotal quantity: $T = \frac{\overline{X} - \mu}{S/\sqrt{n}}\sim T(df = n-1)$ with either $X_i \sim norm(\mu,\sigma)$, or $n$ is large enough so CLT approximates $\overline{X} \sim norm(\mu, \sigma/\sqrt{n})$.
+        \item $(1-\alpha)100\%$ confidence interval for $p$ when $p$ is unknown, we use pivotal quantity: $Z = \frac{\hat{p} - p}{\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}}\sim norm(0,1)$ with either $X_i \sim Bern(p)$ and $n$ is large enough so CLT approximates $\hat{p} \sim norm(\mu = p, \sigma = \sqrt{\frac{p(1-p)}{n}})$.
+        \item $(1-\alpha)100\%$ confidence interval for $\sigma$, we use pivotal quantity: $\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(df = n-1)$ with either $X_i \sim norm(\mu,\sigma)$, or $n$ is large enough so CLT approximates $\overline{X} \sim norm(\mu, \sigma/\sqrt{n})$.
+    \end{itemize}
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    For hypothesis testing, $H_0:\mu = \mu_0$ (for estimating $\mu$), $H_0:p = p_0$ (when estimating $p$), and $H_0:\sigma = \sigma_0$ (when estimating $\sigma$)
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    \leavevmode
+    \begin{itemize}
+        \item $Z_{calc} = \frac{\overline{X}_0 - \mu_0}{\sigma/\sqrt{n}}\sim norm(0,1)$ \begin{itemize}
+                \item $H_a: \mu < \mu_0$: $$p-val = P(\overline{X} \leq \overline{X}_0\vert\mu=\mu_0) = P\left(\frac{\overline{X}-\mu_0}{\sigma/\sqrt{n}} \leq \frac{\overline{X}_0-\mu_0}{\sigma/\sqrt{n}}\right) = P(Z\leq Z_{calc})$$
+                \item $H_a:\mu > \mu_0$: $$p-val = P(Z\geq Z_{calc})$$
+                \item $H_a:\mu \neq \mu_0$: $$p-val = \left\{\begin{array}{lc} 2P(Z\leq Z_{calc}), & if\;Z_{calc} < 0 \\ 2P(Z \geq Z_{calc}), & if\;Z_{calc} > 0 \end{array}\right.$$
+        \end{itemize}
+        \item $T_{calc} = \frac{\overline{X}_0 - \mu_0}{S/\sqrt{n}}\sim T(df = n-1)$ \begin{itemize}
+                \item $H_a: \mu < \mu_0$: $$p-val = P(T\leq T_{calc})$$
+                \item $H_a:\mu > \mu_0$: $$p-val = P(T\geq T_{calc})$$
+                \item $H_a:\mu \neq \mu_0$: $$p-val = \left\{\begin{array}{lc} 2P(T\leq T_{calc}), & if\;T_{calc} < 0 \\ 2P(T \geq T_{calc}), & if\;T_{calc} > 0 \end{array}\right.$$
+        \end{itemize}
+        \item $Z_{calc} = \frac{\hat{p}_0 - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\sim norm(0,1)$ \begin{itemize}
+                \item $H_a: p < p_0$: $$p-val = P(Z\leq Z_{calc})$$
+                \item $H_a: p > p_0$: $$p-val = P(Z\geq Z_{calc})$$
+                \item $H_a:p \neq p_0$: $$p-val = \left\{\begin{array}{lc} 2P(Z\leq Z_{calc}), & if\;Z_{calc} < 0 \\ 2P(Z \geq Z_{calc}), & if\;Z_{calc} > 0 \end{array}\right.$$
+        \end{itemize}
+    \end{itemize}
+\end{rmk}
+
+\begin{rec}{}{}
+    $(1-\alpha)100\%$ confidence interval for $\sigma_1^2/\sigma_2^2$, pivotal quantity: $\frac{S_2^2\sigma_1^2}{S_1^2\sigma_2^2}\sim F_{n_2-1,n_1-1}$, and either $X_{i,j} \sim norm(\mu_j,\sigma_j)$ or $n$ is large enough for CLT to approximate $\overline{X} \sim norm(\mu_j, \sigma_j/\sqrt{n_j})$ \begin{equation*}
+        \frac{S_1^2}{F_{1-\alpha/2,n_1-1,n_2-1}S_2^2} \leq \frac{\sigma_1^2}{\sigma_2^2} \leq \frac{S_1^2}{F_{\alpha/2,n_1-1,n_2-1}S_2^2}
+    \end{equation*}
+\end{rec}
+
+If $H_0: \sigma_1^2 = \sigma_2^2$, so under the assumption of $H_0$ $\frac{S_2^2\sigma_1^2}{S_1^2\sigma_2^2}\sim F_{n_2-1,n_1-1}$ and \begin{equation*}
+    F_{calc} = \frac{S_1^2}{S_2^2}
+\end{equation*}
+\begin{itemize}
+        \item $H_a: \sigma_1^2 < \sigma_2^2$: $$p-val = P(F_{n_1-1,n_2-1}\leq S_1^2/S_2^2)$$
+        \item $H_a: \sigma_1^2 > \sigma_2^2$: $$p-val = P(F_{n_1-1,n_2-1}\geq S_1^2/S_2^2)$$
+        \item $H_a: \sigma_1^2 \neq \sigma_2^2$: $$p-val = 2\min(P(F_{n_1-1,n_2-1}\leq S_1^2/S_2^2),P(F_{n_1-1,n_2-1}\geq S_1^2/S_2^2))$$
+\end{itemize}
+
+
+\begin{rmk}{Test Statistics for Differences}{}
+    \leavevmode
+    \begin{itemize}
+        \item $\mu_1 - \mu_2$, when $\sigma_1^2 = \sigma_2^2 = \sigma^2$ \begin{equation*}
+                T_{calc,df = n_1+n_2-2} = \frac{(\overline{X}_1 - \overline{X}_2) - (\mu_1 - \mu_2)}{\sqrt{S_P^2\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
+        \end{equation*}
+            \begin{equation*}
+                S_P^2 = \frac{(n_1 - 1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2 -2}
+            \end{equation*}
+        \item $\mu_1 - \mu_2$ when $\sigma_1^2 \neq \sigma_2^2$ \begin{equation*}
+                T_{calc,df} = \frac{(\overline{X}_1 - \overline{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)}}
+        \end{equation*}
+            \begin{equation*}
+                df = \frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}{\frac{1}{n_1-1}\left(\frac{S_1^2}{n_1}\right)^2 + \frac{1}{n_2-1}\left(\frac{S_2^2}{n_2}\right)^2}
+            \end{equation*}
+        \item $p_1 - p_2$ when $p_1 - p_2 = 0$ is the null: \begin{equation*}
+                Z_{calc} = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} \sim norm(0,1)
+        \end{equation*}
+            \begin{equation*}
+                \hat{p} = \frac{x_1+x_2}{n_1+x_2}
+            \end{equation*}
+        \item $p_1 - p_2$ when $p_1 - p_2 = d$ \begin{equation*}
+                Z_{calc} = \frac{\hat{p}_1 - \hat{p}_2 - (p_1 - p-2)}{\sqrt{\left(\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}\right)}} \sim norm(0,1)
+        \end{equation*}
+            \begin{equation*}
+                \hat{p}_i = \frac{x_i}{n_i}
+            \end{equation*}
+    \end{itemize}
+\end{rmk}
+
+
+\section{\textsection The Power of a Statistical Test}
+
+
+\begin{defn}{}{}
+    A \Emph{Type I error} occurs if we reject the null hypothesis $H_0$ (in favour of the alternate hypothesis $H_a$) when the null hypothesis $H_0$ is true. We denote it by $\alpha = P(RH_0\vert H_0\;true)$.
+\end{defn}
+
+\begin{defn}{}{}
+    A \Emph{Type II error} occurs if we fail reject the null hypothesis $H_0$ when the alternate hypothesis $H_a$ is true. We denote it by $\beta = P(FRH_0\vert H_0\;false)$.
+\end{defn}
+
+
+\begin{defn}{}{}
+    \Emph{Power} is defined as \begin{equation*}
+        1-\beta = power = P(RH_0\vert H_0\;false)
+    \end{equation*}
+    The power of a test measures the test's ability to detect that the null hypothesis is false.
+\end{defn}
+
+
+\section{\textsection Power of Tests and the Neyman-Pearson Lemma}
+
+A \Emph{power curve} is a graph of $power(\theta)$.
+
+\begin{defn}{}{}
+    If a random sample is taken from a distribution with parameter $\theta$, a hypothesis is said to be a \Emph{simple hypothesis} if that hypothesis \Emph{uniquely specifies} the distribution of the population from which the sample is taken. Any hypothesis that is not simple is called a composite hypothesis.
+\end{defn}
+
+\begin{namthm}{The Neyman-Pearson Lemma}{}
+    Suppose that we wish to test the simple null hypothesis $H_0:\theta = \theta_0$ versus the simple alternative hypothesis $H_a:\theta = \theta_a$, based on a random sample $Y_1,...,Y_n$ from a distribution with parameter $\theta$. Let $L(\theta)$ denote the likelihood of the sample when the value of the parameter is $\theta$. Then, for a given $\alpha$, the test that maximizes the power at $\theta_a$ has a rejection region determined by \begin{equation*}
+        \frac{L(\theta_0)}{L(\theta_a)} < k
+    \end{equation*}
+    for $k$ to be determined by $\alpha$. SUch a test is called a \Emph{most powerful $\alpha$-level test for $H_0$ versus $H_a$}
+\end{namthm}
+
+\begin{rmk}{}{}
+    When a test obtained by this theorem maximizes the power for every value of $\theta$ greater (resp. lesser) than $\theta_0$, it is said to be a \Emph{uniformly most powerful test} for $H_0:\theta = \theta_0$ versus $H_a: \theta> \theta_0$ (resp. $H_a:\theta < \theta_0$)
+\end{rmk}
+
+\begin{rmk}{}{}
+    THe goodness of a test is measured by how small $\alpha$ and $\beta$ are.
+\end{rmk}
+
+
+\section{\textsection Likelihood Ratio Test}
+
+Suppose a random sample is selected from a distribution and that the likelihood function $L(y_1,...,y_n\vert\theta_1,...,\theta_k)$ is a function of $k$ parameters, $\theta_1,...,\theta_k$. Define $\Theta = (\theta_1,...,\theta_k)$ and write $L(\Theta)$. Parameters not involved in our testing that are unknown are called \Emph{nuisance parameters}. Suppose the null hypothesis says $H_0:\Theta \in \Omega_0$, and $H_a:\Theta \in \Omega_a$ such that $\Omega_0\cap \Omega_a = \emptyset$. Let $L(\hat{\Omega}_0)$ denote the supremum of the likelihood function for all $\Theta \in \Omega_0$. Let $\Omega = \Omega_0\cup\Omega_a$, and similarly we have $L(\hat{\Omega})$ as the supremum over $\Omega$. If $L(\hat{\Omega}_0) = L(\hat{\Omega})$, then the best explanation for the observed data can be found in $\Omega_0$. Otherwise, if $L(\hat{\Omega}_0) < L(\hat{\Omega})$, the best explanation for the data can be found in $\Omega_a$, and we should consider rejecting $H_0$ in favour of $H_a$.
+
+
+\begin{namthm}{Likelihood Ratio Test (text)}{}
+    Define $\lambda$ by \begin{equation*}
+    s    \lambda = \frac{L(\hat{\Omega}_0)}{L(\hat{\Omega})} = \frac{\max_{\Theta \in \Omega_0}L(\Theta)}{\max_{\Theta \in \Omega}L(\Theta)}
+    \end{equation*}
+    A likelihood ratio test of $H_0:\Theta \in \Omega_0$ versus $H_a:\Theta \in \Omega_a$ employs $\lambda$ as a test statistic, and the rejection region is determined by $\lambda \leq k$.
+\end{namthm}
+
+\begin{thm}{}{}
+    Let $Y_1,...,Y_n$ have joint likelihood function $L(\Theta)$. Let $r_0$ denote the number of free parameters that are specified by $H_0: \Theta \in \Omega_0$ and let $r$ denote the number of free parameters specified by the statement $\Theta \in \Omega$. Then, for large $n$, $-2\ln(\lambda)$ has approximately a $\chi^2$ distribution with $r_0 - r$ degrees of freedom.
+\end{thm}
+
+
+This implies that for $RR:\{\lambda < k\} = \{-2\ln(\lambda) > -2\ln(k) = k^*\}$, $k^* \approx \chi^2_{\alpha}$ if we desire an $\alpha$ level test.
+
+
+\begin{nota}{}{}
+    We'll assume that the probability density (or mass) function of $X$ is $f(x\vert\theta)$, where $\theta$ represents one or more unknown parameters (a vector). Then: \begin{enumerate}
+        \item Let $\Omega$ denote the total possible parameter space of $\theta$, that is the set of all possible values of $\theta$ as specified in totality in the null and alternative hypothesis.
+        \item Let $H_0:\theta \in \omega$ denote the null hypothesis, where $\omega \subseteq \Omega$
+        \item Let $H_a:\theta \in \omega'$ denote the alternative hypothesis where $\omega' = \Omega\backslash \omega$ (the complement)
+    \end{enumerate}
+\end{nota}
+
+\begin{defn}{}{}
+    Let \begin{enumerate}
+        \item $L(\hat{\omega})$ denote the maximum of the likelihood function with respect to $\theta$ when $\theta \in \omega$.
+        \item $L(\hat{\Omega})$ denote the maximum of the likelihood function with respect to $\theta$ when $\theta \in \Omega$.
+    \end{enumerate}
+    Then the \Emph{likelihood ratio} is the quotient: \begin{equation*}
+        \lambda = \frac{L(\hat{\omega})}{L(\hat{\Omega})}
+    \end{equation*}
+    And to test the null hypothesis $H_0:\theta \in \omega$ against the alternative hypothesis $H_a:\theta \in \omega'$, the critical region for the likelihood ratio test is the set for which: \begin{equation*}
+        \lambda = \frac{L(\hat{\omega})}{L(\hat{\Omega})} \leq k
+    \end{equation*}
+    where $0 < \lambda < 1 \implies 0 < k < 1$, and $k$ is selected so that the test has a desired significance level $\alpha$.
+\end{defn}
+
+
+
+\chapter{Linear Models and Estimation by Least Squares}
+
+
+\begin{defn}{}{}
+    We call a random variable $Y$ a \Emph{dependent variable} if it has a mean that is a function of one or more non-random variables $x_1,...,x_k$, called \Emph{independent variables}
+\end{defn}
+
+\begin{defn}{}{}
+    In \Emph{deterministic models}, the output of the model is fully determined by teh parameter values and the initial conditions. In particular, a deterministic model of a random variable $Y$ is \begin{equation*}
+        Y = f(x_1,...,x_n)
+    \end{equation*}
+    for some $f:\mathbb{R}^n\rightarrow X$, where each $x_i$ are parameter values/independent non-random variables.
+\end{defn}
+
+\begin{defn}{}{}
+    A \Emph{probabilistic model} for a random variable $Y$ is \begin{equation*}
+        Y = \gamma(x_1,...,x_n\vert\varepsilon_1,...,\varepsilon_k)
+    \end{equation*}
+    where the $x_i$ are independent non-random variables while the $\varepsilon_j$ are random variables.
+\end{defn}
+
+
+\section{\textsection Linear Statistical Models}
+
+
+\begin{defn}{}{}
+    Let $Y$ be a random variable that is a function of $k$ independent variables $x_1,...,x_k$. let $\beta_0,...,\beta_k$ be associated unknown parameters. Then if $E[Y]$ is a linear function of the $\beta_i$, we call the model a \Emph{linear statistical model}. If $k=1$, it is a \Emph{simple linear regression model}. Otherwise it is called a \Emph{multiple linear regression model}
+\end{defn}
+
+\begin{note}{}{}
+    The $x_i$ are assumed to be measured without error in an experiment
+\end{note}
+
+\begin{defn}{}{}
+    A \Emph{linera statistical model} relating a random response $Y$ to a set of independent variables $x_1,...,x_k$ is of the form \begin{equation*}
+        Y = \beta_0 + \beta_1x_1 + ...+ \beta_kx_k + \varepsilon
+    \end{equation*}
+    where $\beta_0,...,\beta_k$ are unknown parameters, $\varepsilon$ is a random variable, and the variables $x_1,...,x_k$ are known values. We will assume $E[\varepsilon] = 0$, so that \begin{equation*}
+        E[Y] = \beta_0 + \beta_1x_1 + ...+ \beta_kx_k
+    \end{equation*}
+\end{defn}
+
+
+\section{\textsection Method of Least Squares}
+
+Suppose we wish to fit the model $E[Y] = \beta_0 + \beta_1x$ to some set of data. Note in general $x = f(w)$ is a function of some other independent variable(s). That is we postulate $Y = \beta_0+\beta_1x +\varepsilon$, where $\varepsilon$ possesses some probability distribution with $E[\varepsilon] = 0$. If $\hat{\beta}_0$ and $\hat{\beta}_1$ are estimators for $\beta_0$ and $\beta_1$, then $\hat{Y} = \hat{\beta}_0+\hat{\beta}_1x$ is an estimator for $E[Y]$.
+
+\begin{defn}{}{}
+    If $\hat{y}_i = \hat{\beta}_0+\hat{\beta}_1x_i$ is the predicted value of the ith $y$ value, then the deviation or error of the observed value of $y_i$ from $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i$ is the difference, $y_i - \hat{y}_i$. The sum of squares of deviations is given by \begin{equation*}
+        SSE = \sum_{i=1}^n(y_i - \hat{y}_i)^2 = \sum_{i=1}^n[y_i - (\hat{\beta}_0 + \hat{\beta}_1x_i)]^2
+    \end{equation*}
+\end{defn}
+
+
+If SSE possesses a min, it will occur for value of $\hat{beta}_0$ and $\hat{beta}_1$ that satisfy the equations \begin{equation*}
+    \frac{\partial SSE}{\partial\hat{\beta}_0} = 0\;\;\&\;\;\frac{\partial SSE}{\partial\hat{\beta}_1} = 0
+\end{equation*}
+These are the \Emph{least-squares equations}.
+
+
+\begin{claim}{}{}
+    The minimizers of the SSE for two parameters are: \begin{equation*}
+        \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} = \frac{\sum_{i=1}^n(x_i-\overline{x})(y_i - \overline{y})}{\sum_{i=1}^n(x_i-\overline{x})^2}
+    \end{equation*}
+    and \begin{equation*}
+        \hat{\beta}_0 = \overline{y} - \hat{\beta}_1\overline{x}
+    \end{equation*}
+\end{claim}
+
+\begin{prop}{}{}
+    For $Y = \beta_0 + \beta_1x + \varepsilon$, with $V(Y) = V(\varepsilon) = \sigma^2$:
+    \begin{itemize}
+        \item $E[\hat{\beta}_1] = \beta_1$
+        \item $V(\hat{\beta}_1) = \frac{\sigma^2}{S_{xx}} = \frac{\sigma^2}{\sum_{i=1}^n(x_i-\overline{x})^2}$
+        \item $E[\hat{\beta}_0] = \beta_0$
+        \item $V(\hat{\beta}_0) = \frac{\sigma^2\sum_{i=1}^nx_i^2}{nS_{xx}} = \frac{\sigma^2\sum_{i=1}^nx_i^2}{n\sum_{i=1}^n(x_i-\overline{x})^2}$
+        \item $Cov(\hat{\beta}_0,\hat{\beta}_1) = \frac{-\overline{x}\sigma^2}{S_{xx}} = \frac{-\overline{x}\sigma^2}{\sum_{i=1}^n(x_i - \overline{x})^2}$
+    \end{itemize}
+\end{prop}
+
+
+\begin{rmk}{}{}
+    Since we are using $\hat{Y}_i$ to estimate $E[Y_i]$, we use \begin{equation*}
+        S^2_e = \frac{1}{n-2}\sum_{i=1}^n(Y_i - \hat{Y}_i)^2 = \frac{1}{n-2}SSE
+    \end{equation*}
+    to estimate $\sigma^2$. This is an unbiased estimator.
+\end{rmk}
+
+
+\begin{note}{}{}
+    $SSE = \sum_{i=1}^n(y_i - \hat{y_i})^2 = S_{yy} - \hat{\beta}_1S_{xx}$
+\end{note}
+
+\begin{claim}{}{}
+    If $\varepsilon_i \sim norm(0,\sigma^2)$, $Y_i \sim norm(\beta_0+\beta_1x_i,\sigma^2)$, $\hat{\beta}_0$ and $\hat{\beta}_1$ are normally distributed. Moreover, \begin{equation*}
+        \frac{(n-2)S_e^2}{\sigma^2} = \frac{SSE}{\sigma^2} \sim \chi^2_{df = n-2}
+    \end{equation*}
+    and the statistic $S_e^2$ is independent of both $\hat{\beta}_0$ and $\hat{\beta}_1$
+\end{claim}
+
+
+Let $\hat{Y}$ be the probabilistic model that is closest overall to each sample point, meaning the st of sample points $(X_i,Y_i)$'s that are respectively closest to $(\hat{X}_i,\hat{Y}_i)$'s. Then we define the difference between $Y_i$ and $\hat{Y}_i$ to be $\varepsilon_i = Y_i-\hat{Y}_i$, called the \Emph{residuals/errors/residual errors}. We are setting $\sum_{i=1}^n\varepsilon_i = \sum_{i=1}^n(Y_i-\hat{Y}_i) = 0$, so we can find the model with the least overall error. However, we need to square it to avoid negatives and canceling of errors.
+
+\begin{defn}{}{}
+    The \Emph{sum of squared errors} is \begin{equation*}
+        SSE = \sum_{i=1}^n\varepsilon_i^2 = \sum_{i=1}^n(Y_i-\hat{Y}_i)^2 = \sum_{i=1}^n[Y_i - (\hat{\beta}_0 + \hat{\beta}_1x_i)]^2
+    \end{equation*}
+\end{defn}
+
+\begin{claim}{}{}
+    The least squares estimate that minimizes $SSE$ for $\hat{\beta}_0$ is \begin{equation*}
+        \boxed{\hat{\beta}_0 = \overline{Y} - \hat{\beta}_1\overline{X}}
+    \end{equation*}
+    and the least squares estimate for $\hat{\beta}_1$ is \begin{equation*}
+        \boxed{\hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} = \frac{\sum_{i=1}^n(X_i-\overline{X})(Y_i-\overline{Y})}{\sum_{i=1}^n(X_i-\overline{X})^2} = \frac{\sum_{i=1}^nX_iY_i - n\overline{X}\overline{Y}}{\sum_{i=1}^nX_i^2 - n\overline{X}^2}}
+    \end{equation*}
+\end{claim}
+
+
+\subsection{Evaluating the Quality of the Linear Relationship}
+
+
+\begin{defn}{}{}
+    $\sum_{i=1}^n(Y_i -\overline{Y})^2$ is called the \Emph{total sum of squared errors} (SST)
+\end{defn}
+
+\begin{rmk}{}{}
+    When we have $Y_i$'s that are linearly dependent on $X_i$'s, $(Y_i\vert X_i)$, a better estimator than simply $\overline{Y}$ is $\hat{Y}_i$ the simple linear regression estimator.
+\end{rmk}
+
+We now have two estimators $\overline{Y}$ and $\hat{Y}_i$, and their respective errors (SST and SSE).
+
+\begin{rmk}{}{}
+    \begin{equation*}
+        \sum_{i=1}^n(Y_i-\overline{Y})^2 = \sum_{i=1}^n(Y_i-\hat{Y}_i)^2 + \text{sum of explained errors}
+    \end{equation*}
+    which gives \begin{equation*}
+        SST = SSE + SSR
+    \end{equation*}
+    the total sum of squared errors $=$ the sum of squared error still in regression plus the sum of squared error explained by the linear model.
+\end{rmk}
+
+\begin{rmk}{}{}
+    \begin{equation*}
+        SST = \sum_{i=1}^n(Y_i - \hat{Y}_i)^2 = \sum_{i=1}^n(Y_i - \hat{Y}_i)^2 + \sum_{i=1}^n(\hat{Y}_i - \overline{Y})^2
+    \end{equation*}
+    so $$SSR = \sum_{i=1}^n(\hat{Y}_i - \overline{Y})^2$$
+\end{rmk}
+
+
+\begin{defn}{}{}
+    The \Emph{coefficient of determination} is \begin{equation*}
+        r^2 = \frac{SSR}{SST} = \frac{\sum_{i=1}^n(\hat{y}_i - \overline{y})^2}{\sum_{i=1}^n(y_i - \overline{y})^2} = 1 -\frac{\sum_{i=1}^n(y_i - \hat{y}_i)^2}{\sum_{i=1}^n(y_i - \overline{y})^2}  
+    \end{equation*}
+    and \begin{equation*}
+        r^2 = \left(\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}\right)^2 = \frac{S_{xy}^2}{S_{xx}S_{yy}}
+    \end{equation*}
+\end{defn}
+
+\begin{note}{}{}
+    \begin{equation*}
+        SST = S_{yy} = S_Y^2(n-1)
+    \end{equation*}
+    \begin{equation*}
+        SSR = \sum_{i=1}^n(\hat{y}_i - \overline{y})^2 = \sum_{i=1}^n\hat{y}_i^2 - n\overline{y}^2
+    \end{equation*}
+    \begin{equation*}
+        SSE = \sum_{i=1}^n\varepsilon_i^2 = \sum_{i=1}^n(Y_i-\hat{Y}_i)^2 = \sum_{i=1}^n[Y_i - (\hat{\beta}_0 + \hat{\beta}_1x_i)]^2
+    \end{equation*}
+\end{note}
+
+\begin{rmk}{Least-Squares Conditions/Assumptions}{}
+    \leavevmode
+    \begin{itemize}
+        \item The response variable $Y$ is normally distributed regardless of the value of the predictor variable $X$.
+        \item The variation in the response variable $Y$ is the same regardless of the value of the predictor variable $X_i$. This concept of common variation/standard deviation is called \Emph{homoscedasticity}. This common variance in the response variable $Y$ is represented by $\sigma^2$.
+    \end{itemize}
+\end{rmk}
+
+\begin{rmk}{}{}
+    To see if our model satisfies 2., we look at the residuals plot: $(y_i - \hat{y}_i)$ with respect to $\hat{y}_i$. We want randomness, so we look for patterns.
+\end{rmk}
+
+\begin{rmk}{}{}
+    If our model satisfies 1, the normal $Q-Q$ plot should have the points as close to the dotted line as possible.
+\end{rmk}
+
+\begin{rmk}{}{}
+    Points that are numbered in Cook's distance could be outliers (plot of residuals versus leverages)
+\end{rmk}
+
+
+
+
+
+\section{\textsection Inferences Concerning the Parameters}
+
+\begin{rec}{}{}
+    If $\varepsilon$ is normally distributed, $\hat{\beta}_i$ is an unbiased normally distributed estimator of $\beta_i$ with \begin{equation*}
+        V(\hat{\beta}_0) = c_{00}\sigma^2, c_{00} = \frac{\sum_{i=1}^nx_i^2}{nS_{xx}}
+    \end{equation*}
+    and \begin{equation*}
+        V(\hat{\beta}_1) = c_{11}\sigma^2, c_{11} = \frac{1}{S_{xx}}
+    \end{equation*}
+\end{rec}
+
+\begin{prop}{}{}
+    For a test of $H_0:\beta_i = \beta_{i0}$ we can use the test statistic \begin{equation*}
+        Z = \frac{\hat{\beta}_i - \beta_{i0}}{\sigma\sqrt{c_{ii}}}
+    \end{equation*}
+    The rejection region for a two tailed test is $|Z| > z_{\alpha/2}$. If we estimate $\sigma$ with $S = \sqrt{SSE/(n-2)}$, then \begin{equation*}
+        T = \frac{\hat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}} \sim T(df = n-2)
+    \end{equation*}
+\end{prop}
+
+
+\begin{rmk}{Test Hypothesis for Parameter}{}
+    \leavevmode
+    \begin{itemize}
+        \item $H_0:\beta_i = \beta_{i0}$
+        \item \begin{equation*}
+                H_a:\left\{\begin{array}{cc} \beta_i > \beta_{i0}& (\text{upper-tail alternative}) \\ \beta_i < \beta_{i0} & (\text{lower-tail alternative}) \\ \beta_i \neq \beta_{i0} & (\text{two-tailed alternative}) \end{array}\right.
+        \end{equation*}
+    \item Test statistic: $T = \frac{\hat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}}$
+        \item Rejection Region: \begin{equation*}
+                RR: \left\{\begin{array}{cc} \{t > t_{\alpha}\} & (\text{upper-tail RR}) \\ \{t < -t_{\alpha}\} & (\text{lower-tail RR}) \\ \{|t| > t_{\alpha/2}\} & (\text{two-tailed RR}) \end{array}\right.
+        \end{equation*}
+        \item where $c_{00} = \frac{\sum_{i=1}^nx_i^2}{nS_{xx}}$ and $c_{11} = \frac{1}{S_{xx}}$
+    \end{itemize}
+\end{rmk}
+
+\begin{rmk}{Confidence Interval}{}
+    $100(1-\alpha)\%$ confidence interval for $\beta_i$: \begin{equation*}
+        \hat{\beta}_i \pm t_{\alpha/2}S\sqrt{c_{ii}}
+    \end{equation*}
+    where $c_{00} = \frac{\sum_{i=1}^nx_i^2}{nS_{xx}}$ and $c_{11} = \frac{1}{S_{xx}}$
+\end{rmk}
+
+\section{\textsection Simple Linear Regression}
+
+Suppose we want to make an inference about $\theta = a_0\beta_0 + a_1\beta_1$. Then $\hat{\theta} = a_0\hat{\beta}_0 + a_1\hat{\beta}_1$ is an unbiased estimator of $\theta$. Then $$V(\hat{\theta}) = a_0^2c_{00}\sigma^2 + a_1^2c_{11}\sigma^2 + 2a_0a_1c_{01}\sigma^2$$
+where $c_{00} = \frac{\sum_{i=1}^nx_i^2}{nS_{xx}}$, $c_{01} = \frac{-\overline{x}}{S_{xx}}$, and $c_{11} = \frac{1}{S_{xx}}$, so \begin{equation*}
+    V(\hat{\theta}) = \left[\frac{a_0^2 \frac{\sum_{i=1}^nx_i^2}{n} + a_1^2 - 2a_0a_1\overline{x}}{S_{xx}}\right]\sigma^2
+\end{equation*}
+For large sampling $\hat{\beta}_0,\hat{\beta}_1 \sim norm$, so $\hat{\theta} \sim norm$, so \begin{equation*}
+    Z = \frac{\hat{\theta} - \theta}{\sigma_{\hat{\theta}}} \sim norm(0,1)
+\end{equation*}
+so a $100(1-\alpha)\%$ confidence interval for $\theta$ is \begin{equation*}
+    \hat{\theta}\pm z_{\alpha/2}\sigma_{\hat{\theta}}
+\end{equation*}
+
+
+\begin{rmk}{Test for theta}{}
+    \leavevmode
+    \begin{itemize}
+        \item $H_0:\theta = \theta_0$
+        \item \begin{equation*}
+                H_a:\left\{\begin{array}{cc} \theta > \theta_0& (\text{upper-tail alternative}) \\ \theta < \theta_{0} & (\text{lower-tail alternative}) \\ \theta \neq \theta_{0} & (\text{two-tailed alternative}) \end{array}\right.
+        \end{equation*}
+    \item Test statistic: $T = \frac{\hat{\theta} - \theta_{0}}{S\sqrt{V(\hat{\theta})}}$
+        \item Rejection Region: \begin{equation*}
+                RR: \left\{\begin{array}{cc} \{t > t_{\alpha}\} & (\text{upper-tail RR}) \\ \{t < -t_{\alpha}\} & (\text{lower-tail RR}) \\ \{|t| > t_{\alpha/2}\} & (\text{two-tailed RR}) \end{array}\right.
+        \end{equation*}
+        \item where $c_{00} = \frac{\sum_{i=1}^nx_i^2}{nS_{xx}}$ and $c_{11} = \frac{1}{S_{xx}}$
+    \end{itemize}
+\end{rmk}
+
+
+\begin{rmk}{Confidence Interval}{}
+    $100(1-\alpha)\%$ confidence interval for $\theta$: \begin{equation*}
+        \hat{\theta} \pm t_{\alpha/2}S\sqrt{\left[\frac{a_0^2 \frac{\sum_{i=1}^nx_i^2}{n} + a_1^2 - 2a_0a_1\overline{x}}{S_{xx}}\right]\sigma^2}
+    \end{equation*}
+    where $t_{\alpha/2}$ is based on $n-2$ degrees of freedom.
+\end{rmk}
+
+
+
+
+\begin{rmk}{Confidence Interval}{}
+    $100(1-\alpha)\%$ confidence interval for $E[Y] = \beta_0+\beta_1x^*$: \begin{equation*}
+        \hat{\beta}_0+\hat{\beta}_1x^*\pm t_{\alpha/2}S\sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
+    \end{equation*}
+    where $t_{\alpha/2}$ is based on $n-2$ degrees of freedom.
+\end{rmk}
+
+If we are interested in the value of $Y$ when $x = x^*$, call it $Y^*$, we could use $\hat{Y}^* = \hat{\beta}_0+\hat{\beta}_1x^*$. If $x = x^*$ the error of predicting a particular value of $Y^*$ using $\hat{Y}^*$ is \begin{equation*}
+    error = Y^* - \hat{Y}^*
+\end{equation*}
+For $\varepsilon$ normal, $Y^*, \hat{Y}^*\sim norm$. Since $E[\hat{Y}^*] = E[Y^*]$, $E[error] = 0$. Since we are predicting a future value of $Y^*$ that is not employed in the computation of $\hat{Y}^*$, they are independent and $Cov(\hat{Y}^*,Y^*) = 0$. Then \begin{equation*}
+    V(error) = \sigma^2\left[1 + \frac{1}{n} + \frac{(x^*-\overline{x})^2}{S_{xx}}\right]
+\end{equation*}
+Then \begin{equation*}
+    Z = \frac{Y^* - \hat{Y}^*}{\sigma\sqrt{1 + \frac{1}{n} + \frac{(x^*-\overline{x})^2}{S_{xx}}}} \sim norm(0,1)
+\end{equation*}
+and \begin{equation*}
+    T = \frac{Y^* - \hat{Y}^*}{S\sqrt{1 + \frac{1}{n} + \frac{(x^*-\overline{x})^2}{S_{xx}}}} \sim T(df = n-2)
+\end{equation*}
+
+\begin{rmk}{Predictor Interval}{}
+    $100(1-\alpha)\%$ prediction interval for $Y$ when $x = x^*$: \begin{equation*}
+        \hat{\beta}_0+\hat{\beta}_1x^*\pm t_{\alpha/2}S\sqrt{1+\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
+    \end{equation*}
+    where $t_{\alpha/2}$ is based on $n-2$ degrees of freedom.
+\end{rmk}
+
+
+\begin{rmk}{F-Test of Linear Appropriateness}{}
+    Consider the null and alternative hypotheses: \begin{equation*}
+        H_0:\beta_1=\beta_2=...=0
+    \end{equation*}
+    \begin{equation*}
+        H_a:\text{at least one } \beta_i \neq 0,\text{ where } i = 1,2,...
+    \end{equation*}
+    Here in SLR there is only one slope $\beta_1$, so $H_0:\beta_1 = 0$ and $H_a:\beta_1 \neq 0$. One can test this using variance decomposition in the response variable, encountered in determining the coefficient of determination and standard deviation in the regression, to derive a test for linear appropriateness. \begin{equation*}
+        SST = SSE + SSR \implies \frac{SST}{\sigma^2} = \frac{SSE}{\sigma^2} + \frac{SSR}{\sigma^2}
+    \end{equation*}
+    \begin{equation*}
+        \frac{SST}{\sigma^2} = \frac{\sum_{i=1}^n(y_i - \overline{y})^2}{\sigma^2} = \frac{(n-1)S_y^2}{\sigma^2} \sim \chi^2_{df = n-1}
+    \end{equation*}
+    \begin{equation*}
+        \frac{SSE}{\sigma^2} = \frac{\sum_{i=1}^n(y_i - \hat{y}_i)^2}{\sigma^2} = \frac{(n-2)S_e^2}{\sigma^2} \sim \chi^2_{df = n-2}
+    \end{equation*}
+    Then $\frac{SSR}{\sigma^2} \sim \chi^2_{df = 1}$ since $n-1 - (n-2) = 1$. Then, note $MSE = \frac{SSE}{(n-2)}$, and let $MSR = \frac{SSR}{1} = SSR$, so $MSi = \frac{SSi}{df_i}$
+\end{rmk}
+
+
+
+
+
+\section{\textsection Correlation}
+
+
+Suppose $(X,Y)$ has a bivariate normal distribution with $E[X] = \mu_X$, $E[Y] = \mu_Y$, $V[X] = \sigma^2_X$, and $V[Y] = \sigma_Y^2$, and \begin{equation*}
+    \rho = \frac{Cov(X,Y)}{\sqrt{V[X]V[Y]}}
+\end{equation*}
+Then $E[Y\vert X = x] = \beta_0 + \beta_1x$ where $\beta_1 = \frac{\sigma_Y}{\sigma_X}\rho$. Let $(X_1,Y_1),...,(X_n,Y_n)$ be a random sample. The maximum likelihood estimator of $\rho$ is given bye \begin{align*}
+    r &= \frac{\sum_{i=1}^n(X_i-\overline{X})(Y_i-\overline{Y})}{\sqrt{\sum_{i=1}^n(X_i-\overline{X})^2\sum_{i=1}^n(Y_i-\overline{Y})^2}} \\
+    &= \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} \\
+    &= \hat{\beta}_1 \sqrt{\frac{S_{XX}}{S_{yy}}}
+\end{align*}
+
+For testing hypotheses in terms of $\beta_1$ or $\rho$, we use \begin{equation*}
+    T = \frac{\hat{\beta}_1 - 0}{S/\sqrt{S_{xx}}} = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}} \sim T(df = n-2)
+\end{equation*}
+$r^2$ is called the \Emph{coefficient of determination}
+
+\begin{prop}{}{}
+    \begin{equation*}
+        SSE = \sum_{i=1}^n(y_i - \hat{y}_i)^2 = \sum_{i=1}^n[y_i - (\hat{\beta}_0 + \hat{\beta}_1x_i)]^2 = S_{yy} - \hat{\beta}_1S_{xy}
+    \end{equation*}
+    where $\hat{\beta}_1 = \frac{S_{xy}}{S_{xx}}$
+\end{prop}
+
+\begin{rmk}{}{}
+    $S_{yy} = \sum_{i=1}^n(y_i - \overline{y})^2$ provides a measure of the total variation among the $y$-values, ignoring the $x$'s. SSE measures the variation in the $y$-values that remains unexplained after using the $x$'s to fit the simple linear regression model. Thus $SSE/S_{yy}$ gives the proportion of the total variation in the $y_i$'s that is unexplained by the model. Then \begin{equation*}
+        r^2 = \left(\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}\right)^2 = \frac{\hat{\beta}_1S_{xy}}{S_{yy}} = 1 - \frac{SEE}{S_{yy}}
+    \end{equation*}
+    so $r^2$ is the proportion of total variation in the $y$'s that is explained by the variable $x$ in a simple linear regression model.
+\end{rmk}
+
+\section{\textsection Simple Linear Regressio: Bivariate Data}
+
+
+\begin{defn}{}{}
+    Bivariate data is the observed values on two distinct/different population variables pertaining to unit/individuals in the population of interest.
+\end{defn}
+
+
+\begin{nota}{}{}
+    If $X_i$ is the observed value of a random variable $X$ from subject $i$, $i = 1,2,...,n$, and $Y_i$ the observed value of random variable $Y$ from subject $i$, $i = 1,2,...,n$, or \begin{equation*}
+        (X_i,Y_i) \in \{(X_1,Y_1),...,(X_n,Y_n)\}
+    \end{equation*}
+\end{nota}
+
+\begin{rmk}{}{}
+    When an experimental study or random sampling method produces data on two different variables, there are three research questions that are posed: \begin{enumerate}
+        \item Is there a relationship between the two variables? If there is, what is the direction of the relationship? Is the relationship positive? negative (or inverse)? Does the relationship seem to be linear? non-linear?
+        \item If a relationship exists between $X$ and $Y$, how strong is the relationship? IS such a relationship subtle, or strong?
+        \item If the relationship between $X$ and $Y$ is strong, can the existing relationship be used to predict what will happen in the future? That is, can we create a mathematical function $f(x)$ that will predict the value of one variable based on the value of the other?
+    \end{enumerate}
+\end{rmk}
+
+\begin{rec}{}{}
+    $$Cov(X,Y) = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y]$$
+\end{rec}
+
+\begin{defn}{}{}
+    The \Emph{sample covariance} is given by \begin{equation*}
+        \frac{S_{xy}}{n-1} = \frac{\sum_{i=1}^n(X_i-\overline{X})(Y_i-\overline{Y})}{n-1}
+    \end{equation*}
+    and it measures dependence.
+\end{defn}
+
+\begin{defn}{}{}
+    \Emph{Pearson's Correlation} is a scaled version of coveriance: \begin{equation*}
+        Cor(X,Y) = \rho = \frac{\sigma_{XY}}{\sigma_X\sigma_Y} = \frac{Cov(X,Y)}{\sqrt{V[X]V[Y]}}, -1\leq \rho \leq 1
+    \end{equation*}
+\end{defn}
+
+\begin{defn}{}{}
+    The \Emph{sample correlation} is given by: \begin{align*}
+        r &= \frac{S_{xy}/(n-1)}{S_XS_Y} \\
+        &= \frac{\sum_{i=1}^n(X_i-\overline{X})(Y_i-\overline{Y})/(n-1)}{\sqrt{\sum_{i=1}^n(X_i-\overline{X})^2/(n-1)}\sqrt{\sum_{i=1}^n(Y_i-\overline{Y})^2/(n-1)}} \\
+        &= \frac{\sum_{i=1}^n(X_i-\overline{X})(Y_i-\overline{Y})}{\sqrt{\sum_{i=1}^n(X_i-\overline{X})^2}\sqrt{\sum_{i=1}^n(Y_i-\overline{Y})^2}}, -1 \leq r \leq 1 
+    \end{align*}
+\end{defn}
+
+
+Note that \begin{equation*}
+    S_X^2 = \frac{S_{xx}}{n-1}
+\end{equation*}
+
+\begin{rmk}{}{}
+    Pearson's Correlation is a measure of the linear quality of the relationship between two variables. It wouldn't represent curvilinear relationships.
+\end{rmk}
+
+\begin{rmk}{}{}
+    We want to model expected results on the varaible deemed the \Emph{response variable}, $Y$, based only off the \Emph{predictor variable}, $X$. Steps: \begin{enumerate}
+        \item Collect bivariate $X$ and $Y$ variables from historic events. This data set will serve as training to understand the linear relationship that exists between the variables
+        \item Develop a mathematical expression/equation to transform a particular/hypothetical $X$ into an expected/estimated $Y$
+    \end{enumerate}
+\end{rmk}
+
+\begin{rmk}{}{}
+    In a deterministic model all points fall on the same line.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    We define the linear equation to follow the deterministic model \begin{equation*}
+        Y_i = \beta_0 + \beta_1X_i
+    \end{equation*}
+    where $\beta_0$ is the $y$-intercept and $\beta_1$ is the slope.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    In a deterministic model only two sample points are needed to find the model (slope point method).
+\end{rmk}
+
+
+\begin{defn}{}{}
+    The probabilistic model appears to be the same as the deterministic model, however, it includes an additional $\varepsilon_i$, term: \begin{equation*}
+        Y_i = \beta_0 + \beta_1X_i + \varepsilon_i, \varepsilon_i \sim norm(0,\sigma^2)
+    \end{equation*}
+    The \Emph{probabilistic model} can also be written this way by admitting the following values are estimates: \begin{equation*}
+        \hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1X_i \sim norm(\hat{\beta}_0+\hat{\beta}_1X_i, \sigma^2)
+    \end{equation*}
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+\end{document}
+
+
+%%%%%% END %%%%%%%%%%%%%u
