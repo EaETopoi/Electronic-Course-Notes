@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  16 AUG 2021 00:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  29 AUG 2021 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1501,7 +1501,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../Crab.jpg, id=11, 962.09438pt x 769.37437pt>
+<../Crab.jpg, id=163, 962.09438pt x 769.37437pt>
 File: ../Crab.jpg Graphic file (type jpg)
 <use ../Crab.jpg>
 Package pdftex.def Info: ../Crab.jpg  used on input line 48.
@@ -1514,7 +1514,7 @@ LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <24.88> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 53.
 
 (./Phys435.toc
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <12> not available
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <14.4> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 1.
 LaTeX Font Info:    Trying to load font information for U+txsya on input line 1
 .
@@ -1544,45 +1544,83 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 1
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-))
-\tf@toc=\write5
-\openout5 = `Phys435.toc'.
-
+)
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <12> not available
+(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 2.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.57 \begin{appendices}
-                        [1] [2
+l.35 ...ariables and Other Methods}{10}{chapter.7}
+                                                  % [1])
+\tf@toc=\write5
+\openout5 = `Phys435.toc'.
+
+ [2] [3
+
+]
+Chapter 1.
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <20> not available
+(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 65.
+[4
+
+]
+Chapter 2.
+[5
+
+]
+Chapter 3.
+[6
+
+]
+Chapter 4.
+[7
+
+] [8
+
+]
+Chapter 5.
+[9
+
+]
+Chapter 6.
+[10
+
+]
+Chapter 7.
+[11
+
+] [12
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
  (./Phys435.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 63.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 63.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 231.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 231.
 Package rerunfilecheck Info: File `Phys435.out' has not changed.
-(rerunfilecheck)             Checksum: D6065ED4F0A7DF3D0225E85B76B37CD7;46.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
+(rerunfilecheck)             Checksum: D17283016D3E98354FFAA6EF2015FB10;2720.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 231.
  ) 
 Here is how much of TeX's memory you used:
- 24196 strings out of 481239
- 444418 string characters out of 5920377
- 727169 words of memory out of 5000000
- 38918 multiletter control sequences out of 15000+600000
- 559103 words of font info for 88 fonts, out of 8000000 for 9000
+ 24341 strings out of 481239
+ 446131 string characters out of 5920377
+ 733200 words of memory out of 5000000
+ 39006 multiletter control sequences out of 15000+600000
+ 576543 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,7n,84p,1047b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,11n,84p,1047b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on Phys435.pdf (3 pages, 500576 bytes).
+e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Phys435.pdf (13 pages, 528839 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 330 words of extra memory for PDF output out of 10000 (max. 10000000)
 
