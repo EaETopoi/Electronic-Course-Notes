@@ -67,16 +67,28 @@
     Thermodynamics is a \Emph{phenomenological} description of properties of \Emph{macroscopic systems} in \Emph{thermal equilibrium}.
 \end{defn}
 
-By a phenomenological description we mean a discription based on observations and direct experience of the experimenter with the system, considered as a ``black box" (a system whose internal structure is unknown, or is just not considered).
+By a phenomenological description we mean a discription based on observations and direct experience of the experimenter with the system, considered as a ``black box" (a system whose internal structure is unknown, or is just not considered). The task of thermodynamics is to define appropriate physical quanitities, \Emph{state quantities}, which characterize macroscopic properties of matter, that is \Emph{macrostates}, in a way which is as unambiguous as possible, and to relate these quantities by means of universally valid equations.
 
 \begin{defn}[Systems]
-    There are a number of different thermodynamic systems. We summarize them as follows: \begin{itemize}
+    There are a number of different thermodynamic systems. In particular we define a thermodynamic system, in general, to be an arbitrary amount of matter, the properties of which can be uniquely and completely described by specifying certain macroscopic parameters. We summarize them as follows: \begin{itemize}
         \item \Emph{Thermodynamic or Macroscopic System:} A system consisting of a large number of constituents. For example, a mole of gas (approximately $10^{23}$ particles) can be considered as a macroscopic system.
-        \item \Emph{Isolated Thermodynamic System:} A system which exhibits no exchange of any type with the surroundings; no exchange of work, heat, matter, etc.
-        \item \Emph{Closed Theormodynamic System:} A system which exhibits no exchange of matter with its surroundings.
-        \item \Emph{Open Thermodynamic System:} A system for which it is possible for exchange of any type with the surroundings (work, heat, matter, etc.)
+        \item \Emph{Isolated Thermodynamic System:} A system which exhibits no exchange of any type with the surroundings; no exchange of work, heat, matter, etc. The total energy (mechanical, electrical, etc.) is a conserved quantity for such a system, and can thus be used to characterize the macrostate.
+        \item \Emph{Closed Theormodynamic System:} A system which exhibits no exchange of matter with its surroundings. Hence, energy exchange is allowed, so energy is no longer a conserved quantity and can fluctuate due to exchange with the surroundings. The termperature, particle number, and volume of the system can characterize the macrostate.
+        \item \Emph{Open Thermodynamic System:} A system for which it is possible for exchange of any type with the surroundings (work, heat, matter, etc.). Energy and particle number are both not conserved. But, temperature and chemical potential can still be used to characterize a macrostate.
     \end{itemize}
 \end{defn}
+
+If the properties of a system are the same for any part of it, one calls such a system \Emph{homogeneous}. On the other hand, if the properties change discontinuously at certain marginal surfaces, the system is \Emph{heterogeneous}, with the homogeneous portions of the system called \Emph{phases} and the separating surfaces \Emph{phase boundaries}. 
+
+\begin{defn}
+    The macroscopic quantities which describe a system are called state quantities.
+\end{defn}
+
+\begin{eg}
+    Examples of state quantities are the system's energy $E$, its volume $V$, its particle number $N$, its entropy $S$, its temperature $T$, the pressure $P$, the chemical potential $\mu$, the charge $q$, the dipole momentum, the refractive index, the viscosity, the chemical composition, and the size of phase boundaries.
+\end{eg}
+
+However, microscopic quantities do not fall under the umbrella of state quantities.
 
 \begin{defn}[Equilibrium]
     Two thermodynamic systems are in \Emph{equilibrium} if and only if they are in contact such that they can exchange a given conserved quantity (for example particles) and they are relaxed to a state in which there is no average net transfer of that quantity between them anymore. A thermodynamic system $S$ is in equilibrium with itself, if and only if, all its subsystems are in equilibrium with each other. In this case, $S$ is called an \Emph{equilibrium} system.

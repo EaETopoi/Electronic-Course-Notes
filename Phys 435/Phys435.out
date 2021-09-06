@@ -28,12 +28,18 @@
 \BOOKMARK [1][-]{section.5.4}{Existence and Uniqueness}{chapter.5}% 28
 \BOOKMARK [0][-]{chapter.6}{Fourier Series}{part.2}% 29
 \BOOKMARK [1][-]{section.6.1}{Initial Definitions and Dirichlet Conditions}{chapter.6}% 30
-\BOOKMARK [1][-]{section.6.2}{Symmetry Conditions}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.3}{Discontinuous and Non-Periodic Functions}{chapter.6}% 32
-\BOOKMARK [1][-]{section.6.4}{Integration and Differentiation}{chapter.6}% 33
-\BOOKMARK [1][-]{section.6.5}{Complex Fourier Series}{chapter.6}% 34
-\BOOKMARK [0][-]{chapter.7}{Separation of Variables and Other Methods}{part.2}% 35
-\BOOKMARK [1][-]{section.7.1}{Separation of Variables}{chapter.7}% 36
-\BOOKMARK [1][-]{section.7.2}{Integral Transforms}{chapter.7}% 37
-\BOOKMARK [1][-]{section.7.3}{Inhomogeneous Problems}{chapter.7}% 38
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.2}% 39
+\BOOKMARK [2][-]{equation.6.1.4}{Symmetry Conditions}{section.6.1}% 31
+\BOOKMARK [1][-]{section.6.2}{Discontinuous and Non-Periodic Functions}{chapter.6}% 32
+\BOOKMARK [2][-]{section*.1}{Discontinuities}{section.6.2}% 33
+\BOOKMARK [2][-]{defn.6.2.1}{Non-Periodic Functions}{section.6.2}% 34
+\BOOKMARK [1][-]{section.6.3}{Integration and Differentiation}{chapter.6}% 35
+\BOOKMARK [1][-]{section.6.4}{Complex Fourier Series}{chapter.6}% 36
+\BOOKMARK [2][-]{equation.6.4.1}{Parseval's Theorem}{section.6.4}% 37
+\BOOKMARK [0][-]{chapter.7}{Integral Transforms}{part.2}% 38
+\BOOKMARK [1][-]{section.7.1}{Fourier Transform}{chapter.7}% 39
+\BOOKMARK [1][-]{section.7.2}{Laplace Transform}{chapter.7}% 40
+\BOOKMARK [0][-]{chapter.8}{Separation of Variables and Other Methods}{part.2}% 41
+\BOOKMARK [1][-]{section.8.1}{Separation of Variables}{chapter.8}% 42
+\BOOKMARK [1][-]{section.8.2}{Applying Integral Transforms}{chapter.8}% 43
+\BOOKMARK [1][-]{section.8.3}{Inhomogeneous Problems}{chapter.8}% 44
+\BOOKMARK [0][-]{section*.2}{Appendices}{part.2}% 45
