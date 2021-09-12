@@ -126,8 +126,78 @@ We consider Robert Boyle's (1627-1691) experiment, conducted at room temperature
 \end{equation}
 where $N$ is the number of gas particles and $k_B \approx 1.381\times 10^{-23}\;J/K$ is a natural constant called the \Emph{Boltzmann's constant}. The above equation is called the \Emph{ideal gas law} or the \Emph{equation of state for an ideal gas} since it relates the three state variables, or thermodynamic coordinates, $P$, $V$, and $T$ at equilibrium.
 
+\subsubsection{Mechanical Derivation}
+
+We now sketch a derivation of the ideal gas law using an atomistic theory governed by Newton's Laws. First assume there is a single molecule or atom bouncing around in a volume $V = AL$, where $L$ is the length along the $x$-direction and $A$ is the area of a side parallel to the $yz$-plane:
+
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1.4,xscale=1.4]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Cube [id:dp41058044355698486] 
+\draw   (130,134) -- (154,110) -- (240,110) -- (240,166) -- (216,190) -- (130,190) -- cycle ; \draw   (240,110) -- (216,134) -- (130,134) ; \draw   (216,134) -- (216,190) ;
+%Straight Lines [id:da3652266253176417] 
+\draw    (132,200) -- (208,200) ;
+\draw [shift={(210,200)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (6.56,-1.97) .. controls (4.17,-0.84) and (1.99,-0.18) .. (0,0) .. controls (1.99,0.18) and (4.17,0.84) .. (6.56,1.97)   ;
+\draw [shift={(130,200)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (6.56,-1.97) .. controls (4.17,-0.84) and (1.99,-0.18) .. (0,0) .. controls (1.99,0.18) and (4.17,0.84) .. (6.56,1.97)   ;
+%Straight Lines [id:da08447016298808463] 
+\draw    (166.89,172.06) -- (190.59,155.21) ;
+\draw [shift={(192.22,154.06)}, rotate = 504.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (6.56,-1.97) .. controls (4.17,-0.84) and (1.99,-0.18) .. (0,0) .. controls (1.99,0.18) and (4.17,0.84) .. (6.56,1.97)   ;
+%Curve Lines [id:da14521036207082538] 
+\draw    (268.22,143.72) .. controls (250.49,160.14) and (256.69,125.13) .. (232.99,150.84) ;
+\draw [shift={(231.89,152.06)}, rotate = 311.76] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (6.56,-1.97) .. controls (4.17,-0.84) and (1.99,-0.18) .. (0,0) .. controls (1.99,0.18) and (4.17,0.84) .. (6.56,1.97)   ;
+%Straight Lines [id:da5265921627377463] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (130,190) -- (141.22,190) ;
+\draw [shift={(143.22,190)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (4.37,-1.32) .. controls (2.78,-0.56) and (1.32,-0.12) .. (0,0) .. controls (1.32,0.12) and (2.78,0.56) .. (4.37,1.32)   ;
+%Straight Lines [id:da8512625721822618] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (130,190) -- (137.8,182.35) ;
+\draw [shift={(139.22,180.94)}, rotate = 495.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (4.37,-1.32) .. controls (2.78,-0.56) and (1.32,-0.12) .. (0,0) .. controls (1.32,0.12) and (2.78,0.56) .. (4.37,1.32)   ;
+%Straight Lines [id:da2755149870872269] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (130,190) -- (130,181.94) ;
+\draw [shift={(130,179.94)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (4.37,-1.32) .. controls (2.78,-0.56) and (1.32,-0.12) .. (0,0) .. controls (1.32,0.12) and (2.78,0.56) .. (4.37,1.32)   ;
+
+% Text Node
+\draw (167,198) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$L$};
+% Text Node
+\draw (166.89,172.06) node [anchor=center][inner sep=0.75pt]  [font=\LARGE,color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$\cdot $};
+% Text Node
+\draw (170.56,151.96) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$\vec{v}$};
+% Text Node
+\draw (269.56,135.96) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$A$};
+% Text Node
+\draw (142.56,189.84) node [anchor=north west][inner sep=0.75pt]  [font=\tiny]  {$x$};
+% Text Node
+\draw (140.89,176.51) node [anchor=north west][inner sep=0.75pt]  [font=\tiny]  {$y$};
+% Text Node
+\draw (124.89,173.84) node [anchor=north west][inner sep=0.75pt]  [font=\tiny]  {$z$};
 
 
+\end{tikzpicture}
+\end{center}
+
+After many perfectly ellastic collisions against the wall, the average pressure directly on the wall is \begin{equation*}
+    \overline{p} = \frac{\overline{F}_{x,on\;wall}}{A} = -\frac{\overline{F}_{x,on\;molecule}}{A} = -\frac{m\overline{\frac{\Delta v_x}{\Delta t}}}{A} 
+\end{equation*}
+The time it takes for a full round trip is $\Delta t = 2L/v_x$. When it undergoes one elastic collision, its change in velocity is $\Delta v_x = -2v_x$. Together these give \begin{equation*}
+    \overline{p} = -\frac{m(-2v_x/(2L/v_x))}{A} = \frac{mv_x^2}{LA} = \frac{mv_x^2}{V}
+\end{equation*}
+Now, if we extend to $N >> 1$ non-interacting molecules, each colliding with the walls totally elastically, then we can forgoe the averageness of the pressure to obtain \begin{equation*}
+    pV = m\sum_{i=1}^N(v_x^2)_i = mN\overline{v_x^2} = Nk_BT
+\end{equation*}
+using the ideal gas law at the end, which gives the relation \begin{equation*}
+    \overline{K}_x = \overline{\frac{1}{2}mv_x^2} = \frac{1}{2}k_BT
+\end{equation*}
+Then we find that the total mean kinetic energy is \begin{equation}
+    \overline{K} = \frac{1}{2}m\overline{v_x^2}+\frac{1}{2}m\overline{v_y^2}+\frac{1}{2}m\overline{v_z^2} = \frac{3}{2}k_BT
+\end{equation}
+
+\begin{defn}
+    The \Emph{Root-mean square speed} of each atom/molecule is defined as \begin{equation*}
+        v_{RMS} = \sqrt{\overline{v^2}}
+    \end{equation*}
+\end{defn}
+
+In general the RMS speed is often a close approximation of the average speed. In this case we have $v_{RMS} = \sqrt{3k_BT/m}$.
 
 
 \subsection{Work}
@@ -257,6 +327,8 @@ To ensure thermodynamics is a self-consistent description of macroscopic systems
 
 Depending on the macroscopic generalized force, the work necessary to transfer a thermodynamic system in complete thermodynamic equilibrium from state $A$ to state $B$ might or might not depend on the path taken. For example, if $\gamma_1$ and $\gamma_2$ are two paths from state $A$ to state $B$, it is possible that $\int_{\gamma_1}\delta W \neq \int_{\gamma_2}\delta W$. (Note that this justifies the use of the notation $\delta W$ over $dW$, which would denote an exact differential)
 
+
+
 \subsection{Conservative Forces}
 
 \begin{rec}
@@ -317,16 +389,37 @@ Consequently, an integrable, or exact, differential form does not depend on the 
 \end{thm}
 
 
-
-
 %%%%%%%%%%%%%%%%%%%% Section 1.1.2
+\section{Equipartition Theorem}
+
+\begin{namthm}[Equipartition Theorem]
+    Every degree of freedom of a system in thermodynamic equilibrium, which appear only quadratically in the total energy, constributes an average energy of $\frac{1}{2}Nk_BT$ to the total energy of the system.
+\end{namthm}
+
+First, what exactly is a `degree of freedom'? In colloquil terms, a degree of freedom tells you about what the atom or molecule can actually do - maybe it can move around (translate), or vibrate, or rotate, or produce sound, or emit light, or a host of other things. Each of these capabilities contributes an energy of $\frac{1}{2}k_BT$ to the system's energy. 
+
+Now, recall that the kinetic energy of a rotating body given a diagonalized inertial basis $I_{ii}$, is \begin{equation}
+    K_{rot} = \frac{1}{2}(I_{xx}w_x^2+I_{yy}w_y^2+I_{zz}w_z^2)
+\end{equation}
+and $w_i$ are the angular frequences associated with the angular velocity of the body in this basis. Each of these terms is quadratic, so each one corresponds to a degree of freedom. 
+
+We can conclude that the total energy of the system in some limit is \begin{equation*}
+    \frac{f}{2}Nk_BT
+\end{equation*}
+where $f$ is the number of degrees of freedom.
+
+%%%%%%%%%%%%%%%%%%%% Section 1.1.3
 \section{Heat and the 1st Law of Thermodynamics}
 
 \begin{defn}
-    Recall that work corresponds to the change in energy of a thermodynamic system by a \Emph{macroscopically forced process}. On the other hand the \Emph{heat} $Q$ is the energy added to or removed from a thermodynamic system by a \Emph{spontaneous process}.
+    Recall that work corresponds to the change in energy of a thermodynamic system by a \Emph{macroscopically forced process}. On the other hand the \Emph{heat} $Q$ is the energy added to or removed from a thermodynamic system by a \Emph{spontaneous process} (that is not forced).
 \end{defn}
 
-For example, consider the energy transfer between a cooking plate and a pot of water. The origin of this type of process lies in the underlying microscopic dynamics, which we will explore using Statistical Mechanics.
+Heat can be also stated as the amount of energy that spontaneously flows between two systems: heat moves from the system at higher temperature to the system at lower temperature (2nd law of thermodynamics to be covered later). Note we can define the temperature through the equipartition theorem as a measure of the total energy of the system $E$: $T \approx 2E/fk_B$, where $f$ is the number of degrees of freedom.
+
+We note that negative $Q$ implies removing energy while positive $Q$ implies adding energy.
+
+For example, consider the energy transfer between a cooking plate and a pot of water. The origin of this type of process lies in the underlying microscopic dynamics, which we will explore using Statistical Mechanics. 
 
 \begin{law}[First Law of Thermodynamics]
     For an isolated thermodynamic system, the total \Emph{internal energy} $U$ is a constant and $dU = 0$. By the definition of internal energy, $dU$ is an exact differential; consequently, $U$ should be unique for a given state. For various systems we have the following: \begin{itemize}
@@ -339,8 +432,299 @@ In summary, the empirical first law is a reformulation of the conservation of en
 
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%% Chapter 1.2
 \chapter{Thermodynamical Systems}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.1
+\section{The 0th Law of Thermodynamics}
+
+We now wish to define the concept of temperature from a \Emph{macroscopic} perspective, to ensure our theoretical framework of thermodynamics is a self-consistent description of macroscopic systems in thermal equilibrium. The empirical principal we proceed with in our construction is that two systems which are in thermal equilibrium with one another should share the same ``temperature." Before we showed a derivation of the temperature in terms of kinetic energy from a microscopic perspective of sparse (non-dense) gas - this belongs to the area of Statistical mechanics.
+
+Now, the $0$th law of thermodynamics describes the transitivity of the equilibrium relation for systems:
+
+\begin{law}[0th Law of Thermodynamics]
+    If two systems, $A$ and $B$, are separately in equilibrium with a third system, $C$, then they are also in thermal equilibrium with one another.
+\end{law}
+
+Indeed we can depict this as follows:
+
+\begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Rectangle [id:dp7440238011885612] 
+\draw   (100,120) -- (200,120) -- (200,173.5) -- (100,173.5) -- cycle ;
+%Shape: Rectangle [id:dp00894291260356117] 
+\draw   (242,120) -- (342,120) -- (342,173.5) -- (242,173.5) -- cycle ;
+%Shape: Rectangle [id:dp3516092606802361] 
+\draw   (100,210) -- (342,210) -- (342,282.5) -- (100,282.5) -- cycle ;
+%Straight Lines [id:da2634357285779194] 
+\draw    (292,175.08) -- (292,208) ;
+\draw [shift={(292,210)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(292,173.08)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da874447176315235] 
+\draw    (525.67,146.8) -- (563.67,146.8) ;
+\draw [shift={(565.67,146.8)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(523.67,146.8)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5304557286713043] 
+\draw    (150,175.08) -- (150,208) ;
+\draw [shift={(150,210)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(150,173.08)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da12969934099335645] 
+\draw    (359.4,198.5) -- (404.18,198.5)(359.4,201.5) -- (404.18,201.5) ;
+\draw [shift={(412.18,200)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(351.4,200)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp038213352648847954] 
+\draw   (423,120) -- (523,120) -- (523,173.5) -- (423,173.5) -- cycle ;
+%Shape: Rectangle [id:dp8987344627936489] 
+\draw   (565,120) -- (665,120) -- (665,173.5) -- (565,173.5) -- cycle ;
+%Shape: Rectangle [id:dp787394422240979] 
+\draw   (423,210) -- (665,210) -- (665,282.5) -- (423,282.5) -- cycle ;
+%Straight Lines [id:da9453296500738602] 
+\draw    (615,175.08) -- (615,208) ;
+\draw [shift={(615,210)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(615,173.08)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5113397508185176] 
+\draw    (473,175.08) -- (473,208) ;
+\draw [shift={(473,210)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(473,173.08)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (109.78,130.07) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$A$};
+% Text Node
+\draw (252.44,123.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$B$};
+% Text Node
+\draw (208.44,229.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$C$};
+% Text Node
+\draw (432.78,130.07) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$A$};
+% Text Node
+\draw (575.44,123.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$B$};
+% Text Node
+\draw (531.44,229.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$C$};
+% Text Node
+\draw (128.67,184.22) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {{\fontfamily{ptm}\selectfont heat}};
+% Text Node
+\draw (296.67,186.22) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {{\fontfamily{ptm}\selectfont heat}};
+% Text Node
+\draw (451.33,186.22) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {{\fontfamily{ptm}\selectfont heat}};
+% Text Node
+\draw (534.67,132.89) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {{\fontfamily{ptm}\selectfont heat}};
+% Text Node
+\draw (620,185.56) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {{\fontfamily{ptm}\selectfont heat}};
+
+
+\end{tikzpicture}
+\end{center}
+
+where the double-sided arrows labeled ``heat" correspond to equilibrium between the systems. This law leads to existence of the state function $\Theta$, known as the \Emph{empirical temperature}, such that systems in equilibrium are at the same temperature:
+
+\begin{cor}
+    The $0$th law of thermodynamics (transitivity of equilibria) implies the existence of temperature (state function).
+\end{cor}
+\begin{proof}
+    Assume that systems $A$ and $C$ are allowed to exchange heat and that they are in thermal equilibrium with each other. The state of system $A$ is described by thermodynamic coordinates $A_1,A_2,...$ and that of $C$ by $C_1,C_2,...$. If now, for example, $A_1$ is changed, then this will potentially lead to changes in $A_2,A_3,...$ and $C_1,C_2,...$. Mathematically, this means that a function $f_{AC}$ exists such that \begin{equation*}
+        f_{AC}(A_1,A_2,...,C_1,C_2,...) = 0,
+    \end{equation*}
+    which is to say the function is constant for all thermodynamic coordinates that correspond to a thermal equilibrium between $A$ and $C$. This has the form of a \Emph{constraint}. Similarly, we have another function $f_{BC}$ with \begin{equation*}
+        f_{BC}(B_1,B_2,...,C_1,C_2,...) = 0,
+    \end{equation*}
+    describing the thermal equilibrium between systems $B$ and $C$, where the state coordinates of $B$ are $B_1,B_2,...$. For such physical constraints, the implicit function theorem applies and we can solve the above equations for any specific parameter, for example \begin{equation*}
+        C_1 = F_{AC}(A_1,A_2,...,C_2,C_3,...)
+    \end{equation*}
+    and \begin{equation*}
+        C_1 = F_{BC}(B_1,B_2,...,C_2,C_3,...)
+    \end{equation*}
+    for thermodynamic coordinates $A_1,A_2,...,B_1,B_2,...,C_2,C_3,...$ such that the constraints hold, so the systems are in thermodynamic equilibrium. Thus, as $C$ is separately in equilibrium with $A$ and $B$, this implies that \begin{equation*}
+        F_{AC}(A_1,A_2,...,C_2,...) = F_{BC}(B_1,B_2,...,C_2,...)
+    \end{equation*}
+    Now the $0$th law ensures that $A$ and $B$ are also in thermal equilibrium so there is a function $f_{AB}$ such that \begin{equation*}
+        f_{AB}(A_1,A_2,...,B_1,B_2,...) = 0
+    \end{equation*}
+    is the constraint describing the equilibrium. For any set of state parameters satisfying this equation, when substituting into $F_{AC} = F_{BC}$ the equality must hold quite independently of the state variables for $C$. Moving along the level surface described by this constraint, $F_{AC} = F_{BC}$ will remain valid irrespective of the state of $C$. This implies that we can cancel the $C_2,C_3,...$ state variables in the equation $F_{AC} = F_{BC}$ on the manifold described by $f_{AB} = 0$. Hence, we have after cancelling the $C_2,C_3,...$'s out of the equation, \begin{equation*}
+        \Theta_A(A_1,A_2,...) = \Theta_B(B_1,B_2,...)
+    \end{equation*}
+    and this characterizes the equilibrium previously characterized by $f_{AB} = 0$. Thus, we have the existence of a universal property of systems in thermal equilibrium, namely the existence of a state function $\Theta$ that takes on identical values if systems are in thermal equilibrium, and this function specifies the \Emph{equation of state}. Hence, it fulfils the basic property of what one would naturally consider a temperature. We define $\Theta$ as the \Emph{empirical temperature}, which is scalar and not unique - we have many possible choices for $\Theta$ at his point. For a given fixed temperature $\Theta$, all allowed thermodynamic states of a system, say $A$, can be obtained by $\Theta_A(A_1,A_2,...) = \Theta$. These states are called the \Emph{isotherms}.
+\end{proof}
+
+We note that due to this, the zeroth law constrains the form of the constraint equation describing the equilibrium between two bodies such that it can be organized into an equality of two empirical temperature functions. 
+
+\begin{rmk}
+    \Emph{Isotherms} can be considered as manifolds, or level-surfaces, of the empirical temperature function in the space of state variables for a system.
+\end{rmk}
+
+\begin{defn}
+    A \Emph{thermometer} is a system with some convenient macroscopic property that changes in a simple way as the equilibriumm macrostate changes.
+\end{defn}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.2
+\section{Heat Capacities}
+
+We move to the question of how much heat (energy added through a spontaneous not-forced process) is needed to raise the temperature of a system by a given amount. Heat is often an inexact differential, $\delta Q$, (which is to say it is not-path independent), and hence not a function of the state variables (i.e. not a \Emph{state function}). Consequently, one needs to specify the path by which heat is supplied:
+
+\begin{defn}
+    The \Emph{heat capacities} are defined as $C_{\vec{X}} = \left(\frac{\partial Q}{dt}\right)_{\vec{X}}$, where $\vec{X}$ is the set of thermodynamic coordinates which are held constant during the heat supply $\delta Q$. The \Emph{specific heats} are defined as $c_{\vec{X}} = \left(\frac{\delta Q}{MdT}\right)_{\vec{X}}$ where $M$ is the mass of the system.
+\end{defn}
+
+\begin{eg}
+    Examples of common specific heats are as follows: \begin{itemize}
+        \item Water: $c_P \approx 4180\;J/(kg\;K)$ and $c_V \approx c_P$ at $T = 25^{\circ}C$, $p = 100\;kPa$, and $N$ fixed.
+        \item Air: $c_P \approx 1010\; J/(kg\;K)$ and $c_V \approx 720\;J/(kg\;K)$ at $T = 25^{\circ}C$, $p = 100\;kPa$, and $N$ fixed.
+    \end{itemize}
+\end{eg}
+
+\subsection{Closed Systems (Heat Capacities)}
+
+Assume that the internal energy of a system is given by $U = U(T,q_1,...,q_m)$, which is to say the state of the system can be uniquely determined by the temperature and $\vec{q}$. Starting from the 1st law we have that \begin{equation*}
+    \delta Q = dU - \delta W = dU - \sum_{i=1}^mJ_idq_i = \frac{\partial U}{\partial T}dT + \sum_{i=1}^m\left[\frac{\partial U}{\partial q_i} - J_i\right]dq_i
+\end{equation*}
+We consider as a first special case the absence of any external work, so $\delta W = 0$ and equivalently $\vec{q}$ is constant (for example, the volume for a gas being constant), so we have that \begin{equation*}
+    C_{\vec{q}} = \left(\frac{\delta Q}{dT}\right)_{\vec{q}} = \left(\frac{\partial U}{\partial T}\right)_{\vec{q}}
+\end{equation*}
+As a second special case let us consider when all macroscopic generalized forces are constant, so $\vec{J}$ is constant (for example, the pressure for a gas is constant). We use the state functions $J_i=J_i(q_1,...,q_m,T)$, for $1 \leq i \leq m$, and we invert them to obtain $q_i = q_i(J_1,...,J_m,T)$ for $1 \leq i \leq m$ and make a change of variables: \begin{equation*}:
+    dq_i = \sum_{j=1}^m\frac{\partial q_i}{\partial J_j}dJ_j + \frac{\partial q_i}{\partial T}dT = \frac{\partial q_i}{\partial T}dT
+\end{equation*}
+using the fact that $\vec{J}$ is constant. Thus, for this special case of constant generalized force we have the heat capacity: \begin{align*}
+    C_{\vec{J}} &= \left(\frac{\delta Q}{dT}\right)_{\vec{J}} \\
+    &= \left(\frac{\partial U}{\partial T}\right)_{\vec{q}} + \sum_{i=1}^m\left[\frac{\partial U}{\partial q_i} - J_i\right]\left(\frac{dq_i}{dT}\right)_{\vec{J}} \\
+    &= \left(\frac{\partial U}{\partial T}\right)_{\vec{q}} + \sum_{i=1}^m\left[\frac{\partial U}{\partial q_i} - J_i\right]\left(\frac{\partial q_i}{\partial T}\right)_{\vec{J}} 
+\end{align*}
+using the expressions for $\delta Q$ and $dq_i$ from above.
+
+\begin{eg}[Gas]
+    For a simple dilute gas, we have $m = 1$ with state variable $q = V$ and generalized force $J = -p$. Hence: \begin{equation*}
+        C_V = \left(\frac{\partial U}{\partial T}\right)_V
+    \end{equation*}
+    and \begin{equation*}
+        C_p = \left(\frac{\partial U}{\partial T}\right)_V + \left[\left(\frac{\partial U}{\partial V}\right)_{T} + p\right]\left(\frac{\partial V}{\partial T}\right)_p
+    \end{equation*}
+    Thus, we have \begin{equation*}
+        C_p - C_V = \left[\left(\frac{\partial U}{\partial V}\right)_{T} + p\right]\left(\frac{\partial V}{\partial T}\right)_p
+    \end{equation*}
+    For an ideal gas, we can simplify further by using the equation of state $pV = Nk_BT$. Specificall, we have $\frac{\partial V}{\partial T} = \frac{Nk_B}{p}$. From experiments, we also have $U = U(T)$. Thus, $C_p - C_v = Nk_B$.
+\end{eg}
+
+\begin{eg}[Magnet]
+    For a magnet we have $m = 1$ generalized coordinate, the magnetic moment $m$, and we have the generalized force $J = B_0 = \mu_0H$. Hence, \begin{equation*}
+        C_m = \left(\frac{\partial U}{\partial T}\right)_m
+    \end{equation*}
+    and \begin{equation*}
+        C_H = C_m + \left[\left(\frac{\partial U}{\partial m}\right)_T - \mu_0H\right]\left(\frac{\partial m}{\partial T}\right)_H
+    \end{equation*}
+\end{eg}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.3
+\section{Adiabats and Isotherms}
+
+\subsection{Fire Syringe}
+
+A syringe with air and cotton wool at the bottom is the setup for the experiment. When the Piston is pushed down quickly, the compression of the air on top of the wool ignites it. Compressing the air forces the particles to collide closer together, causing the kinetic energy of the particles to quickly increase. 
+
+From the quick compression we reach the auto-ignition temperature for cotton, which is in the range of $400^{\circ}C$. If the compression is done too slowly, there is time for heat to escape into the air so there won't be enough to ignite the cotton. The compression in which no/minimal heat loss occurs due to how rapid the compression is is called an \Emph{adiabatic compression}. These observations lead to the following definition 
+
+\begin{defn}
+    An \Emph{adiabat} is a change in the state of a system such that $\delta Q = 0$. Hence, the $1$st law simplifies to $dU = \delta W$ for adiabats.
+\end{defn}
+
+\subsection{Closed Systems (Adiabats)}
+
+
+We now consider the properties of adiabats for closed systems. In the case that $U = U(T,q_1,...,q_m)$, we can use the formulation of the first law $dU = \delta W + \delta Q$ and apply $\delta Q = 0$ to obtain \begin{equation*}
+    \frac{\partial U}{\partial T}(dT)_{ad} = \sum_{i=1}^m\left[J_i - \frac{\partial U}{\partial q_i}\right](dq_i)_{ad}
+\end{equation*}
+where the subscript $ad$ indicates that this expression is only valid for adiabats. 
+
+\begin{eg}[Gas]
+    For a simple gas, we have $m = 1$ with generalized coordinate $q = V$ and generalized force $J = -p$. Hence: \begin{equation*}
+        \frac{\partial U}{\partial T}(dT)_{ad} = \left[-p - \frac{\partial U}{\partial V}\right](dV)_{ad}
+    \end{equation*}
+    This implies that \begin{equation*}
+        \left(\frac{dT}{dV}\right)_{ad} = -\frac{p+\frac{\partial U}{\partial V}}{C_V}
+    \end{equation*}
+    recalling that \begin{equation*}
+        C_V = \frac{\partial U}{\partial T}
+    \end{equation*}
+    so this expression represents the change in temperature during an adiabatic process with respect to the change in volume. For an ideal gas, which has $U = U(t)$, this expression simplifies further to \begin{equation*}
+        \left(\frac{dT}{dV}\right)_{ad} = -\frac{p}{C_V} = -\frac{Nk_BT}{C_VV} = -\frac{(C_p-C_V)}{C_V}\frac{T}{V} = -(\gamma - 1)\frac{T}{V}
+    \end{equation*}
+    where we define $\gamma := \frac{C_p}{C_V} \geq 1$, and where we have used the previously derived equality $C_p - C_V = Nk_B$ for an ideal gas. Under the assumption that $\gamma$ is constant, this ordinary differential equation can be easily solved to obtain \begin{equation*}
+        TV^{\gamma-1} = const.
+    \end{equation*}
+    Using the equation of state for an ideal gas one can get the following two equivalent formulations: \begin{align*}
+        pV^{\gamma} &= const. \\
+        T^{\gamma}p^{1-\gamma} &= const.
+    \end{align*}
+    We can then draw the following graphs:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale = 0.4]{Images/AdiabaticIdealGas.png}
+        \caption{Relationships for temperature, pressure, and volume for an adiabatic process involving an ideal gas.}
+    \end{figure}
+\end{eg}
+
+Some specific applications of adiabatic processes are as follows: \begin{itemize}
+    \item Diesel engine (spontaneous explosion due to heating; no spark plugs)
+    \item Chinooks (air pressure increases due to lower altitude)
+\end{itemize}
+
+
+
+\begin{eg}[Black-body radiation]
+    We now deal with electromagnetic radiation in a cavity in thermal equilibrium, which is emitted by black walls. Here ``black" means all radiation is absorbed:
+    \begin{center}
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Rectangle [id:dp6362389483265465] 
+\draw  [fill={rgb, 255:red, 253; green, 0; blue, 0 }  ,fill opacity=1 ][line width=2.25]  (100,126) -- (460,126) -- (460,306) -- (100,306) -- cycle ;
+%Shape: Rectangle [id:dp03100105207175874] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ][line width=2.25]  (190,171) -- (370,171) -- (370,261) -- (190,261) -- cycle ;
+
+% Text Node
+\draw (345,183.07) node [anchor=north west][inner sep=0.75pt]    {$V$};
+% Text Node
+\draw (443,280.07) node [anchor=north west][inner sep=0.75pt]    {$T$};
+% Text Node
+\draw (193,242.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {Cavity};
+% Text Node
+\draw (102,286.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {Heat Bath};
+
+
+\end{tikzpicture}
+    \end{center}
+    Experiments show that $U = U(T,V) = V\epsilon(T)$, where $\epsilon$ is the energy density per volume. From classical electromagnetism, we also have $p = \frac{1}{3}\epsilon(T)$ for isotropic radiation (uniform radiation). The existence of a pressure from the classical perspective is similar to what we have for a gas. We can also borrow the wave-particle dualism from Quantum Mechanics. This suggests that we might be able to interpret or model black-body radiation as a \Emph{photon gas} (at least in a first approximation). Using our previous derivation for a gas we have \begin{equation*}
+        C_V = \frac{\partial U}{\partial T} = V\frac{d\epsilon}{dT}
+    \end{equation*}
+    and for adiabats we find then \begin{equation*}
+        \left(\frac{dT}{dV}\right)_{ad} = -\frac{p + \frac{\partial U}{\partial V}}{C_V} = -\frac{\frac{4}{3}\epsilon(T)}{V\frac{d\epsilon}{dT}}
+    \end{equation*}
+    We can rewrite this to obtain the simple ODE \begin{equation*}
+        -\frac{d\epsilon}{\epsilon} = \frac{4}{3}\frac{dV}{V}
+    \end{equation*}
+    The solution of this ODE can be written as \begin{equation*}
+        \epsilon V^{4/3} = const.
+    \end{equation*}
+    which has the equivalent form \begin{equation*}
+        pV^{4/3} = const.
+    \end{equation*}
+    given the relationship between $p$ and $\epsilon$ for black-body radiation from above.
+\end{eg}
+
+
+\subsection{Isotherms}
+
+\begin{defn}
+    An \Emph{isotherm} is a change in the state of a system such that $dT = 0$.
+\end{defn}
+
+This is not to be confused with an adiabatic process in which there is no heat trnasfer between the surroundings and the system. $dT = 0$ relates to a level surface, or manifold, associated to a constant empirical temperature $\Theta$, which we use to define $T$.
+
+
 
 
 

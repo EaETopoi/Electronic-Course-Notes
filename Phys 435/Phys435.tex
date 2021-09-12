@@ -397,8 +397,556 @@ This says that the sum of the moduli squared of the complex Fourier coefficients
 \section{Fourier Transform}
 
 
+\subsection{Construction and Definitions}
+
+Let $f(x)$ be defined on $-\infty < x < \infty$ such that it satisfies the Dirichlet conditions on $-L < x < L$. Then recall it has complex Fourier series expansion \begin{equation*}
+    f(x) = \sum_{n=-\infty}^{\infty}c_n\exp\left\{\frac{in\pi x}{L}\right\}dx
+\end{equation*}
+with coefficients given by \begin{equation*}
+    c_n = \frac{1}{2L}\int_{-L}^Lf(x)\exp\left\{\frac{-in\pi x}{L}\right\}dx
+\end{equation*}
+We now define \begin{equation*}
+    \mu_n = \frac{n\pi}{L},\;\;\;n=0,\pm1,\pm2,...
+\end{equation*}
+so we have \begin{equation*}
+    \Delta \mu_n = \mu_{n+1}-\mu_n = \frac{\pi}{L}
+\end{equation*}
+Note here we are constructin $f$ with period $2L$. Then the coefficients can be rewritten as \begin{equation*}
+    c_n = \frac{\Delta\mu_n}{2\pi}\int_{-L}^Lf(x)\exp\left\{-i\mu_nx\right\}dx
+\end{equation*}
+and we define \begin{equation*}
+    F_L(\mu) = \frac{1}{2\pi}\int_{-L}^Lf(x)\exp\left\{-i\mu x\right\}dx
+\end{equation*}
+so we can write the series as \begin{equation*}
+    f(x) = \sum_{n=-\infty}^{\infty}F_L(\mu_n)\exp\left\{i\mu_nx\right\}\Delta \mu_n,\;\text{ and }\;c_n = F_L(\mu_n)\Delta \mu_n
+\end{equation*}
+In this form we take the limit as $L\rightarrow \infty$, which gives us the Riemann-integral \begin{equation}
+    \boxed{f(x) = \int_{-\infty}^{\infty}F(\mu)\exp\left\{i\mu x\right\}dx}
+\end{equation}
+and \begin{equation}
+    \boxed{F(\mu) = \frac{1}{2\pi}\int_{-\infty}^{\infty}f(x)\exp\left\{-i\mu x\right\}dx}
+\end{equation}
+
+\begin{thm}
+    Given a suitably integrable function $f(x)$ which satisfies the Dirichlet conditions, its \Emph{Fourier Inversion Formula} is given by: \begin{equation}
+        f(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\infty}f(y)\exp\left\{-i\mu y\right\}dy\right]\exp\left\{i\mu x\right\}d\mu
+    \end{equation}
+\end{thm}
+
+The Fourier inversion formula and our previous results motivates the following definition: 
+
+\begin{defn}
+    Given a function $f(x)$ suitably integrable, we define the \Emph{Fourier transform} of $f(x)$ to be \begin{equation}
+        F(u) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)\exp\left\{-iu x\right\}dx
+    \end{equation}
+    and consequently the function is given by \begin{equation}
+        f(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(u)\exp\left\{iu x\right\}du
+    \end{equation}
+\end{defn}
+
+We change the factor from $1/2\pi$ for one and $1$ for the other integral to $1/\sqrt{2\pi}$ for both to emphasize symmetry.
+
+
+\subsection{The Uncertainty Principle}
+
+\begin{defn}
+    We define the \Emph{dispersion about zero} of a complex-valued function $f(x)$, $-\infty < x < \infty$ by the formula \begin{equation*}
+        D_0(f) = \frac{\int_{-\infty}^{\infty}x^2|f(x)|^2dx}{\int_{-\infty}^{\infty}|f(x)|^2dx}
+    \end{equation*}
+    which is defined when the appropiate integrals are finite.
+\end{defn}
+
+\begin{prop}[Uncertainty Principle]
+    Let $f(x)$, $-\infty < x < \infty$, be a complex-valued function with Fourier transform $F(\mu)$, for which the integrals defining $D_0(f)$ and $D_0(F)$ are finite. Then we have the inequality \begin{equation}
+        D_0(f)D_0(F) \geq \frac{1}{4}
+    \end{equation}
+    Equality holds if and only if $f$ is a normal density function centered at $x = 0$; in detail, $f(x) = C_1e^{-x^2/2\sigma^2}$, $F(\mu) = C_2e^{-\sigma^2\mu^2/2}$ for suitable constants $C_1,C_2,$ and $\sigma^2$.
+\end{prop}
+\begin{proof}
+    Both the numerator and denominator of the expressions defining $D_0(f)$ and $D_0(F)$ may be transformed by Parseval's Theorem. In this way we are led to examine a corresponding integral involving $F'(\mu)$. Specifically, we write the real part of the integral of $\mu\overline{F}F'$ in two ways: \begin{equation*}
+        2\mathbf{R}e\int\mu\overline{F}F'd\mu = \int\mu(F'\overline{F}+F\overline{F}'d\mu = \int\mu(F\overline{F})'d\mu = \int\mu(|F|^2)'d\mu = -\int|F|^2d\mu
+    \end{equation*}
+    using integration by parts, and \begin{equation*}
+        -\mathbf{R}e\int\mu\overline{F}F'd\mu \leq \left|\int\mu\overline{F}(\mu)F'(\mu)d\mu\right|\leq \left(\int|\mu\overline{F}(\mu)|^2d\mu\right)^{1/2}\left(\int|F'(\mu)|^2d\mu\right)^{1/2}
+    \end{equation*}
+    applying the Schwarz inequality. Now we apply Parseval's theorem twice, and use the fact that the Fourier transform of $xf(x)$ is $iF'(\mu)$: \begin{equation*}
+        \int|F(\mu)|^2d\mu = \frac{1}{2\pi}\int|f(x)|^2dx,\;\;\int|F'(\mu)|^2d\mu = \frac{1}{2\pi}\int x^2|f(x)|^2dx
+    \end{equation*}
+    Squaring both sides of the Schwarz inequality and making these substitutions gives $$\frac{1}{4}\int|f|^2\int|F|^2 \leq \int|xf|^2dx\int|\mu F|^2$$ which gives the desired inequality. 
+
+    In case of equality we require that the imaginary part of $\int\mu \overline{F}F'd\mu$ is zero, and $F$ must satisfy the differential equation $F'(\mu) = -A\mu F(\mu)$ for some complex constant $A$.
+\end{proof}
+
+This implies that we cannot localize both $f(x)$ and $F(\mu)$ in their respective spaces. If $f(x)$ is localized about $x = 0$, then $D_0(f)$ will be small; the uncertainty principle then asserts that $D_0(F)$ must be correspondingly large, indicating a lack of localization about $\mu = 0$.
+
+Now, we consider the normalized Gaussian distribution centered at zero: \begin{equation*}
+    f(t) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left\{-\frac{t^2}{2\sigma^2}\right\},\;\;-\infty < t < \infty
+\end{equation*}
+Then the Fourier transform of $f(t)$ is \begin{align*}
+    F(u) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{-\frac{t^2}{2\sigma^2}\right\}\exp\left\{-iut\right\}dt \\
+    &= \frac{1}{2\pi\sigma}\int_{-\infty}^{\infty}\exp\left\{-\frac{(t+iu\sigma^2)^2}{2\sigma^2}-\frac{u^2\sigma^2}{2}\right\}dt \\
+    &= \frac{\exp\left\{-\frac{u^2\sigma^2}{2}\right\}}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{-\frac{(t+iu\sigma^2)^2}{2\sigma^2}\right\}dt \\
+    &= \frac{1}{\sqrt{2\pi}}\exp\left\{-\frac{u^2\sigma^2}{2}\right\}
+\end{align*}
+Thus, $F(u)$ is another Gaussian distribution centered at zero with standard deviation $1/\sigma$. Hence, the spreads in $t$ and $u$ are inversely related, and independent of the actual value of $\sigma$. If $t$ represents time, $u$ represents frequency, and we find that the narrower a time measurement is, the greater the spread of frequency components it must contain.
+
+\begin{note}
+    Note that the fourier transform of a function $f(t)$ of time $t$ is a function $F(u)$ of angular frequency, $u = 2\pi/T$.
+\end{note}
+
+Recall the de Broglie and Einstein relationships for momentum and energy: \begin{equation*}
+    p = \hbar k\;\;\text{ and }\;\;E=\hbar\omega
+\end{equation*}
+where $\hbar = h/2\pi$, for Planck's constant $h$. If $f(t)$ is the wave function, the distribution of the wave intensity in time is given by $|f|^2$, which is Gaussian. Similarly, the intensity distribution in frequency is given by $|F|^2$. These distributions have respective standard deviations $\sigma/\sqrt{2}$ and $1/(\sqrt{2}\sigma)$, given \begin{equation*}
+    \Delta E\Delta t = \frac{\hbar}{2}\;\;\;\text{ and }\;\;\;\Delta p\Delta x = \frac{\hbar}{2}
+\end{equation*}
+In general, the equalities are inequalities with $\geq \frac{\hbar}{2}$ if the distributions are possibly not Gaussian.
+
+
+\subsection{Dirac \texorpdfstring{$\delta$}{delta}-function}
+
+\begin{defn}
+    Rigorously the Dirac $\delta$-function is a distribution or measure, not a function. But, simplistically it can be thought of a function such that $$\delta(t) = \left\{\begin{array}{lc} +\infty & t=0 \\ 0 & t\neq 0\end{array}\right.$$ with the property that $$\int_{-\infty}^{\infty}\delta(t)dt = 1$$ or in general \begin{equation}
+        \int_{-\infty}^{\infty}f(t)\delta(t-a)dt = f(a)
+    \end{equation}
+    which is also valid as long as $a$ is contained in the bounds of integration, and is zero otherwise.
+\end{defn}
+
+\begin{prop}
+    The $\delta$ function is even, absolutely inverse homogeneous, and trivial upon multiplication by $t$: \begin{align*}
+        \delta(t) &= \delta(-t) \\
+        \delta(at) &= \frac{1}{|a|}\delta(t) \\
+        t\delta(t) &= 0
+    \end{align*}
+\end{prop}
+\begin{proof}
+    First, $\delta(t) = \delta(-t)$ is immediate for all $t$. Then, suppose $a > 0$. It follows that \begin{equation*}
+        \int_{-\infty}^{\infty}\delta(at)dt = \int_{-\infty}^{\infty}\delta(x)\frac{dx}{a} = \frac{1}{a}
+    \end{equation*}
+    If $a < 0$ then we have \begin{equation*}
+        \int_{-\infty}^{\infty}\delta(at)dt = \int_{\infty}^{-\infty}\delta(x)\frac{dx}{a} = -\frac{1}{a}
+    \end{equation*}
+    In either case we find the integral is equal to $1/|a|$, so $\delta(at) = \frac{1}{|a|}\delta(t)$.
+\end{proof}
+
+\begin{prop}
+    If $g$ is a continuously differentiable function with $g'$ nowhere zero, then if $g$ is also nowhere zero \begin{equation*}
+        \delta(g(x)) = 0
+    \end{equation*}
+    Otherwise, if $g$ has zeros $x_i$, then \begin{equation*}
+        \delta(g(x)) = \sum_i\frac{\delta(x-x_i)}{|g'(x_i)|}
+    \end{equation*}
+\end{prop}
+
+\begin{prop}
+    The $k$th distributional derivative of the delta function, $\delta^{(k)}(t)$, is defined by \begin{equation*}
+        \int_{-\infty}^{\infty}f(t)\delta^{(k)}(t)dt = (-1)^kf^{(k)}(0)
+    \end{equation*}
+\end{prop}
+
+\begin{defn}
+    The delta function generalized to $n$-dimensional euclidean space gives \begin{equation*}
+        \int_{\R^n}f(\mathbf{x})\delta(\mathbf{x})d\mathbf{x} = f(\mathbf{0})
+    \end{equation*}
+\end{defn}
+
+As a probability measure on $\R$, the delta measure has cumulative distribution function equal to the unit step function, or \Emph{Heaviside function}: \begin{equation*}
+    H(x) = \left\{\begin{array}{lc} 1 & \text{if } x \geq 0 \\ 0 & \text{if } x < 0 \end{array}\right\}
+\end{equation*}
+so we can loosely see $H'(t) = \delta(t)$.
+
+Returning to the Fourier transform, we note that we can write the Fourier inversion formula as \begin{align*}
+    f(t) &= \frac{1}{2\pi}\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\infty}f(x)\exp\left\{-iux\right\}dx\right]\exp\left\{iut\right\}du \\
+    &= \frac{1}{2\pi}\int_{-\infty}^{\infty}f(x)\left[\int_{-\infty}^{\infty}\exp\left\{iu(t-x)\right\}du\right]dx 
+\end{align*}
+Comparison of this with the $\delta$ function's property \begin{equation*}
+    \int_{-\infty}^{\infty}f(x)\delta(t-x)dx = f(t)
+\end{equation*}
+This implies that we can write \begin{equation}
+    \boxed{\delta(t-x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}\exp\left\{iu(t-x)\right\}du}
+\end{equation}
+
+This formulation implies that we can interpret the dirac $\delta$-function as having a very narrow peak at $t = x$ resulting from the superposition of a complete spectrum of harmonic waves, all frequencies having the same amplitude and all waves being in phase at $t = x$.
+
+Now, consider a uniform distribution of unit height extending from $-\Omega$ to $\Omega$, considered as the Fourier transform of some function $f_{\Omega}$. Then we take the inverse Fourier transform to obtain \begin{align*}
+    f_{\Omega}(t) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}F_{\Omega}(u)\exp\left\{iut\right\}du \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\Omega}^{\Omega}\exp\left\{iut\right\}du \\
+    &= \frac{1}{\sqrt{2\pi}}\frac{1}{it}\exp\left\{iut\right\}\Bigg\rvert_{u=-\Omega}^{u=\Omega} \\
+    &= \frac{2\Omega}{\sqrt{2\pi}}\frac{\sin\Omega t}{\Omega t}
+\end{align*}
+In the limit as $\Omega\rightarrow \infty$, $f_{\Omega}(t)$ as defined by the inverse Fourier transform tends to $\sqrt{2\pi}\delta(t)$ by nature of our realization of the delta function from the Fourier inversion formula. Hence, we may conclude that the $\delta$ function can also be represented by \begin{equation*}
+    \delta(t) = \lim\limits_{\Omega\rightarrow \infty}\frac{\sin\Omega t}{\pi t}
+\end{equation*}
+
+Finally, the Fourier trasform of a $\delta$ function is simply \begin{equation*}
+    F_{\delta}(u) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\delta(t)\exp\left\{-iut\right\}dt = \frac{1}{\sqrt{2\pi}}
+\end{equation*}
+
+
+\subsection{Properties of Fourier Transforms}
+
+The following theorem gives conditions for the existence of the integrals in the Fourier inversion formula and convergence of the Fourier transform: 
+
+\begin{thm}
+    Let $f(x)$, $-\infty < x < \infty)$, be a piecewise smooth function on each finite interval such that $\int_{-\infty}^{\infty}|f(x)|dx < \infty$. Define the Fourier transform $F(\mu)$ as above. Then for each $x$, \begin{equation*}
+        \lim\limits_{M\rightarrow \infty}\int_{-M}^MF(\mu)\exp\left\{i\mu x\right\}d\mu = \frac{1}{2}[f(x+)+f(x-)]
+    \end{equation*}
+\end{thm}
+Note that this limits is a \Emph{Cauchy principal value}.
+
+\begin{prop}
+    Let $f(x)$ be a function and let $\mathcal{F}$ denote the Fourier transform, so in our previous notation $\mathcal{F}[f(x)](\mu) = F(\mu)$. Then $\mathcal{F}$ satisfies the following properties: \begin{itemize}
+        \item If $f$ is differentiable, such that $f'(x)$ is absolutely integrable on the real line, then we have that \begin{equation}
+                \mathcal{F}[f'(x)](\mu) = i\mu\mathcal{F}[f(x)](\mu)
+        \end{equation}
+            In general, if $f(x)$ is $n$ times differentiable such that $f^{(n)}$ is absolutely integrable on the real line, then \begin{equation}
+                \mathcal{F}[f^{(n)}(x)](\mu) = i^n\mu^n\mathcal{F}[f(x)](\mu)
+            \end{equation}
+        \item If $f(x)$ is absolutely integrable on the real line, we have \begin{equation}
+                \mathcal{F}\left[\int_{-\infty}^tf(x)dx\right](\mu) = \frac{1}{i\mu}\mathcal{F}[f(x)](\mu)+2\pi c\delta(\mu)
+        \end{equation}
+            where the term $2\pi c\delta(\mu)$ represents the Fourier transform of the constant of integration associated with the indefinite integral.
+        \item For any complex number $a \in \C^{\times}$, we have \begin{equation}
+                \mathcal{F}[f(at)](\mu) = \frac{1}{a}\mathcal{F}[f(t)](\mu/a)
+        \end{equation}
+        \item For any complex number $a \in \C^{\times}$ we have \begin{equation}
+            \mathcal{F}[f(t+a)](\mu) = \exp\left\{ia\mu\right\}\mathcal{F}[f(t)](\mu)
+        \end{equation}
+        \item For any $\alpha, \beta \in \C$, and $g$ also absolutely integrable on the real line, we have \begin{equation}
+            \mathcal{F}[\alpha f(t)+\beta g(t)](\mu) = \alpha\mathcal{F}[f(t)](\mu) + \beta\mathcal{F}[g(t)](\mu)
+        \end{equation}
+        \item For any $\alpha \in \C$, we have that \begin{equation}
+                \mathcal{F}[\exp\left\{\alpha t\right\}f(t)](\mu) = \mathcal{F}[f(t)](\mu+i\alpha)
+        \end{equation}
+    \end{itemize}
+\end{prop}
+
+\subsection{Odd and Even Functions}
+
+First consider an odd function $f(t) = -f(-t)$, and analyze its Fourier transform $F(\mu)$: \begin{align*}
+    F(\mu) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(t)\exp\left\{-i\mu t\right\}dt \\
+    &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(t)(\cos\mu t - i\sin\mu t)dt \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}-if(t)\sin\mu tdt \\
+    &= \frac{-2i}{\sqrt{2\pi}}\int_0^{\infty}f(t)\sin\mu tdt
+\end{align*}
+where an integral even about the center of an odd function is $0$, and an integral even about the center of an even function is two times half the integral. Further we observe that when $f(t)$ is odd, $F(\mu)$ is also odd, so $F(\mu) = -F(-\mu)$. Hence, \begin{align*}
+    f(t) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(\mu)\exp\left\{i\mu t\right\}d\mu = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(\mu)(\cos \mu t+i\sin\mu t)d\mu \\
+    &= \frac{2i}{\sqrt{2\pi}}\int_0^{\infty}F(\mu)\sin\mu td\mu \\
+    &= \frac{2i}{\sqrt{2\pi}}\int_0^{\infty}\left[\frac{-2i}{\sqrt{2\pi}}\int_0^{\infty}f(x)\sin\mu xdx\right]\sin\mu td\mu \\
+    &= \frac{2}{\pi}\int_0^{\infty}\left[\int_0^{\infty}f(x)\sin\mu xdx\right]\sin\mu tdt \\
+\end{align*}
+
+\begin{defn}
+    If $f(x)$ is odd and absolutely integrable over the real line, we define the \Emph{Fourier sine transform pair} to be: \begin{align}
+        F_s(\mu) &= \sqrt{\frac{2}{\pi}}\int_0^{\infty}f(t)\sin\mu tdt \\
+        f(t) &= \sqrt{\frac{2}{\pi}}\int_0^{\infty}F_s(\mu)\sin\mu td\mu
+    \end{align}
+\end{defn}
+
+
+Next, consider an even function $f(t) = f(-t)$, and analyze its Fourier transform $F(\mu)$: \begin{align*}
+    F(\mu) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(t)\exp\left\{-i\mu t\right\}dt \\
+    &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(t)(\cos\mu t - i\sin\mu t)dt \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(t)\cos\mu tdt \\
+    &= \frac{2}{\sqrt{2\pi}}\int_0^{\infty}f(t)\cos\mu tdt
+\end{align*}
+using properties of even and odd functions, as in the odd case. Moreover, we observe that when $f(t)$ is even, $F(\mu)$ is also even, so $F(\mu) = F(-\mu)$. Hence, \begin{align*}
+    f(t) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(\mu)\exp\left\{i\mu t\right\}d\mu = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(\mu)(\cos \mu t+i\sin\mu t)d\mu \\
+    &= \frac{2}{\sqrt{2\pi}}\int_0^{\infty}F(\mu)\cos\mu td\mu \\
+    &= \frac{2}{\sqrt{2\pi}}\int_0^{\infty}\left[\frac{2}{\sqrt{2\pi}}\int_0^{\infty}f(x)\cos\mu xdx\right]\cos\mu td\mu \\
+    &= \frac{2}{\pi}\int_0^{\infty}\left[\int_0^{\infty}f(x)\cos\mu xdx\right]\cos\mu td\mu \\
+\end{align*}
+
+\begin{defn}
+    If $f(x)$ is even and absolutely integrable over the real line, we define the \Emph{Fourier cosine transform pair} to be: \begin{align}
+        F_s(\mu) &= \sqrt{\frac{2}{\pi}}\int_0^{\infty}f(t)\cos\mu tdt \\
+        f(t) &= \sqrt{\frac{2}{\pi}}\int_0^{\infty}F_s(\mu)\cos\mu td\mu
+    \end{align}
+\end{defn}
+
+\subsection{Convolution and Deconvolution}
+
+
+When performing a physical measurement, we are always limited by the finite resolution of our measuring apparatus. Let $f(x)$ represent the physical quantity we wish to measure which is a function of the independent variable $x$. Then, as mentioned, we have a resolution function $g(y)$, which is some form of distribution, where the probability that an output value $y$ will be recorded instead as between $y$ and $y+dy$ is $g(y)dy$. Ideally, we want $g(y)$ to be as close to a $\delta$-function as possible, centered at the true value. 
+
+Given the true distribution $f(x)$ and the resolution function of our apparatus $g(y)$, we wish to calculate what the observed distribution $h(z)$ will be. The probability that a true reading lying between $x$ and $x+dx$, which is of probability $f(x)dx$ of being selected by the experiment, will be moved by the instrumental resolution to an amount $z-x$ into a small interval of width $dz$ is $g(z-x)dz$. Hence, the combined probability that the interval $dx$ will give rise to an observation appearing in the interval $dz$ is $f(x)dxg(z-x)dz$. We add together the contributions from all values of $x$ that can lead to an observation in the range $z$ to $z+dz$, and we find taht the observed distribution is given by \begin{equation*}
+    h(z) = \int_{-\infty}^{\infty}f(x)g(z-x)dx
+\end{equation*}
+This integral is a specific case of the generalized notion of a convolution:
+
+\begin{defn}
+    If $f$ and $g$ are functions absolutely integrable over the entire real line, we define their \Emph{convolution} to be \begin{equation}
+        (f*g)(u) = \int_{-\infty}^{\infty}f(x)g(u-x)dx
+    \end{equation}
+\end{defn}
+
+\begin{prop}
+    For any functions $f$ and $g$ for which the convolution $f*g$ is defined, we have that $*$ is commutative, associative, and distributive over addition.
+\end{prop}
+
+We now consider the Fourier transform of the convolution $f*g$: \begin{align*}
+    \mathcal{F}[(f*g)(t)](\mu) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}(f*g)(t)\exp\{-i\mu t\}dt \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\infty}f(x)g(t-x)dx\right]\exp\{-i\mu t\}dt \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)\left[\int_{-\infty}^{\infty}g(t-x)\exp\{-i\mu t\}dt\right]dx \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)\left[\int_{-\infty}^{\infty}g(u)\exp\{-i\mu (u+x)\}du\right]dx \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)\sqrt{2\pi}\mathcal{F}[g(u)](\mu)\exp\{-i\mu x\}dx \\
+    &= \sqrt{2\pi}\mathcal{F}[f(u)](\mu)\mathcal{F}[g(u)](\mu)
+\end{align*}
+
+Similarly, for the Fourier transform of the product we have: \begin{align*}
+    \mathcal{F}[f(t)g(t)](\mu) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(t)g(t)\exp\{-i\mu t\}dt \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\left[\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\mathcal{F}[f(t)](u)\exp\{iut\}du\right]g(t)\exp\{-i\mu t\}dt \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}\mathcal{F}[f(t)](u)\left[\int_{-\infty}^{\infty}g(t)\exp\{-i(\mu-u)t\}dt\right]du \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\mathcal{F}[f(t)](u)\mathcal{F}[g(t)](\mu-u)du \\
+    &= \frac{1}{\sqrt{2\pi}}(\mathcal{F}[f(t)]*\mathcal{F}[g(t)])(\mu)
+\end{align*}
+Thus, we obtain the following result: 
+
+\begin{thm}[Convolution Theorem]
+    If $f$ and $g$ are absolutely integrable over the real line, we have that \begin{equation}
+        \boxed{\mathcal{F}[(f*g)(u)](\mu) = \sqrt{2\pi}\mathcal{F}[f(u)](\mu)\mathcal{F}[g(u)](\mu)}
+    \end{equation}
+    and \begin{equation}
+        \boxed{\mathcal{F}[f(t)g(t)](\mu) = \frac{1}{\sqrt{2\pi}}(\mathcal{F}[f(t)]*\mathcal{F}[g(t)])(\mu)}
+    \end{equation}
+\end{thm}
+
+To find the true distribution $f(x)$ given an observed distribution $h(z)$ and a resolution function $g(y)$ we use \Emph{deconvolution}: We observe that $\mathcal{F}[(f*g)(t)](\mu) = \sqrt{2\pi}\mathcal{F}[f(t)](\mu)\mathcal{F}[g(t)](\mu)$. Then it follows that \begin{equation*}
+    \mathcal{F}[f(t)](\mu) = \frac{1}{\sqrt{2\pi}}\frac{\mathcal{F}[(f*g)(t)](\mu)}{\mathcal{F}[g(t)](\mu)}
+\end{equation*}
+so taking the inverse Fourier transform we find \begin{equation}
+    f(t) = \frac{1}{\sqrt{2\pi}}\mathcal{F}^{-1}\left[\frac{\mathcal{F}[(f*g)(t)](\mu)}{\mathcal{F}[g(t)](\mu)}\right] = \frac{1}{\sqrt{2\pi}}\left[\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{\mathcal{F}[(f*g)(t)](\mu)}{\mathcal{F}[g(t)](\mu)}\exp\left\{i\mu t\right\}d\mu\right]
+\end{equation}
+
+
+\subsection{Correlation Functions and Energy Spectra}
+
+\begin{defn}
+    The \Emph{cross-correlation} of two functions $f$ and $g$ is defined by \begin{equation}
+        C(z) := \int_{-\infty}^{\infty}\overline{f(x)}g(x+z)dx
+    \end{equation}
+\end{defn}
+
+The cross-correlation provides a quantitative measure of the similarity of two functions $f$ and $g$ as one is displaced through a distance $z$ relative to the other. We shall use the notation $C = f\oplus g$. $\oplus$ is both associative and distributive, but not commutative, and in fact \begin{equation}
+    (f\oplus g)(z) = \overline{(g\oplus f)(-z)}
+\end{equation}
+
+
+\begin{thm}[Wiener-Kinchin Theorem]
+    For functions $f$ and $g$ we have that \begin{equation*}
+        \mathcal{F}[(f\oplus g)(t)](\mu) = \sqrt{2\pi}\overline{\mathcal{F}[f(t)](\mu)}\mathcal{F}[g(t)](\mu)
+    \end{equation*}
+\end{thm}
+
+\begin{proof}
+    Observe that \begin{align*}
+        \mathcal{F}[(f\oplus g)(t)](\mu) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}(f\oplus g)(t)\exp\{-i\mu t\}dt \\
+        &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\infty}\overline{f(x)}g(x+t)dx\right]\exp\{-i\mu t\}dt \\
+        &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\overline{f(x)}\left[\int_{-\infty}^{\infty}g(x+t)\exp\{-i\mu t\}dt\right]dx \\
+        &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\overline{f(x)}\left[\int_{-\infty}^{\infty}g(u)\exp\{-i\mu (u-x)\}du\right]dx \\
+        &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\overline{f(x)}\frac{1}{\sqrt{2\pi}}\mathcal{F}[g(t)](\mu)\exp\{i\mu dx\}dx \\
+        &= \frac{1}{\sqrt{2\pi}}\overline{\mathcal{F}[f(t)](\mu)}\mathcal{F}[g(t)](\mu)
+    \end{align*}
+    as desired.
+\end{proof}
+
+Similarly, we can derive the converge theorem\begin{equation}
+    \mathcal{F}[\overline{f(x)}g(x)](\mu) = \frac{1}{\sqrt{2\pi}}(\mathcal{F}[f(t)]\oplus \mathcal{F}[g(t)])(\mu)
+\end{equation}
+
+\begin{defn}
+    The \Emph{auto-correlation function} of $f(x)$ is defined to be \begin{equation}
+        (f\oplus f)(t) = \int_{-\infty}^{\infty}\overline{f(x)}f(x+t)dx
+    \end{equation}
+\end{defn}
+
+Using the Wiener-Kinchin theorem we see that \begin{align*}
+    (f\oplus f)(t) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\mathcal{F}[(f\oplus f)(t)](\mu)\exp\{i\mu t\}d\mu \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\sqrt{2\pi}\overline{\mathcal{F}[f(t)](\mu)}\mathcal{F}[f(t)](\mu)\exp\{i\mu t\}d\mu \\
+    &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\sqrt{2\pi}|\mathcal{F}[f(t)](\mu)|^2\exp\{i\mu t\}d\mu \\
+\end{align*}
+so that $(f\oplus f)(t)$ is the inverse Fourier transform of $\sqrt{2\pi}|\mathcal{F}[f(t)](\mu)|^2$, which is called the \Emph{energy spectrum} of $f$.
+
+
+\subsection{Parseval's Theorem}
+
+From our above result, we have that for functions $f$ and $g$ \begin{equation*}
+    (f\oplus g)(t) = \int_{-\infty}^{\infty}\overline{f(x)}g(x+t)dx = \int_{-\infty}^{\infty}\overline{\mathcal{F}[f(t)](\mu)}\mathcal{F}[g(t)](\mu)\exp\{i\mu t\}d\mu
+\end{equation*}
+This gives the \Emph{multiplication theorem} when $t$ is set to $0$: 
+
+\begin{thm}[Multiplication Theorem]
+    Let $f$ and $g$ be absolutely integrable on the real line. Ten \begin{equation}
+        \int_{-\infty}^{\infty}\overline{f(x)}g(x)dx = \int_{-\infty}^{\infty}\overline{\mathcal{F}[f(t)](\mu)}\mathcal{F}[g(t)](\mu)d\mu
+    \end{equation}
+\end{thm}
+
+By letting $g = f$ we obtain Parseval's Theorem: 
+
+\begin{namthm}[Parseval's Theorem]
+    Let $f$ be absolutely integrable, then \begin{equation}
+        \int_{-\infty}^{\infty}|f(x)|^2dx = \int_{-\infty}^{\infty}|\mathcal{F}[f(t)](\mu)|^2d\mu
+    \end{equation}
+\end{namthm}
+
+\section{Multidimensional Fourier Transform}
+
+\begin{defn}
+    In three dimensions we may define the Fourier transform of a function which is absolutely integrable over $\R^3$ by \begin{equation}
+        \mathcal{F}[f(x,y,z)](\mu_x,\mu_y,\mu_z) = \frac{1}{\sqrt{2\pi}^3}\int_{\R^3}f(x,y,z)\exp\{-i\mu_xx\}\exp\{-i\mu_yy\}\exp\{-i\mu_zz\}dxdydz
+    \end{equation}
+    with inverse \begin{equation}
+        f(x,y,z) = \frac{1}{\sqrt{2\pi}^3}\int_{\R^3}\mathcal{F}[f(x,y,z)](\mu_x,\mu_y,\mu_z)\exp\{i\mu_xx\}\exp\{i\mu_yy\}\exp\{i\mu_zz\}d\mu_xd\mu_yd\mu_z
+    \end{equation}
+\end{defn}
+
+\begin{defn}
+    Let $f:\R^n\rightarrow \R$ be an absolutely integrable scalar field. Denote $(x_1,x_2,...,x_n)$ by $\mathbf{x}$ and $(\mu_{x_1},\mu_{x_2},...,\mu_{x_n})$ by $\mathbf{\mu}$. Then \begin{equation}
+        \mathcal{F}[f(\mathbf{x})](\mathbf{\mu}) = \frac{1}{\sqrt{2\pi}^n}\int_{\R^n}f(\mathbf{x})\exp\{-i\mathbf{\mu}\cdot \mathbf{x}\}d\mathbf{x}
+    \end{equation}
+    and \begin{equation}
+        f(\mathbf{x}) = \frac{1}{\sqrt{2\pi}^n}\int_{\R^n}\mathbf{F}[f(\mathbf{x})](\mathbf{\mu})\exp\{i\mathbf{\mu}\cdot\mathbf{x}\}d\mathbf{\mu}
+    \end{equation}
+\end{defn}
+
+From these definitions and the Fourier inverse theorem we obtain the $n$-dimensional dirac $\delta$ function: \begin{equation}
+    \delta(\mathbf{x}) = \frac{1}{(2\pi)^n}\int_{\R^n}\exp\{i\mathbf{\mu}\cdot \mathbf{x}\}d\mathbf{\mu}
+\end{equation}
+
+Suppose in three dimension $f(\mathbf{r})$ is spherically symmetric, so $f(\mathbf{r}) = f(r)$, where $r = |\mathbf{r}|$. Since $f$ is spherically symmetric we can choose the vector $\mathbf{\mu}$ of the Fourier transform to lie along the polar axis $\theta = 0$ without loss of generality. Then we have the change of volume differentials: \begin{equation}
+    d\mathbf{r} = r^2\sin\theta drd\theta d\phi,\;\;\text{ and }\;\;\mathbf{\mu}\cdot \mathbf{r} = \mu r\cos\theta
+\end{equation}
+where $\mu = |\mathbf{\mu}|$. The Fourier transform is then given by \begin{align*}
+    \mathcal{F}[f(r)](\mathbf{\mu}) &= \frac{1}{\sqrt{2\pi}^3}\int_{\R^3}f(r)\exp\{-i\mathbf{\mu}\cdot\mathbf{r}\}d\mathbf{r} \\
+    &= \frac{1}{\sqrt{2\pi}^3}\int_0^{\infty}dr\int_0^{\pi}d\theta\int_0^{2\pi}d\phi f(r)r^2\sin\theta\exp\{-i\mu r\cos\theta\} \\
+    &= \frac{1}{\sqrt{2\pi}^3}\int_0^{\infty}dr2\pi f(r)r^2\int_0^{\pi}d\theta\sin\theta \exp\{-i\mu r\cos\theta\} \\
+    &=\frac{1}{\sqrt{2\pi}^3}\int_0^{\infty}dr2\pi f(r)r^2\frac{1}{\mu r}2\sin(\mu r) \\
+    &= \frac{1}{\sqrt{2\pi}^3}\int_0^{\infty}dr4\pi f(r)r^2\frac{\sin(\mu r)}{\mu r}
+\end{align*}
+
+
+
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%% Section 2.3.2
 \section{Laplace Transform}
+
+
+The Laplace transform is an alternative to the Fourier transform, and applies to functions which aren't necessarily absolutely integrable over the real line. Moreover, we be interested in a function for a positive time, $t > 0$, and hence only place restrictions on the function in such a region:
+
+\begin{defn}
+    Let $f(t)$ be some real function. Then the \Emph{Laplace transform} of $f$ is defined to be \begin{equation}
+        \mathcal{L}[f(t)](s) = \int_0^{\infty}f(t)e^{-st}dt
+    \end{equation}
+    provided the integral exists.
+\end{defn}
+
+\begin{defn}
+    A function $f$ is said to be of \Emph{exponential order $s_0$} if there are constants $M$ and $t_0$ such that \begin{equation*}
+        |f(t)| \leq Me^{s_0t},\;\;t \geq t_0
+    \end{equation*}
+\end{defn}
+
+\begin{thm}
+    If $f$ is piecewise continuous on $[0,\infty)$ and of exponential order $s_0$, then $\mathcal{L}[f(t)](s)$ is defined for $s > s_0$.
+\end{thm}
+
+This theorem provides sufficient, but not necessary conditions, for $f$ to have a Laplace transform.
+
+\begin{props}
+    The Laplace transforms of functions $f,g_1,...,g_n$ satisfy the following properties, where $a_1,...,a_n \in \R$ are constants: \begin{itemize}
+        \item (Linearity) The Laplace transform is linear \begin{equation}
+                \mathcal{L}\left[\sum_{i=1}^na_ig_i(t)\right](s) = \sum_{i=1}^na_i\mathcal{L}[g_i(t)](s)
+            \end{equation}
+            Consequently, the inverse Laplace transform is also linear.
+        \item The Laplace transform of a derivative of a function is \begin{equation}
+                \mathcal{L}\left[\frac{df}{dt}\right](s) = s\mathcal{L}[f(t)](s)-f(0),\;\; s > 0
+        \end{equation}
+            and in general we have \begin{equation}
+                \mathcal{L}[f^{(n)}(t)](s) = s^n\mathcal{L}[f(t)](s) - \sum_{i=0}^{n-1}s^{n-1-i}f^{(i)}(0),\;\;s>0
+            \end{equation}
+        \item The integral of a Fourier transform is given by \begin{equation}
+                \mathcal{L}\left[\int_0^tf(u)du\right](s) = \frac{1}{s}\mathcal{L}[f(t)](s)
+            \end{equation}
+        \item (Shift I) for $a \in \R$ we have that \begin{equation}
+                \mathcal{L}[e^{at}f(t)](s) = \mathcal{L}[f(t)](s-a)
+            \end{equation}
+        \item (Shift II) for the unit step function $u_b(t) = 1, t > b,$ $0$ otherwise, for $b \in \R$, we have \begin{equation}
+                \mathcal{L}[u_b(t)f(t)](s) = e^{-bt}\mathcal{L}[f(t+b)](s)
+        \end{equation}
+            and \begin{equation}
+                e^{-bt}\mathcal{L}[f(t)](s) = \mathcal{L}[u_b(t)f(t-b)](s)
+            \end{equation}
+        \item For any $a \in \R$, $a \neq 0$, we have that \begin{equation}
+                \mathcal{L}[f(at)](s) = \frac{1}{a}\mathcal{L}[f(t)](s/a)
+            \end{equation}
+        \item For any $n \in \N$, we have that \begin{equation}
+                \mathcal{L}[t^nf(t)](s) = (-1)^n\frac{d^n}{ds^n}\mathcal{L}[f(t)](s)
+            \end{equation}
+        \item If $\lim\limits_{t\rightarrow 0} [f(t)/t]$ exists, then we have \begin{equation}
+                \mathcal{L}\left[\frac{f(t)}{t}\right](s) = \int_s^{\infty}\mathcal{L}[f(t)](u)du
+            \end{equation}
+        \item The Laplace transform of the convolution is given by \begin{equation}
+                \mathcal{L}[(f*g)(t)](s) = \mathcal{L}[f(t)](s)\mathcal{L}[g(t)](s)
+        \end{equation}
+    \end{itemize}
+\end{props}
+
+There is no general inverse Laplace transform, unlike with the Fourier transform, so often we rely on our identities for the Laplace transform of common functions to compute inverses. We have the following table of standard Laplace transforms:
+
+\begin{table}[H]
+    \centering
+    \caption{Common Laplace Transforms}
+    \begin{tabular}{ccc}
+        \hline
+        $f(t)$ & $\mathcal{L}[f(t)](s)$ & $s_0$ \\ \hline \hline
+        $c$ & $\frac{c}{s}$ & $0$ \\ 
+        $ct^n$ & $\frac{cn!}{s^{n+1}}$ & $0$ \\
+        $\sin bt$ & $\frac{b}{(s^2+b^2)}$ & $0$ \\
+        $\cos bt$ & $\frac{s}{(s^2+b^2)}$ & $0$ \\
+        $e^{at}$ & $\frac{1}{(s-a)}$ & $a$ \\
+        $t^ne^{at}$ & $\frac{n!}{(s-a)^{n+1}}$ & $a$ \\
+        $\sinh at$ & $\frac{a}{(s^2-a^2)}$ & $|a|$ \\
+        $\cosh at$ & $\frac{s}{(s^2-a^2)}$ & $|a|$ \\
+        $e^{at}\sin bt$ & $\frac{b}{[(s-a)^2+b^2]}$ & $a$ \\
+        $e^{at}\cos bt$ & $\frac{s-a}{[(s-a)^2+b^2]}$ & $a$ \\
+        $t^{1/2}$ & $ \frac{\sqrt{\pi}}{2\sqrt{s^3}}$ & $0$ \\
+        $t^{-1/2}$ & $\sqrt{\frac{\pi}{s}}$ & $0$ \\
+        $\delta(t-t_0)$ & $e^{-st_0}$ & $0$ \\
+        $H(t-t_0) = \left\{\begin{array}{lc} 1 & \text{if } t\geq t_0 \\ 0 & \text{if } t < t_0\end{array}\right.$ & $\frac{e^{-st_0}}{s}$ & $0$ \\ \hline \hline
+    \end{tabular}
+\end{table}
+
+\subsection{General Transform}
+
+\begin{defn}
+    A general integral transform of a function $f(t)$ is of the form \begin{equation}
+        F(\alpha) = \int_a^bK(\alpha,t)f(t)dt
+    \end{equation}
+    where $F(\alpha)$ is the transform of $f(t)$ with respect to the kernel $K(\alpha, t)$, and $\alpha$ is the transform variable.
+\end{defn}
+
+Often the inverse transform is itself an integral transform, forming a transform pair - the Fourier transform is one such example, and here are two others: \begin{itemize}
+    \item The \Emph{Hankel transform}: \begin{align*}
+            F(k) &= \int_0^{\infty}f(x)J_n(kx)xdx \\
+            f(x) &= \int_0^{\infty}F(k)J_n(kx)kdk
+    \end{align*}
+        where the $J_n$ are \Emph{Bessel functions} of order $n$,
+    \item The \Emph{Mellin Transform} \begin{align*}
+            F(z) &= \int_0^{\infty}t^{z-1}f(t)dt \\
+            f(t) &= \frac{1}{2\pi i}\int_{-i\infty}^{i\infty}t^{-z}F(z)dz
+    \end{align*}
+\end{itemize}
+
+
+
+
+
+
 
 
 

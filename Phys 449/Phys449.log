@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  5 SEP 2021 18:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  11 SEP 2021 21:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1501,7 +1501,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../Crab.jpg, id=107, 962.09438pt x 769.37437pt>
+<../Crab.jpg, id=139, 962.09438pt x 769.37437pt>
 File: ../Crab.jpg Graphic file (type jpg)
 <use ../Crab.jpg>
 Package pdftex.def Info: ../Crab.jpg  used on input line 48.
@@ -1551,7 +1551,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 ...e {14}Ideal Quantum Gases}{27}{chapter.14}
+l.30 ...tion of Phase Transitions}{31}{chapter.12}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `Phys449.toc'.
@@ -1585,87 +1585,120 @@ Overfull \hbox (3.06496pt too wide) in paragraph at lines 124--124
 cted at room tem-per-a-ture, which
  []
 
-[6] [7] [8] [9] [10]
+[6] [7] [8] [9]
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <17.28> not available
+(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 395.
+
+Overfull \hbox (2.02414pt too wide) in paragraph at lines 396--397
+[][]\OT1/txr/m/sl/12 Ev-ery de-gree of free-dom of a sys-tem in ther-mo-dy-nami
+c equi-lib-rium, which ap-pear only quadrat-
+ []
+
+[10] [11]
 Chapter 2.
-[11
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
+08.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+) [12
 
-]
+] [13] [14]
+[15]
+Overfull \hbox (18.91187pt too wide) in paragraph at lines 637--637
+\OT1/txr/m/n/12 We now con-sider the prop-er-ties of adi-a-bats for closed sys-
+tems. In the case that $\OML/txmi/m/it/12 U \U/matha/m/n/12 ^^P \OML/txmi/m/it/
+12 U\U/matha/m/n/12 p\OML/txmi/m/it/12 T; q[]; :::; q[]\U/matha/m/n/12 q$\OT1/t
+xr/m/n/12 ,
+ []
+
+<Images/AdiabaticIdealGas.png, id=292, 1056.19594pt x 322.95656pt>
+File: Images/AdiabaticIdealGas.png Graphic file (type png)
+<use Images/AdiabaticIdealGas.png>
+Package pdftex.def Info: Images/AdiabaticIdealGas.png  used on input line 665.
+(pdftex.def)             Requested size: 422.47089pt x 129.18033pt.
+[16] [17pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.2.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.708     \end{equation*}
+                          <./Images/AdiabaticIdealGas.png>] [18]
 Chapter 3.
-[12
+[19
 
-] [13
+] [20
 
 ]
 Chapter 4.
-[14
+[21
 
 ]
 Chapter 5.
-[15
+[22
 
 ]
 Chapter 6.
-[16
-
-]
-Chapter 7.
-[17
-
-] [18
-
-]
-Chapter 8.
-[19
-
-]
-Chapter 9.
-[20
-
-]
-Chapter 10.
-[21
-
-] [22
-
-]
-Chapter 11.
 [23
 
 ]
-Chapter 12.
+Chapter 7.
 [24
 
 ] [25
 
 ]
-Chapter 13.
+Chapter 8.
 [26
 
 ]
-Chapter 14.
+Chapter 9.
 [27
 
-] [28
+]
+Chapter 10.
+[28
+
+] [29
+
+]
+Chapter 11.
+[30
+
+]
+Chapter 12.
+[31
+
+] [32
+
+]
+Chapter 13.
+[33
+
+]
+Chapter 14.
+[34
+
+] [35
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 822.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 822.
  (./Phys449.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 438.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 822.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 822.
 Package rerunfilecheck Info: File `Phys449.out' has not changed.
-(rerunfilecheck)             Checksum: 95A9CFB46EA0AA6108227E5037D38CB0;1720.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
+(rerunfilecheck)             Checksum: 16BEE4D7082D69CD4567A6847F3A8137;2307.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 822.
  ) 
 Here is how much of TeX's memory you used:
- 24499 strings out of 481239
- 448815 string characters out of 5920377
- 738207 words of memory out of 5000000
- 39120 multiletter control sequences out of 15000+600000
- 596474 words of font info for 182 fonts, out of 8000000 for 9000
+ 24629 strings out of 481239
+ 450898 string characters out of 5920377
+ 737216 words of memory out of 5000000
+ 39205 multiletter control sequences out of 15000+600000
+ 605097 words of font info for 202 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,12n,84p,1047b,773s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,12n,84p,1047b,769s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texlive/texm
@@ -1676,16 +1709,17 @@ fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1
 onts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Phys449.pdf (29 pages, 604409 bytes).
+exmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/times/utmri8a.pfb>
+Output written on Phys449.pdf (36 pages, 705277 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 313 compressed objects within 4 object streams
- 73 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 469 PDF objects out of 1000 (max. 8388607)
+ 405 compressed objects within 5 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 287 words of extra memory for PDF output out of 10000 (max. 10000000)
 
