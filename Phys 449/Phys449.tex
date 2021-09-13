@@ -302,7 +302,7 @@ In general the RMS speed is often a close approximation of the average speed. In
     The generalized differential form for work is given by \begin{equation}
         \delta W = \sum_{i=1}^mJ_idq_i
     \end{equation}
-    where $q_i$ are the generalized coordinates and the $J_i$ are the conjugate generalized forces such that $J_idq_i$ has units of energy.
+    where $q_i$ are the generalized coordinates and the $J_i$ are the conjugate generalized forces such that $J_idq_i$ has units of energy. This is possible when the system is undergoing an infinitesimal quasi-static transformation.
 \end{defn}
 
 Here are a few examples of generalized coordinates and their corresponding generalized conjugate forces:
@@ -320,13 +320,23 @@ Here are a few examples of generalized coordinates and their corresponding gener
 \end{table}
 
 \begin{defn}
-    Differential changes in a systems property are said to be \Emph{quasi-statis} if the changes occur on time scales much longer than the relaxation time such that the system remains in equilibrium at all times.
+    Differential changes in a systems property are said to be \Emph{quasi-static} if the changes occur on time scales much longer than the relaxation time such that the system remains in equilibrium at all times.
 \end{defn}
 
-To ensure thermodynamics is a self-consistent description of macroscopic systems in thermal equilibrium we must assume that the differential changes $\delta W$ are quasi-static. This also ensures that we can describe the state of such a thermodynamic system by a set of thermodynamic coordinates at all times.
+To ensure thermodynamics is a self-consistent description of macroscopic systems in thermal equilibrium we must assume that the differential changes $\delta W$ are quasi-static. This also ensures that we can describe the state of such a thermodynamic system by a set of thermodynamic coordinates at all times, which is to state at any stage of the process the thermodynamic coordinates of the system exist and can in principle be computed. 
 
 Depending on the macroscopic generalized force, the work necessary to transfer a thermodynamic system in complete thermodynamic equilibrium from state $A$ to state $B$ might or might not depend on the path taken. For example, if $\gamma_1$ and $\gamma_2$ are two paths from state $A$ to state $B$, it is possible that $\int_{\gamma_1}\delta W \neq \int_{\gamma_2}\delta W$. (Note that this justifies the use of the notation $\delta W$ over $dW$, which would denote an exact differential)
 
+
+\begin{defn}
+    State quantities which are proportional to the amount of matter in a system are called \Emph{extensive}, and are consequently additive when looking at subsystems.
+\end{defn}
+
+\begin{defn}
+    State quantities which are independent of the amount of matter in the system are called \Emph{intensive}, and are not additive for the particular phases of the system.
+\end{defn}
+
+Intensive quantities are indicators of equilibrium. 
 
 
 \subsection{Conservative Forces}
@@ -569,6 +579,9 @@ We move to the question of how much heat (energy added through a spontaneous not
     The \Emph{heat capacities} are defined as $C_{\vec{X}} = \left(\frac{\partial Q}{dt}\right)_{\vec{X}}$, where $\vec{X}$ is the set of thermodynamic coordinates which are held constant during the heat supply $\delta Q$. The \Emph{specific heats} are defined as $c_{\vec{X}} = \left(\frac{\delta Q}{MdT}\right)_{\vec{X}}$ where $M$ is the mass of the system.
 \end{defn}
 
+Consequently, the heat capacity of a system is how much heat energy is needed to raise its temperature by one degree. The specific heat is the heat capacity per unit mass. 
+
+
 \begin{eg}
     Examples of common specific heats are as follows: \begin{itemize}
         \item Water: $c_P \approx 4180\;J/(kg\;K)$ and $c_V \approx c_P$ at $T = 25^{\circ}C$, $p = 100\;kPa$, and $N$ fixed.
@@ -584,7 +597,7 @@ Assume that the internal energy of a system is given by $U = U(T,q_1,...,q_m)$, 
 We consider as a first special case the absence of any external work, so $\delta W = 0$ and equivalently $\vec{q}$ is constant (for example, the volume for a gas being constant), so we have that \begin{equation*}
     C_{\vec{q}} = \left(\frac{\delta Q}{dT}\right)_{\vec{q}} = \left(\frac{\partial U}{\partial T}\right)_{\vec{q}}
 \end{equation*}
-As a second special case let us consider when all macroscopic generalized forces are constant, so $\vec{J}$ is constant (for example, the pressure for a gas is constant). We use the state functions $J_i=J_i(q_1,...,q_m,T)$, for $1 \leq i \leq m$, and we invert them to obtain $q_i = q_i(J_1,...,J_m,T)$ for $1 \leq i \leq m$ and make a change of variables: \begin{equation*}:
+As a second special case let us consider when all macroscopic generalized forces are constant, so $\vec{J}$ is constant (for example, the pressure for a gas is constant). We use the state functions $J_i=J_i(q_1,...,q_m,T)$, for $1 \leq i \leq m$, and we invert them to obtain $q_i = q_i(J_1,...,J_m,T)$ for $1 \leq i \leq m$ and make a change of variables: \begin{equation*}
     dq_i = \sum_{j=1}^m\frac{\partial q_i}{\partial J_j}dJ_j + \frac{\partial q_i}{\partial T}dT = \frac{\partial q_i}{\partial T}dT
 \end{equation*}
 using the fact that $\vec{J}$ is constant. Thus, for this special case of constant generalized force we have the heat capacity: \begin{align*}
@@ -604,8 +617,13 @@ using the expressions for $\delta Q$ and $dq_i$ from above.
     Thus, we have \begin{equation*}
         C_p - C_V = \left[\left(\frac{\partial U}{\partial V}\right)_{T} + p\right]\left(\frac{\partial V}{\partial T}\right)_p
     \end{equation*}
-    For an ideal gas, we can simplify further by using the equation of state $pV = Nk_BT$. Specificall, we have $\frac{\partial V}{\partial T} = \frac{Nk_B}{p}$. From experiments, we also have $U = U(T)$. Thus, $C_p - C_v = Nk_B$.
+    For an ideal gas, we can simplify further by using the equation of state $pV = Nk_BT$. Specifically, we have $\frac{\partial V}{\partial T} = \frac{Nk_B}{p}$. From experiments, we also have $U = U(T)$. Thus, $C_p - C_v = Nk_B$.
 \end{eg}
+
+\begin{rmk}
+    Most real-world objects prefer to expand when heated, keeping their pressure constants (this effect is less noticable in solids and liquids, and quite important in gases).
+\end{rmk}
+
 
 \begin{eg}[Magnet]
     For a magnet we have $m = 1$ generalized coordinate, the magnetic moment $m$, and we have the generalized force $J = B_0 = \mu_0H$. Hence, \begin{equation*}
@@ -714,6 +732,15 @@ Some specific applications of adiabatic processes are as follows: \begin{itemize
     \end{equation*}
     given the relationship between $p$ and $\epsilon$ for black-body radiation from above.
 \end{eg}
+
+
+Since no heat is flowing in or out of the system in an adiabatic process, in the absence of any friction we can completely recover the original state of the system by reversing the procedure. Such a process also converses entropy, as we will see later. 
+
+\begin{defn}
+    A thermodynamic process which is both adiabatic and reversible is said to be an \Emph{isentropic process}.
+\end{defn}
+
+
 
 
 \subsection{Isotherms}
