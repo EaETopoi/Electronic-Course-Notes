@@ -64,6 +64,21 @@
 %%%%%%%%%%%%%%%%%%%% Section 1.1.1
 \section{Elementary Definitions}
 
+Complex functions are functions $f:D\subseteq \C\rightarrow \C$ of the form $f(z) = u(z) + iv(z)$, where $u$ and $v$ are real valued functions.
+
+\begin{defn}
+    A complex valued function $f(z)$ is \Emph{complex differentiable} at a point $z_0$ in its domain if the limit \begin{equation*}
+        f'(z_0) = \lim\limits_{z\rightarrow z_0}\left[\frac{f(z)-f(z_0)}{z-z_0}\right]
+    \end{equation*}
+    exists.
+\end{defn}
+
+\begin{defn}
+    A function that is single-valued and differentiable at all points of a domain $D$ is said to be \Emph{analytic} in $D$.
+\end{defn}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%% Section 1.1.2
 \section{Multivalued Functions and Branch Cuts}
@@ -71,6 +86,46 @@
 
 %%%%%%%%%%%%%%%%%%%% Section 1.1.3
 \section{Analytic Functions and the Cauchy-Riemann Equations}
+
+For a complex-valued function $f(z) = u(z)+iv(z)$ to be complex differentiable on a domain $D$, it is necessary that $u$ and $v$ satisfy the \Emph{Cauchy-Riemann} equations \begin{equation*}
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},\;\;\text{ and }\;\;\frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
+\end{equation*}
+
+Further, given that $f(z)$ is complex differentiable we have that \begin{equation*}
+    f'(z) = \frac{\partial f}{\partial x} = -i\frac{\partial f}{\partial y}
+\end{equation*}
+
+\begin{thm}
+    If $f(z) = u+iv$ is a real-continuously differentiable function of $x,y$ as viewed as a function $f:\R^2\rightarrow \R^2$, and $u$ and $v$ satisfy the Cauchy-Riemann equations on some domain $D$, then $f(z)$ is analytic on $D$.
+\end{thm}
+
+Define the complex differential operators \begin{equation*}
+    \frac{\partial}{\partial z} = \frac{\partial x}{\partial z}\frac{\partial }{\partial x}+\frac{\partial y}{\partial z}\frac{\partial }{\partial y} = \frac{1}{2}\left[\frac{\partial}{\partial x}-i\frac{\partial}{\partial y}\right]
+\end{equation*}
+and \begin{equation*}
+    \frac{\partial}{\partial \overline{z}} = \frac{\partial x}{\partial \overline{z}}\frac{\partial }{\partial x}+\frac{\partial y}{\partial \overline{z}}\frac{\partial }{\partial y} = \frac{1}{2}\left[\frac{\partial}{\partial x}+i\frac{\partial}{\partial y}\right]
+\end{equation*}
+using the relations $x = (z+\overline{z})/2$ and $y = -i(z-\overline{z})/2$. Then we have that \begin{equation*}
+    \frac{\partial f}{\partial z} = \frac{1}{2}\left[\frac{\partial f}{\partial x}-i\frac{\partial f}{\partial y}\right] = f'(z)
+\end{equation*}
+provided $f$ is holomorphic, and \begin{equation*}
+    \frac{\partial f}{\partial \overline{z}} = \frac{1}{2}\left[\frac{\partial f}{\partial x}+i\frac{\partial f}{\partial y}\right] = \frac{1}{2}\left[(u_x+iv_x) + i(u_y+iv_y)\right] = \frac{1}{2}\left[(u_x-v_y)+i(u_y+v_x)\right]
+\end{equation*}
+which is zero if and only if $f$ satisfies the Cauchy-Riemann equations. This implies that if $f$ is analytic on a domain, then it cannot be a function of $\overline{z}$ on that domain.
+
+\begin{thm}
+    If $f(z)= u(z)+iv(z)$ is holomorphic and twice continuously differentiable on some domain, then $u$ and $v$ are harmonic on that domain.
+\end{thm}
+\begin{proof}
+    Observe that $u_{xx} = v_{yx} = v_{xy} = -u_{yy}$, so $u_{xx} + u_{yy} = 0$ and we conclude that $\Delta u = 0$. Similarly, $\Delta v = 0$, so both functions are harmonic.
+\end{proof}
+
+We now observe that if $f(z) = u(z)+iv(z)$ is complex differentiable, then the curves $u(z) = C_1$ and $v(z) = C_2$, if they intersect, intersect at right angles. Indeed, \begin{align*}
+    \nabla u\cdot \nabla v = u_xv_x+u_yv_y = -u_xu_y+u_yu_x = 0
+\end{align*}
+using the Cauchy-Riemann relations.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%% Section 1.1.4
@@ -87,6 +142,63 @@
 
 %%%%%%%%%%%%%%%%%%%% Section 1.2.1
 \section{Power Series Fundamentals}
+
+
+\begin{defn}
+    A complex power series about a point $z_0$ is a series of a complex variable $z$, such that \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    In modulus form, $z = z_0+r^ne^{i\theta}$, we have \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}a_nr^ne^{in\theta}
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    We say that the series \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}a_nr^ne^{in\theta}
+    \end{equation*}
+    is absolutely convergent if \begin{equation*}
+        \sum_{n=0}^{\infty}|a_n|r^n
+    \end{equation*}
+    is convergent.
+\end{defn}
+
+\begin{thm}
+    If we have a complex series of the form \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}a_nr^ne^{in\theta}
+    \end{equation*}
+    then the radius of convergence of the series is given by \begin{equation*}
+        R = \frac{1}{\lim\limits_{n\rightarrow \infty}\sqrt[n]{|a_n|}}
+    \end{equation*}
+    or equivalently \begin{equation*}
+        R = \lim\limits_{n\rightarrow \infty}\left|\frac{a_n}{a_{n+1}}\right|
+    \end{equation*}
+    Further, for $|z| < R$, the series converges normally (i.e. $\sum_{n=0}^{\infty}a_n||z-z_0||_R^n$ converges), and hence both absolutely and uniformly.
+\end{thm}
+
+\begin{thm}
+    $f(z)$ is holomorphic for $|z-z_0| < \rho$ if and only if $f(z)$ has power series representation \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n,\;\;\;|z-z_0| < \rho
+    \end{equation*}
+    where \begin{equation*}
+        a_n = \frac{f^{(n)}(z_0)}{n!},\;\;n\geq 0
+    \end{equation*}
+    and where the power series has radius of convergence $R \geq \rho$. For any fixed $r$, $0 < r < \rho$, we also have \begin{equation*}
+        a_n = \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{(w-z_0)^{n+1}}dw,\;\;\;n\geq 0
+    \end{equation*}
+    Additionally, the derivatives of $f(z)$ are obtained by term-by-term differentiation \begin{equation*}
+        f^{(m)}(z) = \sum_{n=m}^{\infty}\frac{n!}{(n-m)!}a_n(z-z_0)^{n-m}
+    \end{equation*}
+\end{thm}
+
+
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%% Section 1.2.2

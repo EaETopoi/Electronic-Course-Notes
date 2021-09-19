@@ -3,54 +3,54 @@
 \contentsline {section}{\numberline {1.1}Elementary Definitions}{4}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Multivalued Functions and Branch Cuts}{4}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Analytic Functions and the Cauchy-Riemann Equations}{4}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Singularities and Zeros}{4}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Conformal Mappings}{4}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Power Series and Laurent Series}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Power Series Fundamentals}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Laurent Series}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Series Operations}{5}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Complex Integration}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Complex Integral}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Cauchy's Theorems}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Residue Theorem}{6}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Contour Integrals}{6}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Applications of Complex Functions}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Complex Potentials}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Finding Zeros}{7}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Inverse Laplace}{7}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Stokes' Equations and Airy Integrals}{7}{section.4.4}%
-\contentsline {section}{\numberline {4.5}WKB Methods, and Integral Approximations}{7}{section.4.5}%
-\contentsline {part}{II\hspace {1em}PDEs}{8}{part.2}%
-\contentsline {chapter}{\numberline {5}General and Particular Solutions}{9}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Important Examples and Motivation}{9}{section.5.1}%
-\contentsline {section}{\numberline {5.2}General Forms of Solutions}{9}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Wave and Diffusion Equations}{9}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Existence and Uniqueness}{9}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Fourier Series}{10}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Initial Definitions and Dirichlet Conditions}{10}{section.6.1}%
-\contentsline {subsection}{Symmetry Conditions}{11}{equation.6.1.4}%
-\contentsline {section}{\numberline {6.2}Discontinuous and Non-Periodic Functions}{12}{section.6.2}%
-\contentsline {subsection}{Discontinuities}{12}{section*.1}%
-\contentsline {subsection}{Non-Periodic Functions}{13}{defn.6.2.1}%
-\contentsline {section}{\numberline {6.3}Integration and Differentiation}{13}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Complex Fourier Series}{14}{section.6.4}%
-\contentsline {subsection}{Parseval's Theorem}{15}{equation.6.4.1}%
-\contentsline {chapter}{\numberline {7}Integral Transforms}{17}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Fourier Transform}{17}{section.7.1}%
-\contentsline {subsection}{Construction and Definitions}{17}{section*.2}%
-\contentsline {subsection}{The Uncertainty Principle}{18}{equation.7.1.5}%
-\contentsline {subsection}{Dirac $\delta $-function}{20}{rmk.7.1.1}%
-\contentsline {subsection}{Properties of Fourier Transforms}{22}{equation.7.1.8}%
-\contentsline {subsection}{Odd and Even Functions}{23}{equation.7.1.15}%
-\contentsline {subsection}{Convolution and Deconvolution}{25}{equation.7.1.19}%
-\contentsline {subsection}{Correlation Functions and Energy Spectra}{26}{equation.7.1.23}%
-\contentsline {subsection}{Parseval's Theorem}{28}{equation.7.1.27}%
-\contentsline {section}{\numberline {7.2}Multidimensional Fourier Transform}{28}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Laplace Transform}{29}{section.7.3}%
-\contentsline {subsection}{General Transform}{31}{table.7.1}%
-\contentsline {chapter}{\numberline {8}Separation of Variables and Other Methods}{33}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Separation of Variables}{33}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Applying Integral Transforms}{33}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Inhomogeneous Problems}{33}{section.8.3}%
-\contentsline {chapter}{Appendices}{34}{section*.3}%
+\contentsline {section}{\numberline {1.4}Singularities and Zeros}{5}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Conformal Mappings}{5}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Power Series and Laurent Series}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Power Series Fundamentals}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Laurent Series}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Series Operations}{7}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Complex Integration}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Complex Integral}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Cauchy's Theorems}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Residue Theorem}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Contour Integrals}{8}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Applications of Complex Functions}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Complex Potentials}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Finding Zeros}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Inverse Laplace}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Stokes' Equations and Airy Integrals}{9}{section.4.4}%
+\contentsline {section}{\numberline {4.5}WKB Methods, and Integral Approximations}{9}{section.4.5}%
+\contentsline {part}{II\hspace {1em}PDEs}{10}{part.2}%
+\contentsline {chapter}{\numberline {5}General and Particular Solutions}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Important Examples and Motivation}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}General Forms of Solutions}{11}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Wave and Diffusion Equations}{11}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Existence and Uniqueness}{11}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Fourier Series}{12}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Initial Definitions and Dirichlet Conditions}{12}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Symmetry Conditions}{13}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Discontinuous and Non-Periodic Functions}{14}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Discontinuities}{14}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Non-Periodic Functions}{15}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Integration and Differentiation}{15}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Complex Fourier Series}{16}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Parseval's Theorem}{17}{subsection.6.4.1}%
+\contentsline {chapter}{\numberline {7}Integral Transforms}{19}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Fourier Transform}{19}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Construction and Definitions}{19}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}The Uncertainty Principle}{20}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Dirac $\delta $-function}{22}{subsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.1.4}Properties of Fourier Transforms}{24}{subsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.1.5}Odd and Even Functions}{25}{subsection.7.1.5}%
+\contentsline {subsection}{\numberline {7.1.6}Convolution and Deconvolution}{27}{subsection.7.1.6}%
+\contentsline {subsection}{\numberline {7.1.7}Correlation Functions and Energy Spectra}{28}{subsection.7.1.7}%
+\contentsline {subsection}{\numberline {7.1.8}Parseval's Theorem}{30}{subsection.7.1.8}%
+\contentsline {section}{\numberline {7.2}Multidimensional Fourier Transform}{30}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Laplace Transform}{31}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}General Transform}{33}{subsection.7.3.1}%
+\contentsline {chapter}{\numberline {8}Separation of Variables and Other Methods}{35}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Separation of Variables}{35}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Applying Integral Transforms}{35}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Inhomogeneous Problems}{35}{section.8.3}%
+\contentsline {chapter}{Appendices}{36}{section*.1}%
 \contentsfinish 
