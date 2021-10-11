@@ -752,13 +752,1813 @@ Since no heat is flowing in or out of the system in an adiabatic process, in the
 This is not to be confused with an adiabatic process in which there is no heat trnasfer between the surroundings and the system. $dT = 0$ relates to a level surface, or manifold, associated to a constant empirical temperature $\Theta$, which we use to define $T$.
 
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%% Chapter 1.3
+\chapter{Thermodynamical Engines and Refrigerators}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.1
+\section{The 2nd Law of Thermodynamics}
+
+Recall from the first law we know that energy is conserved during all thermodynamic processes. This leaves the question as to whether all thermodynamic processes that conserve energy can actually occur. To answer this we focus on the conversion of heat to work in terms of engines:
+
+\begin{defn}
+    An idealized \Emph{heat engine} is a thermodynamic system that runs in a \Emph{cycle} (i.e. it returns to the same internal thermodynamic states) taking in a certain amount of heat $Q_h$ from a heat bath with temperature $T_h$, converting a portion of it to work $W > 0$ and dumping the remaining heat $Q_c$ into a heat bath with $T_c < T_h$. The \Emph{efficiency} of a heat engine is given by \begin{equation}
+        \eta = \frac{W}{Q_h} = \frac{Q_h-Q_c}{Q_h} = 1 - \frac{Q_c}{Q_h} \leq 1
+    \end{equation}
+\end{defn}
+
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Shape: Circle [id:dp4831299922922003] 
+\draw   (210,135) .. controls (210,110.15) and (230.15,90) .. (255,90) .. controls (279.85,90) and (300,110.15) .. (300,135) .. controls (300,159.85) and (279.85,180) .. (255,180) .. controls (230.15,180) and (210,159.85) .. (210,135) -- cycle ;
+%Straight Lines [id:da9977923048639901] 
+\draw    (255,50) -- (255,88) ;
+\draw [shift={(255,90)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da745735751950716] 
+\draw    (255,180) -- (255,218) ;
+\draw [shift={(255,220)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4282340901069286] 
+\draw    (300,135) -- (368,135) ;
+\draw [shift={(370,135)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp12016935374222504] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (110,18) .. controls (110,13.58) and (113.58,10) .. (118,10) -- (392,10) .. controls (396.42,10) and (400,13.58) .. (400,18) -- (400,42) .. controls (400,46.42) and (396.42,50) .. (392,50) -- (118,50) .. controls (113.58,50) and (110,46.42) .. (110,42) -- cycle ;
+%Rounded Rect [id:dp5253667581959272] 
+\draw  [color={rgb, 255:red, 0; green, 139; blue, 255 }  ,draw opacity=1 ] (110,228) .. controls (110,223.58) and (113.58,220) .. (118,220) -- (392,220) .. controls (396.42,220) and (400,223.58) .. (400,228) -- (400,252) .. controls (400,256.42) and (396.42,260) .. (392,260) -- (118,260) .. controls (113.58,260) and (110,256.42) .. (110,252) -- cycle ;
+
+% Text Node
+\draw (380,12.4) node [anchor=north west][inner sep=0.75pt]    {$T_{h}$};
+% Text Node
+\draw (241,112.4) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$E$};
+% Text Node
+\draw (257,62.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$Q_{h}$};
+% Text Node
+\draw (258,191.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 135; blue, 255 }  ,opacity=1 ]  {$Q_{c}$};
+% Text Node
+\draw (331,113.4) node [anchor=north west][inner sep=0.75pt]    {$W$};
+% Text Node
+\draw (187,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (source) }}};
+% Text Node
+\draw (380,222.4) node [anchor=north west][inner sep=0.75pt]    {$T_{c}$};
+% Text Node
+\draw (194,232) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (sink) }}};
+
+
+\end{tikzpicture}
+\end{center}
+
+\begin{defn}
+    An idealized \Emph{refrigerator} can be considered as an idealized heat engine running backwards, such that it uses work $W$ to extract heat $Q_c$ (e.g. from an ice box) and dump the heat $Q_h$ at higher $T_h$ (e.g. through an exhaust). The \Emph{performance} of a refrigerator is given by \begin{equation}
+        w = \frac{Q_c}{W} = \frac{Q_c}{Q_h-Q_c}
+    \end{equation}
+\end{defn}
+
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Shape: Circle [id:dp4831299922922003] 
+\draw   (210,135) .. controls (210,110.15) and (230.15,90) .. (255,90) .. controls (279.85,90) and (300,110.15) .. (300,135) .. controls (300,159.85) and (279.85,180) .. (255,180) .. controls (230.15,180) and (210,159.85) .. (210,135) -- cycle ;
+%Straight Lines [id:da9977923048639901] 
+\draw    (255,52) -- (255,90) ;
+\draw [shift={(255,50)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da745735751950716] 
+\draw    (255,182) -- (255,220) ;
+\draw [shift={(255,180)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4282340901069286] 
+\draw    (140,135) -- (208,135) ;
+\draw [shift={(210,135)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp12016935374222504] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (110,18) .. controls (110,13.58) and (113.58,10) .. (118,10) -- (392,10) .. controls (396.42,10) and (400,13.58) .. (400,18) -- (400,42) .. controls (400,46.42) and (396.42,50) .. (392,50) -- (118,50) .. controls (113.58,50) and (110,46.42) .. (110,42) -- cycle ;
+%Rounded Rect [id:dp5253667581959272] 
+\draw  [color={rgb, 255:red, 0; green, 139; blue, 255 }  ,draw opacity=1 ] (110,228) .. controls (110,223.58) and (113.58,220) .. (118,220) -- (392,220) .. controls (396.42,220) and (400,223.58) .. (400,228) -- (400,252) .. controls (400,256.42) and (396.42,260) .. (392,260) -- (118,260) .. controls (113.58,260) and (110,256.42) .. (110,252) -- cycle ;
+%Straight Lines [id:da01660900085043382] 
+\draw    (140,130) -- (140,140) ;
+
+% Text Node
+\draw (380,12.4) node [anchor=north west][inner sep=0.75pt]    {$T_{h}$};
+% Text Node
+\draw (241,112.4) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$R$};
+% Text Node
+\draw (257,62.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$Q_{h}$};
+% Text Node
+\draw (258,191.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 135; blue, 255 }  ,opacity=1 ]  {$Q_{c}$};
+% Text Node
+\draw (152,113.4) node [anchor=north west][inner sep=0.75pt]    {$W$};
+% Text Node
+\draw (187,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (exhaust) }}};
+% Text Node
+\draw (380,222.4) node [anchor=north west][inner sep=0.75pt]    {$T_{c}$};
+% Text Node
+\draw (164,230) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (cold resevoir) }}};
+
+
+\end{tikzpicture}
+\end{center}
+
+We will now give two formulations of the second law of thermodynamics:
+
+\begin{law}[2nd Law of Thermodynamics (Kelvin)]
+    A thermodynamic machine or process that runs in a cycle and whose sole result is the complete conversion of heat from a single heat bath or reservoir into work is not possible.
+\end{law}
+
+\begin{law}[2nd Law of Thermodynamics (Clausius)]
+    There is no thermodynamics machine or process that runs in a cycle and whose sole result is the transfer of heat from a colder to a hotter body.
+\end{law}
+
+These two formulations are in fact equivalent, as we shall now prove:
+
+\begin{proof}
+    To prove their equivalence, we shall show ``not Kelvin" implies ``not Clausius" and vice-versa. First, suppose that there exists a thermodynamic machine that runs in a cycle and whose sole result is the complete conversion of heat from a single heat bath or reservoir into work. Let $T_h$ correspond to the reservoir of interest. Then, consider a refrigerator from a reservoir $T_c < T_h$ to $T_h$, and have the work come from our engine. Then, after the system as balanced, looking at the engine and refrigerator as a single machine we have that heat $Q_c$ comes from the cold reservoir, and heat $Q_h - Q_h'$ is deposited in the hot reservoir, without any external work. Thus, such a machine violates Clausius, as desired, and as shown in the following diagram:
+        \begin{center}
+            \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Shape: Circle [id:dp4831299922922003] 
+\draw   (300.67,134.33) .. controls (300.67,109.48) and (320.81,89.33) .. (345.67,89.33) .. controls (370.52,89.33) and (390.67,109.48) .. (390.67,134.33) .. controls (390.67,159.19) and (370.52,179.33) .. (345.67,179.33) .. controls (320.81,179.33) and (300.67,159.19) .. (300.67,134.33) -- cycle ;
+%Straight Lines [id:da9977923048639901] 
+\draw    (345.67,51.33) -- (345.67,89.33) ;
+\draw [shift={(345.67,49.33)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da745735751950716] 
+\draw    (345.67,181.33) -- (345.67,219.33) ;
+\draw [shift={(345.67,179.33)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4282340901069286] 
+\draw    (230.67,134.33) -- (298.67,134.33) ;
+\draw [shift={(300.67,134.33)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp12016935374222504] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (110,18) .. controls (110,13.58) and (113.58,10) .. (118,10) -- (392,10) .. controls (396.42,10) and (400,13.58) .. (400,18) -- (400,42) .. controls (400,46.42) and (396.42,50) .. (392,50) -- (118,50) .. controls (113.58,50) and (110,46.42) .. (110,42) -- cycle ;
+%Rounded Rect [id:dp5253667581959272] 
+\draw  [color={rgb, 255:red, 0; green, 139; blue, 255 }  ,draw opacity=1 ] (110,228) .. controls (110,223.58) and (113.58,220) .. (118,220) -- (392,220) .. controls (396.42,220) and (400,223.58) .. (400,228) -- (400,252) .. controls (400,256.42) and (396.42,260) .. (392,260) -- (118,260) .. controls (113.58,260) and (110,256.42) .. (110,252) -- cycle ;
+%Straight Lines [id:da01660900085043382] 
+\draw    (230.67,129.33) -- (230.67,139.33) ;
+%Shape: Circle [id:dp9583179343344637] 
+\draw   (140.67,134.33) .. controls (140.67,109.48) and (160.81,89.33) .. (185.67,89.33) .. controls (210.52,89.33) and (230.67,109.48) .. (230.67,134.33) .. controls (230.67,159.19) and (210.52,179.33) .. (185.67,179.33) .. controls (160.81,179.33) and (140.67,159.19) .. (140.67,134.33) -- cycle ;
+%Straight Lines [id:da5396194960167366] 
+\draw    (185,50) -- (185,88) ;
+\draw [shift={(185,90)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp6223483168411648] 
+\draw  [color={rgb, 255:red, 85; green, 199; blue, 11 }  ,draw opacity=1 ] (110,102) .. controls (110,89.85) and (119.85,80) .. (132,80) -- (398,80) .. controls (410.15,80) and (420,89.85) .. (420,102) -- (420,168) .. controls (420,180.15) and (410.15,190) .. (398,190) -- (132,190) .. controls (119.85,190) and (110,180.15) .. (110,168) -- cycle ;
+
+% Text Node
+\draw (380,12.4) node [anchor=north west][inner sep=0.75pt]    {$T_{h}$};
+% Text Node
+\draw (331.67,111.73) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$R$};
+% Text Node
+\draw (347.67,61.73) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$Q_{h}$};
+% Text Node
+\draw (348.67,190.73) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 135; blue, 255 }  ,opacity=1 ]  {$Q_{c}$};
+% Text Node
+\draw (261,142.4) node [anchor=north west][inner sep=0.75pt]    {$W$};
+% Text Node
+\draw (181,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (hot resevoir) }}};
+% Text Node
+\draw (380,222.4) node [anchor=north west][inner sep=0.75pt]    {$T_{c}$};
+% Text Node
+\draw (164,230) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (cold resevoir) }}};
+% Text Node
+\draw (187,62.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$Q'_{h}$};
+% Text Node
+\draw (171,103.4) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$\overline{K}$};
+% Text Node
+\draw (250,83.4) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$\overline{C}$};
+
+
+\end{tikzpicture}
+        \end{center}
+        Next, suppose there exists a thermodynamic machine that runs in a cycle and whose sole result is the transfer of heat, $Q$, from a colder to a hotter body. Then, connect an engine that takes heat $Q_h$ from the hotter body, does work $W$, and deposits heat $Q_c$ to the colder body. It follows that the combined machine has input $Q_h - Q$ from the hot body, work output $W$, and heat output $Q_c - Q$. We then adjust the output of the heat engine such that $Q_c = Q$. Then we have obtained a machine violating Kelvin, as seen in the diagram:
+
+        \begin{center}
+            \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Shape: Circle [id:dp4831299922922003] 
+\draw   (300.67,134.33) .. controls (300.67,109.48) and (320.81,89.33) .. (345.67,89.33) .. controls (370.52,89.33) and (390.67,109.48) .. (390.67,134.33) .. controls (390.67,159.19) and (370.52,179.33) .. (345.67,179.33) .. controls (320.81,179.33) and (300.67,159.19) .. (300.67,134.33) -- cycle ;
+%Straight Lines [id:da9977923048639901] 
+\draw    (345.67,49.33) -- (345.67,87.33) ;
+\draw [shift={(345.67,89.33)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da745735751950716] 
+\draw    (185,182) -- (185,220) ;
+\draw [shift={(185,180)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4282340901069286] 
+\draw    (390.67,134.33) -- (458.67,134.33) ;
+\draw [shift={(460.67,134.33)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp12016935374222504] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (110,18) .. controls (110,13.58) and (113.58,10) .. (118,10) -- (392,10) .. controls (396.42,10) and (400,13.58) .. (400,18) -- (400,42) .. controls (400,46.42) and (396.42,50) .. (392,50) -- (118,50) .. controls (113.58,50) and (110,46.42) .. (110,42) -- cycle ;
+%Rounded Rect [id:dp5253667581959272] 
+\draw  [color={rgb, 255:red, 0; green, 139; blue, 255 }  ,draw opacity=1 ] (110,228) .. controls (110,223.58) and (113.58,220) .. (118,220) -- (392,220) .. controls (396.42,220) and (400,223.58) .. (400,228) -- (400,252) .. controls (400,256.42) and (396.42,260) .. (392,260) -- (118,260) .. controls (113.58,260) and (110,256.42) .. (110,252) -- cycle ;
+%Straight Lines [id:da01660900085043382] 
+\draw    (230.67,129.33) -- (230.67,139.33) ;
+%Shape: Circle [id:dp9583179343344637] 
+\draw   (140.67,134.33) .. controls (140.67,109.48) and (160.81,89.33) .. (185.67,89.33) .. controls (210.52,89.33) and (230.67,109.48) .. (230.67,134.33) .. controls (230.67,159.19) and (210.52,179.33) .. (185.67,179.33) .. controls (160.81,179.33) and (140.67,159.19) .. (140.67,134.33) -- cycle ;
+%Straight Lines [id:da5396194960167366] 
+\draw    (185,52) -- (185,90) ;
+\draw [shift={(185,50)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp6223483168411648] 
+\draw  [color={rgb, 255:red, 85; green, 199; blue, 11 }  ,draw opacity=1 ] (110,102) .. controls (110,89.85) and (119.85,80) .. (132,80) -- (398,80) .. controls (410.15,80) and (420,89.85) .. (420,102) -- (420,168) .. controls (420,180.15) and (410.15,190) .. (398,190) -- (132,190) .. controls (119.85,190) and (110,180.15) .. (110,168) -- cycle ;
+%Straight Lines [id:da8097853550719598] 
+\draw    (345.67,179.33) -- (345.67,217.33) ;
+\draw [shift={(345.67,219.33)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (380,12.4) node [anchor=north west][inner sep=0.75pt]    {$T_{h}$};
+% Text Node
+\draw (331.67,111.73) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$E$};
+% Text Node
+\draw (347.67,61.73) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$Q_{h}$};
+% Text Node
+\draw (188,191.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 135; blue, 255 }  ,opacity=1 ]  {$Q$};
+% Text Node
+\draw (401,113.4) node [anchor=north west][inner sep=0.75pt]    {$W$};
+% Text Node
+\draw (181,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (hot resevoir) }}};
+% Text Node
+\draw (380,222.4) node [anchor=north west][inner sep=0.75pt]    {$T_{c}$};
+% Text Node
+\draw (164,230) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont {\large Heat Bath (cold resevoir) }}};
+% Text Node
+\draw (187,62.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$Q$};
+% Text Node
+\draw (171,103.4) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$\overline{C}$};
+% Text Node
+\draw (250,83.4) node [anchor=north west][inner sep=0.75pt]  [font=\huge]  {$\overline{K}$};
+% Text Node
+\draw (351,192.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 135; blue, 255 }  ,opacity=1 ]  {$Q$};
+
+
+\end{tikzpicture}
+        \end{center}
+\end{proof}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.2
+\section{Carnot Engines}
+
+We now investigate the idea of the most efficient heat engine. 
+
+\begin{defn}
+    A \Emph{Carnot engine} is any heat engine that is reversible and runs in a cycle along two isotherms at temperatures $T_h$ and $T_c$ and adiabats. A \Emph{reversible} process is one that can be run backward in time by simply reversing its inputs and outputs. 
+\end{defn}
+
+\begin{eg}[Carnot Engine with an Ideal Gas as the Internal Working Substance]
+    Here we have adiabatic compression of the gas, causing $\Delta T = T_h - T_c > 0$ ($A\rightarrow B$), then we have isothermal expansion with $\Delta Q_1 = Q_h > 0$ ($B\rightarrow C$), next we have adiabatic expansion which causes $\Delta T = T_c - T_h < 0$ ($C\rightarrow D$), and finally isothermal compression with $\Delta Q_2 = -Q_c < 0$ ($D\rightarrow A$).
+    \begin{center}
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Shape: Right Angle [id:dp843558691918219] 
+\draw   (370,220) -- (160,220) -- (160,40) ;
+\draw   (156.71,47) -- (160.19,40.22) -- (163.67,47) ;
+\draw   (363.3,216.63) -- (370.08,220.11) -- (363.3,223.59) ;
+%Curve Lines [id:da8766430669684191] 
+\draw    (209.33,109.33) .. controls (219.83,118.08) and (254.83,150.08) .. (309.83,150.08) ;
+\draw [shift={(256.04,139.25)}, rotate = 203.76] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da47282664716897016] 
+\draw    (226.33,175.08) .. controls (236.83,183.83) and (275.83,199.58) .. (330.83,199.58) ;
+\draw [shift={(276.99,194.27)}, rotate = 12.33] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da19308737717293245] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (206.83,79.75) .. controls (206.83,111.75) and (219.33,165.92) .. (240.83,213.92) ;
+\draw [shift={(217.79,148.67)}, rotate = 75.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da4455351667362961] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (302.83,108.75) .. controls (302.83,140.75) and (316.33,166.92) .. (337.83,214.92) ;
+\draw [shift={(315.18,163.42)}, rotate = 248.82999999999998] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7064223462049448] 
+\draw    (245.6,121.88) -- (237.34,134.97)(243.07,120.28) -- (234.8,133.36) ;
+\draw [shift={(232.33,140.08)}, rotate = 302.28] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (8.74,-3.92) .. controls (5.56,-1.84) and (2.65,-0.53) .. (0,0) .. controls (2.65,0.53) and (5.56,1.84) .. (8.74,3.92)   ;
+%Straight Lines [id:da05642770961721699] 
+\draw [line width=0.75]    (273.1,185.88) -- (264.84,198.97)(270.57,184.28) -- (262.3,197.36) ;
+\draw [shift={(259.83,204.08)}, rotate = 302.28] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (8.74,-3.92) .. controls (5.56,-1.84) and (2.65,-0.53) .. (0,0) .. controls (2.65,0.53) and (5.56,1.84) .. (8.74,3.92)   ;
+%Curve Lines [id:da10018836511051932] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (189.83,73.75) .. controls (204.33,135.75) and (298.33,161.25) .. (345.33,146.75) ;
+%Curve Lines [id:da2569141398168828] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (192.83,146.75) .. controls (233.33,200.25) and (319.33,205.75) .. (385.33,196.25) ;
+
+% Text Node
+\draw (145.33,35.73) node [anchor=north west][inner sep=0.75pt]    {$P$};
+% Text Node
+\draw (373.33,215.23) node [anchor=north west][inner sep=0.75pt]    {$V$};
+% Text Node
+\draw (246.83,112.73) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$Q_{h}$};
+% Text Node
+\draw (274.33,177.73) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$Q_{c}$};
+% Text Node
+\draw (214.83,175.07) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$A$};
+% Text Node
+\draw (198.33,108.07) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$B$};
+% Text Node
+\draw (310.83,135.57) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$C$};
+% Text Node
+\draw (340.33,203.57) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$D$};
+% Text Node
+\draw (184.83,65.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q=0$};
+% Text Node
+\draw (278.83,93.9) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q=0$};
+% Text Node
+\draw (344.83,139.9) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$T_{h}$};
+% Text Node
+\draw (385.83,188.9) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$T_{c}$};
+
+\draw   (209.36, 109.08) circle [x radius= 5, y radius= 5]   ;
+\draw   (310.43, 150.62) circle [x radius= 5, y radius= 5]   ;
+\draw   (238.15, 130.88) circle [x radius= 5, y radius= 5]   ;
+\end{tikzpicture}
+    \end{center}
+    Over one cycle, the 1st law gives us \begin{equation*}
+        0 = \oint dU = \Delta Q_1 + \Delta Q_2 + \Delta W
+    \end{equation*}
+    We calculate $\Delta W$ by considering the individual contributions: \begin{itemize}
+        \item $A\rightarrow B$: adiabatic process, so $\delta Q = 0$, and $\delta W = dU$. Hence, $\Delta W_{AB} = U(T_h) - U(T_c)$, where we have used that $U = U(T)$ for an ideal gas.
+        \item $B\rightarrow C$: isomethermal process, so $dT = 0$. Hence, $p = p(V)$ for an ideal gas in a closed system setting ($pV = Nk_BT$) as temperature is a constant, and so $$\Delta W_{BC} = -\int_B^Cp(V)dV = -Nk_BT_h\int_{V_B}^{V_C}\frac{dV}{V} = -Nk_BT_h\ln\frac{V_C}{V_B}$$
+        \item $C\rightarrow D$: another adiabatic process, so $\Delta W_{CD} = U(T_c) - U(T_h)$ as in $A\rightarrow B$
+        \item $D\rightarrow A$: another isothermal process, so $\Delta W_{DA} = -Nk_BT_c\ln\frac{V_A}{V_D}$ as in $B\rightarrow C$
+    \end{itemize}
+    This gives the total work: \begin{equation*}
+        \Delta W = \Delta W_{AB} + \Delta W_{BC} + \Delta W_{CD} + \Delta W_{DA} = -Nk_B\left(T_h\ln\frac{V_C}{V_B} +T_c\ln\frac{V_A}{V_D}\right)
+    \end{equation*}
+    Recall that since we are dealing with adiabats, we have $TV^{\gamma -1} = const$, where the constant is the same along a given adiabat. This implies that $T_hV_B^{\gamma - 1} = T_cV_A^{\gamma -1}$ and $T_hV_C^{\gamma - 1} = T_cV_D^{\gamma - 1}$. Dividing the first equation by the second and simplifying slightly gives $\frac{V_B}{V_C} = \frac{V_A}{V_D}$. Using this in the above equation we find \begin{equation*}
+        \Delta W = -Nk_B\ln\frac{V_D}{V_A}(T_h - T_c) < 0
+    \end{equation*}
+    Now, by definition the efficiency of a Carnot engine for an ideal gas is \begin{equation*}
+        \eta_{C,ideal\;gas} = \frac{W}{Q_h} = \frac{-\Delta W}{\Delta Q_1}
+    \end{equation*}
+    Now, since $U = U(T)$ for an ideal gas in a closed system, we have $\Delta U = 0$ for any isothermal process. Thus, during the isothermal expansion the 1st law gives us \begin{equation*}
+        \Delta Q_1 = -\Delta W_{BC} = Nk_BT_h\ln\frac{V_D}{V_A} > 0
+    \end{equation*}
+    using the identity between volume ratios $\frac{V_B}{V_C} = \frac{V_A}{V_D}$. Using the expressions for $\Delta W$ and $\Delta Q_1$, we obtain the efficiency \begin{equation*}
+        \eta_{C,ideal\;gas} = \frac{W}{Q_h} = \frac{-\Delta W}{\Delta Q_1} = 1 - \frac{T_c}{T_h}
+    \end{equation*}
+\end{eg}
+
+\subsection{Carnot's Theorem}
+
+We can now address the question of which heat engine is the most efficient: 
+
+\begin{namthm}[Carnot's Theorem]
+    No heat engine operating between two heat reservoirs (at temperatures $T_h$ and $T_c$) is more efficient than a Carnot engine operating between them.
+\end{namthm}
+\begin{proof}
+    We start with any given heat engine and couple it with a Carnot engine, which is run in reverse as a refrigerator and powerd by the other engine:
+    \begin{center}
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Rounded Rect [id:dp38561762820116385] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (185,20.91) .. controls (185,15.44) and (189.44,11) .. (194.91,11) -- (447.98,11) .. controls (453.45,11) and (457.89,15.44) .. (457.89,20.91) -- (457.89,50.64) .. controls (457.89,56.12) and (453.45,60.56) .. (447.98,60.56) -- (194.91,60.56) .. controls (189.44,60.56) and (185,56.12) .. (185,50.64) -- cycle ;
+%Rounded Rect [id:dp11614062251907709] 
+\draw  [color={rgb, 255:red, 0; green, 148; blue, 255 }  ,draw opacity=1 ] (185,206.24) .. controls (185,200.77) and (189.44,196.33) .. (194.91,196.33) -- (447.98,196.33) .. controls (453.45,196.33) and (457.89,200.77) .. (457.89,206.24) -- (457.89,235.98) .. controls (457.89,241.45) and (453.45,245.89) .. (447.98,245.89) -- (194.91,245.89) .. controls (189.44,245.89) and (185,241.45) .. (185,235.98) -- cycle ;
+%Shape: Circle [id:dp5999093300147897] 
+\draw   (228.22,130.5) .. controls (228.22,113.29) and (242.18,99.33) .. (259.39,99.33) .. controls (276.6,99.33) and (290.56,113.29) .. (290.56,130.5) .. controls (290.56,147.71) and (276.6,161.67) .. (259.39,161.67) .. controls (242.18,161.67) and (228.22,147.71) .. (228.22,130.5) -- cycle ;
+%Shape: Circle [id:dp007932259288887522] 
+\draw   (351.56,131.17) .. controls (351.56,113.95) and (365.51,100) .. (382.72,100) .. controls (399.94,100) and (413.89,113.95) .. (413.89,131.17) .. controls (413.89,148.38) and (399.94,162.33) .. (382.72,162.33) .. controls (365.51,162.33) and (351.56,148.38) .. (351.56,131.17) -- cycle ;
+%Straight Lines [id:da7447172424421336] 
+\draw    (259.4,60) -- (259.39,97.33) ;
+\draw [shift={(259.39,99.33)}, rotate = 270.02] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da21237543507400014] 
+\draw    (382.73,62.67) -- (382.72,100) ;
+\draw [shift={(382.73,60.67)}, rotate = 90.02] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da523718903355215] 
+\draw    (382.72,164.33) -- (382.71,196) ;
+\draw [shift={(382.72,162.33)}, rotate = 90.02] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4858891627092614] 
+\draw    (259.39,161.67) -- (259.38,193.33) ;
+\draw [shift={(259.38,195.33)}, rotate = 270.02] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4063459383288237] 
+\draw    (290.56,130.5) -- (349.56,131.14) ;
+\draw [shift={(351.56,131.17)}, rotate = 180.63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (435.56,10.73) node [anchor=north west][inner sep=0.75pt]    {$T_{h}$};
+% Text Node
+\draw (435.56,197.73) node [anchor=north west][inner sep=0.75pt]    {$T_{c}$};
+% Text Node
+\draw (244.89,121.73) node [anchor=north west][inner sep=0.75pt]    {$\neg C$};
+% Text Node
+\draw (376.89,121.73) node [anchor=north west][inner sep=0.75pt]    {$C$};
+% Text Node
+\draw (311,113.4) node [anchor=north west][inner sep=0.75pt]    {$W$};
+% Text Node
+\draw (261,72.4) node [anchor=north west][inner sep=0.75pt]    {$Q_{h}$};
+% Text Node
+\draw (387,72.4) node [anchor=north west][inner sep=0.75pt]    {$Q'_{h}$};
+% Text Node
+\draw (261.39,165.07) node [anchor=north west][inner sep=0.75pt]    {$Q_{c}$};
+% Text Node
+\draw (387,171.4) node [anchor=north west][inner sep=0.75pt]    {$Q'_{c}$};
+% Text Node
+\draw (247,32) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {{\fontfamily{ptm}\selectfont Heat Bath (hot reservoir)}};
+% Text Node
+\draw (247,212) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 144; blue, 255 }  ,opacity=1 ] [align=left] {{\fontfamily{ptm}\selectfont Heat Bath (cold reservoir)}};
+
+
+\end{tikzpicture}
+    \end{center}
+    Instead of considering both engines in isolation, we can equivalently consider them as a combined engine, taking in heat $Q_h - Q_h'$, and outputing heat $Q_c - Q_c'$. As this combined machine runs in a cycle, so $\Delta U = 0$ over a cycle, and only exchanges heat with the outside world without doing any external work, we have $Q_h + Q_c' = Q_c + Q_h'$ based on the first law of thermodynamics. Moreover, the combined machine falls under the 2nd law of thermodynamics. Using the formulation by Clausius, we have $Q_h - Q_h' \geq 0$, so $Q_h \geq Q_h'$, and hence $\frac{W}{Q_h} \leq \frac{W}{Q_h'}$. This implies that $\eta \leq \eta_C$ (where the last implication uses the fact that Carnot engines are exactly reversible).
+\end{proof}
+
+\begin{cor}
+    All reversible engines have the same universal efficiency $\eta = \eta_C(T_h,T_c) = 1-\frac{T_c}{T_h}$.
+\end{cor}
+\begin{proof}
+    Each reversible Carnot engine can be used to run any other reversible heat engine backwards.
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.3
+\section{Thermodynamic Temperature Scale}
+
+
+Recall the $0$th law ensures the existence of a temperature. For the ideal gas we can use the equation of state to define $T$, but this does not usually genrealize to other systems. We now use the universal efficiency $\eta_C$ of Carnot engines to establish a more general thermodynamic temperature scale. Consider two coupled Carnot engines with some empirical temperature scale $\Theta$: 
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,294); %set diagram left start at 0, and has height of 294
+
+%Straight Lines [id:da05453093434369749] 
+\draw    (60,12) -- (240,12) ;
+%Straight Lines [id:da6200862679386634] 
+\draw    (60,144) -- (240,144) ;
+%Straight Lines [id:da706189415713308] 
+\draw    (60,276) -- (240,276) ;
+%Rounded Rect [id:dp4036699475049652] 
+\draw  [fill={rgb, 255:red, 136; green, 255; blue, 0 }  ,fill opacity=1 ] (96,57.6) .. controls (96,52.3) and (100.3,48) .. (105.6,48) -- (194.4,48) .. controls (199.7,48) and (204,52.3) .. (204,57.6) -- (204,86.4) .. controls (204,91.7) and (199.7,96) .. (194.4,96) -- (105.6,96) .. controls (100.3,96) and (96,91.7) .. (96,86.4) -- cycle ;
+%Rounded Rect [id:dp37939651638989935] 
+\draw  [fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (96,201.6) .. controls (96,196.3) and (100.3,192) .. (105.6,192) -- (194.4,192) .. controls (199.7,192) and (204,196.3) .. (204,201.6) -- (204,230.4) .. controls (204,235.7) and (199.7,240) .. (194.4,240) -- (105.6,240) .. controls (100.3,240) and (96,235.7) .. (96,230.4) -- cycle ;
+%Straight Lines [id:da7142280284189315] 
+\draw    (150,12) -- (150,46) ;
+\draw [shift={(150,48)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da0985311285686783] 
+\draw    (150,96) -- (150,142) ;
+\draw [shift={(150,144)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5535079418179869] 
+\draw    (150,144) -- (150,190) ;
+\draw [shift={(150,192)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3167310910998773] 
+\draw    (150,240) -- (150,274) ;
+\draw [shift={(150,276)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da576279060400507] 
+\draw    (204,72) -- (250,72) ;
+\draw [shift={(252,72)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8007473356697774] 
+\draw    (204,216) -- (250,216) ;
+\draw [shift={(252,216)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3767170061103269] 
+\draw    (312,10) -- (492,10) ;
+%Straight Lines [id:da8982178930087799] 
+\draw    (312,274) -- (492,274) ;
+%Rounded Rect [id:dp7505871568672602] 
+\draw  [fill={rgb, 255:red, 0; green, 228; blue, 255 }  ,fill opacity=1 ] (348,129.6) .. controls (348,124.3) and (352.3,120) .. (357.6,120) -- (446.4,120) .. controls (451.7,120) and (456,124.3) .. (456,129.6) -- (456,158.4) .. controls (456,163.7) and (451.7,168) .. (446.4,168) -- (357.6,168) .. controls (352.3,168) and (348,163.7) .. (348,158.4) -- cycle ;
+%Straight Lines [id:da6308256525563409] 
+\draw    (402,10) -- (402,118) ;
+\draw [shift={(402,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3278501294030751] 
+\draw    (402,168) -- (402,272) ;
+\draw [shift={(402,274)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da07269132682112511] 
+\draw    (456,144) -- (502,144) ;
+\draw [shift={(504,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (98,50.4) node [anchor=north west][inner sep=0.75pt]    {$C_{1}$};
+% Text Node
+\draw (98,194.4) node [anchor=north west][inner sep=0.75pt]    {$C_{2}$};
+% Text Node
+\draw (37,4.4) node [anchor=north west][inner sep=0.75pt]    {$\Theta _{1}$};
+% Text Node
+\draw (37,134.4) node [anchor=north west][inner sep=0.75pt]    {$\Theta _{2}$};
+% Text Node
+\draw (37,266.4) node [anchor=north west][inner sep=0.75pt]    {$\Theta _{3}$};
+% Text Node
+\draw (152,15.4) node [anchor=north west][inner sep=0.75pt]    {$Q_{1}$};
+% Text Node
+\draw (152,99.4) node [anchor=north west][inner sep=0.75pt]    {$Q_{2}$};
+% Text Node
+\draw (152,147.4) node [anchor=north west][inner sep=0.75pt]    {$Q_{2}$};
+% Text Node
+\draw (152,243.4) node [anchor=north west][inner sep=0.75pt]    {$Q_{3}$};
+% Text Node
+\draw (208,52.4) node [anchor=north west][inner sep=0.75pt]    {$W_{12}$};
+% Text Node
+\draw (208,194.4) node [anchor=north west][inner sep=0.75pt]    {$W_{23}$};
+% Text Node
+\draw (264,127.4) node [anchor=north west][inner sep=0.75pt]    {$\hat{=}$};
+% Text Node
+\draw (349,122.4) node [anchor=north west][inner sep=0.75pt]    {$C_{12}$};
+% Text Node
+\draw (289,2.4) node [anchor=north west][inner sep=0.75pt]    {$\Theta _{1}$};
+% Text Node
+\draw (289,264.4) node [anchor=north west][inner sep=0.75pt]    {$\Theta _{3}$};
+% Text Node
+\draw (408,52.4) node [anchor=north west][inner sep=0.75pt]    {$Q_{1}$};
+% Text Node
+\draw (408,206.4) node [anchor=north west][inner sep=0.75pt]    {$Q_{3}$};
+% Text Node
+\draw (460,124.4) node [anchor=north west][inner sep=0.75pt]    {$W_{13} =W_{12} +W_{23}$};
+
+
+\end{tikzpicture}
+\end{center}
+
+with $\Theta_1 > \Theta_2 > \Theta_3$. For the three efficiencies we have \begin{align*}
+    \eta_C(\Theta_1,\Theta_2) &= 1 - \frac{\Theta_2}{\Theta_1} \\
+    \eta_C(\Theta_2,\Theta_3) &= 1 - \frac{\Theta_3}{\Theta_2} \\
+    \eta_C(\Theta_1,\Theta_3) &= 1 - \frac{\Theta_3}{\Theta_1}
+\end{align*}
+These can be rewriting to obtain \begin{equation*}
+    \Theta_2 = \Theta_1(1-\eta_C(\Theta_1,\Theta_2))
+\end{equation*}
+\begin{equation*}
+    \Theta_3 = \Theta_2(1-\eta_C(\Theta_2,\Theta_3)) = \Theta_1(1-\eta_C(\Theta_1,\Theta_2))(1-\eta_C(\Theta_2,\Theta_3))
+\end{equation*}
+and \begin{equation*}
+    \Theta_3 = \Theta_1(1-\eta_C(\Theta_1,\Theta_3))
+\end{equation*}
+Equating the last two equations and dividing out the empirical temperature we have that \begin{equation*}
+    (1-\eta_C(\Theta_1,\Theta_2))(1-\eta_C(\Theta_2,\Theta_3)) = (1-\eta_C(\Theta_1,\Theta_3))
+\end{equation*}
+Defining the function $f \equiv 1 - \eta_C$, this can be written as $f(\Theta_1,\Theta_2)f(\Theta_2,\Theta_3) = f(\Theta_1,\Theta_3)$. To investigate the functional form of $f$ let us take the logarithm to find \begin{equation*}
+    \ln f(\Theta_1,\Theta_2) + \ln f(\Theta_2,\Theta_3) = \ln f(\Theta_1,\Theta_3)
+\end{equation*}
+Taking the partial with respect to $\Theta_1$ we obtain \begin{equation*}
+    \frac{\partial }{\partial\Theta_1}\ln f(\Theta_1,\Theta_2) = \frac{\partial }{\partial \Theta_1}\ln f(\Theta_1,\Theta_3)
+\end{equation*}
+For this equality to hold, the $\Theta_2$ dependence on the left and the $\Theta_3$ dependence on the right must both vanish. The only functional form of $f$ that allows this is $f(\Theta_1,\Theta_2) = \alpha(\Theta_1)\beta(\Theta_2)$. Further, we have that $$\alpha(\Theta_1)\beta(\Theta_2)\alpha(\Theta_2)\beta(\Theta_3) = \alpha(\Theta_1)\beta(\Theta_3)$$ which gives $\alpha(\Theta_2)=\beta^{-1}(\Theta_2)$. With this we find that \begin{equation*}
+    \eta_C(\Theta_1,\Theta_2) = 1 - \frac{\beta(\Theta_2)}{\beta(\Theta_1)}
+\end{equation*}
+Then, our new thermodynamic temperature scale is $\beta$, which can be fixed by setting $T^*\equiv \beta(\Theta^*)$ for a single heat bath. For example, we can use the triple point of water, ice and steam and set $T^*$ to $273.15\;K$. Thus, reqriting the previous equation we have \begin{equation*}
+    T = T^*(1-\eta_C(T^*,T))
+\end{equation*}
+Hence, using a heat bath at $T^*$ as a reference point and operating a Carnot engine between the heat bath and any system of interest, the temperature of that system is given by the above expression, which requires the measurement of the efficiency of the Carnot engine in that arrangement. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.4
+\section{Clausius' Teorem and Thermodynamic Entropy}
+
+\begin{qst}
+    How does the efficiency limit of $\eta_C$ affect the allowed heat exchanges for heat engines? More generally, what can we say about the heat increment supplied to a system during a cyclic process or transformation?
+\end{qst}
+
+For a Carnot engine operating between $T_1 > T_2$, we have \begin{equation*}
+    1 - \frac{Q_c}{Q_h}\equiv \eta_C = 1-\frac{T_2}{T_1}, 
+\end{equation*}
+where $Q_c > 0$ is the heat leaving the Carnot engine and $Q_h$ is the heat entering the Carnot engine. From the perspective of the Carnot engine, its change in energy has a positive contribution $\Delta Q_1 = Q_h$ and a negative one $\Delta Q_2 = -Q_c$. Then we can rewrite our last equation as \begin{equation*}
+    1+\frac{\Delta Q_2}{\Delta Q_1} = 1-\frac{T_2}{T_1}
+\end{equation*}
+or equivalently \begin{equation*}
+    \frac{\Delta Q_2}{T_2} + \frac{\Delta Q_1}{T_1} = 0
+\end{equation*}
+which has the form of a \Emph{conservation law}: over one cycle, the sum over all heat exchanges, divided by the respective temperature, is zero for the Carnot engine.
+
+\begin{namthm}[Clausius' Theorem]
+    For any cyclic transformation (reversible or not), $\oint \frac{\delta Q}{T} \leq 0$, where $\delta Q$ is the heat increment supplied to the system at temperature $T$.
+\end{namthm}
+\begin{proof}
+    Consider a system $S$ that follows a general cyclic, quasi-static, process involving $n$ heat exchanges $\delta Q_i$, positive or negative, with heat baths at temperatures $T_i$.
+    \begin{center}
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Rectangle [id:dp9718478795330696] 
+\draw  [fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=1 ] (108.75,69.28) -- (416.25,69.28) -- (416.25,206.32) -- (108.75,206.32) -- cycle ;
+\draw   (112.5,137.8) -- (108.75,146.37) -- (105,137.8) ;
+\draw   (258.75,202.04) -- (266.25,206.32) -- (258.75,210.6) ;
+\draw   (412.5,154.93) -- (416.25,146.37) -- (420,154.93) ;
+\draw   (266.25,73.56) -- (258.75,69.28) -- (266.25,65) ;
+%Straight Lines [id:da05926003170028049] 
+\draw    (131.25,232.01) -- (153.75,232.01) ;
+%Straight Lines [id:da6623216589483099] 
+\draw    (142.5,208.32) -- (142.5,230.01) ;
+\draw [shift={(142.5,232.01)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(142.5,206.32)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da16360484892103] 
+\draw    (183.75,231.16) -- (206.25,231.16) ;
+%Straight Lines [id:da7027749588512926] 
+\draw    (195,207.46) -- (195,229.16) ;
+\draw [shift={(195,231.16)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(195,205.46)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da14294308937739086] 
+\draw    (363.75,232.01) -- (386.25,232.01) ;
+%Straight Lines [id:da3528473664720504] 
+\draw    (375,208.32) -- (375,230.01) ;
+\draw [shift={(375,232.01)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(375,206.32)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+
+% Text Node
+\draw (117,212.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{1}$};
+% Text Node
+\draw (133.38,232.91) node [anchor=north west][inner sep=0.75pt]    {$T_{1}$};
+% Text Node
+\draw (171,212.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{2}$};
+% Text Node
+\draw (185.88,232.05) node [anchor=north west][inner sep=0.75pt]    {$T_{2}$};
+% Text Node
+\draw (194.13,208.21) node [anchor=north west][inner sep=0.75pt]    {$.\ .\ .\ .\ .\ .\ .\ .\ .\ .\ .\ .\ .\ $};
+% Text Node
+\draw (351,212.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{n}$};
+% Text Node
+\draw (365.75,232.91) node [anchor=north west][inner sep=0.75pt]    {$T_{n}$};
+% Text Node
+\draw (111,72) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont System S}};
+
+
+\end{tikzpicture}
+    \end{center}
+    Over one cycle we necessarily have $\Delta U_S = 0$. The system might also perform a total amount of work $\Delta W_S$ over one cycle. THus, the first law gives us $\Delta W_S = -\sum_{i=1}^n\delta Q_i$.
+
+    Next we can couple each heat bath to a Carnot engine, which operates between the given heat bath and a general heat bath at temperature $T_0$ with $T_0 > T_i$ for all $1 \leq i \leq n$. 
+    \begin{center}
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Rectangle [id:dp9718478795330696] 
+\draw  [fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=1 ] (93.75,64.28) -- (401.25,64.28) -- (401.25,201.32) -- (93.75,201.32) -- cycle ;
+\draw   (97.5,132.8) -- (93.75,141.37) -- (90,132.8) ;
+\draw   (243.75,197.04) -- (251.25,201.32) -- (243.75,205.6) ;
+\draw   (397.5,149.93) -- (401.25,141.37) -- (405,149.93) ;
+\draw   (251.25,68.56) -- (243.75,64.28) -- (251.25,60) ;
+%Straight Lines [id:da05926003170028049] 
+\draw    (107.5,225.69) -- (140,225.69) ;
+%Straight Lines [id:da6623216589483099] 
+\draw    (123.7,202) -- (123.7,223.69) ;
+\draw [shift={(123.7,225.69)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(123.7,200)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da16360484892103] 
+\draw    (173.8,225.69) -- (206.3,225.69) ;
+%Straight Lines [id:da7027749588512926] 
+\draw    (190,202) -- (190,223.69) ;
+\draw [shift={(190,225.69)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(190,200)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da14294308937739086] 
+\draw    (347.5,225.69) -- (380,225.69) ;
+%Straight Lines [id:da3528473664720504] 
+\draw    (363.7,202) -- (363.7,223.69) ;
+\draw [shift={(363.7,225.69)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(363.7,200)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Shape: Circle [id:dp5736980178083375] 
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=1 ] (108.7,265) .. controls (108.7,256.72) and (115.42,250) .. (123.7,250) .. controls (131.98,250) and (138.7,256.72) .. (138.7,265) .. controls (138.7,273.28) and (131.98,280) .. (123.7,280) .. controls (115.42,280) and (108.7,273.28) .. (108.7,265) -- cycle ;
+%Straight Lines [id:da8142969463925529] 
+\draw    (123.7,227.69) -- (123.7,249.39) ;
+\draw [shift={(123.7,251.39)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(123.7,225.69)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da3283484218567414] 
+\draw    (123.7,282) -- (123.7,303.69) ;
+\draw [shift={(123.7,305.69)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(123.7,280)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da24523758085021696] 
+\draw    (84.4,265) -- (106.7,265) ;
+\draw [shift={(108.7,265)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(82.4,265)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da24525757899358935] 
+\draw    (90,305.7) -- (400,305.7) ;
+%Shape: Circle [id:dp8546933548323299] 
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=1 ] (175,265.01) .. controls (175,256.72) and (181.72,250.01) .. (190,250.01) .. controls (198.28,250.01) and (205,256.72) .. (205,265.01) .. controls (205,273.29) and (198.28,280.01) .. (190,280.01) .. controls (181.72,280.01) and (175,273.29) .. (175,265.01) -- cycle ;
+%Straight Lines [id:da02708894519473004] 
+\draw    (190,227.7) -- (190,249.39) ;
+\draw [shift={(190,251.39)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(190,225.7)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da3433191234977291] 
+\draw    (190,282.01) -- (190,303.7) ;
+\draw [shift={(190,305.7)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(190,280.01)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da16661554373415566] 
+\draw    (150.7,265.01) -- (173,265.01) ;
+\draw [shift={(175,265.01)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(148.7,265.01)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Shape: Circle [id:dp7498400397192551] 
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=1 ] (348.7,265.01) .. controls (348.7,256.72) and (355.42,250.01) .. (363.7,250.01) .. controls (371.98,250.01) and (378.7,256.72) .. (378.7,265.01) .. controls (378.7,273.29) and (371.98,280.01) .. (363.7,280.01) .. controls (355.42,280.01) and (348.7,273.29) .. (348.7,265.01) -- cycle ;
+%Straight Lines [id:da41602007194959745] 
+\draw    (363.7,227.7) -- (363.7,249.39) ;
+\draw [shift={(363.7,251.39)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(363.7,225.7)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da9567107118770806] 
+\draw    (363.7,282.01) -- (363.7,303.7) ;
+\draw [shift={(363.7,305.7)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(363.7,280.01)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+%Straight Lines [id:da054083773725472906] 
+\draw    (324.4,265.01) -- (346.7,265.01) ;
+\draw [shift={(348.7,265.01)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+\draw [shift={(322.4,265.01)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (7.65,-2.3) .. controls (4.86,-0.97) and (2.31,-0.21) .. (0,0) .. controls (2.31,0.21) and (4.86,0.98) .. (7.65,2.3)   ;
+
+% Text Node
+\draw (98.2,206.08) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{1}$};
+% Text Node
+\draw (91.2,221.08) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$T_{1}$};
+% Text Node
+\draw (166,206.94) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{2}$};
+% Text Node
+\draw (161,221.94) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$T_{2}$};
+% Text Node
+\draw (215,203.4) node [anchor=north west][inner sep=0.75pt]    {$\ .\ .\ .\ .\ .\ .\ .\ .\ .\ .\ $};
+% Text Node
+\draw (339.7,206.08) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{n}$};
+% Text Node
+\draw (334.7,221.08) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$T_{n}$};
+% Text Node
+\draw (96,67) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont System S}};
+% Text Node
+\draw (117.7,260.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$C_{1}$};
+% Text Node
+\draw (127,232.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{C_{1}}$};
+% Text Node
+\draw (82,247.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta W_{1}$};
+% Text Node
+\draw (71,301.4) node [anchor=north west][inner sep=0.75pt]    {$T_{0}$};
+% Text Node
+\draw (132,287.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{C_{1}}^{( 0)}$};
+% Text Node
+\draw (184,260.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$C_{2}$};
+% Text Node
+\draw (193.3,232.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{C_{2}}$};
+% Text Node
+\draw (148.3,247.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta W_{2}$};
+% Text Node
+\draw (198.3,287.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{C_{2}}^{( 0)}$};
+% Text Node
+\draw (357.7,260.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$C_{n}$};
+% Text Node
+\draw (367,232.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{C_{n}}$};
+% Text Node
+\draw (322,247.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta W_{n}$};
+% Text Node
+\draw (372,287.41) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\delta Q_{C_{n}}^{( 0)}$};
+
+
+\end{tikzpicture}
+\end{center}
+    Since we can operate each Carnot engine also as a refrigerator, we can require that $\delta Q_{C_i} = -\delta Q_i$ for all $i$. Thus, we have effectively removed the heat baths from the picture since the Carnot engines either directly provide or receive the heat from the system in each step. Further, the combined system is effectively coupled to a single heat bath at $T_0$, which will allow us to invoke the 2nd law. Given that we are dealing with Carnot engines, we can use the conservation law we established above. Specifically, we have \begin{equation*}
+        \delta Q_{C_i}^{(0)} = -\frac{T_0}{T_i}\delta Q_{C_i} = \frac{T_0}{T_i}\delta Q_i
+    \end{equation*}
+    Thus, for the total heat exchanged with the heat bath at $T_0$ over one cycle we have \begin{equation*}
+        \Delta Q^{(0)} = \sum_{i=1}^n\delta Q_{C_i}^{(0)} = T_0\sum_{i=1}^n\frac{\delta Q_i}{T_i}
+    \end{equation*}
+    Considering now the combined system, its internal energy does not change over one cycle since it is a cyclic process. Thus, the first law gives us \begin{equation*}
+        -\Delta Q^{(0)} = \Delta W
+    \end{equation*}
+    over once cycle, where $\Delta W = \Delta W_S + \sum_{i=1}^n\delta W_i$ is the total external work done by the combined system over one cycle. Since the combined system is coupled to a single heat bath, Kelvin's formulation of the second law applies giving $\Delta W \geq 0$ (the system is not doing work on the surroundings). Combining the last three equations we can eliminate all reference to the Carnot engines and obtain \begin{equation*}
+        -T_0\sum_{i=1}^n\frac{\delta Q_i}{T_i} \geq 0
+    \end{equation*}
+    Since $T_0 > 0$, this is equivalent to \begin{equation*}
+        \sum_{i=1}^n\frac{\delta Q_i}{T_i}\leq 0
+    \end{equation*}
+    In the limit as $n\rightarrow \infty$, this takes on the integral form given in Clausius' theorem.
+\end{proof}
+
+
+\subsection{Reversible Processes}
+
+We now investigate consequences of Clausius' theorem for reversible processes. For a reversible process any path $\gamma$ in state space can be traced in reverse, $-\gamma$. For a cyclic process, this means that $\oint_{\gamma}\frac{\delta Q}{T} \leq 0$ and $\oint_{-\gamma}\frac{\delta Q}{T} \leq 0$, implying that \begin{equation*}
+    \oint_{\gamma}\frac{\delta Q}{T} = 0
+\end{equation*}
+Then, for reversible processes we find that $\frac{\delta Q}{T}$ is an exact differential, and it allows us to construct a new function of state \begin{equation*}
+    S(B) - S(A) \equiv \int_A^B\frac{\delta Q}{T}
+\end{equation*}
+where $A$ and $B$ are specific thermodynamic states and the integral is path-independent. $S$ is called the \Emph{thermodynamic entropy}. In differential form this reads \begin{equation*}
+    dS = \frac{\delta Q}{T}\;\text{ or }\;\delta Q = TdS
+\end{equation*}
+The latter expression shows that adiabatic curves can be constructed for a general system from the condition of constant $S$, and it also allows us to reformulate the \Emph{first law for reversible processes}: in the case of a closed system \begin{equation*}
+    dU = \delta Q + \delta W = TdS + \sum_{i=1}^mJ_idq_i
+\end{equation*}
+
+
+\subsection{Irreversible Processes}
+
+Consider two states $A$ and $B$, and suppsoe we take one path from $A$ to $B$, and one arbitrarily chosen reversible path from $B$ back to $A$. Then by Clausius' theorem \begin{equation*}
+    \int_A^B\frac{\delta Q}{T} + \int_A^B\frac{\delta Q_{rev}}{T} \leq 0 \implies \int_A^B\frac{\delta Q}{T} \leq \int_A^B\frac{\delta Q_{rev}}{T} = \int_A^BdS = S(B) - S(A)
+\end{equation*}
+
+In differential form this reads \begin{equation*}
+    \frac{\delta Q}{T} \leq dS
+\end{equation*}
+for any transformation. 
+\begin{note}
+    Entropy has to be calculated along a \Emph{reversible path}.
+\end{note}
+
+Hence, for irreversible processes $\frac{\delta Q}{T}$ is not exact so we can't use it to define the entropy. Further, for an isolated system there is no exchange of heat, so the above equation reduces to $\delta S \geq 0$ for all internal processes (entropy always increases in isolated systems). This implies that an isolated system attains a maximum value of entropy in equilibrium since spontaneous internal changes can only increase $S$. Hence, the direction of increasing entropy points out the \Emph{arrow of time} and the path to equilibrium.
+
+\begin{law}[Second Law of Thermodynamics (Planck)]
+    If $A$ and $B$ are two isolated systems with fixed internal energies $U_A$ and $U_B$ and fixed entropies $S_A(U_A)$ and $S_B(U_B)$ before coupling, then the entropy of the compound system after coupling, $S(U_A+U_B)$, must be at least as large as the sum of the initial entropies \begin{equation*}
+        S(U_A+U_B) \geq S_A(U_A) + S_B(U_B)
+    \end{equation*}
+\end{law}
+
+
+\subsection{Example of Thermodynamic Entropy}
+
+We consider the isothermal expansion of an ideal gas. We first consider a reversible version:
+
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Rectangle [id:dp10216684904861673] 
+\draw   (130,150) -- (370,150) -- (370,250) -- (130,250) -- cycle ;
+%Straight Lines [id:da2429362111030111] 
+\draw [line width=3]    (240,150) -- (240,250) ;
+%Straight Lines [id:da02312568719884389] 
+\draw    (130,150) -- (140,140) ;
+%Straight Lines [id:da698655090030744] 
+\draw    (140,150) -- (150,140) ;
+%Straight Lines [id:da07106673797646934] 
+\draw    (150,150) -- (160,140) ;
+%Straight Lines [id:da1321872558765933] 
+\draw    (160,150) -- (170,140) ;
+%Straight Lines [id:da3169921022163851] 
+\draw    (170,150) -- (180,140) ;
+%Straight Lines [id:da846357475435797] 
+\draw    (180,150) -- (190,140) ;
+%Straight Lines [id:da11213509476040429] 
+\draw    (190,150) -- (200,140) ;
+%Straight Lines [id:da6252836454895341] 
+\draw    (200,150) -- (210,140) ;
+%Straight Lines [id:da039339508257494105] 
+\draw    (210,150) -- (220,140) ;
+%Straight Lines [id:da8989019748379705] 
+\draw    (220,150) -- (230,140) ;
+%Straight Lines [id:da5794438220803482] 
+\draw    (230,150) -- (240,140) ;
+%Straight Lines [id:da43435070544714827] 
+\draw    (240,150) -- (250,140) ;
+%Straight Lines [id:da5016893721353803] 
+\draw    (250,150) -- (260,140) ;
+%Straight Lines [id:da6567634677030327] 
+\draw    (260,150) -- (270,140) ;
+%Straight Lines [id:da5891637497632802] 
+\draw    (270,150) -- (280,140) ;
+%Straight Lines [id:da8441024933096624] 
+\draw    (280,150) -- (290,140) ;
+%Straight Lines [id:da683615803738971] 
+\draw    (290,150) -- (300,140) ;
+%Straight Lines [id:da2194252383088786] 
+\draw    (300,150) -- (310,140) ;
+%Straight Lines [id:da3969359335913998] 
+\draw    (310,150) -- (320,140) ;
+%Straight Lines [id:da6734788351912069] 
+\draw    (320,150) -- (330,140) ;
+%Straight Lines [id:da2134759175389327] 
+\draw    (330,150) -- (340,140) ;
+%Straight Lines [id:da6310619449607919] 
+\draw    (340,150) -- (350,140) ;
+%Straight Lines [id:da22066732465272287] 
+\draw    (350,150) -- (360,140) ;
+%Straight Lines [id:da4705664969654242] 
+\draw    (360,150) -- (370,140) ;
+%Straight Lines [id:da9298760509242914] 
+\draw    (370,150) -- (380,140) ;
+%Straight Lines [id:da6373583309643975] 
+\draw    (130,260) -- (140,250) ;
+%Straight Lines [id:da6588641980940437] 
+\draw    (140,260) -- (150,250) ;
+%Straight Lines [id:da4281837223676326] 
+\draw    (150,260) -- (160,250) ;
+%Straight Lines [id:da5366300699949145] 
+\draw    (160,260) -- (170,250) ;
+%Straight Lines [id:da25469000907977524] 
+\draw    (170,260) -- (180,250) ;
+%Straight Lines [id:da0500622710738865] 
+\draw    (180,260) -- (190,250) ;
+%Straight Lines [id:da8168801800285694] 
+\draw    (190,260) -- (200,250) ;
+%Straight Lines [id:da7734357231245377] 
+\draw    (200,260) -- (210,250) ;
+%Straight Lines [id:da17327490110501187] 
+\draw    (210,260) -- (220,250) ;
+%Straight Lines [id:da9584695235724512] 
+\draw    (220,260) -- (230,250) ;
+%Straight Lines [id:da6821913084159383] 
+\draw    (230,260) -- (240,250) ;
+%Straight Lines [id:da9279112473339979] 
+\draw    (240,260) -- (250,250) ;
+%Straight Lines [id:da9780798821244712] 
+\draw    (250,260) -- (260,250) ;
+%Straight Lines [id:da8775526244710663] 
+\draw    (260,260) -- (270,250) ;
+%Straight Lines [id:da07147360245322298] 
+\draw    (270,260) -- (280,250) ;
+%Straight Lines [id:da07475291275506835] 
+\draw    (280,260) -- (290,250) ;
+%Straight Lines [id:da8443282662392222] 
+\draw    (290,260) -- (300,250) ;
+%Straight Lines [id:da20573580250055712] 
+\draw    (300,260) -- (310,250) ;
+%Straight Lines [id:da9400832784154305] 
+\draw    (310,260) -- (320,250) ;
+%Straight Lines [id:da7355193459821481] 
+\draw    (320,260) -- (330,250) ;
+%Straight Lines [id:da6976567499699897] 
+\draw    (330,260) -- (340,250) ;
+%Straight Lines [id:da158176559338429] 
+\draw    (340,260) -- (350,250) ;
+%Straight Lines [id:da38170981188901876] 
+\draw    (350,260) -- (360,250) ;
+%Straight Lines [id:da15351419827022705] 
+\draw    (360,260) -- (370,250) ;
+%Straight Lines [id:da04758347212249814] 
+\draw    (370,160) -- (380,150) ;
+%Straight Lines [id:da11833668881914683] 
+\draw    (370,170) -- (380,160) ;
+%Straight Lines [id:da9010401302925775] 
+\draw    (370,180) -- (380,170) ;
+%Straight Lines [id:da15770792103421472] 
+\draw    (370,190) -- (380,180) ;
+%Straight Lines [id:da04102367425755071] 
+\draw    (370,200) -- (380,190) ;
+%Straight Lines [id:da908916033166947] 
+\draw    (370,210) -- (380,200) ;
+%Straight Lines [id:da06039734040677214] 
+\draw    (370,220) -- (380,210) ;
+%Straight Lines [id:da7224209900671532] 
+\draw    (370,230) -- (380,220) ;
+%Straight Lines [id:da24187023727119872] 
+\draw    (370,240) -- (380,230) ;
+%Straight Lines [id:da6841954807390329] 
+\draw    (370,250) -- (380,240) ;
+%Straight Lines [id:da05005205845206229] 
+\draw [line width=3]    (130,150) -- (130,250) ;
+%Straight Lines [id:da03533549159528393] 
+\draw    (440,130) -- (440,270) ;
+%Shape: Spring [id:dp2463160075928994] 
+\draw   (380,200.49) .. controls (380.99,200.18) and (382.15,200) .. (383.49,200) .. controls (393.49,200) and (393.49,210) .. (388.49,210) .. controls (383.49,210) and (383.49,200) .. (393.49,200) .. controls (403.49,200) and (403.49,210) .. (398.49,210) .. controls (393.49,210) and (393.49,200) .. (403.49,200) .. controls (413.49,200) and (413.49,210) .. (408.49,210) .. controls (403.49,210) and (403.49,200) .. (413.49,200) .. controls (423.49,200) and (423.49,210) .. (418.49,210) .. controls (413.49,210) and (413.49,200) .. (423.49,200) .. controls (433.49,200) and (433.49,210) .. (428.49,210) .. controls (423.49,210) and (423.49,200) .. (433.49,200) .. controls (436.55,200) and (438.67,200.93) .. (440,202.23) ;
+%Straight Lines [id:da4587017232208439] 
+\draw    (240,200) -- (380,200) ;
+%Shape: Right Angle [id:dp38498859572961575] 
+\draw   (200,280) -- (180,280) -- (180,264) ;
+\draw   (175,275) -- (180,265) -- (185,275) ;
+
+% Text Node
+\draw (139,161) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont idea}l\\{\fontfamily{ptm}\selectfont  gas}};
+% Text Node
+\draw (291,181) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont piston}};
+% Text Node
+\draw (390,181) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont spring}};
+% Text Node
+\draw (200,271) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont heat bath T}};
+% Text Node
+\draw (442,133) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont wall}};
+
+
+\end{tikzpicture}
+\end{center}
+
+The work done by the gas will be stored in the spring, making the process reversible (assuming an idealized frictionless spring). For an isothermal process, $T = $ const. Since for an ideal gas we also have $U = U(T)$, this means that there is no change to the internal energy during this process. This fact together with the first law as our starting point, we have: $$\Delta Q = -\Delta W = \int_{V_1}^{V_2}pdV = Nk_BT\int_{V_1}^{V_2}\frac{1}{V}dV = Nk_BT\ln\frac{V_2}{V_1}$$
+where we have used the equation of state for an ideal gas and the fact that $T$ and $N$ are constant. For the change in entropy of the gas, this gives us \begin{equation*}
+    (\Delta S)_{gas} = \int_1^2\frac{\delta Q}{T} = \frac{1}{T}\int_1^2\delta Q = \frac{1}{T}\Delta Q = Nk_B\ln\frac{V_2}{V_1} > 0
+\end{equation*}
+Similarly, we can obtain the change in entropy for the heat bath: \begin{equation*}
+    (\Delta S)_{hb} = \int_1^2\frac{\delta Q_{hb}}{T} = \frac{1}{T}\int_1^2\delta Q_{hb} = \frac{\Delta Q_{hb}}{T} = \frac{-\Delta Q}{T} = -(\Delta S)_{gas}
+\end{equation*}
+Consequently, there is an entropy increase for the gas and an entropy decrease for the heat bath such that the combined change of entropy adds up to zero, $(\Delta S)_{total} = (\Delta S)_{gas} + (\Delta S)_{hb} = 0$.
+
+Now, let use consider an irreversible process:
+
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Rectangle [id:dp10216684904861673] 
+\draw   (30,150) -- (270,150) -- (270,250) -- (30,250) -- cycle ;
+%Straight Lines [id:da2429362111030111] 
+\draw [line width=3]    (140,150) -- (140,250) ;
+%Straight Lines [id:da02312568719884389] 
+\draw    (30,150) -- (40,140) ;
+%Straight Lines [id:da698655090030744] 
+\draw    (40,150) -- (50,140) ;
+%Straight Lines [id:da07106673797646934] 
+\draw    (50,150) -- (60,140) ;
+%Straight Lines [id:da1321872558765933] 
+\draw    (60,150) -- (70,140) ;
+%Straight Lines [id:da3169921022163851] 
+\draw    (70,150) -- (80,140) ;
+%Straight Lines [id:da846357475435797] 
+\draw    (80,150) -- (90,140) ;
+%Straight Lines [id:da11213509476040429] 
+\draw    (90,150) -- (100,140) ;
+%Straight Lines [id:da6252836454895341] 
+\draw    (100,150) -- (110,140) ;
+%Straight Lines [id:da039339508257494105] 
+\draw    (110,150) -- (120,140) ;
+%Straight Lines [id:da8989019748379705] 
+\draw    (120,150) -- (130,140) ;
+%Straight Lines [id:da5794438220803482] 
+\draw    (130,150) -- (140,140) ;
+%Straight Lines [id:da43435070544714827] 
+\draw    (140,150) -- (150,140) ;
+%Straight Lines [id:da5016893721353803] 
+\draw    (150,150) -- (160,140) ;
+%Straight Lines [id:da6567634677030327] 
+\draw    (160,150) -- (170,140) ;
+%Straight Lines [id:da5891637497632802] 
+\draw    (170,150) -- (180,140) ;
+%Straight Lines [id:da8441024933096624] 
+\draw    (180,150) -- (190,140) ;
+%Straight Lines [id:da683615803738971] 
+\draw    (190,150) -- (200,140) ;
+%Straight Lines [id:da2194252383088786] 
+\draw    (200,150) -- (210,140) ;
+%Straight Lines [id:da3969359335913998] 
+\draw    (210,150) -- (220,140) ;
+%Straight Lines [id:da6734788351912069] 
+\draw    (220,150) -- (230,140) ;
+%Straight Lines [id:da2134759175389327] 
+\draw    (230,150) -- (240,140) ;
+%Straight Lines [id:da6310619449607919] 
+\draw    (240,150) -- (250,140) ;
+%Straight Lines [id:da22066732465272287] 
+\draw    (250,150) -- (260,140) ;
+%Straight Lines [id:da4705664969654242] 
+\draw    (260,150) -- (270,140) ;
+%Straight Lines [id:da9298760509242914] 
+\draw    (270,150) -- (280,140) ;
+%Straight Lines [id:da6373583309643975] 
+\draw    (30,260) -- (40,250) ;
+%Straight Lines [id:da6588641980940437] 
+\draw    (40,260) -- (50,250) ;
+%Straight Lines [id:da4281837223676326] 
+\draw    (50,260) -- (60,250) ;
+%Straight Lines [id:da5366300699949145] 
+\draw    (60,260) -- (70,250) ;
+%Straight Lines [id:da25469000907977524] 
+\draw    (70,260) -- (80,250) ;
+%Straight Lines [id:da0500622710738865] 
+\draw    (80,260) -- (90,250) ;
+%Straight Lines [id:da8168801800285694] 
+\draw    (90,260) -- (100,250) ;
+%Straight Lines [id:da7734357231245377] 
+\draw    (100,260) -- (110,250) ;
+%Straight Lines [id:da17327490110501187] 
+\draw    (110,260) -- (120,250) ;
+%Straight Lines [id:da9584695235724512] 
+\draw    (120,260) -- (130,250) ;
+%Straight Lines [id:da6821913084159383] 
+\draw    (130,260) -- (140,250) ;
+%Straight Lines [id:da9279112473339979] 
+\draw    (140,260) -- (150,250) ;
+%Straight Lines [id:da9780798821244712] 
+\draw    (150,260) -- (160,250) ;
+%Straight Lines [id:da8775526244710663] 
+\draw    (160,260) -- (170,250) ;
+%Straight Lines [id:da07147360245322298] 
+\draw    (170,260) -- (180,250) ;
+%Straight Lines [id:da07475291275506835] 
+\draw    (180,260) -- (190,250) ;
+%Straight Lines [id:da8443282662392222] 
+\draw    (190,260) -- (200,250) ;
+%Straight Lines [id:da20573580250055712] 
+\draw    (200,260) -- (210,250) ;
+%Straight Lines [id:da9400832784154305] 
+\draw    (210,260) -- (220,250) ;
+%Straight Lines [id:da7355193459821481] 
+\draw    (220,260) -- (230,250) ;
+%Straight Lines [id:da6976567499699897] 
+\draw    (230,260) -- (240,250) ;
+%Straight Lines [id:da158176559338429] 
+\draw    (240,260) -- (250,250) ;
+%Straight Lines [id:da38170981188901876] 
+\draw    (250,260) -- (260,250) ;
+%Straight Lines [id:da15351419827022705] 
+\draw    (260,260) -- (270,250) ;
+%Straight Lines [id:da04758347212249814] 
+\draw    (270,160) -- (280,150) ;
+%Straight Lines [id:da11833668881914683] 
+\draw    (270,170) -- (280,160) ;
+%Straight Lines [id:da9010401302925775] 
+\draw    (270,180) -- (280,170) ;
+%Straight Lines [id:da15770792103421472] 
+\draw    (270,190) -- (280,180) ;
+%Straight Lines [id:da04102367425755071] 
+\draw    (270,200) -- (280,190) ;
+%Straight Lines [id:da908916033166947] 
+\draw    (270,210) -- (280,200) ;
+%Straight Lines [id:da06039734040677214] 
+\draw    (270,220) -- (280,210) ;
+%Straight Lines [id:da7224209900671532] 
+\draw    (270,230) -- (280,220) ;
+%Straight Lines [id:da24187023727119872] 
+\draw    (270,240) -- (280,230) ;
+%Straight Lines [id:da6841954807390329] 
+\draw    (270,250) -- (280,240) ;
+%Straight Lines [id:da05005205845206229] 
+\draw [line width=0.75]    (30,150) -- (30,250) ;
+%Shape: Right Angle [id:dp38498859572961575] 
+\draw   (100,280) -- (80,280) -- (80,264) ;
+\draw   (75,275) -- (80,265) -- (85,275) ;
+%Straight Lines [id:da6240393448652244] 
+\draw    (20,160) -- (30,150) ;
+%Straight Lines [id:da06618897020996117] 
+\draw    (20,170) -- (30,160) ;
+%Straight Lines [id:da9578997465003252] 
+\draw    (20,180) -- (30,170) ;
+%Straight Lines [id:da14035317588324148] 
+\draw    (20,190) -- (30,180) ;
+%Straight Lines [id:da28751356867146516] 
+\draw    (20,200) -- (30,190) ;
+%Straight Lines [id:da20996336625159362] 
+\draw    (20,210) -- (30,200) ;
+%Straight Lines [id:da06900184505583318] 
+\draw    (20,220) -- (30,210) ;
+%Straight Lines [id:da19787646399737802] 
+\draw    (20,230) -- (30,220) ;
+%Straight Lines [id:da8937533832195679] 
+\draw    (20,240) -- (30,230) ;
+%Straight Lines [id:da6837655871316055] 
+\draw    (20,250) -- (30,240) ;
+%Straight Lines [id:da8730624412553964] 
+\draw    (20,260) -- (30,250) ;
+%Straight Lines [id:da4662680445037337] 
+\draw [line width=0.75]    (300,198.5) -- (392,198.5)(300,201.5) -- (392,201.5) ;
+\draw [shift={(400,200)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp7654546436479621] 
+\draw   (420,151) -- (660,151) -- (660,251) -- (420,251) -- cycle ;
+%Straight Lines [id:da4957556971692221] 
+\draw    (420,151) -- (430,141) ;
+%Straight Lines [id:da7911328358491527] 
+\draw    (430,151) -- (440,141) ;
+%Straight Lines [id:da14482838729842618] 
+\draw    (440,151) -- (450,141) ;
+%Straight Lines [id:da43143802969661915] 
+\draw    (450,151) -- (460,141) ;
+%Straight Lines [id:da010900293323580668] 
+\draw    (460,151) -- (470,141) ;
+%Straight Lines [id:da54047464155218] 
+\draw    (470,151) -- (480,141) ;
+%Straight Lines [id:da7950200154755129] 
+\draw    (480,151) -- (490,141) ;
+%Straight Lines [id:da21378379658618107] 
+\draw    (490,151) -- (500,141) ;
+%Straight Lines [id:da04595231590632709] 
+\draw    (500,151) -- (510,141) ;
+%Straight Lines [id:da015584736371790697] 
+\draw    (510,151) -- (520,141) ;
+%Straight Lines [id:da5615542568209158] 
+\draw    (520,151) -- (530,141) ;
+%Straight Lines [id:da03976983114492505] 
+\draw    (530,151) -- (540,141) ;
+%Straight Lines [id:da7666466541975896] 
+\draw    (540,151) -- (550,141) ;
+%Straight Lines [id:da8456893070030036] 
+\draw    (550,151) -- (560,141) ;
+%Straight Lines [id:da2802253195572617] 
+\draw    (560,151) -- (570,141) ;
+%Straight Lines [id:da5420324900208815] 
+\draw    (570,151) -- (580,141) ;
+%Straight Lines [id:da5919421428102054] 
+\draw    (580,151) -- (590,141) ;
+%Straight Lines [id:da9580467690674728] 
+\draw    (590,151) -- (600,141) ;
+%Straight Lines [id:da8987060211850415] 
+\draw    (600,151) -- (610,141) ;
+%Straight Lines [id:da3989177296396482] 
+\draw    (610,151) -- (620,141) ;
+%Straight Lines [id:da7739136545307406] 
+\draw    (620,151) -- (630,141) ;
+%Straight Lines [id:da43340871434295836] 
+\draw    (630,151) -- (640,141) ;
+%Straight Lines [id:da21233446836267156] 
+\draw    (640,151) -- (650,141) ;
+%Straight Lines [id:da08665469965397943] 
+\draw    (650,151) -- (660,141) ;
+%Straight Lines [id:da001828566199576498] 
+\draw    (660,151) -- (670,141) ;
+%Straight Lines [id:da46995823741590326] 
+\draw    (420,261) -- (430,251) ;
+%Straight Lines [id:da40898502643536516] 
+\draw    (430,261) -- (440,251) ;
+%Straight Lines [id:da33006003709084597] 
+\draw    (440,261) -- (450,251) ;
+%Straight Lines [id:da4403370974834946] 
+\draw    (450,261) -- (460,251) ;
+%Straight Lines [id:da09910753257315763] 
+\draw    (460,261) -- (470,251) ;
+%Straight Lines [id:da3263787303208714] 
+\draw    (470,261) -- (480,251) ;
+%Straight Lines [id:da3939572787072987] 
+\draw    (480,261) -- (490,251) ;
+%Straight Lines [id:da22224045530895964] 
+\draw    (490,261) -- (500,251) ;
+%Straight Lines [id:da3760816140428329] 
+\draw    (500,261) -- (510,251) ;
+%Straight Lines [id:da43610384642407674] 
+\draw    (510,261) -- (520,251) ;
+%Straight Lines [id:da27699152056186027] 
+\draw    (520,261) -- (530,251) ;
+%Straight Lines [id:da25535874444777984] 
+\draw    (530,261) -- (540,251) ;
+%Straight Lines [id:da02204680539402326] 
+\draw    (540,261) -- (550,251) ;
+%Straight Lines [id:da289717919573794] 
+\draw    (550,261) -- (560,251) ;
+%Straight Lines [id:da9578417217036497] 
+\draw    (560,261) -- (570,251) ;
+%Straight Lines [id:da2932021562319078] 
+\draw    (570,261) -- (580,251) ;
+%Straight Lines [id:da3687541337506155] 
+\draw    (580,261) -- (590,251) ;
+%Straight Lines [id:da1336556930885484] 
+\draw    (590,261) -- (600,251) ;
+%Straight Lines [id:da04094069738267603] 
+\draw    (600,261) -- (610,251) ;
+%Straight Lines [id:da11263861721388069] 
+\draw    (610,261) -- (620,251) ;
+%Straight Lines [id:da6622327264174903] 
+\draw    (620,261) -- (630,251) ;
+%Straight Lines [id:da37532828249128314] 
+\draw    (630,261) -- (640,251) ;
+%Straight Lines [id:da9961666123003028] 
+\draw    (640,261) -- (650,251) ;
+%Straight Lines [id:da9621937765102659] 
+\draw    (650,261) -- (660,251) ;
+%Straight Lines [id:da10584236043889939] 
+\draw    (660,161) -- (670,151) ;
+%Straight Lines [id:da9237394338423308] 
+\draw    (660,171) -- (670,161) ;
+%Straight Lines [id:da5742243995817473] 
+\draw    (660,181) -- (670,171) ;
+%Straight Lines [id:da7893262754279833] 
+\draw    (660,191) -- (670,181) ;
+%Straight Lines [id:da9220794090585858] 
+\draw    (660,201) -- (670,191) ;
+%Straight Lines [id:da44476084028411544] 
+\draw    (660,211) -- (670,201) ;
+%Straight Lines [id:da17710479372236643] 
+\draw    (660,221) -- (670,211) ;
+%Straight Lines [id:da7506078019116467] 
+\draw    (660,231) -- (670,221) ;
+%Straight Lines [id:da7192840973477705] 
+\draw    (660,241) -- (670,231) ;
+%Straight Lines [id:da23787537444433715] 
+\draw    (660,251) -- (670,241) ;
+%Straight Lines [id:da5172582867911493] 
+\draw [line width=0.75]    (420,151) -- (420,251) ;
+%Shape: Right Angle [id:dp0020224712984286963] 
+\draw   (490,281) -- (470,281) -- (470,265) ;
+\draw   (465,276) -- (470,266) -- (475,276) ;
+%Straight Lines [id:da33326147345376156] 
+\draw    (410,161) -- (420,151) ;
+%Straight Lines [id:da8162242233241097] 
+\draw    (410,171) -- (420,161) ;
+%Straight Lines [id:da039706177803739306] 
+\draw    (410,181) -- (420,171) ;
+%Straight Lines [id:da561916986959849] 
+\draw    (410,191) -- (420,181) ;
+%Straight Lines [id:da1956405303914721] 
+\draw    (410,201) -- (420,191) ;
+%Straight Lines [id:da35335241617877156] 
+\draw    (410,211) -- (420,201) ;
+%Straight Lines [id:da26475813037398277] 
+\draw    (410,221) -- (420,211) ;
+%Straight Lines [id:da5708591395844156] 
+\draw    (410,231) -- (420,221) ;
+%Straight Lines [id:da7034988878222872] 
+\draw    (410,241) -- (420,231) ;
+%Straight Lines [id:da3705636825871046] 
+\draw    (410,251) -- (420,241) ;
+%Straight Lines [id:da16059908449951465] 
+\draw    (410,261) -- (420,251) ;
+
+% Text Node
+\draw (39,161) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont idea}l\\{\fontfamily{ptm}\selectfont  gas}};
+% Text Node
+\draw (100,271) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont heat bath T}};
+% Text Node
+\draw (86,163.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (106,183.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (72,203.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (72,173.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (52,212.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (112,213.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (102,163.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (91,203.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (72,153.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (121,143.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (42,163.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (32,192.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (311,182) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont remove wall}};
+% Text Node
+\draw (302,203) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont free expansion}};
+% Text Node
+\draw (320,223.4) node [anchor=north west][inner sep=0.75pt]    {$\Delta W=0$};
+% Text Node
+\draw (511,202) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont idea}l {\fontfamily{ptm}\selectfont gas}};
+% Text Node
+\draw (490,272) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont heat bath T}};
+% Text Node
+\draw (476,164.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (496,184.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (462,204.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (462,174.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (442,213.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (502,214.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (492,164.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (481,204.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (452,152.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (511,144.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (431,172.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (422,193.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (615,154.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (635,174.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (601,194.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (601,164.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (581,203.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (641,204.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (631,154.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (620,194.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (591,142.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (570,162.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (561,183.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (531,164.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (522,173.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (551,153.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (542,213.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (562,213.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (522,223.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+% Text Node
+\draw (612,223.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\cdot $};
+
+
+\end{tikzpicture}
+\end{center}
+
+This process is irreversible since reintroducing the wall will not lead back to the original state. As for the reversible case, $\Delta U = 0$. Yet, no work is done, $\Delta W = 0$, and the first law gives $\Delta Q = 0$. To calculate the change in entropy we need a reversible process taht has the same initial and final state as the irreversible one. The reversible version above can be used for that purpose. Thus \begin{equation*}
+    (\Delta S)_{gas} = Nk_B\ln\frac{V_2}{V_1} > 0
+\end{equation*}
+However, for the heat bath we have to take into account that $\Delta Q = 0 = \Delta Q_{hb}$ --- the state of the heat bath did not change at all --- which leads to \begin{equation*}
+    (\Delta S)_{hb} = \int_1^2\frac{\delta Q_{hb}}{T} = 0
+\end{equation*}
+Consequently, there is an entropy increase for the gas and no change in entropy for the heat bath such that the combined change of entropy of the system is positive, $(\Delta S)_{total} = (\Delta S)_{gas} + (\Delta S)_{hb} = Nk_B\ln\frac{V_2}{V_1} > 0$. Multiplying this expression by $T$, we obtain \begin{equation*}
+    T(\Delta S)_{total} = Nk_BT\ln\frac{V_2}{V_1} > 0
+\end{equation*}
+where the left hand side is equivalent to the work done in the reversible case. THus, the irreversible process wastes usable energy.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 1.4
 \chapter{Thermodynamical Potentials and Equilibrium}
 
 
+
+%%%%%%%%%%%%%%%%%%%% Section 1.4.1
+\section{Thermodynamic Potentials}
+
+Recall that we have introduced thermodynamic entropy as a new state variable based on reversible processes. Now we answer the question 
+\begin{qst}
+    How can we uniquely determine all equilibrium proeprties of a given system?
+\end{qst}
+First, for reversible processes the 1st law reads \begin{equation*}
+    dU = \delta Q + \delta W + \delta E_{chem} = TdS + \sum_{i=1}^mJ_idq_i + \sum_{j=1}^{\alpha}\mu_jdN_j
+\end{equation*}
+so we have that $U = U(S,\vec{q},\vec{N})$. Hence, the number of independent thermodynamic coordinates is $1+m+\alpha$, assuming that there are no additional constraints between these coordinates. From this expression for the first law we have that \begin{align*}
+    \left(\frac{\partial U}{\partial S}\right)_{\vec{q},\vec{N}} &= T, \\
+    \left(\frac{\partial U}{\partial q_i}\right)_{S,q_{j\neq i},\vec{N}} &= J_i \\
+    \left(\frac{\partial U}{\partial N_j}\right)_{S,\vec{q},N_{i\neq j}} &= \mu_j
+\end{align*}
+Similarly, the function $U(S,\vec{q},\vec{N})$ ``generates" all other dependent thermodynamic quantities of interest through partial derivatives, including heat capacities, compressibilities, etcetera.
+
+\begin{defn}
+    A function that uniquely determines all equilibrium properties of a given system is called a \Emph{thermodynamic potential}
+\end{defn}
+
+\begin{rmk}
+    The goal of thermodynamics is to do measurements such that one can construct a thermodynamic potential as a function of its arguments for a given system.
+\end{rmk}
+
+Statistical Mechanics aims to derive these thermodynamic potentials from the underlying microscopic dynamics.
+
+\subsection{Maxwell Relations}
+
+Requiring $U$ to be a two time continuously differentiable function, using the relations derived above and the fact that the mixed partials will be equal we have the following:
+
+\begin{prop}
+    Using the commutativity of mixed partials for two time continuously differentiable functions, we have the following \Emph{Maxwell relations}: \begin{equation}
+        \frac{\partial^2 U}{\partial q_i\partial S} = \frac{\partial^2 U}{\partial S\partial q_i} \iff \frac{\partial T}{\partial q_i} = \frac{\partial J_i}{\partial S}
+    \end{equation}
+    and \begin{equation}
+        \frac{\partial^2U}{\partial N_j\partial S} = \frac{\partial^2 U}{\partial S\partial N_j} \iff \frac{\partial T}{\partial N_j} = \frac{\partial \mu_j}{\partial S}
+    \end{equation}
+\end{prop}
+
+\subsection{Thermodynamic Entropy}
+
+Rewriting the first law for reversible processes we have \begin{equation*}
+    dS = \frac{1}{T}\left(dU-\sum_{i=1}^mJ_idq_i - \sum_{j=1}^{\alpha}\mu_jdN_j\right)
+\end{equation*}
+Hence, we can express entropy as $S = S(U,\vec{q},\vec{N})$. Moreover, we can obtain all other thermodynamic quanitities of interest through partials: \begin{align*}
+    \left(\frac{\partial S}{\partial U}\right)_{\vec{q},\vec{N}} &= \frac{1}{T}, \\
+    \left(\frac{\partial S}{\partial q_i}\right)_{U,q_{j\neq i},\vec{N}} &= -\frac{J_i}{T}, \\
+    \left(\frac{\partial S}{\partial N_j}\right)_{U,\vec{q},N_{i\neq j}} &= -\frac{\mu_j}{T}
+\end{align*}
+Thus, the thermodynamic entropy is a thermodynamic potential. If the arguments $U,\vec{q},\vec{N}$ are fixed there is no change in internal energy, no mechanical work is done, no chemical work is done, and there is no exchange of heat by the first law so we have an isolated system. Further, for an isolated system the thermodynamic entropy is maximal in equilibrium, so if entropy is expressed as a function of its \Emph{natural variable} $U,\vec{q}$ and $\vec{N}$ it is a thermodynamic potential with extremal properties.
+
+\subsection{Legendre Transformation}
+
+Consider an arbitrary smooth real valued function $f(x,y)$ defined on the plane, and consider its total differential $df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy$. We wish to replace the variable $x$ with its conjugate variable $u = \frac{\partial f}{\partial x}$. First, consider the function $g(x,y,u) = ux-f(x,y)$. It's exact differential is \begin{equation*}
+    dg = d(ux) - df = xdu + udx - \frac{\partial f}{\partial x}dx - \frac{\partial f}{\partial y}dy
+\end{equation*}
+So that the $dx$ terms cancel out we choose $u(x,y) = \frac{\partial f}{\partial x}$, which gives \begin{equation*}
+    dg = xdu - \frac{\partial f}{\partial y}dy \text{  and  } g = g(u,y) = ux(u,y) - f(x(u,y),y)
+\end{equation*}
+where we have made the assumption that $u(x,y) = \frac{\partial f}{\partial x}$ is suitably nice (is an increasing function, and hence invertible) such that we can write $x$ as a function of $u$ and $y$. Under these assumptions $g$ is the \Emph{Legendre transformation} of $f$ with respect to $x$. We will now use the Legendre transformation to derive different thermodynamic potentials starting from the expression for the total differential of the internal energy for reversible processes \begin{equation*}
+    dU = TdS + \sum_{i=1}^mJ_idq_i + \sum_{j=1}^{\alpha}\mu_jdN_j
+\end{equation*}
+so $\partial_SU = T,\partial_{q_i}U = J_i$, and $\partial_{N_j}U = \mu_j$. Thus, $T,\vec{J}$ and $\vec{\mu}$ fulfill the requirements to be used as new thermodynamic coordinates in a Legendre transformation of the internal energy provided the invertibility conditions hold.
+
+
+\subsection{Helmholtz Free Energy}
+
+Given that $\partial_SU = T$ we can replace $S$ by $T$ through a Legendre transformation of the internal energy. The new function is defined as follows:
+
+\begin{defn}
+    The \Emph{Helmholtz free energy} is defined as \begin{equation*}
+        F(T,\vec{q},\vec{N}) = U - TS
+    \end{equation*}
+    which is the negative of the standard Legendre transformation, and has total differential \begin{equation*}
+        dF = dU - d(TS) = dU -SdT - TdS = \sum_{i=1}^mJ_idq_i + \sum_{j=1}^{\alpha}\mu_jdN_j - SdT
+    \end{equation*}
+    such that \begin{align*}
+        J_i &= \left(\frac{\partial F}{\partial q_i}\right)_{q_{j\neq i},\vec{N},T} \\
+        \mu_j &= \left(\frac{\partial F}{\partial N_j}\right)_{\vec{q},N_{i\neq j},T} \\
+        S &= - \left(\frac{\partial F}{\partial T}\right)_{\vec{q},\vec{N}} 
+    \end{align*}
+\end{defn}
+
+Note that $U = F+TS = F-T\frac{\partial F}{\partial T}$, so we can derive all thermodynamic properties of a given system from the Helmholtz free energy making it a thermodynamic potential. From the partials we have the following: 
+
+\begin{prop}
+    Using the relations above for the Helmholtz free energy, we have the Maxwell relation \begin{equation*}
+        \frac{\partial^2F}{\partial q_i\partial T} = \frac{\partial^2F}{\partial T\partial q_i}\iff -\frac{\partial S}{\partial q_i} = \frac{\partial J_i}{\partial T}
+    \end{equation*}
+\end{prop}
+
+
+\begin{eg}[Ideal Gas]
+    For an ideal gas, the Maxwell relation takes the form $-\frac{\partial S}{\partial V} = -\frac{\partial p}{\partial T}$, so $\frac{\partial S}{\partial V} = \frac{\partial p}{\partial T}$. Using the equation of state for an ideal gas we have \begin{equation*}
+        \frac{\partial S}{\partial V} = \frac{Nk_B}{V}
+    \end{equation*}
+    Integration of this partial differential equation gives \begin{equation*}
+        S(T,V,N) = S_0+Nk_B\ln\frac{V}{V_0}+f(T,N)
+    \end{equation*}
+    where $S_0$ and $V_0$ are constants of integration and $f$ is a function is an arbitrary function to be specified by other partials of $S$.
+\end{eg}
+
+\subsection{Enthalpy}
+
+Given that $\partial_{q_i}U = J_i$, we can replace $\vec{q}$ by $\vec{J}$ through a sequence of Legendre transformations of the internal energy. The new function is defined as follows:
+\begin{defn}
+    The \Emph{enthalpy} of a thermodynamic system is defined by \begin{equation*}
+        \mathcal{H}(S,\vec{J},\vec{N}) = U - \sum_{i=1}^mJ_iq_i
+    \end{equation*}
+    (The negative of a sequence of Legendre transforms) with the exact differential \begin{equation*}
+        d\mathcal{H} = dU - \sum_{i=1}^m(J_idq_i + q_idJ_i) = TdS - \sum_{i=1}^mq_idJ_i + \sum_{j=1}^{\alpha}\mu_jdN_j
+    \end{equation*}
+    with the partials \begin{align*}
+        T &= \left(\frac{\partial \mathcal{H}}{\partial S}\right)_{\vec{J},\vec{N}}  \\
+        q_i &= -\left(\frac{\partial \mathcal{H}}{\partial J_i}\right)_{S,J_{j\neq i},\vec{N}} \\
+        \mu_j &= \left(\frac{\partial \mathcal{H}}{\partial N_j}\right)_{S,\vec{J},N_{i\neq j}} 
+    \end{align*}
+\end{defn}
+
+Consequently, enthalpy is also a thermodynamic potential. Then we obtain the Maxwell relations:
+
+\begin{prop}
+    Using the mixed partials of the Enthalpy we have \begin{equation*}
+        \frac{\partial^2\mathcal{H}}{\partial S\partial J_i} = \frac{\partial^2\mathcal{H}}{\partial J_i\partial S}\iff -\frac{\partial q_i}{\partial S} = \frac{\partial T}{\partial J_i}
+    \end{equation*}
+\end{prop}
+
+\subsection{Gibbs Free Energy}
+
+Performing a Legendre transformation on the Enthalpy by replacing $S$ by $T$, we obtain the following function:
+
+\begin{defn}
+    The \Emph{Gibbs free energy} is defined by \begin{equation*}
+        G(T,\vec{J},\vec{N}) = U - TS - \sum_{i=1}^mJ_iq_i
+    \end{equation*}
+    with the exact differential \begin{equation*}
+        dG = dU - TdS - SdT - \sum_{i=1}^m(J_idq_i+q_idJ_i) = -SdT - \sum_{i=1}^mq_idJ_i + \sum_{j=1}^{\alpha}\mu_jdN_j
+    \end{equation*}
+    and the partials \begin{align*}
+        S &= -\left(\frac{\partial G}{\partial T}\right)_{\vec{J},\vec{N}} \\
+        q_i &= -\left(\frac{\partial G}{\partial J_i}\right)_{T,J_{j\neq i},\vec{N}} \\
+        \mu_j &=  \left(\frac{\partial G}{\partial N_j}\right)_{T,\vec{J},N_{i\neq j}} 
+    \end{align*}
+\end{defn}
+
+Hence, the Gibbs free energy is also a thermodynamic potential. We also obtain the Maxwell relations:
+
+\begin{prop}
+    Using the mixed partials of the Gibbs free energy we have \begin{equation*}
+        \frac{\partial^2G}{\partial T\partial J_i} = \frac{\partial^2G}{\partial J_i\partial T}\iff \frac{\partial q_i}{\partial T} = \frac{\partial S}{\partial J_i}
+    \end{equation*}
+\end{prop}
+
+
+\subsection{Grand Potential}
+
+Finally, we use $\partial_{N_j}U = \mu_j$ to replace $\vec{N}$ by $\vec{\mu}$ through a Legendre transformation, while also replacing $S$ by $T$. 
+\begin{defn}
+    The \Emph{grand potential} is defined by \begin{equation*}
+        \mathcal{G}(T,\vec{q},\vec{\mu}) = U - TS - \sum_{j=1}^{\alpha}N_j\mu_j
+    \end{equation*}
+    with the exact differential \begin{equation*}
+        d\mathcal{G} = -SdT + \sum_{i=1}^mJ_idq_i - \sum_{j=1}^{\alpha}N_jd\mu_j
+    \end{equation*}
+    \begin{align*}
+        S &= -\left(\frac{\partial \mathcal{G}}{\partial T}\right)_{\vec{q},\vec{\mu}} \\
+        J_i &= \left(\frac{\partial \mathcal{G}}{\partial q_i}\right)_{T,q_{j\neq i},\vec{\mu}} \\
+        N_j &=  \left(\frac{\partial \mathcal{G}}{\partial \mu_j}\right)_{T,\vec{q},\mu_{i\neq j}} 
+    \end{align*}
+\end{defn}
+
+Thus, the grand potential is also a thermodynamic potential. We also obtain the Maxwell relations:
+
+
+\begin{prop}
+    Using the mixed partials of the Gibbs free energy we have \begin{equation*}
+        \frac{\partial^2\mathcal{G}}{\partial T\partial q_i} = \frac{\partial^2\mathcal{G}}{\partial q_i\partial T}\iff \frac{\partial J_i}{\partial T} = -\frac{\partial S}{\partial q_i}
+    \end{equation*}
+\end{prop}
+
+\subsection{Example: Surface Tension of a Liquid}
+
+Consider the situation where the surface area of a liquid is increased from $A$ to $A+dA$ at fixed volume $V$. The associated work due to surface tension $\sigma$ is given by $\delta W_A = \sigma dA$. Experimentally, it has been established that $\sigma = \sigma(T) = \alpha(1-T/T_c)$ with $\alpha > 0$ for $T < T_c$.
+
+Based on the 1st law we have \begin{equation*}
+    dU = \delta Q + \delta W = \delta Q + \delta W_V + \delta W_A = TdS - pdV + \sigma dA
+\end{equation*}
+for reversible processes. Thus, $U = U(S,V,A)$.
+
+\begin{qst}
+    How does the temperature change if $A$ changes?
+\end{qst}
+
+To answer this we find $\frac{\partial T}{\partial A}$, which corresponds to an adiabatic ($\delta Q = 0 \iff dS = 0$) and isochoric ($dV = 0$) reversible process. Looking at the expression for $U$ we can use a Maxwell relation \begin{equation*}
+    \frac{\partial T}{\partial A} = \frac{\partial \sigma}{\partial S} = \frac{\partial \sigma}{\partial T}\frac{\partial T}{\partial S} = \frac{d\sigma}{dT}\left(\frac{\partial S}{\partial T}\right)^{-1}
+\end{equation*}
+where we have used the chain rule together with the fact that $\sigma = \sigma(T)$. From the experimental form of $\sigma$ above we have $\frac{d\sigma}{dT} = -\frac{\alpha}{T_c}$. From the expression for the internal energy $dU = TdS - pdV + \sigma dA$ we have \begin{align*}
+    dS &= \frac{1}{T}(dU+pdV-\sigma dA) = \frac{1}{T}\left[\frac{\partial U}{\partial T}dT + \frac{\partial U}{\partial V}dV + \frac{\partial U}{\partial A}dA + pdV - \sigma dA\right] \\
+    &= \frac{1}{T}\left[\frac{\partial U}{\partial T}dT + \left(\frac{\partial U}{\partial V}+p\right)dV + \left(\frac{\partial U}{\partial A}-\sigma\right)dA\right] 
+\end{align*}
+Hence, we can read off \begin{equation*}
+    \frac{\partial S}{\partial T} = \frac{1}{T}\frac{\partial U}{\partial T} = \frac{1}{T}C_{V,A}
+\end{equation*}
+Combining all of the above we get \begin{equation*}
+    \frac{\partial T}{\partial A} = \frac{d\sigma}{dT} \frac{T}{C_{V,A}} = \frac{-\alpha T}{C_{V,A}T_c} < 0
+\end{equation*}
+Thus, the temperature decreases with increasing surface area. Provided $C_{V,A} = const$, we find that $T = T_0\exp\left\{-\gamma(A-A_0)\right\}$ with $\gamma \equiv \frac{\alpha}{C_{V,A}T_c} > 0$.
+
+\begin{qst}
+    How does the entropy change if $A$ changes?
+\end{qst}
+
+To ensure we don't have overlapping changes with other types of work, we need $V = const$ and since $\sigma = \sigma(T)$ we need $T = const$ to avoid having some changes in $S$ arising from changes in $\sigma$. So we need to find $\left(\frac{\partial S}{\partial A}\right)_{T,V}$. Since we are considering the thermodynamic coordinates $A,T,V$ we need to consider the Helmholtz free energy. Using $dU = TdS - pdV +\sigma dA$ we find \begin{equation*}
+    dF = d(U-TS) = -SdT-pdV+\sigma dA
+\end{equation*}
+Then we can read off the Maxwell relation \begin{equation*}
+    \frac{\partial S}{\partial A} = -\frac{\partial \sigma}{\partial T} = \frac{\alpha}{T_c} > 0
+\end{equation*}
+using the experimental expression for $\sigma$. Thus, for constant temperature and volume the thermodynamic entropy increases linearly with $A$.
+
+\begin{qst}
+    How does the internal energy change if $A$ changes for an isothermal and isochoric reversible process?
+\end{qst}
+
+We need to find $\left(\frac{\partial U}{\partial A}\right)_{T,V}$. From the expression for the internal energy we have that \begin{equation*}
+    \left(\frac{\partial U}{\partial A}\right)_{T,V} = T\left(\frac{\partial S}{\partial A}\right)_{T,V} + \sigma = \alpha\frac{T}{T_c} + \alpha(1-T/T_c) = \alpha > 0 
+\end{equation*}
+where we have used the result of the previous question and the given expression for $\sigma$. Thus, again we have a linear increase.
+
+\begin{qst}
+    How much heat is necessary to change the surface area from $A_1$ to $A_2$ for an isothermal and isochoric reversible process?
+\end{qst}
+For a reversible process we have that $\delta Q = TdS$. For an isothermal process we only need to investigate the changes in entropy. Specifically, we need to find $S(T,A,V)$. We start with the Helmholtz free energy: \begin{equation*}
+    dF = -SdT -pdV + \sigma dA
+\end{equation*}
+Specifically, we can see that \begin{equation*}
+    \frac{\partial F}{\partial A} = \sigma = \sigma(T)
+\end{equation*}
+Integrating this expression gives \begin{equation*}
+    F(T,V,A) = \sigma(T)A+F_V(T,V)
+\end{equation*}
+such that the Helmholtz free energy is the sum of a surface term $F_A(T,V) \equiv \sigma(T)A$, and a volume term $F_V(T,V)$. Using this expression we can obtain $S$: \begin{equation*}
+    S = -\frac{\partial F}{\partial T} = -\frac{\partial F_A}{\partial T} - \frac{\partial F_V}{\partial T} = -A\frac{d\sigma}{dT} - \frac{\partial F_V}{\partial T}
+\end{equation*}
+Note only the first term depends on $A$, and the second term only depends on $V$ and $T$ which we are holding cosntant. Then, we have \begin{align*}
+    \Delta Q &= T(S(T,V,A_2) - S(T,V,A_1)) = -T\left[\frac{\partial F_A}{\partial T}(T,A_2) - \frac{\partial F_A}{\partial T}(T,A_1)\right] \\
+    &= -T\left(A_2\frac{d\sigma}{dT} - A_1\frac{d\sigma}{dT}\right) = \alpha\frac{T}{T_c}\left(A_2 - A_1\right)
+\end{align*}
+using the given expression for $\sigma$.
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.4.2
+\section{Approach to Equilibrium and Equilibrium Conditions}
+
+
+We aim to show that each thermodynamic potential takes on an extermal value in equilibrium in situations where their natural variables are held constant. This is a consequence of the 2nd law.
+
+\subsection{Isolated System}
+
+In this case we have $dU = 0$, $dq_i = 0$, and $dN_j = 0$, which implies that $\delta Q = 0$ based on the first law. It follows that $dS \geq \frac{\delta Q}{T} = 0$ and $dS = 0$ in equilibrium. Thus, entropy is maximal in equilibrium, given by $S = S(U,\vec{q},\vec{N})$.
+
+Now, let us consider a gas with a single particle type in a container that is subdivided into two compartments:
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Shape: Rectangle [id:dp8945252446537386] 
+\draw   (140,80) -- (400,80) -- (400,200) -- (140,200) -- cycle ;
+%Straight Lines [id:da19676236442724315] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (270,80) -- (270,200) ;
+%Straight Lines [id:da5279386372303521] 
+\draw    (270,50) -- (270,78) ;
+\draw [shift={(270,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (171,131.4) node [anchor=north west][inner sep=0.75pt]    {$U_{1} ,V_{1} ,N_{1}$};
+% Text Node
+\draw (301,132.4) node [anchor=north west][inner sep=0.75pt]    {$U_{2} ,V_{2} ,N_{2}$};
+% Text Node
+\draw (226,32) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont permeable wall}};
+
+
+\end{tikzpicture}
+\end{center}
+Since we are dealing with an isolated system we have $U \equiv U_1+U_2 = const, V \equiv V_1+V_2 = const, N \equiv N_1+N_2 = const, S \equiv S_1(U_1,V_1,N_1)+S_2(U_2,V_2,N_2)$ such that different changes need to compensate, i.e., $dU_1 = -dU_2, dV_1 = -dV_2, dN_1 = -dN_2$. In equilibrium we also have \begin{align*}
+    0 &= dS = dS_1+dS_2 \\
+    &= \left[\frac{\partial S_1}{\partial U_1}-\frac{\partial S_2}{\partial U_2}\right]dU_1+\left[\frac{\partial S_1}{\partial V_1} - \frac{\partial S_2}{\partial V_2}\right]dV_1 + \left[\frac{\partial S_1}{\partial N_1} - \frac{\partial S_2}{\partial N_2}\right]dN_1 \\
+    &= \left(\frac{1}{T_1} - \frac{1}{T_2}\right)dU_1 + \left(\frac{p_1}{T_1} - \frac{p_2}{T_2}\right)dV_1 - \left(\frac{\mu_1}{T_1} - \frac{\mu_2}{T_2}\right)dN_1
+\end{align*}
+For this expression to be true, all prefactors of the infinitesimal changes need to vanish since $U_1$, $V_1$, and $N_1$ are independent variables. Thus, we obtain that \begin{equation*}
+    T_1 = T_2,\;\;\;p_1 = p_2,\;\;\;\mu_1 = \mu_2,
+\end{equation*}
+meaning that temperature, pressure, and chemical potential are identical in both compartments in equilibrium. Inductively continuing this process of splitting the compartments into smaller parts, and repeating the argument, we find that in an isolated system in equilibrium, temperature, pressure, and chemical potential are the same everywhere.
+
+\subsection{Isolated System Coupled to a Heat Bath}
+
+In this case, we have $dT = 0, dq_i = 0,$ and $dN_j = 0$, which corresponds to the natural variables of the Helmholtz free energy. Note that the heat bath is assumed to be sufficiently large such that its temperature fully controls the temperature of the system of interest. Starting from the second law and using the 1st law for this case we have \begin{equation*}
+    TdS \geq \delta Q = dU - \sum_{i=1}^mJ_idq_i - \sum_{j=1}^{\alpha}\mu_jdN_j = dU,
+\end{equation*}
+SInce we also have $dT = 0$, we can rewrite this inequality as \begin{equation*}
+    d(TS) = TdS \geq dU \iff d(U-TS) \leq 0 \iff dF \leq 0
+\end{equation*}
+Hence, for all irreversible processes under the condition that $T = const, \vec{q} = const, \vec{N} = const$, the Helmholtz free energy decreases. In equilibrium $dF = 0$ and $F$ is minimal.
+
+Using a similar line of argument as the last case, we can show that pressure and chemical potential are everywhere the same in equilibrium in this case.
+
+\subsection{Isolated System Coupled to a Heat Bath and Exchanging Work with Constant External Forces}
+
+In this case we have $dT = 0, dJ_i = 0,$ and $dN_j = 0$, which corresponds to the natural variables of the Gibbs free energy. Starting from the second law and then using the 1st we have \begin{equation*}
+    d(TS) = TdS \geq \delta Q = dU - \sum_{i=1}^mJ_idq_i - \sum_{j=1}^{\alpha}\mu_jdN_j = dU - d\left(\sum_{i=1}^mJ_iq_i\right)
+\end{equation*}
+Rewriting this expression we obtain \begin{equation*}
+    dG = d\left(U - \sum_{i=1}^mJ_iq_i - TS\right) \leq 0
+\end{equation*}
+Hence, for all irreversible processes under the condition that $T = const, \vec{J} = const, \vec{N} = const$, the Gibbs free energy decreases. In equilibrium, $dG = 0$ and $G$ is minimal.
+
+Again we can show that the chemical potential is everywhere the same in equilibrium in this case.
+
+\subsection{Closed System Exchanging Work with Constant External Forces and Heat at Constant Entropy}
+
+In this case we have $dS = 0, dJ_i = 0$ and $dN_j = 0$, which corresponds to the natural variables of the enthalpy. Starting from the 2nd law and then using the 1st law we have \begin{equation*}
+    0 = TdS \leq \delta Q = dU - \sum_{i=1}^mJ_idq_i - \sum_{j=1}^{\alpha}\mu_jdN_j = d\left(U-\sum_{i=1}^mJ_iq_i\right) = d\mathcal{H}
+\end{equation*}
+Hence, for all irreversible processes under the condition that $S = const, \vec{J} = const, \vec{N} = const$, the enthalpy decreases. In equilibrium $d\mathcal{H} = 0$ and $\mathcal{H}$ is minimal.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.4.3
+\section{The Third Law of Thermodynamics}
+
+Recall our definition of thermodynamic entropy is only specified up to an additive constant. Empirical observations indicate that this constant is indeed constrained.
+
+\begin{law}[Third Law of Thermodynamics (Nernst)]
+    The entropy of all systems at absolute zero temperature is a universal constant that can be taken to be $0$, independent of the specific choice and value of the other state variables, for example $\lim\limits_{T\rightarrow 0}S(T,\vec{q},\vec{N}) = 0$ and $\lim\limits_{T\rightarrow 0}S(T,\vec{J},\vec{N}) = 0$.
+\end{law}
+
+There are a number of consequences to this formulation of the third law:
+
+\begin{cor}
+    All partial derivatives of the entropy with respect to any thermodynamic coordinate other than $T$ vanish at zero temperature.
+\end{cor}
+\begin{proof}
+    Since $S(T=0,\vec{X}) = 0$, $\lim\limits_{T\rightarrow 0}\frac{\partial S}{\partial \vec{X}}\Bigg\rvert_T = 0$ for all thermodynamic coordinates $\vec{X}$.
+\end{proof}
+
+\begin{cor}
+    All heat capacities vanish at zero temperature.
+\end{cor}
+\begin{proof}
+    $C_{\vec{X}} = \left(\frac{\delta Q}{dT}\right)_{\vec{X}} = \left(T\frac{\partial S}{\partial T}\right)_{\vec{X}}$ implies that $$S(T,\vec{X}) - S(0,\vec{X}) = \int_0^TdT'\frac{C_{\vec{X}}(T')}{T'} + f(\vec{X})$$ Due to the third law, $S(0,\vec{X}) = 0$ and due to the first consequence above $f(\vec{X}) = 0$. To ensure that $S(T,\vec{X})$ is finite, the integral needs to be finite, which requires that $\lim\limits_{T\rightarrow 0}C_{\vec{X}}(T) = 0$.
+\end{proof}
+
+\begin{cor}
+    All thermal expansitivities vanish at zero temperature.
+\end{cor}
+\begin{proof}
+    $\beta_J \equiv \frac{1}{q}\frac{\partial q}{\partial T}\Bigg\rvert_{J} = \frac{1}{q}\frac{\partial S}{\partial J}\Bigg\rvert_T$, where we have used a Maxwell relation to obtain the last equality. Given the first consequence above, this implies that $\lim\limits_{T\rightarrow 0}\beta_J = 0$.
+\end{proof}
+
+\begin{cor}
+    It is impossible to cool any system to absolute zero temperature.
+\end{cor}
+
+We explore an example since the general proof is beyond the scope of this course. Consider the situation when we cool a gas by alternating between an adiabatic reduction in pressure ($dS = 0$) and an isothermal compression ($dT = 0$). As the sketch shows, it would require infinitely many steps to cool the system to aboslue zero.
+
+\begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Axis 2D [id:dp5039424026544654] 
+\draw  (50,268.5) -- (320,268.5)(77,75) -- (77,290) (313,263.5) -- (320,268.5) -- (313,273.5) (72,82) -- (77,75) -- (82,82)  ;
+%Curve Lines [id:da6073591797218043] 
+\draw    (77,268.5) .. controls (152.57,260.58) and (280.74,142.89) .. (299.47,91.54) ;
+\draw [shift={(300,90)}, rotate = 468.26] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da5054543072909845] 
+\draw    (77,268.5) .. controls (155.54,267.51) and (351.37,205.75) .. (388.91,171.04) ;
+\draw [shift={(390,170)}, rotate = 495.14] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8065266451670814] 
+\draw    (400,140) -- (269,140) ;
+\draw [shift={(267,140)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da09778382680957276] 
+\draw    (267,140) -- (267,224) ;
+\draw [shift={(267,226)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9873396589141186] 
+\draw    (267,226) -- (172,226.98) ;
+\draw [shift={(170,227)}, rotate = 359.40999999999997] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da09559421901170295] 
+\draw    (170,227) -- (170,252) ;
+\draw [shift={(170,254)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3352272051208962] 
+\draw    (170,254) -- (126,254) ;
+\draw [shift={(124,254)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6899520073196863] 
+\draw    (124,254) -- (124,261) ;
+\draw [shift={(124,263)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da8555888912055112] 
+\draw    (179,150) .. controls (179,194.98) and (221.3,183.63) .. (265,184.04) ;
+\draw [shift={(267,184.07)}, rotate = 181.03] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (327,262.4) node [anchor=north west][inner sep=0.75pt]    {$T$};
+% Text Node
+\draw (61,62.4) node [anchor=north west][inner sep=0.75pt]    {$S$};
+% Text Node
+\draw (298,72.4) node [anchor=north west][inner sep=0.75pt]    {$P_{ >}$};
+% Text Node
+\draw (391,160.4) node [anchor=north west][inner sep=0.75pt]    {$P_{< }$};
+% Text Node
+\draw (103.22,266.39) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,rotate=-306.87]  {$\ddots $};
+% Text Node
+\draw (123,123.4) node [anchor=north west][inner sep=0.75pt]    {$\underbrace{\delta Q=T\Delta S< 0}$};
+
+
+\end{tikzpicture}    
+\end{center}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 2
@@ -792,9 +2592,458 @@ This is not to be confused with an adiabatic process in which there is no heat t
 %%%%%%%%%%%%%%%%%%%%%% Chapter 3.1
 \chapter{Characteristics of Probability Theory}
 
+%%%%%%%%%%%%%%%%%%%% Section 3.1.1
+\section{Measure Theory}
+
+We first formalize the notion of a probability space:
+
+\begin{defn}
+    A \Emph{probability space} $(\Omega, \mathcal{F}, P)$ is a \Emph{measure space} with a measure $P$ that satisfies the probability axioms. Here, $\Omega$ is the non-empty set of all possible outcomes, $\mathcal{F}$ is the $\sigma$-algebra of subsets of $\Omega$, its elements are called events, and $P$ is a function from $\mathcal{F}$ to $\R$ that assigns to each event a probability between $0$ and $1$.
+
+    The probability axioms are (Kolmogorov):
+    \begin{enumerate}
+        \item $P(E) \geq 0$ for all $E \in \mathcal{F}$ (positivity)
+        \item $P(\Omega) = 1$ (normalization)
+        \item $P(E_1\cup E_2) = P(E_1) + P(E_2) - P(E_1\cap E_2)$ for all $E_1,E_2 \in \mathcal{F}$ (additivity), so $P(E_1\cup E_2) = P(E_1)+P(E_2)$ if $E_1\cap E_2 = \emptyset$.
+    \end{enumerate}
+\end{defn}
+
+To deconstruct this formal definition we pursue certain measure theoretic terms:
+
+\begin{defn}
+    A class of sets $\mathcal{A} \subseteq 2^{\Omega}$, for $\Omega \neq \emptyset$ a nonempty set, is called \begin{itemize}
+        \item $\bigcap$-closed (closed under intersections) or a \Emph{$\pi$-system} if $A\cap B \in \mathcal{A}$ whenever $A,B \in \mathcal{A}$
+        \item $\sigma-\bigcap$-closed (closed under countable intersections) if $\bigcap_{n=1}^{\infty}A_n\in \mathcal{A}$ for any countable collection $\{A_n\}_{n=1}^{\infty}\subseteq \mathcal{A}$
+        \item $\bigcup$-closed (closed under unions) if $A\cup B \in \mathcal{A}$ whenever $A,B \in \mathcal{A}$.
+        \item $\sigma-\bigcup$-closed (closed under countable unions) if $\bigcup_{n=1}^{\infty}A_n\in \mathcal{A}$ for any countable collection $\{A_n\}_{n=1}^{\infty}\subseteq \mathcal{A}$
+        \item $\backslash$-closed (closed under differences) if $A\backslash B\in \mathcal{A}$ whenever $A,B \in \mathcal{A}$
+        \item closed under complements if $A^c:= \Omega\backslash A \in \mathcal{A}$ for any set $A \in \mathcal{A}$.
+    \end{itemize}
+\end{defn}
+
+\begin{defn}[$\sigma$-algebra]
+    A class of sets $\mathcal{A} \subseteq 2^{\Omega}$ is called a \Emph{$\sigma$-algebra} if it fulfills the following three conditions: \begin{itemize}
+        \item[(i)] $\Omega \in \mathcal{A}$
+        \item[(ii)] $\mathcal{A}$ is closed under complements
+        \item[(iii)] $\mathcal{A}$ is closed under countable unions
+    \end{itemize}
+\end{defn}
+
+$\sigma$-algebras are the natural classes of sets to be considered as events in probability theory.
+
+\begin{defn}
+    A class of sets $\mathcal{A} \subseteq 2^{\Omega}$ is called an \Emph{algebra} if the following three conditions are fulfilled: \begin{itemize}
+        \item[(i)] $\Omega \in \mathcal{A}$ 
+        \item[(ii)] $\mathcal{A}$ is $\backslash$-closed
+        \item[(iii)] $\mathcal{A}$ is $\bigcup$-closed
+    \end{itemize}
+\end{defn}
+
+\begin{defn}
+    A class of sets $\mathcal{A} \subseteq 2^{\Omega}$ is called a \Emph{ring} if the following three conditions hold:  \begin{itemize}
+        \item[(i)] $\emptyset \in \mathcal{A}$ 
+        \item[(ii)] $\mathcal{A}$ is $\backslash$-closed
+        \item[(iii)] $\mathcal{A}$ is $\bigcup$-closed
+    \end{itemize}
+    If it is also $\sigma-\bigcup$-closed, then $\mathcal{A}$ is called a \Emph{$\sigma$-ring}.
+\end{defn}
+
+\begin{defn}
+    A class of sets $A\subseteq 2^{\Omega}$ is called a \Emph{semiring} if  \begin{itemize}
+        \item[(i)] $\emptyset \in \mathcal{A}$ 
+        \item[(ii)] for any two sets $A,B\in\mathcal{A}$ the difference $B\backslash A$ is a finite union of mutually disjoing sets in $\mathcal{A}$
+        \item[(iii)] $\mathcal{A}$ is $\bigcap$-closed
+    \end{itemize}
+\end{defn}
+
+\begin{defn}
+    A class of sets $\mathcal{A} \subseteq 2^{\Omega}$ is called a \Emph{$\lambda$-system} (or Dynkin's $\lambda$-system) if  \begin{itemize}
+        \item[(i)] $\Omega \in \mathcal{A}$ 
+        \item[(ii)] for any two sets $A,B\in\mathcal{A}$ with $A\subseteq B$, the difference $B\backslash A$ is in $\mathcal{A}$
+        \item[(iii)] $\bigsqcup_{n=1}^{\infty}A_n \in \mathcal{A}$ for any countable collection of pairwise disjoint sets $\{A_n\}_{n=1}^{\infty} \subseteq \mathcal{A}$
+    \end{itemize}
+\end{defn}
+
+\begin{thm}
+    \leavevmode
+    \begin{itemize}
+        \item[(i)] Every $\sigma$-algebra is a $\lambda$-system, an algebra, and a $\sigma$-ring
+        \item[(ii)] Every $\sigma$-ring is a ring, and every ring is a semiring
+        \item[(iii)] Every algebra is a ring. An algebra on a finite set $\Omega$ is a $\sigma$-algebra.
+    \end{itemize}
+\end{thm}
+
+\begin{defn}
+    Let $A_1,A_2,...$ be subsets of $\Omega$. The sets \begin{equation*}
+        \liminf_{n\rightarrow \infty}A_n := \bigcup_{n=1}^{\infty}\bigcap_{m=n}^{\infty}A_m\;\text{ and }\;\limsup_{n\rightarrow \infty}A_n := \bigcap_{n=1}^{\infty}\bigcup_{m=n}^{\infty}A_m
+    \end{equation*}
+    are called \Emph{limes inferior} and \Emph{limes superior}, respectively, of the sequence $(A_n)_{n\in\N}$.
+\end{defn}
+
+Equivalently these sets can be formulated as \begin{align*}
+    \liminf_{n\rightarrow\infty}A_n &= \{\omega \in \Omega: |\{n \in \N:\omega \notin A_n\}| < \infty\}
+    \limsup_{n\rightarrow \infty}A_n &= \{\omega \in \Omega: |\{n\in\N: \omega \in A_n\}| = \infty\}
+\end{align*}
+Thus, limes inferior is the event where eventually all of $A_n$ occur, while limes superior is the event where infinitely many of the $A_n$ occur.
+
+\begin{defn}
+    The \Emph{indicator function} on the set $A$ is defined by \begin{equation*}
+        \mathbb{1}_A(x) := \left\{\begin{array}{lc} 1, & \text{if } x \in A, \\ 0, & \text{if } x \notin A, \end{array}\right.
+    \end{equation*}
+\end{defn}
+
+\begin{thm}
+    Let $I$ be an arbitrary index set, and assume $\mathcal{A}_i$ is a $\sigma$-algebra for every $i \in I$. Hence the intersection \begin{equation*}
+        \mathcal{A}_I := \bigcap_{i\in I}\mathcal{A}_i
+    \end{equation*}
+    is a $\sigma$-algebra. The analogous statement holds for rings, $\sigma$-rings, algebras, and $\lambda$-systems.
+\end{thm}
+
+\begin{thm}
+    Let $\mathcal{E} \subseteq 2^{\Omega}$. Then there exists a smallest $\sigma$-algebra $\sigma(\mathcal{E})$ with $\mathcal{E} \subseteq \sigma(\mathcal{E})$: \begin{equation*}
+        \sigma(\mathcal{E}) := \bigcap_{\mathcal{E}\subseteq \mathcal{A}\subseteq 2^{\Omega}\text{ is a $\sigma$-algebra}}\mathcal{A}
+    \end{equation*}
+    $\sigma(\mathcal{E})$ is called the $\sigma$-algebra \Emph{generated by} $\mathcal{E}$. $\mathcal{E}$ is called a \Emph{generator} of $\sigma(\mathcal{E})$. Similarly, we define $\delta(\mathcal{E})$ as the $\lambda$-system generated by $\mathcal{E}$.
+\end{thm}
+
+\begin{thm}
+    Let $\mathcal{D}\subseteq 2^{\Omega}$ be a $\lambda$-system. Then \begin{equation*}
+        \mathcal{D}\text{ is a $\pi$-system } \iff \mathcal{D} \text{ is a $\sigma$-algebra}
+    \end{equation*}
+\end{thm}
+
+\begin{namthm}[Dynkin's $\pi-\lambda$ theorem]
+    If $\mathcal{E} \subseteq 2^{\Omega}$ is a $\pi$-system, then $\sigma(\mathcal{E}) = \delta(\mathcal{E})$.
+\end{namthm}
+
+We are often interested in $\sigma$-algebras generated by topologies. 
+
+\begin{defn}
+    Let $\Omega \neq \emptyset$ be an arbitrary set. A class of sets $\tau \subseteq \Omega$ is called a \Emph{topology} on $\Omega$ if it has the following three properties:  \begin{itemize}
+        \item[(i)] $\emptyset, \Omega \in \tau$ 
+        \item[(ii)] $A\cap B \in \tau$ for any $A,B\in \tau$
+        \item[(iii)] $\left(\bigcup_{A\in\mathcal{F}}A\right)\in\tau$ for any $\mathcal{F}\subseteq \tau$
+    \end{itemize}
+    The pair $(\Omega,\tau)$ is called a \Emph{topological space}. The sets $A \in \tau$ are called \Emph{open}, and the sets $A \subseteq \Omega$ with $A^c \in \tau$ are called \Emph{closed}.
+\end{defn}
+
+\begin{defn}[Borel $\sigma$-algebra]
+    Let $(\Omega,\tau)$ be a topological space. The $\sigma$-algebra \begin{equation*}
+        \mathcal{B}(\Omega) := \mathcal{B}(\Omega,\tau) := \sigma(\tau)
+    \end{equation*}
+    that is generated by the open sets is called the \Emph{Borel $\sigma$-algebra} on $\Omega$. The elements $A \in \mathcal{B}(\Omega,\tau)$ are called \Emph{Borel sets} or \Emph{Borel measurable sets}.
+\end{defn}
+
+\begin{defn}
+    Let $\mathcal{A} \subseteq 2^{\Omega}$ be an arbitrary class of subsets of $\Omega$ and let $A \in 2^{\Omega}\backslash\{\emptyset\}$. The class \begin{equation*}
+        \mathcal{A}\vert_A := \{A\cap B:B \in \mathcal{A}\}\subseteq 2^A
+    \end{equation*}
+    is called the \Emph{trace} of $\mathcal{A}$ on $A$ or the \Emph{restriction} of $\mathcal{A}$ to $A$.
+\end{defn}
+
+
+\subsection{Set Functions}
+
+\begin{defn}
+    Let $\mathcal{A} \subseteq 2^{\Omega}$ and let $\mu:\mathcal{A}\rightarrow [0,\infty]$ be a set function. We say that $\mu$ is \begin{itemize}
+        \item[(i)] \Emph{monotone} if $\mu(A) \leq \mu(B)$ for any two sets $A,B\in\mathcal{A}$ with $A\subseteq B$,
+        \item[(ii)] \Emph{additive} if $\mu\left(\bigsqcup_{i=1}^nA_i\right) = \sum_{i=1}^n\mu(A_i)$ for any choice of finitely many mutually disjoint sets $A_1,...,A_n \in \mathcal{A}$ with $\bigsqcup_{i=1}^nA_i \in \mathcal{A}$
+        \item[(iii)] \Emph{$\sigma$-additive} if $\mu\left(\bigsqcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\mu(A_i)$ for any choice of countably many mutually disjoint sets $A_1,A_2,... \in \mathcal{A}$ with $\bigsqcup_{i=1}^{\infty}A_i \in \mathcal{A}$
+        \item[(iv)] \Emph{subadditive} if for any choice of finitely many sets $A,A_1,...,A_n \in \mathcal{A}$ with $A \subseteq \bigcup_{i=1}^mA_i$, we have $\mu(A) \leq \sum_{i=1}^n\mu(A_i)$, 
+        \item[(v)] \Emph{$\sigma$-subadditive} if for any choice of countably many sets $A,A_1,A_2,... \in \mathcal{A}$ with $A \subseteq \bigcup_{i=1}^{\infty}A_i$, we have $\mu(A) \leq \sum_{i=1}^{\infty}\mu(A_i)$,
+    \end{itemize}
+\end{defn}
+
+
+\begin{defn}
+    Let $\mathcal{A}$ be a semiring and let $\mu:\mathcal{A}\rightarrow [0,\infty]$ be a set function with $\mu(\emptyset) = 0$. $\mu$ is called a \begin{itemize}
+        \item \Emph{content} if $\mu$ is additive,
+        \item \Emph{premeasure} if $\mu$ is $\sigma$-additive
+        \item \Emph{measure} if $\mu$ is a premeasure and $\mathcal{A}$ is a $\sigma$-algebra, 
+        \item \Emph{probability measure} if $\mu$ is a measure and $\mu(\Omega) = 1$
+    \end{itemize}
+\end{defn}
+
+\begin{defn}
+    Let $\mathcal{A}$ be a semiring. A content $\mu$ on $\mathcal{A}$ is called \begin{itemize}
+        \item[(i)] \Emph{finite} if $\mu(A) < \infty$ for every $A \in \mathcal{A}$
+        \item[(ii)] \Emph{$\sigma$-finite} if there exists a sequence of sets $\Omega_1,\Omega_2,... \in \mathcal{A}$ such that $\Omega = \bigcup_{n=1}^{\infty}\Omega_n$ and such that $\mu(\Omega_n) < \infty$ for all $n \in \N$.
+    \end{itemize}
+\end{defn}
+
+\begin{defn}
+    For any $\omega \in \Omega$, $\delta_{\omega}$ defined by $\delta_{\omega}(A) = \mathbb{1}_A(\omega)$ is a probability measure on any $\sigma$-algebra $\mathcal{A} \subseteq 2^{\Omega}$, and is called the \Emph{Dirac measure} for the point $\omega$.
+\end{defn}
+
+\begin{defn}
+    Let $\Omega$ be a finite nonempty set. The set function defined by \begin{equation*}
+        \mu(A) := \frac{|A|}{|\Omega|}
+    \end{equation*}
+    for all $A \subseteq \Omega$ defines a probability measure on $\mathcal{A} = 2^{\Omega}$. $\mu$ is called the \Emph{uniform distribution} on $\Omega$. The resulting triple $(\Omega,\mathcal{A},\mathcal{U}_{\Omega})$ is called a \Emph{Laplace space} where $\mathcal{U}_{\Omega} := \mu$.
+\end{defn}
+
+We remark that a countable linear combination of measures (resp. premeasures, contents) is once again a measure (resp. premeasure, content). 
+
+\begin{defn}
+    Let $\Omega$ be an at most countable nonempty set and let $\mathcal{A} = 2^{\Omega}$. Further, let $(p_{\omega})_{\omega \in \Omega}$ be nonnegative numbers. Then $A\mapsto \mu(A) := \sum_{\omega \in A}p_{\omega}$ defines a $\sigma$-finite measure on $2^{\Omega}$. We call $p = (p_{\omega})_{\omega \in \Omega}$ the \Emph{weight function} of $\mu$. The number $p_{\omega}$ is called the weight of $\mu$ at point $\omega$. If the sum over $\Omega$, $\sum_{\omega \in \Omega}p_{\omega}$, equals one, then $\mu$ is a probability measure, and we call the weight function, $p = (p_{\omega})_{\omega \in \Omega}$, a \Emph{probability vector}.
+\end{defn}
+
+\begin{lem}[Properties of Contents]
+    Let $\mathcal{A}$ be a semiring and let $\mu$ be a content on $\mathcal{A}$. Then the following statements hold: \begin{itemize}
+        \item[(i)] If $\mathcal{A}$ is a ring, then $\mu(A\cup B) + \mu(A\cap B) = \mu(A) + \mu(B)$ for any two sets $A,B \in \mathcal{A}$
+        \item[(ii)] $\mu$ is monotone. If $\mathcal{A}$ is a ring, then $\mu(B) = \mu(A) + \mu(B\backslash A)$ for any two sets $A,B \in \mathcal{A}$ with $A\subseteq B$.
+        \item[(iii)] $\mu$ is subadditive. If $\mu$ is $\sigma$-additive, then $\mu$ is also $\sigma$-subadditive.
+        \item[(iv)] If $\mathcal{A}$ is a ring, then $\sum_{n=1}^{\infty}\mu(A_n) \leq \mu\left(\bigsqcup_{n=1}^{\infty}A_n\right)$ for any choice of countably many mutually disjoint sets $A_1,A_2,... \in \mathcal{A}$ with $\bigsqcup_{n=1}^{\infty}A_n \in \mathcal{A}$
+    \end{itemize}
+\end{lem}
+
+
+\begin{thm}
+    Let $\mathcal{A}$ be a ring and let $\mu$ be a content on $\mathcal{A}$. Let $n \in \N$ and $A_1,...,A_n \in \mathcal{A}$. Then the following inclusion and exclusion formulas hold: \begin{align*}
+        \mu(A_1\cup....\cup A_n) &= \sum_{k=1}^n(-1)^{k-1}\sum_{\{i_1,..,i_k\}\subseteq \{1,...,n\}}\mu(A_{i_1}\cap...\cap A_{i_k}), \\
+        \mu(A_1\cap ...\cap A_n) &= \sum_{k=1}^n(-1)^{k-1}\sum_{\{i_1,...,i_k\}\subseteq \{1,...,n\}}\mu(A_{i_1}\cup...\cup A_{i_k})
+    \end{align*}
+    where the second summation is over all subsets of $\{1,...,n\}$ with $k$ elements.
+\end{thm}
+
+
+\begin{defn}
+    Let $A,A_1,A_2,...$ be sets. We write \begin{itemize}
+        \item $A_n\uparrow A$ and say that $(A_n)_{n\in \N}$ increases to $A$ if $A_1\subseteq A_2\subseteq ...$ and $\bigcup_{n=1}^{\infty}A_n = A$
+        \item $A_n\downarrow A$ and say $(A_n)_{n\in \N}$ decreases to $A$ if $A_1\supseteq A_2\supseteq ...$ and $\bigcap_{n=1}^{\infty}A_n = A$
+    \end{itemize}
+\end{defn}
+
+\begin{defn}[Continuity of Contents]
+    Let $\mu$ be a content on the ring $\mathcal{A}$. \begin{itemize}
+        \item[(i)] $\mu$ is called \Emph{lower semicontinuous} if $\mu(A_n)\xrightarrow[n\rightarrow \infty]\mu(A)$ for any $A \in \mathcal{A}$ and any sequence $(A_n)_{n\in \N}$ in $\mathcal{A}$ with $A_n\uparrow A$
+        \item[(ii)] $\mu$ is called \Emph{upper semicontinuous} if $\mu(A_n)\xrightarrow[n\rightarrow \infty]\mu(A)$ for any $A \in \mathcal{A}$ and any sequence $(A_n)_{n \in \N}$ in $\mathcal{A}$ with $\mu(A_n) < \infty$ for some (and then eventually all) $n \in \N$ and $A_n \downarrow A$.
+        \item[(iii)] $\mu$ is called \Emph{$\emptyset$-continuous} if (ii) holds for $A = \emptyset$.
+    \end{itemize}
+\end{defn}
+
+\begin{thm}[Continuity and Premeasure]
+    Let $\mu$ be a content on the ring $\mathcal{A}$. Consider the following properties: \begin{itemize}
+        \item $\mu$ is $\sigma$-additive
+        \item $\mu$ is $\sigma$-subadditive
+        \item $\mu$ is lower semicontinuous 
+        \item $\mu$ is $\emptyset$-continuous 
+        \item $\mu$ is upper semicontinuous
+    \end{itemize}
+    Then the following implications hold: \begin{equation*}
+        (i) \iff (ii) \iff (iii) \implies (iv) \iff (v)
+    \end{equation*}
+    If $\mu$ is finite, then we also have $(iv) \implies (iii)$.
+\end{thm}
+
+\begin{defn}
+    \leavevmode
+    \begin{itemize}
+        \item A pair $(\Omega,\mathcal{A})$ consisting of a nonempty set $\Omega$ and a $\sigma$-algebra $\mathcal{A}\subseteq 2^{\Omega}$ is called a \Emph{measurable space}. The sets $A \in \mathcal{A}$ are called \Emph{measurable sets}. If $\Omega$ is at most countably infinite and if $A = 2^{\Omega}$, then the measurable space $(\Omega,2^{\Omega})$ is called \Emph{discrete}.
+        \item A triple $(\Omega,\mathcal{A},\mu)$ is called a \Emph{measure space} if $(\Omega,\mathcal{A})$ is a measurable space and if $\mu$ is a measure on $\mathcal{A}$.
+        \item If in addition $\mu(\Omega) = 1$, then $(\Omega,\mathcal{A},\mu)$ is called a \Emph{probability space}. In this case, the sets $A \in \mathcal{A}$ are called \Emph{events}.
+        \item The set of all finite measures on $(\Omega,\mathcal{A})$ is denoted $\mathcal{M}_f(\Omega) := \mathcal{M}_f(\Omega,\mathcal{A})$. The subset of probability measures is denoted by $\mathcal{M}_1(\Omega) := \mathcal{M}_1(\Omega, \mathcal{A})$. Finally, the set of $\sigma$-finite measures on $(\Omega,\mathcal{A})$ is denoted by $M_{\sigma}(\Omega,\mathcal{A})$.
+    \end{itemize}
+\end{defn}
+
+
+\subsection{The Measure Extension Theorem}
+
+\subsection{Measurable Maps}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.2
+\section{Random variables}
+
+We wish to model one or more random experiments as a probability space $(\Omega,\mathcal{A},\mathbf{P})$. The sets $A \in \mathcal{A}$ are called \Emph{events}. Random observations, or variables, are measurable maps. The probabilities of the possible random observations are described in terms of the distribution of the corresponding random variable, which is the image measure of $\mathbf{P}$ inder $X$.
+
+\begin{defn}[Random Variables]
+    Let $(\Omega',\mathcal{A}')$ be a measurable space and let $X:\Omega\rightarrow \Omega'$ be measurable. \begin{itemize}
+        \item[(i)] $X$ is called a \Emph{random variable} with values in $(\Omega',\mathcal{A}')$. If $(\Omega',\mathcal{A}') = (\R,\mathcal{B}(\R))$, then $X$ is called a real random variable or simply a random variable.
+        \item[(ii)] For $A' \in \mathcal{A}'$, we denote $\{X \in A'\} := X^{-1}(A')$ and $\mathbf{P}[X\in A'] := \mathbf{P}[X^{-1}(A')]$. In particular, we let $\{X\geq 0\} := X^{-1}([0,\infty))$ and define $\{X\leq b\}$ similarly, and so on.
+    \end{itemize}
+\end{defn}
+
+\begin{defn}[Distributions]
+    Let $X$ be a random variable. \begin{itemize}
+        \item[(i)] The probability measure $\mathbf{P}_X := \mathbf{P}\circ X^{-1}$ is called the \Emph{distribution} of $X$.
+        \item[(ii)] For a real random variable $X$, the map $F_X:x\mapsto \mathbf{P}[X\leq x]$ is called the \Emph{distribution function of $X$} (or, more accurately, of $\mathbf{P}_X$). We write $X\sim \mu$ if $\mu = \mathbf{P}_X$ and say that $X$ has distribution $\mu$.
+        \item[(iii)] A family $(X_i)_{i \in I}$ of random variables is called \Emph{identically distributed} if $\mathbf{P}_{X_i} = \mathbf{P}_{X_j}$ for all $i,j \in I$. We write $X =^{\mathcal{D}} Y$ if $\mathbf{P}_X = \mathbf{P}_Y$ ($\mathcal{D}$ for distribution)
+    \end{itemize}
+\end{defn}
+
+\begin{thm}
+    For any distribution function $F$, there exists a real random variable $X$ with $F_X = F$.
+\end{thm}
+
+We now present prominent distributions of real random variables, before going into the specifics for thermodynamics:
+
+\begin{eg}
+    \leavevmode
+    \begin{enumerate}[label=\roman*]
+        \item Let $p \in [0,1]$ and let $\mathbf{P}[X=1] = p,\mathbf{P}[X=0] = 1-p$. Then $\mathbf{P}_X =: \text{Ber}_p$ is called the \Emph{Bernoulli distribution} with parameter $p$; formally, \begin{equation*}
+                \text{Ber}_p = (1-p)\delta_0+p\delta_1
+        \end{equation*}
+            Its distribution function is \begin{equation*}
+                F_X(x) = \left\{\begin{array}{cc} 0, & \text{if } x < 0, \\ 1-p, & \text{if } x \in [0,1) \\ 1, & \text{if } x \geq \end{array}\right.
+            \end{equation*}
+        \item Let $p \in [0,1]$ and $n \in \N$, and let $X:\Omega\rightarrow \{0,...,n\}$ be such that \begin{equation*}
+                \mathbf{P}[X=k] = \begin{pmatrix} n \\ k \end{pmatrix} p^k(1-p)^{n-k}
+        \end{equation*}
+            Then $\mathbf{P}_X =: b_{n,p}$ is called the \Emph{binomial distribution} with parameters $n$ and $p$; formally \begin{equation*}
+                b_{n,p} = \sum_{k=0}^n\begin{pmatrix} n\\ k\end{pmatrix}p^k(1-p)^{n-k}\delta_k
+            \end{equation*}
+        \item Let $p \in (0,1]$ and $X:\Omega\rightarrow \N_0$ with \begin{equation*}
+                \mathbf{P}[X=n] = p(1-p)^n\;\text{ for any } n \in \N_0
+        \end{equation*}
+            Then $\gamma_p := b^-_{1,p} := \mathbf{P}_X$ is called the \Emph{geometric distribution} with parameter $p$; formally \begin{equation*}
+                \gamma_p = \sum_{n=0}^{\infty}p(1-p)^n\delta_n
+            \end{equation*}
+            Its distribution function is $F(x) = 1-(1-p)^{\lfloor x+1\rfloor\lor0}$ for $x \in \R$.
+        \item Let $r > 0$ and let $p \in (0,1]$. We denote \begin{equation*}
+                b^-_{r,p} := \sum_{k=0}^{\infty}\begin{pmatrix} -r \\ k\end{pmatrix}(-1)^kp^r(1-p)^k\delta_k
+        \end{equation*}
+            the \Emph{negative binomial distribution} with parameters $r$ and $p$, and where $\begin{pmatrix} x\\ k\end{pmatrix} = \frac{x(x-1)...(x-k+1)}{k!}$ is the generalized binomial coefficient.
+            \item Let $\lambda \in [0,\infty)$ and let $X:\Omega\rightarrow \N_0$ be such that \begin{equation*}
+                    \mathbf{P}[X = n] = e^{-\lambda}\frac{\lambda^n}{n!}\;\text{ for any } n \in \N_0
+            \end{equation*}
+            Then $\mathbf{P}_X =: \text{Poi}_{\lambda}$ is the \Emph{Poisson distribution} with parameter $\lambda$.
+        \item Consider an urn with $B \in \N$ black balls and $W \in \N$ white balls. Draw $n \in \N$ balls from the urn without replacement. The probability of drawing exactly $b \in \{0,...,n\}$ black balls is given by the \Emph{hypergeometric distribution} with parameters $B,W,n \in \N$: \begin{equation*}
+                \text{Hyp}_{B,W;n}(\{b\}) = \frac{\begin{pmatrix} B \\ b\end{pmatrix}\begin{pmatrix} W\\ n-b\end{pmatrix}}{\begin{pmatrix} B+W \\ n\end{pmatrix}},\;b\in\{0,...,n\}
+        \end{equation*}
+            Generally, the probability of drawing out of $n$ balls exactly $b_i$ of which of colour $i$ for each $i = 1,...,k$, with the restriction $b_1+...+b_k = n$ and $b_i \leq B_i$ for all $i$, is given by the \Emph{generalized hypergeometric distribution} \begin{equation*}
+                \text{Hyp}_{B_1,...,B_k;n}(\{(b_1,...,b_k)\}) = \frac{\begin{pmatrix} B_1 \\ b_1\end{pmatrix}...\begin{pmatrix} B_k\\ b_k\end{pmatrix}}{\begin{pmatrix} B_1+...+B_k \\ n\end{pmatrix}},
+            \end{equation*}
+        \item Let $\mu \in \R$, $\sigma^2 > 0$ and let $X$ be a real random variable with \begin{equation*}
+                \mathbf{P}[X\leq x] = \frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^xe^{-\frac{(t-\mu)^2}{2\sigma^2}}dt\;\text{ for } x \in \R
+        \end{equation*}
+            Then $\mathbf{P}_X =: \mathcal{N}_{\mu,\sigma^2}$ is called the \Emph{Gaussian normal distribution} with parameters $\mu$ and $\sigma^2$. In particular, $\mathcal{N}_{0,1}$ is called the standard normal distribution.
+        \item Let $\theta > 0$ and let $X $ be a nonnegative random variable such that \begin{equation*}
+                \mathbf{P}[X\leq x] = \mathbf{P}[X \in [0,x]] = \int_0^x\theta e^{-\theta t}dt\;\text{ for } x \geq 0
+        \end{equation*}
+            Then $\mathbf{P}_X$ is called the \Emph{exponential distribution} with parameter $\theta$.
+    \end{enumerate}
+\end{eg}
+
+\begin{defn}
+    If the distribution function $F:\R^n\rightarrow [0,1]$ is of the form \begin{equation*}
+        F(x) = \int_{-\infty}^{x_1}dt_1...\int_{-\infty}^{x_n}dt_nf(t_1,...,t_n) \;\text{ for } x = (x_1,...,x_n) \in \R^n
+    \end{equation*}
+    for some integrable function $f:\R^n\rightarrow [0,\infty)$, then $f$ is called the \Emph{density} of the distribution.
+\end{defn}
+
+\begin{eg}
+    \leavevmode
+    \begin{enumerate}[label=\roman*]
+        \item Let $\theta, r > 0$ and let $\Gamma_{\theta,r}$ be the distribution on $[0,\theta)$ with density \begin{equation*}
+                x\mapsto \frac{\theta^r}{\Gamma(r)}x^{r-1}e^{-\theta x}
+        \end{equation*}
+            where $\Gamma(r) = \int_0^{t}\theta^rx^{r-1}e^{-\theta x}dx$ is the gamma function. Then $\Gamma_{\theta,r}$ is called the \Emph{Gamma distribution} with scale parameter $\theta$ and shape parameter $r$.
+        \item Let $r,s > 0$ and let $\beta_{r,s}$ be the distribution on $[0,1]$ with density \begin{equation*}
+                x\mapsto \frac{\Gamma(r+s)}{\Gamma(r)\Gamma(s)}x^{r-1}(1-x)^{s-1}
+        \end{equation*}
+            Then $\beta_{r,s}$ is called the \Emph{Beta distribution} with parameters $r$ and $s$.
+    \end{enumerate}
+\end{eg}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.3
+\section{States and Combined Events}
+
+\begin{defn}
+    A \Emph{microstate} is a specific outcome or elementary event.
+\end{defn}
+
+\begin{defn}
+    A \Emph{macrostate} is a collection or union of microstates with some common property.
+\end{defn}
+
+Consider the example of a gas. In this case, a microstate would correspond to a specific initial condition of all particles and a macrostate could correspond to all those microstates with the same $U,N,$ and $V$. 
+
+For the Bernoulli process, we have \begin{align*}
+    P_{micro,N} &= P_H^{n_H}P_T^{n_T} = P_H^{n_H}(1-P_H)^{N-n_H} = P_{micro,N}(n_H) \\
+    P_{macro, N} &= \begin{pmatrix} N \\ n_H \end{pmatrix}P_H^{n_H}P_T^{n_T} = \begin{pmatrix} N \\ n_H \end{pmatrix}P_H^{n_H}(1-P_H)^{N-n_H} = P_{macro,N}(n_H)
+\end{align*}
+where $n_H$ is the number of times heads occurs, $n_T$ is the number of times tails occurs, and we have used $N = n_H + n_T$ and $P_H + P_T = 1$. Observe that \begin{equation*}
+    \sum_{n_H=0}^NP_{macro,N}(n_H) = \sum_{n_H=0}^N\begin{pmatrix} N \\ n_H \end{pmatrix}P_H^{n_H}(1-P_H)^{N-n_H} = (P_H + (1-P_H))^N = 1
+\end{equation*}
+so $P_{macro,N}$ is normalized, as required. For a collection of independent identically distributed Bernoulli processes, we have the \Emph{binomial distribution} \begin{equation*}
+    P_N(n) = \begin{pmatrix} N \\ n\end{pmatrix} P^n(1-P)^{N-n}
+\end{equation*}
+
+Now, we look at the construction of probabilities of events from other events: \begin{enumerate}[label=\roman*]
+    \item $P(E_1\cup E_2) = P(E_2 \cup E_1) = P(E_1)+P(E_2)$ provided $E_1\cap E_2 = \emptyset$
+    \item If $E_1$ and $E_2$ are independent events, then $P(E_1\cap E_2) = P(E_2\cap E_1) = P(E_1)P(E_2)$
+    \item $P(E_1\cup E_2) = P(E_1) + P(E_2) - P(E_1\cap E_2)$
+    \item The \Emph{conditional probability} $P(E_2\vert E_1)$ corresponds to the probability that $E_2$ occurs given that $E_1$ occurred. By definition, this means that $P(E_2\vert E_1) = \frac{P(E_2\cap E_1)}{P(E_1)}$.
+    \item We say that $E_1$ and $E_2$ are independent events if and only if $P(E_2\vert E_1) = P(E_2)$ and $P(E_1\vert E_2) = P(E_1)$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.4
+\section{Characteristics of Probability Distributions}
+
+We often wish to investigate certain key parameters related to the probability distributions associated with the events we are observing. We first introduce these for the case of discrete random variables:
+
+\begin{defn}
+    The \Emph{mean} (or \Emph{average} or \Emph{expectation value}) for a discrete random variable $X$ is \begin{equation*}
+        E[X] := \langle n \rangle := \sum_{n=0}^NnP_N(n)
+    \end{equation*}
+    where $P_N$ is the probability distribution of $X$.
+\end{defn}
+For the Binomial distribution we have a mean of \begin{align*}
+    \langle n \rangle &= \sum_{n=0}^Nn\begin{pmatrix} N \\ n\end{pmatrix} P^n(1-P)^{N-n} \\
+    &= \sum_{n=0}^Nn\frac{N!}{n!(N-n)!}P^n(1-P)^{N-n} \\
+    &= N\sum_{n=1}^N\frac{(N-1)!}{(n-1)!(N-n)!}P^n(1-P)^{N-n} \\
+    &= N\sum_{n=0}^{N-1}\begin{pmatrix} N-1 \\ n\end{pmatrix} P^{n+1}(1-P)^{N-n-1} \\
+    &= NP\sum_{n=0}^{N-1}\begin{pmatrix} N-1 \\ n\end{pmatrix} P^{n}(1-P)^{N-1-n} \\
+    &= NP
+\end{align*}
+
+
+\begin{defn}
+    The \Emph{variance} of a discrete random variable $X$ is defined as follows \begin{align*}
+        E[(X-E[X])^2] &:= \langle \Delta n^2\rangle := \langle (n-\langle n\rangle)^2\rangle := \sum_{n=0}^N(n-\langle n \rangle)^2P_N(n) \\
+        &= \sum_{n=0}^N(n^2+\langle n \rangle^2-2n\langle n \rangle)P_N(n) = \sum_{n=0}^Nn^2P_N(n) + \langle n\rangle^2 - 2\langle n\rangle^2 \\
+        &= \sum_{n=0}^Nn^2P_N(n) - \langle n\rangle^2 =: E[X^2] - E[X]^2
+    \end{align*}
+    where we have used the fact that $P_N(n)$ is normalized and the definition of the mean.
+\end{defn}
+
+For a binomial distribution we have the following variance: 
+\begin{align*}
+    E[X]^2 - E[X]^2 &= \sum_{n=0}^Nn^2\begin{pmatrix} N \\ n\end{pmatrix} P^n(1-P)^{N-n} - N^2P^2 \\
+    &= N\sum_{n=1}^Nn\frac{(N-1)!}{(n-1)!(N-n)!}P^n(1-P)^{N-n} - N^2P^2 \\
+    &= NP\sum_{n=0}^{N-1}(n+1)\begin{pmatrix} N-1 \\ n\end{pmatrix} P^{n}(1-P)^{N-1-n} -N^2P^2 \\
+    &= NP\left[\sum_{n=0}^{N-1}n\frac{(N-1)!}{n!(N-1-n)!}P^n(1-P)^{N-1-n} + \sum_{n=0}^{N-1}\begin{pmatrix} N-1 \\ n\end{pmatrix} P^{n}(1-P)^{N-1-n}\right] - N^2P^2 \\
+    &= NP\left[\sum_{n=1}^{N-1}\frac{(N-1)!}{(n-1)!(N-1-n)!}P^n(1-P)^{N-1-n} + 1\right] - N^2P^2 \\
+    &= NP\left[(N-1)P\sum_{n=0}^{N-2}\frac{(N-2)!}{n!(N-2-n)!}P^n(1-P)^{N-2-n}+1\right] - N^2P^2 \\
+    &= NP\left[(N-1)P+1\right] -N^2P^2 \\
+    &= N^2P^2 - NP^2+NP - N^2P^2 = NP(1-P)
+\end{align*}
+
+\begin{defn}
+    The \Emph{standard deviation} of a random variable $X$ is the square root of its variance: \begin{equation*}
+        SD[X] := \sqrt{E[(X-E[X])]^2} := \sigma := \sqrt{\langle \Delta n^2\rangle}
+    \end{equation*}
+\end{defn}
+
+Evidently the standard deviation of a binomial distribution is $\sigma = \sqrt{NP(1-P)}$.
+
+\begin{defn}
+    The \Emph{relative uncertainty} of a random variable $X$ is the ratio $\frac{SD[X]}{E[X]} = \frac{\sigma}{\langle n \rangle}$.
+\end{defn}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 3.2
 \chapter{Continuous Random Variables and the Gaussian Distribution}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 3.3

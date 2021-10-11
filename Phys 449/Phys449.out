@@ -14,20 +14,51 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{Fire Syringe}{section.2.3}% 14
 \BOOKMARK [2][-]{subsection.2.3.2}{Closed Systems \(Adiabats\)}{section.2.3}% 15
 \BOOKMARK [2][-]{subsection.2.3.3}{Isotherms}{section.2.3}% 16
-\BOOKMARK [0][-]{chapter.3}{Thermodynamical Potentials and Equilibrium}{part.1}% 17
-\BOOKMARK [-1][-]{part.2}{II Statistical Mechanics}{}% 18
-\BOOKMARK [0][-]{chapter.4}{Microstates and Entropy}{part.2}% 19
-\BOOKMARK [0][-]{chapter.5}{Ensemble Theory and Free Energy}{part.2}% 20
-\BOOKMARK [0][-]{chapter.6}{Boltzmann Statistics and the Canonical Ensemble}{part.2}% 21
-\BOOKMARK [0][-]{chapter.7}{Breakdown of Classical Statistical Mechanics}{part.2}% 22
-\BOOKMARK [-1][-]{part.3}{III Probability Theory}{}% 23
-\BOOKMARK [0][-]{chapter.8}{Characteristics of Probability Theory}{part.3}% 24
-\BOOKMARK [0][-]{chapter.9}{Continuous Random Variables and the Gaussian Distribution}{part.3}% 25
-\BOOKMARK [0][-]{chapter.10}{Information and Entropy}{part.3}% 26
-\BOOKMARK [-1][-]{part.4}{IV Real Gases and Phase Transitions}{}% 27
-\BOOKMARK [0][-]{chapter.11}{Kinetic Theory of Gases}{part.4}% 28
-\BOOKMARK [0][-]{chapter.12}{Classification of Phase Transitions}{part.4}% 29
-\BOOKMARK [-1][-]{part.5}{V Quantum Statistics}{}% 30
-\BOOKMARK [0][-]{chapter.13}{Quantum States}{part.5}% 31
-\BOOKMARK [0][-]{chapter.14}{Ideal Quantum Gases}{part.5}% 32
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.5}% 33
+\BOOKMARK [0][-]{chapter.3}{Thermodynamical Engines and Refrigerators}{part.1}% 17
+\BOOKMARK [1][-]{section.3.1}{The 2nd Law of Thermodynamics}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.2}{Carnot Engines}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.2.1}{Carnot's Theorem}{section.3.2}% 20
+\BOOKMARK [1][-]{section.3.3}{Thermodynamic Temperature Scale}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.4}{Clausius' Teorem and Thermodynamic Entropy}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.4.1}{Reversible Processes}{section.3.4}% 23
+\BOOKMARK [2][-]{subsection.3.4.2}{Irreversible Processes}{section.3.4}% 24
+\BOOKMARK [2][-]{subsection.3.4.3}{Example of Thermodynamic Entropy}{section.3.4}% 25
+\BOOKMARK [0][-]{chapter.4}{Thermodynamical Potentials and Equilibrium}{part.1}% 26
+\BOOKMARK [1][-]{section.4.1}{Thermodynamic Potentials}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.1.1}{Maxwell Relations}{section.4.1}% 28
+\BOOKMARK [2][-]{subsection.4.1.2}{Thermodynamic Entropy}{section.4.1}% 29
+\BOOKMARK [2][-]{subsection.4.1.3}{Legendre Transformation}{section.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.1.4}{Helmholtz Free Energy}{section.4.1}% 31
+\BOOKMARK [2][-]{subsection.4.1.5}{Enthalpy}{section.4.1}% 32
+\BOOKMARK [2][-]{subsection.4.1.6}{Gibbs Free Energy}{section.4.1}% 33
+\BOOKMARK [2][-]{subsection.4.1.7}{Grand Potential}{section.4.1}% 34
+\BOOKMARK [2][-]{subsection.4.1.8}{Example: Surface Tension of a Liquid}{section.4.1}% 35
+\BOOKMARK [1][-]{section.4.2}{Approach to Equilibrium and Equilibrium Conditions}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.2.1}{Isolated System}{section.4.2}% 37
+\BOOKMARK [2][-]{subsection.4.2.2}{Isolated System Coupled to a Heat Bath}{section.4.2}% 38
+\BOOKMARK [2][-]{subsection.4.2.3}{Isolated System Coupled to a Heat Bath and Exchanging Work with Constant External Forces}{section.4.2}% 39
+\BOOKMARK [2][-]{subsection.4.2.4}{Closed System Exchanging Work with Constant External Forces and Heat at Constant Entropy}{section.4.2}% 40
+\BOOKMARK [1][-]{section.4.3}{The Third Law of Thermodynamics}{chapter.4}% 41
+\BOOKMARK [-1][-]{part.2}{II Statistical Mechanics}{}% 42
+\BOOKMARK [0][-]{chapter.5}{Microstates and Entropy}{part.2}% 43
+\BOOKMARK [0][-]{chapter.6}{Ensemble Theory and Free Energy}{part.2}% 44
+\BOOKMARK [0][-]{chapter.7}{Boltzmann Statistics and the Canonical Ensemble}{part.2}% 45
+\BOOKMARK [0][-]{chapter.8}{Breakdown of Classical Statistical Mechanics}{part.2}% 46
+\BOOKMARK [-1][-]{part.3}{III Probability Theory}{}% 47
+\BOOKMARK [0][-]{chapter.9}{Characteristics of Probability Theory}{part.3}% 48
+\BOOKMARK [1][-]{section.9.1}{Measure Theory}{chapter.9}% 49
+\BOOKMARK [2][-]{subsection.9.1.1}{Set Functions}{section.9.1}% 50
+\BOOKMARK [2][-]{subsection.9.1.2}{The Measure Extension Theorem}{section.9.1}% 51
+\BOOKMARK [2][-]{subsection.9.1.3}{Measurable Maps}{section.9.1}% 52
+\BOOKMARK [1][-]{section.9.2}{Random variables}{chapter.9}% 53
+\BOOKMARK [1][-]{section.9.3}{States and Combined Events}{chapter.9}% 54
+\BOOKMARK [1][-]{section.9.4}{Characteristics of Probability Distributions}{chapter.9}% 55
+\BOOKMARK [0][-]{chapter.10}{Continuous Random Variables and the Gaussian Distribution}{part.3}% 56
+\BOOKMARK [0][-]{chapter.11}{Information and Entropy}{part.3}% 57
+\BOOKMARK [-1][-]{part.4}{IV Real Gases and Phase Transitions}{}% 58
+\BOOKMARK [0][-]{chapter.12}{Kinetic Theory of Gases}{part.4}% 59
+\BOOKMARK [0][-]{chapter.13}{Classification of Phase Transitions}{part.4}% 60
+\BOOKMARK [-1][-]{part.5}{V Quantum Statistics}{}% 61
+\BOOKMARK [0][-]{chapter.14}{Quantum States}{part.5}% 62
+\BOOKMARK [0][-]{chapter.15}{Ideal Quantum Gases}{part.5}% 63
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.5}% 64

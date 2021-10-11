@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  12 SEP 2021 23:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  11 OCT 2021 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1501,7 +1501,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../Crab.jpg, id=139, 962.09438pt x 769.37437pt>
+<../Crab.jpg, id=264, 962.09438pt x 769.37437pt>
 File: ../Crab.jpg Graphic file (type jpg)
 <use ../Crab.jpg>
 Package pdftex.def Info: ../Crab.jpg  used on input line 48.
@@ -1551,7 +1551,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 ...tion of Phase Transitions}{32}{chapter.12}
+l.39 ...pled to a Heat Bath}{40}{subsection.4.2.2}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `Phys449.toc'.
@@ -1612,7 +1612,7 @@ xr/m/n/12 ,
  []
 
 [17]
-<Images/AdiabaticIdealGas.png, id=306, 1056.19594pt x 322.95656pt>
+<Images/AdiabaticIdealGas.png, id=464, 1056.19594pt x 322.95656pt>
 File: Images/AdiabaticIdealGas.png Graphic file (type png)
 <use Images/AdiabaticIdealGas.png>
 Package pdftex.def Info: Images/AdiabaticIdealGas.png  used on input line 683.
@@ -1628,100 +1628,153 @@ png>] [19]
 Chapter 3.
 [20
 
-] [21
+] [21] [22] [23] [24] [25]
+Overfull \hbox (11.9121pt too wide) in paragraph at lines 1298--1298
+|[]\OT1/txr/bx/n/20 Clausius' Teo-rem and Ther-mo-dy-namic En-tropy| 
+ []
 
-]
+[26] [27] [28] [29]
+Overfull \hbox (35.2821pt too wide) in paragraph at lines 2121--2122
+ [] 
+ []
+
+[30] [31]
 Chapter 4.
-[22
+[32
+
+] [33] [34]
+Overfull \hbox (8.07211pt too wide) in paragraph at lines 2229--2229
+[][]\OT1/txr/bx/n/12 Proposition 4.1.2. []\OT1/txr/m/sl/12 Us-ing the re-la-tio
+ns above for the Helmholtz free en-ergy, we have the Maxwell
+ []
+
+[35]
+Overfull \hbox (1.32497pt too wide) in paragraph at lines 2288--2289
+[]\OT1/txr/m/n/12 Hence, the Gibbs free en-ergy is also a ther-mo-dy-namic po-t
+en-tial. We also ob-tain the Maxwell
+ []
+
+[36] [37] [38]
+Overfull \hbox (13.05206pt too wide) in paragraph at lines 2395--2395
+|[]\OT1/txr/bx/n/20 Approach to Equi-lib-rium and Equi-lib-rium Con-
+ []
+
+[39] [40] [41] [42] [43
 
 ]
 Chapter 5.
-[23
+[44
 
 ]
 Chapter 6.
-[24
+[45
 
 ]
 Chapter 7.
-[25
-
-] [26
+[46
 
 ]
 Chapter 8.
-[27
+[47
+
+] [48
 
 ]
 Chapter 9.
-[28
+[49
 
-]
+] [50]
+Overfull \hbox (11.26682pt too wide) detected at line 2686
+[]
+ []
+
+[51] [52] [53] [54] [55]
+Overfull \hbox (15.86781pt too wide) in paragraph at lines 2906--2908
+\OT1/txr/m/n/12 the []\OT1/txr/bx/it/12 neg[]-[]a[]-[]tive [][]bi[]-[]no[]-[]mi
+al [][]dis[]-[]tri[]-[]bu[]-[]tion \OT1/txr/m/n/12 with pa-ram-e-ters $\OML/txm
+i/m/it/12 r$ \OT1/txr/m/n/12 and $\OML/txmi/m/it/12 p$\OT1/txr/m/n/12 , and whe
+re $[] \U/matha/m/n/12 ^^P []$
+ []
+
+[56] [57] [58]
+Overfull \hbox (45.25143pt too wide) detected at line 3024
+[]
+ []
+
+[59] [60]
 Chapter 10.
-[29
-
-] [30
+[61
 
 ]
 Chapter 11.
-[31
+[62
+
+] [63
 
 ]
 Chapter 12.
-[32
-
-] [33
+[64
 
 ]
 Chapter 13.
-[34
+[65
+
+] [66
 
 ]
 Chapter 14.
-[35
+[67
 
-] [36
+]
+Chapter 15.
+[68
+
+] [69
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 849.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 849.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3098.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3098.
  (./Phys449.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 849.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 849.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3098.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3098.
+
 Package rerunfilecheck Info: File `Phys449.out' has not changed.
-(rerunfilecheck)             Checksum: 16BEE4D7082D69CD4567A6847F3A8137;2307.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 849.
+(rerunfilecheck)             Checksum: F6929915A295CD019822E2828B7A856C;4789.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3098.
  ) 
 Here is how much of TeX's memory you used:
- 24634 strings out of 481239
- 450946 string characters out of 5920377
- 737216 words of memory out of 5000000
- 39205 multiletter control sequences out of 15000+600000
- 605097 words of font info for 202 fonts, out of 8000000 for 9000
+ 24912 strings out of 481239
+ 454979 string characters out of 5920377
+ 750684 words of memory out of 5000000
+ 39314 multiletter control sequences out of 15000+600000
+ 625429 words of font info for 246 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,12n,84p,1047b,769s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,14n,84p,1047b,769s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/mathabx-type1/matha8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txf
-onts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
-tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/times/utmri8a.pfb>
-Output written on Phys449.pdf (37 pages, 707092 bytes).
+f-dist/fonts/type1/public/mathabx-type1/matha6.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/mathabx-type1/matha8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/mathabx-type1/mathb8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtx
+r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
+fonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmri8a.pfb>
+Output written on Phys449.pdf (70 pages, 866567 bytes).
 PDF statistics:
- 482 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
- 287 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 917 PDF objects out of 1000 (max. 8388607)
+ 812 compressed objects within 9 object streams
+ 269 named destinations out of 1000 (max. 500000)
+ 535 words of extra memory for PDF output out of 10000 (max. 10000000)
 
