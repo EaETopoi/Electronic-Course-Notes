@@ -1083,6 +1083,94 @@ Often the inverse transform is itself an integral transform, forming a transform
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 3
+\part{Special Functions}
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 3.1
+\chapter{Legendre Functions}
+
+\begin{defn}
+    Legendre's differential equation has the form \begin{equation*}
+        (1-x^2)y'' - 2xy' + l(l+1)y = 0
+    \end{equation*}
+    and has three regular singular poitns at $x = -1, 1, \infty$. In normal usage the variable $x$ in Legendre's equation is the cosine of the polar angle in spherical polars, and thus $-1\leq x \leq 1$. The parameter $l$ is a given real number, and any solution is called a \Emph{Legendre function}.
+\end{defn}
+
+Since $x=0$ is an ordinary point of this DR, we expect to find two linearly independent solutions of the form $y = \sum_{n=0}^{\infty}a_nx^n$. Substituting, we find \begin{equation*}
+    \sum_{n=0}^{\infty}[n(n-1)a_nx^{n-2} - n(n-1)a_nx^n - 2na_nx^n + l(l+1)a_nx^n] = 0
+\end{equation*}
+which on collecting terms gives \begin{equation*}
+    \sum_{n=0}^{\infty}\left\{(n+2)(n+1)a_{n+2} - [n(n+1)-l(l+1)]a_n\right\}x^n = 0
+\end{equation*}
+The recurrence relation is therefore, \begin{equation*}
+    a_{n+2} = \frac{[n(n+1)-l(l+1)]}{(n+2)(n+1)}a_n
+\end{equation*}
+If we choose $a_0 = 1$ and $a_1 = 0$ we obtain the solution \begin{equation*}
+    y_1(x) = 1-l(l+1)\frac{x^2}{2!} + (l-2)l(l+1)(l+3)\frac{x^4}{4!} - ...
+\end{equation*}
+whereas on choosing $a_0 = 0$ and $a_1 = 1$ we find the second solution \begin{equation*}
+    y_2(x) = x - (l-1)(l+2)\frac{x^3}{3!} + (l-3)(l-1)(l+2)(l+4)\frac{x^5}{5!}-...
+\end{equation*}
+Both of these series converge for $|x| < 1$, by the radius test, with the radius of convergence being the distance to the nearest singular point of the equation. Since $y_1$ only has even powers and $y_2$ only has odd powers, the two solutions are linearly independent so a general solution is of the form \begin{equation*}
+    y(x) = c_1y_1(x) + c_2y_2(x)
+\end{equation*}
+for $|x| < 1$.
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.1
+\section{Legendre Functions for integer l}
+
+If $l$ is an integer we have that \begin{equation*}
+    a_{l+2} = \frac{[l(l+1)-l(l+1)]}{(l+1)(l+2)}a_l = 0
+\end{equation*}
+If $l$ is even then $y_1(x)$ reduces to a polynomial, whereas if $l$ is odd the same is true of $y_2(x)$. These solutions, suitably normalised, are called the Legendre polynomials of order $l$; they are written $P_l(x)$ and are valid for all finite $x$. We normalize $P_l(x)$ in such a way that $P_l(1) = 1$ and as a consequence $P_l(-1) = (-1)^l$.
+
+\begin{defn}
+    Depending on if $l$ is even or odd, we define \Emph{Legendre functions of the second kind} as $Q_l(x) = \alpha_ly_2(x)$ or $Q_l(x) = \beta_ly_1(x)$, respectively, where the constants $\alpha_l$ and $\beta_l$ are taken to have the values \begin{align*}
+        \alpha_l &= \frac{(-1)^{l/2}2^l[(l/2)!]^2}{l!} \\
+        \beta_l &= \frac{(-1)^{(l+1)/2}2^{l-1}[((l-1)/2)!]^2}{l!}
+    \end{align*}
+\end{defn}
+Thus the $Q_l(x)$ obey the same recurrence relations as the $P_l(x)$. The general solution of Legendre's equation for integer $l$ is therefore \begin{equation*}
+    y(x) = c_1P_l(x) + c_2Q_l(x)
+\end{equation*}
+where $P_l(x)$ is a polynomial of order $l$, and so converges for all $x$, and $Q_l(x)$ is an infinite series that converges only for $|x| < 1$.
+
+The Wronskian method can be used to obtain closed forms for the $Q_l(x)$. Using this method we can derive that \begin{equation*}
+    Q_0(x) = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right)\;\text{ and }\;Q_1(x) = \frac{1}{2}x\ln\left(\frac{1+x}{1-x}\right) - 1
+\end{equation*}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.2
+\section{Legendre Functions Properties}
+
+In physical problems the variable $x$ in Legendre's equation is usually the cosine of the polar angle $\theta$ in spherical polar coordinates, and we then require the solution $y(x)$ to be regular at $x = \pm 1$, which corresponds to $\theta = 0$ or $\theta = \pi$. For this to occur we require the equation to have a polynomial solution, so $l$ must be an integer. We also require the coefficient $c_2$ of the function $Q_l(x)$ to be zero, since $Q_l(x)$ is singular at $x = \pm 1$, with the result that the general solution is simply some multiple of the relevant Legendre polynomial $P_l(x)$.
+
+\begin{defn}
+    \Emph{Rodrigues' formula} for the function $P_l(x)$ is \begin{equation*}
+        P_l(x) = \frac{1}{2^ll!}\frac{d^l}{dx^l}(x^2-1)^l
+    \end{equation*}
+\end{defn}
+\begin{proof}
+    Let $u = (x^2-1)^l$, so that $u' = 2lx(x^2-1)^{l-1}$, and \begin{equation*}
+        (x^2-1)u' - 2lxu = 0
+    \end{equation*}
+    Differentiating this expression $l+1$ times using Leibnitz' Theorem we obtain \begin{equation*}
+        [(x^2-1)u^{(l+2)} + 2x(l+2)u^{(l+1)} + l(l+1)u^{(l)}] - 2l[xu^{(l+1)} + (l+1)u^{(l)}] = 0
+    \end{equation*}
+    which reduces to \begin{equation*}
+        (x^2-1)u^{(l+2)}+2xu^{(l+1)}-l(l+1)u^{(l)} = 0
+    \end{equation*}
+    Multiplying through by $-1$ we recover Legendre's equation with $u^{(l)}$ as the dependent variable. Since $l$ is an integer and $u^{(l)}$ is regular at $x = \pm 1$, we may make the identification \begin{equation*}
+        u^{(l)}(x) = c_lP_l(x)
+    \end{equation*}
+    for some constant $c_l$ that depends on $l$. Note the only term in the expression for the $l$th derivative of $(x^2-1)^l$ that does not contain a factor $x^2-1$, and so does not vanish at $x = 1$, is $(2x)^ll!(x^2-1)^0$. Putting $x = 1$ and recalling that $P_l(1) =1$, shows that $c_l = 2^ll!$, completing the proof.
+\end{proof}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%% - Appendices

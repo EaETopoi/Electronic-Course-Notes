@@ -2144,7 +2144,7 @@ where the left hand side is equivalent to the work done in the reversible case. 
 
 Recall that we have introduced thermodynamic entropy as a new state variable based on reversible processes. Now we answer the question 
 \begin{qst}
-    How can we uniquely determine all equilibrium proeprties of a given system?
+    How can we uniquely determine all equilibrium properties of a given system?
 \end{qst}
 First, for reversible processes the 1st law reads \begin{equation*}
     dU = \delta Q + \delta W + \delta E_{chem} = TdS + \sum_{i=1}^mJ_idq_i + \sum_{j=1}^{\alpha}\mu_jdN_j
@@ -2566,22 +2566,246 @@ We explore an example since the general proof is beyond the scope of this course
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 2.1
-\chapter{Microstates and Entropy}
+\chapter{Microcanonical Ensembles}
+
+%%%%%%%%%%%%%%%%%%%% Section 2.1.1
+\section{Rules for Large Numbers}
+
+\begin{note}
+    Statistical mechanics provides probabilistic approach to equilibrium macroscopic properties of systems with a large number of degrees of freedom based on the underlying microscopic dynamics. While it leaves out the question of how equilibrium is reached, it aims to provide the equilibrium phase space density $\rho_{eq,M}(\mu)$ for a given macrostate $M$.
+\end{note}
+
+
+Since we are dealing with large numbers of degrees of freedom, $N \approx 10^{23}$, we can often consider the \Emph{thermodynamic limit} $N\rightarrow \infty$. This lets us typically distinguish between three main cases: \begin{enumerate}
+    \item \Emph{Intensive} quantities are independent of $N$, the size of a system (e.g. $T$, $p$),
+    \item \Emph{Extensive} quantities are proportional to $N$, the size of a system (e.g. $E_{tot}$, $S$)
+    \item \Emph{Exponential} dependence: $O(\exp(N\phi))$ (e.g. volume in phase space)
+\end{enumerate}
+
+\begin{defn}
+    The \Emph{thermodynamic limit} of a system in statistical mechanics is the limit for a large number $N$ of particles where the volume is taken to grow in proportion with the number of particles. That is \begin{equation*}
+        N\rightarrow \infty, V\rightarrow \infty,\;\text{ and }\;\frac{N}{V} = const
+    \end{equation*}
+    This says we can scale up the system without changing the intrinsic properties of the system.
+\end{defn}
+
+\begin{rmk}
+    In the thermodynamic limit small perturbations and fluctuations in your ensemble average vanish, and all thermodynamic ensembles give the same results.
+\end{rmk}
+
+When considering the thermodynamic limit we also want that the intrinsic properties of the system do not change to a great degree, and that the particles are relatively evenly spread through the volume rather than being bunched into smaller structures.
+
+\subsection{Saddle Point Integration}
+Consider the integral \begin{equation*}
+    J = \int_{-\infty}^{\infty}dx\exp\{N\phi(x)\}
+\end{equation*}
+For this integral to be well-defined the function $\phi(x)$ has to be continuous and go to $-\infty$ for large positive and negative arguments. Thus, there is at least one global maximum $\phi(x_{max})$. Assuming that the global maximum is unique, let us do a Taylor series expansion of $\phi$ around $x_{max}$ to obtain \begin{align*}
+    J &= \int_{-\infty}^{\infty}\exp\left\{N\left[\phi(x_{max}) - \frac{1}{2}|\phi''(x)|(x-x_{max})^2+O((x-x_{max})^3)\right]\right\} \\
+    &\approx \exp\{N\phi(x_{max})\}\int_{-\infty}^{\infty}\exp\left\{-\frac{N}{2}|\phi''(x)|(x-x_{max})^2\right\} \\
+    &= \exp\{N\phi(x_{max})\}\sqrt{\frac{2\pi}{N|\phi''(x_{max})|}}
+\end{align*}
+where we have used the properties of a maximum, $\phi'(x_{max}) = 0$ and the normalization to do the Gaussian integral. We can simplify further by \begin{equation*}
+    \lim\limits_{N\rightarrow \infty}\frac{\ln J}{N} = \lim\limits_{N\rightarrow \infty}\left[\phi(x_{max}) - \frac{1}{2N}\ln\frac{N|\phi''(x_{max})|}{2\pi}\right] = \phi(x_{max})
+\end{equation*}
+which is an intensive quantity. Thus, in this case the value of the integral only depends on the maximum value of the integrand.
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.1.2
+\section{Microcanonical Ensemble}
+
+Recall, statistical mechanics aims to provide the equilibrium phase space density $\rho_{eq,M}(\mu)$ for a given macrostate $M$. Now, for the case of an isolated system the internal energy $U$, the generalized displacements $\vec{q}$, and the number of all particles of different types $\vec{N}$ are fixed such that no mechanical work and no chemical work are done and no heat is exchanged either. Thus our macrostate is $M = (U,\vec{q},\vec{N})$, and the corresponding statistical ensemble is called the \Emph{microcanonical ensemble}. The evolution of the corresponding microstates $\mu(t)$ is given by the Hamiltonian $H(\mu)$. Since the internal energy is conserved, all allowed microstates are constrained to the surface $H(\mu)  = U$ in phase space.
+
+\begin{axi}[Central Postulate of Statistical Mechanics] 
+    For an isolated system, all allowed states are equally likely: \begin{equation*}
+        \rho_{eq,M}(\mu) \equiv p_{(U,\vec{q},\vec{N})}(\mu) = \frac{1}{\Omega(U,\vec{q},\vec{N})}\delta(H(\mu) - U)
+    \end{equation*}
+    where $\Omega$ is the normalization constant corresponding to the (abstract) area of the constant energy surface or the number of allowed microstates in the discrete case.
+\end{axi}
+
+
+\begin{thm}
+    For the microcanonical ensemble in the thermodynamic limit, the \Emph{Shannon-Boltzmann} entropy defined as \begin{equation*}
+        S(U,\vec{q},\vec{N}) \equiv -k_B\langle \ln p_{(U,\vec{q},\vec{N})}\rangle = k_B\ln\Omega(U,\vec{q},\vec{N})
+    \end{equation*}
+    is equivalent to the thermodynamic entropy and allows us to derive the laws of thermodynamics (excluding the 3rd one).
+\end{thm}
+\begin{proof}
+    We consider the proof in parts:
+    \begin{itemize}
+        \item Extensivity of the Shannon-Boltzmann entropy: For a collection of independent subsystems, we have $\Omega_{total} = \prod_i\Omega_i$. Thus $S(U,\vec{q},\vec{N}) = k_B\sum_i\ln\Omega_i$ is additive, consistent with an extensive quantity.
+        \item $0$th Law: Let us consider two substystems that are initially isolated. Then, we couple them thermally such that they exchange heat but no work. The combined system is isolated such that $U \equiv U_1+U_2 = const$ and eventually reaches equilibrium, corresponding to the microcanonical ensemble. Denote the state of the combined system as $\mu$, which we can write as the product state $\mu \equiv \mu_1\otimes \mu_2$. Under the assumption that the interactions between the subsystems are weak, the total energy is simply the energy contained within each subsystem, $H(\mu_1\otimes \mu_2) = H_1(\mu_1) + H_2(\mu_2)$. Focusing on the internal energy $U$ since it is the only variable that can change internally between the two subsystems due to the thermal coupling, we have \begin{equation*}
+                p_U(\mu) = \frac{1}{\Omega(U)}\delta(H(\mu) - U) = \frac{1}{\Omega(U)}\delta(H_1(\mu_1)+H_2(\mu_2) - U)
+        \end{equation*}
+            Under the same assumption, the states in subsystem $1$ and $2$ are effectively independent of one another such that $\Omega(U)$ can be calculated as follows: \begin{equation*}
+                \Omega(U) = \int dU_1\Omega_1(U_1)\Omega_2(U-U_1) = \int dU_1\exp\left\{\frac{S_1(U_1) + S_2(U-U_1)}{k_B}\right\}
+            \end{equation*}
+            Since $S_1$ and $S_2$ are extensive, we can use the saddle point integration to obtain the approximation \begin{equation*}
+                S(U) = k_B\ln\Omega(U) \approx S_1(U_1^*) + S_2(U-U_1^*)
+            \end{equation*}
+            where $U_1^*$ is the internal energy that maximizes the entropy, so \begin{equation*}
+                \frac{\partial}{\partial U_1}(S_1(U_1) + S_2(U-U_1))\Big\rvert_{U_1 = U_1^*} = 0
+            \end{equation*}
+            Using $U_2 = U-U_1$ and the chain rule we have \begin{equation*}
+                \left(\frac{\partial S_1}{\partial U_1}\right)_{\vec{q},\vec{N}} = -\left(\frac{\partial S_2}{\partial U_2}\right)_{\vec{q},\vec{N}}\left(\frac{\partial U_2}{\partial U_1}\right)_{\vec{q},\vec{N}} = \left(\frac{\partial S_2}{\partial U_2}\right)_{\vec{q},\vec{N}}
+            \end{equation*}
+            Since the left hand side only depends on subsystem $1$ and the right hand side only depends on subsystem 2, we have arrived at an empirical temperature that is shared by both subsystems. In particular, the expressions are consistent with the expressions for the thermodynamic entropy: $\left(\frac{\partial S}{\partial U}\right)_{\vec{q},\vec{N}} = \frac{1}{T}$
+        \item $2$nd Law: By construction of the saddle point integration approximation, we have for all $U_1$ and $U_2 = U-U_1$ including the initial conditions before coupling, \begin{equation*}
+                S(U) \approx S_1(U_1^*) + S_2(U_2^*) \geq S_1(U_1) + S_2(U_2)
+        \end{equation*}
+            Rewriting this expression we have for the entropy difference \begin{align*}
+                \delta S \equiv S_1(U_1^*) + S_2(U_2^*) - S_1(U_1) - S_2(U_2) &\geq 0
+                S_1(U_1^*) - S_1(U_1) + S_2(U_2^*) - S_2(U_2) &\geq 0
+                \left[\left(\frac{\partial S_1}{\partial U_1}\right)_{\vec{q},\vec{N}} - \left(\frac{\partial S_2}{\partial U_2}\right)_{\vec{q},\vec{N}}\right] \delta U_1 &\geq 0
+                \left[\frac{1}{T_1} - \frac{1}{T_2}\right] \delta U_1 & \geq 0
+            \end{align*}
+            The first equation implies the entropy has increased and the last implies that heat or energy flows from the hotter to the colder subsystem. Note however that this is only a strict law in the thermodynamic limit when the saddle point integration becomes exact. For finite systems, fluctuations are possible but they are exponentially suppressed, $O(\exp(-\alpha N))$.
+        \item $1$st Law: Consider reversible changes leave the entropy $S(U,\vec{q},\vec{N})$ unchanged: \begin{align*}
+                0 = \delta S &\equiv S(U+\vec{J}\cdot d\vec{q}+\vec{\mu}\cdot d\vec{N},\vec{q}+d\vec{q},\vec{N}+d\vec{N}) - S(U,\vec{q},\vec{N}) \\
+                &= \left[\left(\frac{\partial S}{\partial U_1}\right)_{\vec{q},\vec{N}}\vec{J} + \left(\frac{\partial S}{\partial \vec{q}}\right)_{U,\vec{N}}\right]\cdot \delta \vec{q} + \left[\left(\frac{\partial S}{\partial U}\right)_{\vec{q},\vec{N}}\vec{\mu} + \left(\frac{\partial S}{\partial \vec{N}}\right)_{U,\vec{q}}\right]\cdot \delta \vec{N}
+        \end{align*}
+            Since the changes $\delta \vec{N}$ and $\delta \vec{q}$ are independent of each other, both terms in angular brackets have to vanish separately. Thus we have \begin{align*}
+                \left(\frac{\partial S}{\partial q_i}\right)_{U,q_{j\neq i},\vec{N}} &= -\left(\frac{\partial S}{\partial U}\right)_{\vec{q},\vec{N}}J_i = -\frac{J_i}{T} \\
+                \left(\frac{\partial S}{\partial N_i}\right)_{U,N_{j\neq i},\vec{q}} &= -\left(\frac{\partial S}{\partial U}\right)_{\vec{q},\vec{N}}\mu_i = -\frac{\mu_i}{T}
+            \end{align*}
+            Thus we can write the total differential of the Shannon-Boltzmann entropy as \begin{equation*}
+                dS(U,\vec{q},\vec{N}) = \frac{dU}{T} - \frac{\vec{J}\cdot d\vec{q}}{T} - \frac{\vec{\mu}\cdot d\vec{N}}{T}
+            \end{equation*}
+            so the Shannon-Boltzmann entropy is equivalent to the thermodynamic entropy, and we revocer the 1st law by rewriting the above equation: \begin{equation*}
+                dU = TdS + \vec{J}\cdot d\vec{q}+\vec{\mu}\cdot d\vec{N}
+            \end{equation*}
+    \end{itemize}
+\end{proof}
+
+Note the above theorem holds only in the thermodynamic limit, so the Shannon-Boltzmann entropy is problematic in the context of the microcanonical ensemble outside the thermodynamic limit. An alternative in such a case is the Gibbs entropy, $S(U,\vec{q},\vec{N}) = k_B\ln\Omega(E< U,\vec{q},\vec{N})$
+
+\subsection{Determining Thermodynamic Properties}
+
+We have the following recipe for deriving the thermodynamic properties of a given system in a microcanonical setting in the thermodynamic limit: \begin{itemize}
+    \item Specify the Hamiltonian $H$
+    \item Compute $\Omega$
+    \item Get $S = k_B\ln\Omega$, which is the thermodynamic potential suitable for an isolated system
+    \item Use $S$ to determine $T$ and all other thermodynamic quantities through partial derivatives using the first law.
+\end{itemize}
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 2.2
-\chapter{Ensemble Theory and Free Energy}
+\chapter{Ensemble Theory}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.2.1
+\section{Canonical Ensemble}
+
+
+We now consider the situation which is thermally coupled to a heat bath or reservoir such that it only exchanges heat but no work. Hence the generalized siplacements $\vec{q}$ are fixed and the number of particles of different types $\vec{N}$ are also fixed. Although the internal energy $U$ is no longer fixed, at equilibrium both the heat bath and our system of interest share the same temperature $T$. We usually assume that the heat bath is much larger than the system of interest such that our system of interest basically takes on the temperature $T$ of the heat bath and the heat bath can be used to control the temperature of the system.
+
+In this case our macrostate is $M \equiv (T,\vec{q},\vec{N})$. The corresponding ensemble is called the \Emph{canonical ensemble}. To derive the equilibrium phase space density we start by considering the combined system ($S$ and the heat bath $R$) which is isolated such that we can use the microcanonical ensemble. If we assume that the coupling between the heat bath and the system is weak such that the total internal energy of the combined system is $U_{tot} = H_{S\otimes R}(\mu) \approx H_S(\mu_S) + H_R(\mu_R)$ such that \begin{equation*}
+    \rho_{eq,M}(\mu) \equiv p_{(T,\vec{q},\vec{N})}(\mu) \equiv p(\mu_S\otimes\mu_R) = \frac{1}{\Omega_{S\otimes R}(U_{tot})}\delta(H_S(\mu_S)+H_R(\mu_R)-U_{tot})
+\end{equation*}
+This gives the joint pdf of the system $S$ and the heat bath $R$. To determine the unconditional pdf for $S$ we integrate: \begin{align*}
+    p(\mu_S) &\equiv \int d\Gamma_Rp(\mu_S\otimes\mu_R) \\
+    &= \int d\Gamma_R \frac{1}{\Omega_{S\otimes R}(U_{tot})}\delta(H_S(\mu_S)+H_R(\mu_R)-U_{tot}) \\
+    &= \frac{\Omega_R(U_{tot} - H_S(\mu_S))}{\Omega_{S\otimes R}(U_{tot})} \\ 
+    &= \frac{\exp\left\{\frac{1}{k_B}S_R(U_{tot}-H_S(\mu_S))\right\}}{\Omega_{S\otimes R}(U_{tot})}  \\
+    &\propto\exp\left\{\frac{1}{k_B}S_R(U_{tot}-H_S(\mu_S))\right\}
+\end{align*}
+using the Shannon-Boltzmann entropy ($S = k_B\ln\Omega$). Since we assume the heat bath $R$ is much larger than our system $S$, $U_{tot} \approx U_R >> U_S = H_S(\mu_S)$, and we can do a Taylor expansion of $S_R$ about $U_{tot}$: \begin{align*}
+    S_R(U_{tot}-H_S(\mu_S)) &\approx S_R(U_{tot}) - \left(\frac{\partial S_R}{\partial U_R}\right)_{\vec{q},\vec{N}}(U_tot) H_S(\mu_S) \\
+    &\approx S_R(U_{tot}) - \left(\frac{\partial S_R}{\partial U_R}\right)_{\vec{q},\vec{N}}(U_R)H_S(\mu_S) \\
+    &= S_R(U_{tot}) - \frac{1}{T}H_S(\mu_S)
+\end{align*}
+Plugging this expression in the equation above we arrive at \begin{equation*}
+    p(\mu_S) = \frac{e^{-\beta H_S(\mu_S)}}{Z(T,\vec{q},\vec{N})}
+\end{equation*}
+where we define $\beta \equiv \frac{1}{k_BT}$, and $Z(T,\vec{q},\vec{N}) \equiv \int d\Gamma_Se^{-\beta H_S(\mu_S)}$ is the normalization constant, called the \Emph{partition function}. Since the derived expression for the equilibrium phase space density of the canonical ensemble is a function of $H_S$, it satisfies Liouville's Theorem. In particular, all microstates with the same energy are equally likely in the canonical ensemble.
+
+We can also derive an expression analogous to the equilibrium phase space density using the maximum entropy principle with the constraint that $\langle U_S\rangle$ is fixed. Let $E_{mech} = \langle U_S\rangle$. Then we have the two constraints $g_1(p) \equiv 1 - \int d\Gamma_Sp(\mu_S) = 0$ and $g_2(p) \equiv E_{mech} - \int d\Gamma_SH(\mu_S)p(\mu_S) = 0$ such that two Lagrange multipliers are necessary. 
+
+
+We now focus on other quantities of interest in the canonical ensemble starting with the internal energy, which can be considered as a random variable since it is not fixed. We can calculate the pdf of $U_S$ by \begin{align*}
+    p(U_S) &= \int d\Gamma_Sp(\mu_S)\delta(H_S(\mu_S) - U_S) \\
+    &= e^{-\beta U_S}\frac{\Omega_S(U_S)}{Z} \\
+    &= \frac{1}{Z}\exp\left\{-\frac{U_S}{k_BT}\right\}\exp\left\{\frac{S(U_S)}{k_B}\right\} \\
+    &= \frac{1}{Z}e^{-\beta F(U_S)} 
+\end{align*}
+using the Helmholts free energy $F = U_S - TS(U_S)$. Thus, the most likely value of $U_S$ is the one that minimizes $F$, which is the thermodynamic potential coinciding with the natural variables, i.e. the macrostate of the canonical ensemble.
+
+The mean internal energy can be given by \begin{align*}
+    \langle U_S\rangle &\equiv \int d\Gamma_SH(\mu_S)\frac{e^{-\beta H_S(\mu_S)}}{Z} \\
+    &= -\frac{1}{Z}\frac{\partial}{\partial \beta}\int d\Gamma_Se^{-\beta H_S(\mu_S)} \\
+    &= - \frac{1}{Z}\frac{\partial Z}{\partial \beta} \\
+    &= -\frac{\partial \ln Z}{\partial \beta}
+\end{align*}
+using the fact that the boundaries of the integral do not depend on $\beta$. Note that $\ln Z$ gives \begin{align*}
+    \ln Z &\equiv \ln\int d\Gamma_Se^{-\beta H_S(\mu_S)} \\
+    &= \ln\int dU_S\int d\Gamma_Se^{-\beta H_S(\mu_S)}\delta(H_S(\mu_S) - U_S) \\
+    &= \ln\int dU_Se^{-\beta F(U_S)} \\
+    &\approx -\beta F(U^*_S)
+\end{align*}
+where we have first used the expression of $p(U_S)$ derived above and then the saddle point itnegration such taht $U^*_S$ is the value of the internal energy that minimizes $F(U_S)$. Hence we have arrived at \begin{equation*}
+    F(T,\vec{q},\vec{N}) \approx -k_BT\ln Z(T,\vec{q},\vec{N})
+\end{equation*}
+which is true only if $U_S^* \approx \langle U\rangle$. This holds as $p(U)$ obeys the central limit theorem for $N\rightarrow \infty$ such that $U_S^* = \langle U\rangle$ in the limit.
+
+The expression for the Shannon-Boltzmann entropy in the canonical ensemble is \begin{equation*}
+    S \equiv -k_B\langle \ln p\rangle = -k_B\langle(-\beta H_S - \ln Z)\rangle = k_B(\langle \beta H_S\rangle + \langle \ln Z\rangle) = \frac{\langle U\rangle}{T} - k_B\beta F = \frac{\langle U\rangle - F}{T}
+\end{equation*}
+which is the expression for the thermodynamic entropy. Note we use $\langle U\rangle$ instead of $U$ since the internal energy can fluctuate due to the coupling with the heat bath.
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.2.2
+\section{Overview of Ensembles}
+
+For all types of ensembles, statistical mechanics provides an expression for the corresponding thermodynamic potential, which is the one whose natural variables are held constant in the given thermodynamic situation as specified by the macrostate $M$. In all cases the normalization constant of the corresponding equilibrium phase space density determines the thermodynamic potential. Thus, to determine the thermodynamic properties of a given system in equilibrium one needs to compute the normalization constant. 
+
+\begin{rmk}[Generalized Method]
+    \leavevmode
+    \begin{itemize}
+        \item Specify the microstate of the given system
+        \item Specify the Hamiltonian $H$
+        \item Specify the macrostate for the given situation to determine the ensemble
+        \item Compute the relevant normalization constant for the given ensemble
+        \item Use the normalization constant to obtain the relevant thermodynamic potential for the given ensemble
+        \item Use the thermodynamic potential to determine all thermodynamic quantities through partial derivatives using the 1st law.
+    \end{itemize}
+\end{rmk}
+
+Important examples of ensembles include:
+
+\begin{table}[H]
+    \centering
+    \caption{Ensembles}
+    \begin{tabular}{c|ccc}
+        Ensemble & Macrostate $M$ & $p_M(\mu)$ & Thermodynamic Potential \\ \hline
+        Microcanonical & $(U,\vec{q},\vec{N})$ & $\frac{\delta(H(\mu) - U)}{\Omega}$ & $S(U,\vec{q},\vec{N}) = k_B\ln \Omega$ \\
+        Canonical & $(T,\vec{q},\vec{N})$ & $\frac{e^{-\beta H(\mu)}}{Z}$ & $F(T,\vec{q},\vec{N}) = -k_BT\ln Z$ \\
+        Gibbs Canonical & $(T,\vec{J},\vec{N})$ & $\frac{e^{-\beta(H(\mu) - \vec{J}\cdot \vec{q})}}{Z_G}$ & $G(T,\vec{J},\vec{N}) = -k_BT\ln Z_G$ \\
+        Grand Canonical & $(T,\vec{q},\vec{\mu})$ & $\frac{e^{-\beta(H(\mu)-\vec{\mu}\cdot \vec{N})}}{Q}$ & $\mathcal{G}(T,\vec{q},\vec{\mu}) = -k_BT\ln Q$ \\
+    \end{tabular}
+\end{table}
+
+We close with some important remarks:
+
+\begin{rmk}
+    \leavevmode
+    \begin{itemize}
+        \item For any system with a finite number of particles or constituents, the ensembles are not equivalent
+        \item In the thermodynamic limit, however, they do become equivalent as follows from the central limit theorem.
+        \item Thus, to solve a given problem in the thermodynamic limit, one is free to choose any ensemble. In this case, the canonical ensemble is often the mathematically most convenient choice.
+    \end{itemize}
+\end{rmk}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.2.3
+\section{Examples of Ensembles}
+
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 2.3
-\chapter{Boltzmann Statistics and the Canonical Ensemble}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%% Chapter 2.4
-\chapter{Breakdown of Classical Statistical Mechanics}
+\chapter{Gibbs Canonical Ensemble}
 
 
 
@@ -2849,9 +3073,55 @@ We remark that a countable linear combination of measures (resp. premeasures, co
 
 \subsection{The Measure Extension Theorem}
 
+We wish to now construct measures $\mu$ on $\sigma$-algebras. We define $\mu$ on a smaller class of sets, a semiring, and then extend to the whole $\sigma$-algebra.
+
+\begin{eg}
+    Let $n \in \N$ and let $\mathcal{A} = \{(a,b]:a,b \in \R^n, a < b\}$, where $a < b$ implies $a_i < b_i$ for all $1 \leq i \leq n$, and $(a,b] = (a_1,b_1]\times ... \times (a_n,b_n]$. Then $\mathcal{A}$ is a semiring of half-open rectangles $(a,b] \in \R^n$. The $n$-dimensional volume of such a rectangle is \begin{equation*}
+        \mu((a,b]) = \prod_{i=1}^n(b_i - a_i)
+    \end{equation*}
+    Extending this set function to a measure on the Borel $\sigma$-algebra $\mathcal{B}(\R^n) = \sigma(\mathcal{A})$ gives the Lebesgue measure.
+\end{eg}
+
+\begin{namthm}[Caratheodory]
+    Let $\mathcal{A} \subseteq 2^{\Omega}$ be a ring and let $\mu$ be a $\sigma$-finite premeasure on $\mathcal{A}$. There exists a unique measure $\tilde{\mu}$ on $\sigma(\mathcal{A})$ such that $\tilde{\mu}(A) = \mu(A)$ for all $A \in \mathcal{A}$. Furthermore, $\tilde{\mu}$ is $\sigma$-finite.
+\end{namthm}
+
+\begin{lem}
+    Let $(\Omega,\mathcal{A},\mu)$ be a $\sigma$-finite measure space and let $\mathcal{E}\subseteq \mathcal{A}$ be a $\pi$-system that generates $\mathcal{A}$. Assume that there exist sets $E_1,E_2,... \in \mathcal{E}$ such that $E_n\uparrow \Omega$ and $\mu(E_n) < \infty$ for all $n \in \N$. Then $\mu$ is uniquely determined by the values $\mu(E)$, $E \in \mathcal{E}$.
+\end{lem}
+
+
+\begin{defn}
+    A set function $\mu^*:2^{\Omega}\rightarrow [0,\infty]$ is called an \Emph{outer measure} if \begin{enumerate}[label=\roman*]
+        \item $\mu^*(\emptyset) = 0$ 
+        \item $\mu^*$ is monotone,
+        \item $\mu^*$ is $\sigma$-subadditive
+    \end{enumerate}
+\end{defn}
+
+\begin{lem}
+    Let $\mathcal{A}\subseteq 2^{\Omega}$ be an arbitrary class of sets with $\emptyset \in \mathcal{A}$ and let $\mu$ be a monotone set function on $\mathcal{A}$ with $\mu(\emptyset) = 0$. For $A \subseteq \Omega$, define the set of countable coverings of $A$ with sets $F \in \mathcal{A}$: \begin{equation*}
+        \mathcal{U}(A) = \left\{\mathcal{F} \subseteq \mathcal{A}:\mathcal{F} \text{ is at most countable and } A \subseteq \bigcup_{F\in\mathcal{F}}F\right\}
+    \end{equation*}
+    Define \begin{equation*}
+        \mu^*(A) := \inf\left\{\sum_{F\in\mathcal{F}}\mu(F):\mathcal{F}\in\mathcal{U}(A)\right\}
+    \end{equation*}
+    where $\inf\emptyset := \infty$. Then $\mu^*$ is an outer measure. If in addition $\mu$ is $\sigma$-subadditive, then $\mu^*(A) = \mu(A)$ for all $A \in \mathcal{A}$.
+\end{lem}
+
+
+
 \subsection{Measurable Maps}
 
 
+\subsection{Physical Interpretation}
+
+Conventially we have two main interpretations of probabilities:
+
+\begin{itemize}
+    \item \Emph{Objectivist}: Probabilities can be measured experimentally from the relative frequency of occurrences of an event in repeated tests (ensemple): $P(E) = \lim\limits_{N\rightarrow \infty}\frac{N_E}{N}$, where $N_E$ is the number of times event $E$ occurred in $N$ tests. In the contest of statistical inference, this is also known as the \Emph{frequentist} school of thought. It believes that the probability distributions are intrinsic to the system (example: probabilities in quantum mechanics)
+    \item \Emph{Subjectivist}: Probabilities are beliefs or theoretical estimates based on uncertainties related to a lack of precise knowledge of events. Thus, they cannot be measured. (Example: Single roll of a dice. There 6 possible outcomes, and without any prior info we cannot pick one outcome over the others such that we need to assume that all events consisting of single outcomes are equally likely, $P(\{1\}) = 1/6$. In the context of statistical inference this is called the Bayesian school of thought).
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%% Section 3.1.2
 \section{Random variables}
@@ -3036,11 +3306,156 @@ Evidently the standard deviation of a binomial distribution is $\sigma = \sqrt{N
 \end{defn}
 
 
-
+For example, the relative uncerainty of the binomial distribution is \begin{equation*}
+    \frac{\sigma}{E[X]} = \frac{\sqrt{NP(1-P}}{PN} \propto \frac{1}{\sqrt{N}}
+\end{equation*}
+which goes to $0$ as $N\rightarrow \infty$. This is a form of the \Emph{law of large numbers}.
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 3.2
 \chapter{Continuous Random Variables and the Gaussian Distribution}
+
+%%%%%%%%%%%%%%%%%%%% Section 3.2.1
+\section{Gaussian Distribution and Continuous Random Variables}
+
+\begin{defn}
+    \Emph{Stirling's Formula} is defined to be \begin{equation*}
+        N! \approx \left(\frac{N}{e}\right)^N\sqrt{2\pi N}
+    \end{equation*}
+    which becomes exact in the limit of $N\rightarrow \infty$.
+\end{defn}
+We use this formula to analyze the binomial distribution for $N\rightarrow \infty$: \begin{align*}
+    P_N(n) &= \begin{pmatrix} N \\ n\end{pmatrix} P^n(1-P)^{N-n} = \frac{N!}{(N-n)!n!}P^n(1-P)^{N-n} \\
+        &\approx \left(\frac{N}{e}\right)^N\sqrt{2\pi N}\left(\frac{e}{N-n}\right)^{N-n}\frac{1}{\sqrt{2\pi(N-n)}}\left(\frac{e}{n}\right)^n\frac{1}{\sqrt{2\pi n}}P^n(1-P)^{N-n} \\
+        &= \sqrt{\frac{N}{2\pi n(N-n)}}N^N\left(\frac{P}{n}\right)^n\left(\frac{1-P}{N-n}\right)^{N-n}
+\end{align*}
+
+We now substitute in $x \equiv \frac{n - \langle n\rangle}{N}$, with $\langle n \rangle = NP$, to investigate the expansion around the mean of the Binomial distribution:
+\begin{align*}
+    P_N(x) \approx \sqrt{\frac{N}{2\pi (n-NP)(N-(n-NP)/N)/N}}N^N\left(\frac{P}{(n-NP)/N}\right)^{(n-NP)/N}\left(\frac{1-P}{N-(n-NP)/N}\right)^{N-(n-NP)/N} \\
+    &= \frac{1}{\sqrt{2\pi \sigma^2}}\left(\frac{1}{1+\frac{x}{P}}\right)^{1/2+NP(1+x/P)}\left(\frac{1}{1-\frac{x}{1-P}}\right)^{1/2+N(1-P)(1-x/(1-P))} 
+\end{align*}
+where $\sigma = \sqrt{NP(1-P)}$. We take the natural log of both sides to obtain \begin{equation*}
+    \ln P_N(x) = -\frac{1}{2}\ln(2\pi\sigma^2) - \left[\frac{1}{2}+NP\left(1+\frac{x}{P}\right)\right]\ln\left(1+\frac{x}{P}\right) - \left[\frac{1}{2}+N(1-P)\left(1-\frac{x}{1-P}\right)\right]\ln\left(1-\frac{x}{1-P}\right)
+\end{equation*}
+We need an expansion for $x << 1$, so we use \begin{equation*}
+    \ln(1+\varepsilon) = \varepsilon - \frac{\varepsilon^2}{2} + O(\varepsilon^3)
+\end{equation*}
+This gives \begin{equation*}
+    \ln P_N(x) = -\frac{1}{2}\ln(2\pi\sigma^2) - \left[\frac{1}{2}+NP\left(1+\frac{x}{P}\right)\right]\left(\frac{x}{P}-\frac{x^2}{2P^2}\right) - \left[\frac{1}{2}+N(1-P)\left(1-\frac{x}{1-P}\right)\right]\left(-\frac{x}{1-P}-\frac{x^2}{2(1-P)^2}\right)
+\end{equation*}
+Since we are taking $N\rightarrow \infty$, we can ignore the $1/2$ terms in each pair of brackets, so we have \begin{align*}
+    \ln P_N(x) &\approx -\frac{1}{2}\ln(2\pi\sigma^2) - \left[NP+Nx\right]\left(\frac{x}{P}-\frac{x^2}{2P^2}\right) - \left[N(1-P)-Nx\right]\left(-\frac{x}{1-P}-\frac{x^2}{2(1-P)^2}\right) \\
+    &\approx -\frac{1}{2}\ln(2\pi \sigma^2) - x(N-N)-x^2\left(\frac{N}{P} - \frac{N}{2P} + \frac{N}{1-P} - \frac{N}{2(1-P)}\right) \\
+    &= -\frac{1}{2}\ln(2\pi \sigma^2) -\frac{1}{2}x^2N\left(\frac{1}{P}+\frac{1}{1-P}\right) \\
+    &= -\frac{1}{2}\ln(2\pi \sigma^2) - \frac{1}{2}x^2 \frac{N^2}{\sigma^2}
+\end{align*}
+neglecting all terms of order $x^3$ and higher since $x << 1$ as we take $N\rightarrow \infty$. Thus, converting back from the $\ln$ we have found that the Gaussian distribution is a good approximation for the Binomial distribution for $N\rightarrow \infty$: \begin{equation*}
+    P_N(n) \approx \frac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{-\frac{(n-\langle n\rangle)^2}{2\sigma^2}\right\}
+\end{equation*}
+
+\subsection{Properties of Continuous Random Variables}
+
+Let $(\R,\mathcal{B}(\R,\tau),P)$ denote a probability space over the real line with the Borel $\sigma$-algebra.
+
+\begin{defn}
+    The \Emph{cumulative distribution function}, CDF, for a continuous random variable $X$, is a function $F_X:\R\rightarrow [0,1]$ defined by $F_X(\lambda) = P(\{X\leq \lambda\}) = P(X\leq \lambda)$. In particular, $F_X(\lambda) = P\circ X^{-1}((-\infty, \lambda])$, where $P:\mathcal{B}(\R,\tau)\rightarrow \R$ is the probability measure for the space and $X:\R\rightarrow \R$ is the random variable of interest. The CDF satisfies the following properties, as a consequence of the probability measure $P$: \begin{enumerate}
+        \item $F_X$ is monotonically increasing
+        \item $\lim_{x\rightarrow -\infty}F_X(x) = 0$
+        \item $\lim_{x\rightarrow \infty}F_X(x) = 1$
+    \end{enumerate}
+\end{defn}
+
+\begin{defn}
+    The \Emph{probability density function} for a continuous random variable $X$ is a function $p_X$ defined by if $F_X$ is ther CDF for $X$, then \begin{equation*}
+        F_X(\lambda) = \int_{-\infty}^{\lambda}p_X(x)dx
+    \end{equation*}
+    Further, $p_X$ satisfies positivity, so $p_X:\R\rightarrow [0,\infty)$. Further, from properties of the CDF, \begin{equation*}
+        \lim\limits_{\lambda\rightarrow \infty}F_X(\lambda) = \int_{-\infty}^{\infty}p_X(x)dx = 1
+    \end{equation*}
+\end{defn}
+
+Now we characterize properties of a continuous random variable using its probability density function: 
+
+\begin{defn}
+    Let $X$ be a random variable with pdf $p_X$. The mean of $X$ is defined to be \begin{equation*}
+        E[X] := \int_{-\infty}^{\infty}xp_X(x)dx
+    \end{equation*}
+    In general, if $g:\R\rightarrow \R$ is a continuous function, then \begin{equation*}
+        E[g(X)] = E[g\circ X] := \int_{-\infty}^{\infty}g(x)p_X(x)dx
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    The variance of a continuous random variable $X$ with pdf $p_X$ follows from the last definition, with \begin{equation*}
+        \langle \Delta x^2\rangle := VAR[X] := E[(X-E[X])^2] = E[X^2] - E[X]^2 = \int_{-\infty}^{\infty}X^2p_X(x)dx - E[X]^2
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    The pdf for a Gaussian random variable $X$ with mean $\mu$ and variance $\sigma^2$ is \begin{equation*}
+        p_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}
+    \end{equation*}
+\end{defn}
+
+\subsection{Change of Variables}
+
+\begin{thm}
+    If $X:\R^n\rightarrow \R^n$ is a random variable with continuous pdf $p_X:\R^n\rightarrow [0,\infty)$, and $\varphi:A\rightarrow B$ is a diffeomorphism with $A \subseteq \R^n$ open or closed with $P(\R^n\backslash A) = 0$ and $B \subseteq \R^n$ also open or closed, then the image measure $P\circ X^{-1} \circ \varphi^{-1}$ has the pdf \begin{equation*}
+        p_{\varphi}(x) = \left\{\begin{array}{rc} \frac{p_X(\varphi^{-1}(x))}{\left|\det(\varphi'(\varphi^{-1}(x)))\right|}, & \text{if } x \in B, \\ 0, & \text{if } x \in B^c\end{array}\right\}
+    \end{equation*}
+\end{thm}
+In the one dimensional case we have \begin{equation*}
+    P(F(X) \leq \lambda) = \int_{-\infty}^{\lambda}p_F(x)dx = P(X\leq F^{-1}(\lambda)) = \int_{-\infty}^{F^{-1}(\lambda)}p_X(x)dx = \int_{-\infty}^{\lambda}p_X(F^{-1}(y))\left|\frac{dF^{-1}}{dy}(y)\right|dy
+\end{equation*}
+using change of variables and the inverse function theorem.
+
+\begin{defn}
+    If $U = h(Y)$, where $h(y)$ is injective and $Y$ is a real random variable with pdf $f_Y(y) > 0$, then $$f_U(u) = f_Y(h^{-1}(u))\left|\frac{d}{du}(h^{-1}(u))\right|$$
+\end{defn}
+
+
+\begin{eg}
+    Consider a particle in one spatial dimension. Its momentum is a random variable with pdf $p(x) = \frac{\lambda}{2}\exp\{-\lambda|x|\}$. Its kinetic energy is given in dimensionless form $Y = F(x) = x^2$. Then, using the method of transformations we have that $$p_F(y) = (p(\sqrt{y})+p(-\sqrt{y}))\left|\frac{d}{dy}\sqrt{y}\right| = \frac{\lambda}{2\sqrt{y}}\exp\left\{-\lambda|x|\right\}$$
+\end{eg}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.2.2
+\section{Multivariate Random Variables and the Central Limit Theorem}
+
+We now consider the cases where our probability space is $(\R^N,\mathcal{B}(\R^N,\tau),P)$.
+
+\begin{defn}
+    The \Emph{Joint PDF}, $p(X)$, for a random variable $X = (X_1,...,X_N)$, is the probability density of an outcome in a volume element $d^NX = \prod_{i=1}^Ndx_i$. The CDF associated to this pdf for $x = (x_1,...,x_N)$ is \begin{equation*}
+        F_X(x) = \int_{-\infty}^{x_1}dx_1...\int_{-\infty}^{x_N}dx_Np(x_1,...,x_N)
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    The $N$ random variables, $X_1,...,X_N$, are said to be \Emph{independent} if and only if the joint pdf factorizes: \begin{equation*}
+        p(X) = \prod_{i=1}^Np_i(X_i)
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    The \Emph{unconditional or marginal PDF} describes the behaviour of a subset of $m < N$ random variables, independent of the values of the others: \begin{equation*}
+        p(x_1,...,x_m) := \int\prod_{i=m+1}^Ndx_ip(x_1,x_2,...,x_N) = \int_{-\infty}^{\infty}dx_{m+1}...\int_{-\infty}^{\infty}dx_Np(x_1,...,x_N)
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    The \Emph{conditional PDF} describes the behaviour of a subset of $m < N$ random variables for fixed values of the others: \begin{equation*}
+        p(x_1,...,x_m\vert x_{m+1},...,x_N) := \frac{p(x_1,...,x_N)}{p(x_{m+1},...,x_N)}
+    \end{equation*}
+    where $x_{m+1},...,x_N$ are fixed.
+\end{defn}
+
+\begin{namthm}[Central Limit Theorem]
+    Consider $N$ independent identically distributed (i.i.d) random variables $X_1,...,X_N$ with $E[X_i] = \mu$ and $V[X_i] = \sigma^2$ for all $i$. Then $\overline{X} = \frac{1}{N}\sum_{i=1}^NX_i$ follows a Gaussian distribution with mean $\mu$ and variance $\frac{\sigma^2}{n}$ in the limit of large $N$.
+\end{namthm}
+
+
 
 
 
@@ -3048,6 +3463,75 @@ Evidently the standard deviation of a binomial distribution is $\sigma = \sqrt{N
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 3.3
 \chapter{Information and Entropy}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.3.1
+\section{Introduction to Information Theory}
+
+What is information really? Here is an attempt at a precise definition:
+
+\begin{defn}
+    \Emph{Information} is the average number of (minimal) yes-no questions one has to ask to determine the state of a system.
+\end{defn}
+
+\begin{eg}
+    Consider an $8$ by $8$ chess board. If we only have a single piece, the state of the system would correspond to the location of the piece and in total we would have $M = 8^2$ different states. One can determine the state of the board by asking if the piece is in the upper or lower half, then proceeding to ask about the right or left half, halving the board each time until the piece is found. It follows that the average number of minimal yes-no questions one has to ask is $I = 6$, and we can generalize this by observing that \begin{equation*}
+        I = 6 = 6\log_22 = \log_22^6 = \log_28^2 = \log_2M
+    \end{equation*}
+\end{eg}
+
+We could have also defined information as follows: 
+\begin{defn}
+    \Emph{Information} is the gain in knowledge one obtains if the state of a system is revealed.
+\end{defn}
+
+We use this to address the question of how much information one gains if the probability distribution associated with the states of a system is revealed.
+
+%%%%%%%%%%%%%%%%%%%% Section 3.3.2
+\section{Information Content of a Distribution}
+
+Let $X$ be a discrete random variable with a finite set of outcomes $\Omega$, with $|\Omega| = M$. Let $\{P(i)\}$ for all $1 \leq i \leq M$ be the associated probabilities of the outcomes. Suppose we have $N$ independent outcomes. The \Emph{apparent information} is $I = \log_2M^N = N\log_2M$. However, because of the CLT, or law of large numbers, we know the number of tiems we observe outcome $i$ is $N_i \approx NP_i$ for $N\rightarrow \infty$. Thus, in this limit the number of typical sequences of outomes corresponds to the number of ways of rearranging the $N_i$ outcomes for all $i$: \begin{equation*}
+    g \equiv \frac{N!}{\prod_{i=1}^MN_i!}
+\end{equation*}
+This is the \Emph{multinomial coefficient}. Modifying this expression we obtain \Emph{Shannon's Theorem}: \begin{align*}
+    \log_2g &= \log_2\left[\frac{N!}{\prod_{i=1}^MN_i!}\right] \\
+    &\approx \log_2\left[\left(\frac{N}{e}\right)^N\sqrt{2\pi N}\prod_{i=1}^M\left(\frac{e}{N_i}\right)^{N_i}\frac{1}{\sqrt{2\pi N_i}}\right] \\
+    &= \log_2\left[N^N\sqrt{2\pi N}\prod_{i=1}^M\left(\frac{1}{NP_i}\right)^{NP_i}\frac{1}{\sqrt{2\pi NP_i}}\right] \\
+    &= \log_2\left[\prod_{i=1}^M\left(\frac{1}{P_i}\right)^{NP_i}\frac{1}{\sqrt{P_i}}\right] - \frac{M-1}{2}\log_2(2\pi N) \\
+    &= -N\sum_{i=1}^MP_i\log_2P_i - \frac{1}{2}\sum_{i=1}^M\log_2P_i - \frac{M-1}{2}\log_2(2\pi N)\\
+    &\approx -N\sum_{i=1}^MP_i\log_2P_i,
+\end{align*}
+using Stirling's formula and the approximation of large $N$, so we have an equality for $N\rightarrow \infty$.
+
+\begin{defn}
+    We quantify the \Emph{information content of a probability distribution} is the difference between the apparent information and the logarithm of the number of typical sequences of outcomes given the probability distribution: \begin{equation*}
+        I(\{P_i\}) = \frac{I-\log_2g}{N} = \log_2M + \sum_{i=1}^MP_i\log_2P_i
+    \end{equation*}
+\end{defn}
+
+Instead of $I$ we often use a kind of inverse quanitty to characterize a probability distribution. In this case the quantity measures the lack of knowledge or uncertainty instead of the information content:
+
+\begin{defn}
+    The \Emph{Shannon entropy} for a probability distribution is defined as \begin{equation*}
+        S \equiv -\sum_{i=1}^MP_i\ln P_i = -\langle \ln P\rangle \propto\frac{\log_2g}{N}
+    \end{equation*}
+\end{defn}
+
+The Shannon entropy and thermodynamic entropy are essentially the same in certain cases if we scale by $k_B$ to get the correct units, and this connection relies on the maximum entropy principle.
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.3.3
+\section{Maximum Entropy Principle}
+
+\begin{thm}
+    The \Emph{Maximum Entropy Principle} states that the best unbiased estimate of probabilities for given constraints is the one that maximizes the Shannon entropy.
+\end{thm}
+
+If we have $M$ possible outcomes and $s$ constraints of the form $g_j(P_1,...,P_M) = 0$ for all $1 \leq j \leq s$, then if a function $f(P_1,...,P_M) = 0$ is maximized with respect to these constraints there exist $\lambda_j \in \R$, $1 \leq j \leq s$, such that \begin{equation*}
+    \nabla f = \sum_{j=1}^s\lambda_j\nabla g_j
+\end{equation*}
+
+
 
 
 
@@ -3059,6 +3543,154 @@ Evidently the standard deviation of a binomial distribution is $\sigma = \sqrt{N
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 4.1
 \chapter{Kinetic Theory of Gases}
+
+
+Kinetic theory studies the macroscopic properties of large numbers of particles starting from their classical equations of motion.
+
+%%%%%%%%%%%%%%%%%%%% Section 4.1.1
+\section{Hamiltonian Dynamics and Phase Space}
+
+\begin{thm}
+    The system of $N$ second order Lagrange's equations is equivalent to the following system of $2N$ first order equations: \begin{equation*}
+        \dot{p}_i = -\frac{\partial \mathcal{H}}{\partial q_i},\;\;\;\;\;\;\dot{q}_i = \frac{\partial \mathcal{H}}{\partial p_i}
+    \end{equation*}
+    for $1 \leq i \leq s$. Here, $\mathcal{H} = \mathcal{H}(q_1,...,q_s,p_1,...,p_s,t) \equiv \sum_{j=1}^s\dot{q}_jp_j - \mathcal{L}$ is a Legendre transform of the Lagrangian $\mathcal{L}(q_1,...,q_s,\dot{q}_1,...,\dot{q}_s,t)$ with generalized momenta $p_j = \frac{\partial \mathcal{L}}{\partial \dot{q}_j}$ and generalized coordinates $q_j$ called the \Emph{Hamiltonian}. The above equations are called \Emph{Hamilton's equations of motion}.
+\end{thm}
+
+For conservative systems with time-independent holonomic constraints, the Hamiltonian equals the total mechanical energy: \begin{equation*}
+    \mathcal{H} = E_{kin} + E_{pot} = E_{tot}
+\end{equation*}
+
+Another important feature of the Hamiltonian is that it is constant if and only if it does not depend on time. Indeed, \begin{equation*}
+    \frac{d\mathcal{H}}{dt} = \sum_i\left(\frac{\partial \mathcal{H}}{\partial q_i}\dot{q}_i + \frac{\partial \mathcal{H}}{p_i}\dot{p}_i\right) + \frac{\partial \mathcal{H}}{\partial t} = \sum_i(-\dot{p}_i\dot{q}_i + \dot{q}_i\dot{p}_i)+\frac{\partial \mathcal{H}}{\partial t} = \frac{\partial \mathcal{H}}{\partial t}
+\end{equation*}
+
+
+\begin{eg}
+    Consider the example of a single particle in a potential $V = V(\vec{r})$. As this corresponds to a conservative system and there are no constraints we have for the Hamiltonian: \begin{equation*}
+        H(\vec{r},\vec{p}) = E_{kin} + E_{pot} = \frac{\vec{p}\cdot \vec{p}}{2m} + V(\vec{r})
+    \end{equation*}
+    For Hamilton's equation of motion this gives: \begin{equation*}
+        \dot{\vec{p}} = -\frac{\partial \mathcal{H}}{\partial \vec{r}} = -\frac{\partial V}{\partial \vec{r}} = -\nabla V,\;\;\;\;\;\;\dot{\vec{r}} = \frac{\partial \mathcal{H}}{\partial \vec{p}} = \frac{\vec{p}}{m}
+    \end{equation*}
+    which is equivalent to Newton's equations of motion, as exprected.
+
+    In the special case of a 1D oscillator with $V(\vec{r}) = \frac{1}{2}kx^2$, where $k$ is the spring constant, we have $\dot{p}_x = -kx, \ddot{x} = \frac{\dot{p}_x}{m} = -\frac{k}{m}x$, and for the other coordinates we just have zeros. For the Hamiltonian in this case we have \begin{equation*}
+        H(x,p_x) = \frac{p_x^2}{2m} + \frac{1}{2}kx^2 \equiv E_{tot} = const,
+    \end{equation*}
+    since the Hamiltonian does not explicitly depend on time. Thus, the dynamics of the system in \Emph{phase space} is simply an ellipse of axes $\sqrt{2mE_{tot}}$ and $\sqrt{\frac{2E_{tot}}{k}}$.
+\end{eg}
+
+\begin{defn}
+    The \Emph{Phase Space} of a system of $N$ particles is the space spanned by the generalized momenta and coordinates used to describe the particles.
+\end{defn}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 4.1.2
+\section{Microstates, Macrostates, and Phase Space Density}
+
+In this context a microstate corresponds to a state in phase space, which is simply an initial condition of Hamilton's equations of motion at a given moment in time $t$: \begin{equation*}
+    \mu(t) = (\vec{q}_1(t),\vec{p}_1(t),...,\vec{q}_N(t),\vec{p}_N(t))
+\end{equation*}
+The dimension of phase space is at most $6N$ for $N$ particles, where the exact number is determined by the number of degrees of freedom, and one often uses the symbol $\Gamma$ to denote it such that one can write \begin{equation*}
+    \mu(t) \in \Gamma = \prod_{i=1}^N\R^3\times \R^3
+\end{equation*}
+
+Macrostates in the context of kinetic thoery are, for example, all microstates with the same internal energy $U$, the same number of particles $N$, and the same volume $V$. For a given fixed macrostate one can then ask the question how likely it is to find the system in a specific microstate. To address this question we will often follow a frequentist approach and introduce a \Emph{statistical ensemble} of microstates:
+
+\begin{defn}
+    Let us consider $M$ copies of a given system in the same macrostate at fixed time $t$ such that we have $M$ microstates, $\mu_j(t) \in \Gamma$ with $1 \leq j \leq M$. If we denote the number of different $\mu_j(t)$'s in an infinitesimal volume element $d\Gamma = \prod_{i=1}^Nd^3\vec{q}_id^3\vec{p}_i$ around $(\vec{q},\vec{p})$ as $dM(\vec{q},\vec{p},t)$, then we can define the \Emph{phase space density} as \begin{equation*}
+        \rho(\vec{q},\vec{p},t)d\Gamma = \lim\limits_{M\rightarrow \infty}\frac{dM(\vec{q},\vec{p},t)}{M}
+    \end{equation*}
+\end{defn}
+
+This is simply a joint PDF in phase space. Since the particles are not stationary but move according to Hamilton's equations of motion, the phase density can vary over time. Using the phase space density one can calculate macroscopic values for observables or function, $F(\vec{q},\vec{p})$ as one would for pdfs and cdfs based on \Emph{ensemble averages}: \begin{equation}
+    \langle F\rangle(t) := \int d\Gamma\rho(\vec{q},\vec{p},t)F(\vec{q},\vec{p})
+\end{equation}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 4.1.3
+\section{Liouville's Theorem}
+
+Note that as the phase space density is a PDF, it must be normalized so \begin{equation*}
+    1 = \int d\Gamma\rho(\vec{q},\vec{p},t) = \int\prod_{i=1}^Nd\vec{q}_id\vec{p}_i\rho(\vec{q},\vec{p},t) = \int d\vec{q}_1...\int d\vec{q}_N\int d\vec{p}_1...\int d\vec{p}_N\rho(\vec{q},\vec{p},t)
+\end{equation*}
+where the boundary of the integrals integrates over the whole accessible phase space. This integral must not be time dependent, as even though $\rho(\vec{q},\vec{p},t)$ may vary over time, the normalization must hold for all times, so the integral acts as a conservation law. 
+
+\begin{namthm}[Liouville's Theorem]
+    The phase space density $\rho(\vec{q},\vec{p},t)$ behaves like an incompressible fluid: \begin{equation*}
+        \frac{d\rho}{dt} \equiv \frac{\partial \rho}{\partial t} + \sum_{\alpha=1}^{3N}\left(\frac{\partial \rho}{\partial p_{\alpha}}\dot{p}_{\alpha} + \frac{\partial \rho}{\partial q_{\alpha}}\dot{q}_{\alpha}\right) = 0
+    \end{equation*}
+\end{namthm}
+
+\begin{rmk}
+    In summary, Liouvilles theorem states that the phase space density evolves like an incompressible fluid. So, it provides a specific condition for the evolution of the phase space density in time. It allows us to use the Hamiltonian of the system to provide a possible way of determining equilibrium densities. Moreover, any physically relevant equilibrium or non-equilibrium density has to be a solution to these equations.
+\end{rmk}
+
+We now investigate how we can define equilibrium from the microscopic perspective.
+
+\begin{defn}
+    We define the \Emph{equilibrium phase space density} as $\rho_{eq} \equiv \rho_{eq}(\vec{q},\vec{p})$. This means that \begin{equation*}
+        \frac{\partial \rho_{eq}}{\partial t} = 0 \iff \sum_{\alpha=1}^{3N}\left(\frac{\partial \rho}{\partial p_{\alpha}}\dot{p}_{\alpha} + \frac{\partial \rho}{\partial q_{\alpha}}\dot{q}_{\alpha}\right) = 0 \iff \sum_{\alpha=1}^{3N}\left(-\frac{\partial \rho}{\partial p_{\alpha}}\frac{\partial \mathcal{H}}{\partial q_{\alpha}} + \frac{\partial \rho}{\partial q_{\alpha}}\frac{\partial \mathcal{H}}{\partial p_{\alpha}}\right) = 0
+    \end{equation*}
+\end{defn}
+
+so the probability to find the system in a specific microstate is constant over time in equilibrium. 
+
+\begin{note}
+    One of the primary goals of statistical mechanics is to find appropriate equilibrium phase space densities which correspond to finding solutions to the last equation above for a given Hamiltonian $\mathcal{H}$.
+\end{note}
+
+Let $\rho = \rho(\mathcal{H}(\vec{q},\vec{p}))$, and let us check whether it would be a viable $\rho_{eq}$. Using the chain rule we find \begin{equation*}
+    \sum_{\alpha=1}^{3N}\left(-\frac{\partial \rho}{\partial p_{\alpha}}\frac{\partial \mathcal{H}}{\partial q_{\alpha}} + \frac{\partial \rho}{\partial q_{\alpha}}\frac{\partial \mathcal{H}}{\partial p_{\alpha}}\right) = \sum_{\alpha=1}^{3N}\left(-\frac{d\rho}{d\mathcal{H}}\frac{\partial \mathcal{H}}{\partial p_{\alpha}}\frac{\partial \mathcal{H}}{\partial q_{\alpha}} + \frac{d\rho}{d\mathcal{H}}\frac{\partial \mathcal{H}}{\partial q_{\alpha}}\frac{\partial \mathcal{H}}{\partial p_{\alpha}}\right)  = 0
+\end{equation*}
+Thus $\rho(\mathcal{H}(\vec{q},\vec{p}))$ satisfies the basic requirements for an equilibrium phase space density. The functional form of $\rho(\mathcal{H}(\vec{q},\vec{p}))$ implies that it is constant on surfaces of constant mechanical energy in phase space, so all microstates with the same mechanical energy are equally likely. This is the \Emph{basic assumption of Statistical Mechanics} and it can be motivated by the maximum entropy principle.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 4.1.4
+\section{Ergodicity}
+
+
+How do we measure or estimate the phase space density? Experimentally even ensemble averages are rarely accessible since it would require to set up a large number of macroscopically identical systems or experiments, which is not typically feasible. Fortunately, the property of Ergodicity belonging to many systems can be used to circumvent this:
+
+\begin{defn}
+    \Emph{Ergodicity} means that ensemble averages are identical to time averages for almost all initial conditions: \begin{equation*}
+        \langle F\rangle \equiv \int d\Gamma\rho_{eq}(\vec{q},\vec{p})F(\vec{q},\vec{p}) = \lim\limits_{T\rightarrow \infty}\frac{1}{T}\int_0^TdtF(\vec{q}(t),\vec{p}(t)) \equiv \overline{F}
+    \end{equation*}
+\end{defn}
+
+To understand this further let us consider a discretization of phase space into little boxes $i$, and investigate a system's trajectory $\mu(t)$ starting from some initial conditions. This discretization allows us to turn the integral over time into a sum, where $\tau_i$ is the amount of time the trajectory spends in box $i$: \begin{equation*}
+    \frac{1}{T}\int_0^T F(\vec{p}(t),\vec{q}(t))dt \approx \sum_i\frac{\tau_i}{T}F(\vec{p}_i,\vec{q}_i)
+\end{equation*}
+If the system is ergodic we then simply have $\frac{\tau_i}{T} = \rho_{eq}d\Gamma_i$, where $d\Gamma_i$ is the phase space volume corresponding to box $i$. This implies that the given system spends a relative amount of time in a given phase space volume that is identical to the probability given by the system's equilibrium phase space density in that volume.
+
+\begin{rmk}
+    In summary, for an ergodic system time averages of a single system are sufficient and experimentally much more accessible. However, \Emph{ergodicity is typically a hypothesis}.
+\end{rmk}
+
+
+\begin{note}
+    The Ergodic hypothesis implies that a physical system will visit points in its phase space with a frequency equal to the probability density of the ensemble. 
+\end{note}
+
+
+A system is also ergodic only if its trajectory may access all parts of the phase space of positive measure, which is to say if the trajectory passes arbitrarily close to any point in the phase space infinitely many times as time tends towards infinity.
+
+%%%%%%%%%%%%%%%%%%%% Section 4.1.5
+\section{Time Reversibility and the Arrow of Time}
+
+
+How does the fact that equilibriums in thermodynamics are asymptotically reached, with thermodynamic potentials being extremal at equilibrium due to the 2nd law of thermodynamics, translate to the notion of phase space density?
+
+Let us consider Hamilton's equations of motion and how they behave under time reversal. This is mathematically achieved by doing the replacement $t\rightarrow -t$, which implies $\vec{q}\rightarrow \vec{q},\vec{p}\rightarrow -\vec{p},\dot{\vec{q}}\rightarrow -\dot{\vec{q}},\dot{\vec{p}} \rightarrow \dot{\vec{p}},$ and $\mathcal{H}\rightarrow \mathcal{H}$; the invariance of the Hamiltonian under time reversal is violated for weak nuclear interactions unless it is accompanied by a charge and parity reversal (CPT symmetry). Using these replacements in Hamilton's equations of motion we find \begin{equation*}
+    \dot{\vec{p}} = -\frac{\partial \mathcal{H}}{\partial \vec{q}},\;\;\;\;\;\;-\dot{\vec{q}} = -\frac{\partial \mathcal{H}}{\partial \vec{p}}
+\end{equation*}
+so they are unaltered and Hamilton's equations have a time-reversal symmetry: any time reversed solution is also a solution. Now, starting from Liouville's theorem, let us consider any solution $\rho(t)$ of $\frac{\partial \rho}{\partial t} = -\sum_{\alpha=1}^{3N}\left(\frac{\partial \rho}{\partial p_{\alpha}}\dot{p}_{\alpha} + \frac{\partial \rho}{\partial q_{\alpha}}\dot{q}_{\alpha}\right)$ that converges over time to $\rho_{eq}$. Then, under time reversal we obtain another solution $\tilde{\rho}(t)$ that is consistent with Liouville's theorem but by construction does not converge to $\rho_{eq}$. Thus, $\rho_{eq}$ is not generically reached asymptotically. If the system is ergodic however, each trajectory $\mu(t)$ in phase space will stay in the neighborhood of $\rho_{eq}$ the majority of the time. Thus, ergodicity saves the notion of equilibrium and the arrow of time, but only probabilistically.
 
 
 
