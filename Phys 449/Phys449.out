@@ -49,35 +49,46 @@
 \BOOKMARK [1][-]{section.6.1}{Canonical Ensemble}{chapter.6}% 49
 \BOOKMARK [1][-]{section.6.2}{Overview of Ensembles}{chapter.6}% 50
 \BOOKMARK [1][-]{section.6.3}{Examples of Ensembles}{chapter.6}% 51
-\BOOKMARK [0][-]{chapter.7}{Gibbs Canonical Ensemble}{part.2}% 52
-\BOOKMARK [-1][-]{part.3}{III Probability Theory}{}% 53
-\BOOKMARK [0][-]{chapter.8}{Characteristics of Probability Theory}{part.3}% 54
-\BOOKMARK [1][-]{section.8.1}{Measure Theory}{chapter.8}% 55
-\BOOKMARK [2][-]{subsection.8.1.1}{Set Functions}{section.8.1}% 56
-\BOOKMARK [2][-]{subsection.8.1.2}{The Measure Extension Theorem}{section.8.1}% 57
-\BOOKMARK [2][-]{subsection.8.1.3}{Measurable Maps}{section.8.1}% 58
-\BOOKMARK [2][-]{subsection.8.1.4}{Physical Interpretation}{section.8.1}% 59
-\BOOKMARK [1][-]{section.8.2}{Random variables}{chapter.8}% 60
-\BOOKMARK [1][-]{section.8.3}{States and Combined Events}{chapter.8}% 61
-\BOOKMARK [1][-]{section.8.4}{Characteristics of Probability Distributions}{chapter.8}% 62
-\BOOKMARK [0][-]{chapter.9}{Continuous Random Variables and the Gaussian Distribution}{part.3}% 63
-\BOOKMARK [1][-]{section.9.1}{Gaussian Distribution and Continuous Random Variables}{chapter.9}% 64
-\BOOKMARK [2][-]{subsection.9.1.1}{Properties of Continuous Random Variables}{section.9.1}% 65
-\BOOKMARK [2][-]{subsection.9.1.2}{Change of Variables}{section.9.1}% 66
-\BOOKMARK [1][-]{section.9.2}{Multivariate Random Variables and the Central Limit Theorem}{chapter.9}% 67
-\BOOKMARK [0][-]{chapter.10}{Information and Entropy}{part.3}% 68
-\BOOKMARK [1][-]{section.10.1}{Introduction to Information Theory}{chapter.10}% 69
-\BOOKMARK [1][-]{section.10.2}{Information Content of a Distribution}{chapter.10}% 70
-\BOOKMARK [1][-]{section.10.3}{Maximum Entropy Principle}{chapter.10}% 71
-\BOOKMARK [-1][-]{part.4}{IV Real Gases and Phase Transitions}{}% 72
-\BOOKMARK [0][-]{chapter.11}{Kinetic Theory of Gases}{part.4}% 73
-\BOOKMARK [1][-]{section.11.1}{Hamiltonian Dynamics and Phase Space}{chapter.11}% 74
-\BOOKMARK [1][-]{section.11.2}{Microstates, Macrostates, and Phase Space Density}{chapter.11}% 75
-\BOOKMARK [1][-]{section.11.3}{Liouville's Theorem}{chapter.11}% 76
-\BOOKMARK [1][-]{section.11.4}{Ergodicity}{chapter.11}% 77
-\BOOKMARK [1][-]{section.11.5}{Time Reversibility and the Arrow of Time}{chapter.11}% 78
-\BOOKMARK [0][-]{chapter.12}{Classification of Phase Transitions}{part.4}% 79
-\BOOKMARK [-1][-]{part.5}{V Quantum Statistics}{}% 80
-\BOOKMARK [0][-]{chapter.13}{Quantum States}{part.5}% 81
-\BOOKMARK [0][-]{chapter.14}{Ideal Quantum Gases}{part.5}% 82
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.5}% 83
+\BOOKMARK [2][-]{subsection.6.3.1}{Pauli Paramagnet or the Two-Level System}{section.6.3}% 52
+\BOOKMARK [2][-]{subsection.6.3.2}{Ideal Gas in the Canonical Ensemble}{section.6.3}% 53
+\BOOKMARK [2][-]{subsection.6.3.3}{Maxwell-Boltzmann distribution for speed}{section.6.3}% 54
+\BOOKMARK [2][-]{subsection.6.3.4}{Ideal Gas in the Microcanonical Ensemble}{section.6.3}% 55
+\BOOKMARK [0][-]{chapter.7}{Gibbs Canonical Ensemble}{part.2}% 56
+\BOOKMARK [1][-]{section.7.1}{Mixing Entropy and Gibbs Paradox}{chapter.7}% 57
+\BOOKMARK [2][-]{subsection.7.1.1}{Resolution to Gibbs Paradox}{section.7.1}% 58
+\BOOKMARK [2][-]{subsection.7.1.2}{Postulate for Indistinguishable Particles}{section.7.1}% 59
+\BOOKMARK [1][-]{section.7.2}{Gibbs Canonical Ensemble}{chapter.7}% 60
+\BOOKMARK [2][-]{subsection.7.2.1}{Heat Capacities}{section.7.2}% 61
+\BOOKMARK [2][-]{subsection.7.2.2}{Ideal Gas in the Isobaric Ensemble}{section.7.2}% 62
+\BOOKMARK [2][-]{subsection.7.2.3}{Paramagnet in an External Magnetic Field}{section.7.2}% 63
+\BOOKMARK [-1][-]{part.3}{III Probability Theory}{}% 64
+\BOOKMARK [0][-]{chapter.8}{Characteristics of Probability Theory}{part.3}% 65
+\BOOKMARK [1][-]{section.8.1}{Measure Theory}{chapter.8}% 66
+\BOOKMARK [2][-]{subsection.8.1.1}{Set Functions}{section.8.1}% 67
+\BOOKMARK [2][-]{subsection.8.1.2}{The Measure Extension Theorem}{section.8.1}% 68
+\BOOKMARK [2][-]{subsection.8.1.3}{Measurable Maps}{section.8.1}% 69
+\BOOKMARK [2][-]{subsection.8.1.4}{Physical Interpretation}{section.8.1}% 70
+\BOOKMARK [1][-]{section.8.2}{Random variables}{chapter.8}% 71
+\BOOKMARK [1][-]{section.8.3}{States and Combined Events}{chapter.8}% 72
+\BOOKMARK [1][-]{section.8.4}{Characteristics of Probability Distributions}{chapter.8}% 73
+\BOOKMARK [0][-]{chapter.9}{Continuous Random Variables and the Gaussian Distribution}{part.3}% 74
+\BOOKMARK [1][-]{section.9.1}{Gaussian Distribution and Continuous Random Variables}{chapter.9}% 75
+\BOOKMARK [2][-]{subsection.9.1.1}{Properties of Continuous Random Variables}{section.9.1}% 76
+\BOOKMARK [2][-]{subsection.9.1.2}{Change of Variables}{section.9.1}% 77
+\BOOKMARK [1][-]{section.9.2}{Multivariate Random Variables and the Central Limit Theorem}{chapter.9}% 78
+\BOOKMARK [0][-]{chapter.10}{Information and Entropy}{part.3}% 79
+\BOOKMARK [1][-]{section.10.1}{Introduction to Information Theory}{chapter.10}% 80
+\BOOKMARK [1][-]{section.10.2}{Information Content of a Distribution}{chapter.10}% 81
+\BOOKMARK [1][-]{section.10.3}{Maximum Entropy Principle}{chapter.10}% 82
+\BOOKMARK [-1][-]{part.4}{IV Real Gases and Phase Transitions}{}% 83
+\BOOKMARK [0][-]{chapter.11}{Kinetic Theory of Gases}{part.4}% 84
+\BOOKMARK [1][-]{section.11.1}{Hamiltonian Dynamics and Phase Space}{chapter.11}% 85
+\BOOKMARK [1][-]{section.11.2}{Microstates, Macrostates, and Phase Space Density}{chapter.11}% 86
+\BOOKMARK [1][-]{section.11.3}{Liouville's Theorem}{chapter.11}% 87
+\BOOKMARK [1][-]{section.11.4}{Ergodicity}{chapter.11}% 88
+\BOOKMARK [1][-]{section.11.5}{Time Reversibility and the Arrow of Time}{chapter.11}% 89
+\BOOKMARK [0][-]{chapter.12}{Classification of Phase Transitions}{part.4}% 90
+\BOOKMARK [-1][-]{part.5}{V Quantum Statistics}{}% 91
+\BOOKMARK [0][-]{chapter.13}{Quantum States}{part.5}% 92
+\BOOKMARK [0][-]{chapter.14}{Ideal Quantum Gases}{part.5}% 93
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.5}% 94

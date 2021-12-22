@@ -1087,6 +1087,14 @@ Often the inverse transform is itself an integral transform, forming a transform
 \part{Special Functions}
 
 
+Throughout this part we use the following theorem: 
+\begin{thm}[Leibnitz Theorem]
+    If $f = uv$ where $u$ and $v$ are $n$ times continuously differentiable single variable functions, then \begin{equation*}
+        f^{(n)} = \sum_{r=0}^n\frac{n!}{r!(n-r)!}u^{(r)}v^{(n-r)}
+    \end{equation*}
+\end{thm}
+
+
 %%%%%%%%%%%%%%%%%%%%%% Chapter 3.1
 \chapter{Legendre Functions}
 
@@ -1168,6 +1176,456 @@ In physical problems the variable $x$ in Legendre's equation is usually the cosi
     \end{equation*}
     for some constant $c_l$ that depends on $l$. Note the only term in the expression for the $l$th derivative of $(x^2-1)^l$ that does not contain a factor $x^2-1$, and so does not vanish at $x = 1$, is $(2x)^ll!(x^2-1)^0$. Putting $x = 1$ and recalling that $P_l(1) =1$, shows that $c_l = 2^ll!$, completing the proof.
 \end{proof}
+
+\begin{prop}
+    If $l \in \Z^+$, then \begin{equation*}
+        I_l = \int_{-1}^1P_l(x)P_l(x)dx = \frac{2}{2l+1}
+    \end{equation*}
+\end{prop}
+\begin{proof}
+    The result is immediate for $l= 0$ so suppose $l \geq 1$. Then by Rodrigues' formula\begin{equation*}
+        I_l = \frac{1}{2^{2l}(l!)^2}\int_{-1}^1\left[\frac{d^l(x^2-1)^l}{dx^l}\right]\left[\frac{d^l(x^2-1)^l}{dx^l}\right]dx 
+    \end{equation*}
+    Repeated integration by parts with all boundary terms vanishing reduces to \begin{align*}
+        I_l &= \frac{(-1)^l}{2^{2l}(l!)^2}\int_{-1}^1(x^2-1)^l\frac{d^{2l}}{dx^{2l}}(x^2-1)^ldx \\
+        &= \frac{(2l)!}{2^{2l}(l!)^2}\int_{-1}^1(1-x^2)^ldx 
+    \end{align*}
+    where $\int_{-1}^1(1-x^2)^ldx = \frac{2^{2l+1}(l!)^2}{(2l+1)!}$, which after substituting in gives the result.
+\end{proof}
+
+\begin{prop}
+    Since the Legendre polynomials $P_l(x)$ are regular at the end-points of the interval $[-1,1]$, they must be mutually orthogonal over this interval, so \begin{equation*}
+        \int_{-1}^1P_l(x)P_k(x)dx = 0\;\;\text{ if }l\neq k
+    \end{equation*}
+\end{prop}
+\begin{proof}
+    Since the $P_l(x)$ satisfy Legendre's equation we may write \begin{equation*}
+        [(1-x^2)P_l']' + l(l+1)P_l = 0
+    \end{equation*}
+    Multiplying through by $P_k$ and integrating from $x=-1$ to $x=1$ we obtain \begin{equation*}
+        \int_{-1}^1P_k[(1-x^2)P'_l]'dx + \int_{-1}^1P_kl(l+1)P_ldx = 0
+    \end{equation*}
+    Integrating the first term by parts and noting that the boundary contribution vanishes at both limits because of the factor $1-x^2$, we find \begin{equation*}
+        -\int_{-1}^1P_k'(1-x^2)P'_ldx + \int_{-1}^1P_kl(l+1)P_ldx = 0
+    \end{equation*}
+    Reversing the roles of $l$ and $k$ and subtracting one expression from the other we conclude that \begin{equation*}
+        [k(k+1)-l(l+1)]\int_{-1}^1P_kP_ldx = 0
+    \end{equation*}
+    so for $k \neq l$ we have the desired result.
+\end{proof}
+
+The mutual orthogonality and completeness of the $P_l(x)$ mean that any reasonable function $f(x)$ obeying the Dirichlet conditions can be expressed in the interval $|x| <1$ as an infinite sum of Legendre polynomials \begin{equation*}
+    f(x) = \sum_{l=0}^{\infty}a_lP_l(x)
+\end{equation*}
+where the coefficients are given by\begin{equation*}
+    a_l = \frac{2l+1}{2}\int_{-1}^1f(x)P_l(x)dx
+\end{equation*}
+
+
+\subsection{Generating Function}
+
+\begin{defn}
+    The \Emph{generating function} for a series of functions $f_n(x)$ for $n = 0,1,2,...$ is a function $G(x,h)$ containing $x$ and a dummy variable $h$ such that \begin{equation*}
+        G(x,h) = \sum_{n=0}^{\infty}f_n(x)h^n
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    The generating function for the Legendre polynomials $P_n(x)$, up to an additive constant, is \begin{equation*}
+        G(x,h) = \frac{1}{\sqrt{1-2xh+h^2}} = \sum_{n=0}^{\infty}P_n(x)h^n
+    \end{equation*}
+\end{defn}
+\begin{proof}
+    Differentiate the generating function with respect to $x$ to obtain \begin{equation*}
+        h(1-2xh+h^2)^{-3/2} = \sum_{n=0}^{\infty}P'_nh^n
+    \end{equation*}
+    Also differentiate it with respect to $h$ to obtain \begin{equation*}
+        (x-h)(1-2xh+h^2)^{-3/2} = \sum_{n=0}^{\infty}nP_nh^{n-1}
+    \end{equation*}
+    Then we write \begin{equation*}
+        h\sum_{n=0}^{\infty}P_nh^n = (1-2xh+h^2)\sum_{n=0}^{\infty}P_n'h^n
+    \end{equation*}
+    and equating the coefficients of $h^{n+1}$ we obtain the recurrence relation \begin{equation*}
+        P_n = P_{n+1}' - 2xP_n'+P_{n-1}'
+    \end{equation*}
+    Further, we also have \begin{equation*}
+        (x-h)\sum_{n=0}^{\infty}P_n'h^n = h\sum_{n=0}^{\infty}nP_nh^{n-1}
+    \end{equation*}
+    from which the coefficient of $h^n$ yields a second recurrence relation \begin{equation*}
+        xP_n' - P_{n-1}' = nP_n
+    \end{equation*}
+    Eliminating $P_{n-1}'$ from the two relations then gives the further result \begin{equation*}
+        (n+1)P_n = P_{n+1}' - xP_n'
+    \end{equation*}
+    Replacing $n$ with $n-1$ and adding $x$ times $xP_n'-P_{n-1}'=nP_n$ we obtain \begin{equation*}
+        (1-x^2)P_n' = n(P_{n-1}-xP_n)
+    \end{equation*}
+    Finally, differentiating both sides with respect to $x$ and using $xP_n'-P_{n-1}'=nP_n$ we find \begin{align*}
+        (1-x^2)P_n'' - 2xP_n' &= n[(P_{n-1}'-xP_n')-P_n] \\
+        &= n(-nP_n-P_n) = -n(n+1)P_n
+    \end{align*}
+    and so the $P_n$ defined implicitly by the Generating function indeed satisfies Legendre's equation.
+\end{proof}
+
+At $x = 1$ $G$ becomes \begin{equation*}
+    G(1,h) = [(1-h)^2]^{-1/2} = 1+h+h^2+...
+\end{equation*}
+and we can see that all the $P_n$ so defined have $P_n(1) = 1$ as required, and thus are identical to the Legendre polynomials.
+
+\begin{eg}
+    We can use the generating function in representing the inverse distance between two points in three dimensional space in terms of Legendre polynomials. If two points $\vec{r}$ and $\vec{r}'$ are at distances $r$ and $r'$, respectively, from the origin, with $r' < r$, then \begin{align*}
+        \frac{1}{|\vec{r}-\vec{r}'|} &= \frac{1}{[r^2+{r'}^2-2rr'\cos\theta]^{1/2}} \\
+        &= \frac{1}{r[1-2(r'/r)\cos\theta + (r'/r)^2]^{1/2}} \\
+        &=\frac{1}{r}\sum_{l=0}^{\infty}\left(\frac{r'}{r}\right)^lP_l(\cos\theta)
+    \end{align*}
+    where $\theta$ is the angle between the two position vectors $\vec{r}$ and $\vec{r}'$. If $r' > r$, however, $r$ and $r'$ exchange roles in this equation so that the series converges. This can be used to write the electrostatic potential at a point $\vec{r}$ due to a charge $q$ at a point $\vec{r}'$. Thus, in the case $r' < r$, this is given by \begin{equation*}
+        V(\vec{r}) = \frac{q}{4\pi \epsilon_0r}\sum_{l=0}^{\infty}\left(\frac{r'}{r}\right)^lP_l(\cos\theta)
+    \end{equation*}
+    In the special case where the charge is at the origin $r' = 0$, and the expression reduces to the proper form for a point charge at the origin, $V(\vec{r}) = \frac{q}{(4\pi \epsilon_0r)}$.
+\end{eg}
+
+\subsection{Recurrence Relations}
+
+From our discussions about the generating function above, we derivaed the following useful recurrence relations: \begin{align}
+    P_{n+1}'+P_{n-1}'&= P_n + 2xP_n' \\
+    P_{n+1}' &= (n+1)P_n+xP_n' \\
+    P_{n-1}' &= -nP_n + xP_n' \\
+    (1-x^2)P_n' = n(P_{n-1} - xP_n) \\
+    (2n+1)P_n &= P_{n+1}' - P_{n-1}' 
+\end{align}
+where the final relation is obtained from subtracting the third from the second. Many other useful relations can be derived from the Generating function and those above, such as \begin{equation*}
+    (n+1)P_{n+1} = (2n+1)xP_n - nP_{n-1}
+\end{equation*}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.3
+\section{Associated Legendre Functions}
+
+\begin{defn}
+    The \Emph{associated Legendre equation} has the form \begin{equation}
+        (1-x^2)y'' - 2xy' + \left[l(l+1) - \frac{m^2}{1-x^2}\right]y = 0
+    \end{equation}
+    which has three regular singular points at $x = -1, 1, \infty$, and reduces to Legendre's equation when $m = 0$.
+\end{defn}
+
+In physical applications involving the $\nabla^2 = \Delta$ operator, when expressed in spherical polar coordinates, this equation often appears. In such cases, $-l \leq m \leq l, m \in \Z$. In normal useage $x = \cos\theta$, for $\theta$ the polar angle in spherical coordinates, and so $-1 \leq x\leq 1$.
+
+The point $x = 0$ is an ordinary point of the equation and one can obtain series solutions of the form $y = \sum_{n=0}^{\infty}a_nx^n$ in the same manner used for Legendre's equation. It can be shown that if $u(x)$ is a solution of Legendre's equation, then \begin{equation}
+    y(x) = (1-x^2)^{|m|/2}\frac{d^{|m|}u}{dx^{|m|}}
+\end{equation}
+is a solution of the associated Legendre equation. From the two linearly independent solutions to Legendre's equation, we can obtain two linearly-independent series solutions to the associated equation, which converge for $|x| <1$.
+
+\subsection{Associated Legendre Functions for Integer l}
+
+For non-negative values of $m$, the associated Legendre functions for integer $l$ are given by \begin{equation}
+    P_l^m(x) = (1-x^2)^{m/2}\frac{d^mP_l}{dx^m},\;\;\;Q_l^m(x) = (1-x^2)^{m/2}\frac{d^mQ_l}{dx^m}
+\end{equation}
+
+Note the associated Legendre functions reduce to the ordinary ones when $m = 0$. There are some varying forms of $P_l^m(x)$ for negative $m$, but by Rodrigues' formula we can write it as \begin{equation}
+    P_l^{-m}(x) = (-1)^m\frac{(l-m)!}{(l+m)!}P_l^m(x)
+\end{equation}
+
+\begin{prop}
+    By definition of the regular associated Legendre polynomial, and Rodrigues' formula for the Legendre polynomials, we have \begin{equation}
+        P_l^m(x) = \frac{1}{2^ll!}(1-x^2)^{m/2}\frac{d^{l+m}}{dx^{l+m}}(x^2-1)^l
+    \end{equation}
+\end{prop}
+
+Note as $P_l(x)$ is a polynomial of order $l$, we have $P_l^m(x) = 0$ for $|m| > l$. The associated Legendre functions of the first kind, $P_l^m(x)$, are regular at $x = \pm 1$, while the associated Legendre functions of the second kind, $Q_l^m(x)$, are singular at $x = \pm 1$.
+
+\begin{thm}
+    Since the associated Legendre functions $P_l^m(x)$ are regular at the end-points $x = \pm 1$, they must be mutually orthogonal over this interval for a fixed value of $m$: \begin{equation*}
+        \int_{-1}^1P_l^m(x)P_k^m(x)dx = \delta_{lk}\left[\frac{2}{2l+1}\frac{(l+m)!}{(l-m)!}\right]
+    \end{equation*}
+\end{thm}
+
+For any reasonable function (i.e. satisfying Dirichlet's conditions) $f(x)$ on the interval $|x| < 1$, it can for fixed $m$ be represented in a series of the form \begin{align*}
+    f(x) &= \sum_{k=0}^{\infty}a_{m+k}P_{m+k}^m(x) \\
+    a_l &= \frac{2l+1}{2}\frac{(l-m)!}{(l+m)!}\int_{-1}^1f(x)P_l^m(x)dx
+\end{align*}
+
+\begin{thm}
+    Since the associated Legendre functions $P_l^m(x)$ are regular at the end-points $x = \pm 1,$ they must be mutually orthogonal with respect to the weight function $(1-x^2)^{-1}$ over this interval for fixed $l$: \begin{equation}
+        \int_{-1}^1P_l^m(x)P_l^k(x)(1-x^2)^{-1}dx = \delta_{|m||k|}\left[\frac{(l+m)!}{m(l-m)!}\right]
+    \end{equation}
+\end{thm}
+
+
+\subsection{Generating Function and Recurrence Relations}
+
+\begin{defn}
+    The generating function for the associated Legendre functions is given by \begin{equation}
+        G(x,h) = \frac{(2m)!(1-x^2)^{m/2}}{2^mm!(1-2hx+h^2)^{m+1/2}} = \frac{(2m-1)!!(1-x^2)^{m/2}}{(1-2hx+h^2)^{m+1/2}} = \sum_{n=0}^{\infty}P_{n+m}^m(x)h^n
+    \end{equation}
+\end{defn}
+
+Common and useful recurrence relations associated with the associated Legendre functions are \begin{align*}
+    P_n^{m+1} &= \frac{2mx}{(1-x^2)^{1/2}}P_n^m+[m(m-1)-n(n+1)]P_n^{m-1} \\
+    (2n+1)xP_n^m &= (n+m)P_{n-1}^m+(n-m+1)P_{n+1}^m \\
+    (2n+1)(1-x^2)^{1/2}P_n^m &= P_{n+1}^{m+1} - P_{n-1}^{m+1} \\
+    2(1-x^2)^{1/2}(P_n^m)' &= P_n^{m+1} - (n+m)(n-m+1)P_n^{m-1}
+\end{align*}
+
+We note that by our definitions adopted here, these reccurrence relations are equally valid for negative and positive $m$.
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 3.2
+\chapter{Spherical Harmonics}
+
+
+We often use associated Legendre functions in obtaining solutions in spherical polar coordinates to Laplace's equation $\nabla^2u = 0$. For solutions that are finite on the polar axis, the angular part of the solution is given by \begin{equation*}
+    \Theta(\theta)\Phi(\phi) = P_l^m(\cos\theta)(C\cos(m\phi) + D\sin(m\phi)) 
+\end{equation*}
+where $l$ and $m$ are integers with $-l \leq m \leq l$. This general form is sufficiently common that particular functions of $\theta$ and $\phi$ are called \Emph{spherical harmonics}. 
+
+\begin{defn}
+    The spherical harmonics $Y_l^m(\theta,\phi)$ are defined by \begin{equation*}
+        Y_l^m(\theta,\phi) = (-1)^m\left[\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}\right]^{1/2}P_l^m(\cos\theta)\exp(im\phi)
+    \end{equation*}
+    We note that \begin{equation*}
+        Y_l^{-m}(\theta,\phi) = (-1)^m\overline{Y_l^m(\theta,\phi)}
+    \end{equation*}
+\end{defn}
+
+\begin{defn}
+    The $Y_l^m$ are mutually orthogonal when integrated from $-1$ to $1$ over $d(\cos\theta)$. Their mutual orthogonality with respect to $\phi$ is also immediate. In particular, we have \begin{equation*}
+        \int_{-1}^1\int_0^{2\pi}\overline{Y_l^m(\theta,\phi)}Y_{l'}^{m'}(\theta,\phi)d\phi d(\cos\theta) = \delta_{ll'}\delta_{mm'}
+    \end{equation*}
+\end{defn}
+
+The spherical harmonics also form a complete set, so any reasonable function of $\phi$ and $\theta$ can be written as \begin{align*}
+    f(\theta,\phi) &= \sum_{l=0}^{\infty}\sum_{m=-l}^la_{lm}Y_l^m(\theta,\phi) \\
+    a_{lm} &= \int_{-1}^1\int_0^{2\pi}\overline{Y_l^m(\theta,\phi)}f(\theta,\phi)d\phi d(\cos\theta)
+\end{align*}
+
+\begin{namthm}[Spherical Harmonic Addition Theorem]
+    The spherical harmonic addition theorem is a relation obeyed by $Y_l^m$, which states \begin{equation*}
+        P_l(\cos\gamma) = \frac{4\pi}{2l+1}\sum_{m=-l}^lY_l^m(\theta,\phi)\overline{Y_l^m(\theta',\phi')}
+    \end{equation*}
+    where $(\theta,\phi)$ and $(\theta',\phi')$ denote two different directions in our spherical polar coordinate system that are separated by an angle $\gamma.$ In general we have the identity \begin{equation*}
+        \cos\gamma = \cos\theta\cos\theta' + \sin\theta\sin\theta'\cos(\phi - \phi')
+    \end{equation*}
+\end{namthm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 3.5
+\chapter{Laguerre Functions}
+
+%%%%%%%%%%%%%%%%%%%% Section 3.5.1
+\section{Standard Laguerre Functions}
+
+\begin{defn}
+    Laguerre's equation has the form \begin{equation}
+        xy'' + (1-x)y' + \nu y = 0
+    \end{equation}
+\end{defn}
+
+Laguerre's equation has a regular singularity at $x = 0$, and an essential singularity at $x = \infty$. The parameter $\nu$ takes integer values in most physical applications.
+
+Since the point $x = 0$ is a regular singularity, we may find at least one solution in the form of a Frobenius series \begin{equation}
+    y(x) = \sum_{m=0}^{\infty}a_mx^{m+\sigma}
+\end{equation}
+Substituting this series into the equation we obtain \begin{equation*}
+    \sum_{m=0}^{\infty}[(m+\sigma)(m+\sigma-1)+(1-x)(m+\sigma)+\nu x]a_mx^m = 0
+\end{equation*}
+Setting $x = 0$ we obtain the indicial equation $\sigma^2 = 0$, with only has $\sigma = 0$ as its repeated root. Substituting $\sigma = 0$ into this equation, we obtain the recurrence relation \begin{equation*}
+    a_{m+1} = \frac{m-\nu}{(m+1)^2}a_m
+\end{equation*}
+If $\nu = n \in \Z$ is a non-negative integer, we see that $a_{n+1} = a_{n+2} = \cdots = 0$, and so our solution to Laguerre's equation is a polynomial of order $n$. Setting $a_0 = 0$, the solution is given by \begin{equation}
+    L_n(x) = \sum_{m=0}^n(-1)^m\frac{n!}{(m!)^2(n-m)!}x^m
+\end{equation}
+where $L_n(x)$ is called the \Emph{Laguerre polynomial}. Note that $L_n(0) = 1$.
+
+\begin{thm}
+    Rodrigues' formula for the Laguerre polynomials is given by \begin{equation}
+        L_n(x) = \frac{e^x}{n!}\frac{d^n}{dx^n}(x^ne^{-x})
+    \end{equation}
+\end{thm}
+
+\subsection{Mutual Orthogonality}
+
+As with the other equations, Laguerre's equation satisfies certain orthogonality relations, on its natural interval $[0,\infty)$. Since the Laguerre polynomials $L_n(x)$ are regular at the end-points, they must be mutually orthogonal over this interval with respect to the weight function $e^{-x}$: \begin{equation*}
+    \int_{0}^{\infty}L_n(x)L_k(x)e^{-x}dx = \delta_{nk}
+\end{equation*}
+
+Using these conditions we can expand any reasonable function in the interval $0 \leq x < \infty$ in a series of the form \begin{equation*}
+    f(x) = \sum_{n=0}^{\infty}a_nL_n(x)
+\end{equation*}
+where \begin{equation*}
+    a_n = \int_0^{\infty}f(x)L_n(x)e^{-x}dx
+\end{equation*}
+We sometimes use the \Emph{orthonormal Laguerre functions}, corresponding to $\phi_n(x) = e^{-x/2}L_n(x)$.
+
+\subsection{Generating Function and Recurrence Relations}
+
+\begin{defn}
+    The generating function for the Laguerre polynomials is given by \begin{equation}
+        G(x,h) = \frac{e^{-xh/(1-h)}{1-h}} = \sum_{n=0}^{\infty}L_n(x)h^n
+    \end{equation}
+\end{defn}
+
+A few commonly used recurrence relations which the Laguerre polynomials satisfy are \begin{align*}
+    (n+1)L_{n+1}(x) &= (2n+1-x)L_n(x) - nL_{n-1}(x) \\
+    L_{n-1}(x) &= L_{n-1}'(x) - L_n'(x) \\
+    xL_n'(x) &= nL_n(x) - nL_{n-1}(x)
+\end{align*}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.5.2
+\section{Associated Laguerre Functions}
+
+\begin{defn}
+    The associated Laguerre equation has the form \begin{equation}
+        xy'' + (m+1-x)y' + ny = 0
+    \end{equation}
+    which has a regular singularity at $x = 0$ and an essential singularity at $x = \infty$. For non-negative integers $n$ and $m$, the solutions are given by \Emph{associated Laguerre polynomials}: \begin{equation}
+        L_n^m(x) = (-1)^m\frac{d^m}{dx^m}L_{n+m}(x)
+    \end{equation}
+\end{defn}
+
+It can be shown that the associated Laguerre polynomials may be expressed in the form \begin{equation*}
+    L_n^m(x) = \sum_{k=0}^n(-1)^k\frac{(n+m)!}{k!(n-k)!(k+m)!}x^k
+\end{equation*}
+
+\begin{thm}
+    Rodrigues' formula for the associated Laguerre polynomials is given by \begin{equation*}
+        L_n^m(x) = \frac{e^xx^{-m}}{n!}\frac{d^n}{dx^n}(x^{n+m}e^{-x})
+    \end{equation*}
+\end{thm}
+
+\subsection{Mutual Orthogonality}
+
+Since the associated Laguerre polynomials are regular at the end-points of the natural interval $[0,\infty)$ for the Laguerre equation, Lagueere polynomials with the same $m$ but differing values of the eigenvalue $n$ must be mutually orthogonal over this interval with respect to the weight function $x^me^{-x}$, \begin{equation*}
+    \int_{0}^{\infty}L_n^m(x)L_k^m(x)x^me^{-x}dx = \delta_{nk}\left[\frac{(n+m)!}{n!}\right]
+\end{equation*}
+
+Using these conditions we can expand any reasonable function in the interval $0 \leq x < \infty$ in a series of the form \begin{equation*}
+    f(x) = \sum_{n=0}^{\infty}a_nL_n^m(x)
+\end{equation*}
+in which the coefficients are given by \begin{equation*}
+    a_n = \frac{n!}{(n+m)!}\int_0^{\infty}f(x)L_n^m(x)x^me^{-x}dx
+\end{equation*}
+
+\subsection{Generating Function and Recurrence Relations}
+
+\begin{defn}
+    The generating function for the associated Laguerre polynomials is given by \begin{equation}
+        G(x,h) = \frac{e^{-xh/(1-h)}}{(1-h)^{m+1}} = \sum_{n=0}^{\infty}L_n^m(x)h^n
+    \end{equation}
+\end{defn}
+
+Using this generating function we can obtain the expression $L_n^m(0) = \frac{(n+m)!}{n!m!}$. The two most useful recurrence relations that can be derived from this generating function are \begin{align*}
+    (n+1)L_{n+1}^m(x) &= (2n+m+1-x)L_n^m(x) - (n+m)L_{n-1}^m(x) \\
+    x(L_n^m)'(x) &= nL_n^m(x) - (n+m)L_{n-1}^m(x)
+\end{align*}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 3.6
+\chapter{Hermite Functions}
+
+\begin{defn}
+    Hermit's equation has the form \begin{equation*}
+        y'' - 2xy' + 2\nu y=0
+    \end{equation*}
+    and has an essential singularity at $x = \infty$. The parameter $\nu$ is a given real number, although it nearly always takes an integer value in physical applications.
+\end{defn}
+
+Since $x = 0$ is an ordinary point of the equation, we may find two linearly independent solutions in the form of a power series \begin{equation*}
+    y(x) = \sum_{m=0}^{\infty}a_mx^m
+\end{equation*}
+Substituting this into the Hermite equation we have \begin{equation*}
+    \sum_{m=0}^{\infty}\left[(m+1)(m+2)a_{m+2}+2(\nu-m)a_m\right]x^m = 0
+\end{equation*}
+Then we obtain the recurrence relation \begin{equation*}
+    a_{m+2} = -\frac{2(\nu - m)}{(m+1)(m+2)}a_m
+\end{equation*}
+Note that since $\nu = n \in \Z^+$ for most physical applications, $a_{n+2}=a_{n+4}=...=0$, and so one solution of Hermite's equation is a polynomial of order $n$. For $n$ even it is convention to choose $a_0 = (-1)^{n/2}n!/(n/2)!$, whereas for $n$ odd one takes $a_1 = (-1)^{(n-1)/2}2n!/[(n-1)/2]!$. These choices allow us to write a general solution as \begin{equation*}
+    H_n(x) = \sum_{m=0}^{N/2}(-1)^m \frac{n!}{m!(n-2m)!}(2x)^{n-2m}
+\end{equation*}
+where $H_n(x)$ is called the \Emph{$n$th Hermite polynomial} and the notation $[n/2]$ denotes the integer part of $n/2$. We note in particular that $H_n(-x) = (-1)^nH_n(x)$.
+
+\section{Properties of Hermite Polynomials}
+
+\subsection{Rodrigues' Formuula for Hermite Polynomials}
+
+\begin{namthm}[Rodrigues' Formula for Hermite Polynomials]
+    Rodrigues' formula for Hermite polynomials states that \begin{equation*}
+        H_n(x) = (-1)^ne^{x^2}\frac{d^n}{dx^n}(e^{-x^2})
+    \end{equation*}
+\end{namthm}
+\begin{proof}
+    Letting $u = e^{-x^2}$ and differentiating with respect to $x$ we find that $u' + 2xu = 0$. Differentiating $n+1$ times using Leibnitz' theorem then gives \begin{equation*}
+        u^{(n+2)} + 2xu^{(n+1)} + 2(n+1)u^{(n)} = 0
+    \end{equation*}
+    which upon introducing $v = (-1)^nu^{(n)}$ reduces to $$v'' + 2xv' + 2(n+1)v = 0$$ Now let $y = e^{x^2}v$, so we may write the derivatives of $v$ as \begin{align*}
+        v' &= e^{-x^2}(y' - 2xy) \\
+        v'' &= e^{-x^2}(y'' - 4xy' + 4x^2y - 2y)
+    \end{align*}
+    Substituting these into our expression above and dividing through by $e^{-x^2}$ yields Hermite's equation \begin{equation*}
+        y'' - 2xy' + 2ny = 0
+    \end{equation*}
+    thus demonstrating the result.
+\end{proof}
+
+
+\subsection{Mutual Orthogonality}
+
+Since the Hermite polynomials $H_n(x)$ are solutions of the equation and are regular at the end-points of their natural interval $[-\infty,\infty]$, they must be mutually orthogonal over this interval with respect to the weight function $\rho = e^{-x^2}$, so \begin{equation*}
+    \int_{-\infty}^{\infty}H_n(x)H_k(x)e^{-x^2}dx = 0\;\;\text{ if } n\neq k
+\end{equation*}
+Further, \begin{equation*}
+    I \equiv \int_{-\infty}^{\infty}H_n(x)H_n(x)e^{-x^2}dx = 2^nn!\sqrt{\pi}
+\end{equation*}
+
+
+The above orthogonality and normalisation conditions allow any reasonable function in the interval $-\infty \leq x < \infty$ to be expanded in a series of the form \begin{equation*}
+    f(x) = \sum_{n=0}^{\infty}a_nH_n(x)
+\end{equation*}
+in which the coefficients $a_n$ are given by \begin{equation*}
+    a_n = \frac{1}{2^nn!\sqrt{\pi}}\int_{-\infty}^{\infty}f(x)H_n(x)e^{-x^2}dx
+\end{equation*}
+
+\begin{defn}
+    The \Emph{orthogonal Hermite functions} are defined by $\phi_n(x) = e^{-x^2/2}H_n(x)$.
+\end{defn}
+
+$\phi_n(x)$ is proportional to the wavefunction of a particle in the $n$th energy level of a quantum harmonic oscillator.
+
+\subsection{Generating Function}
+
+\begin{defn}
+    The \Emph{generating function} for the Hermite polynomials reads \begin{equation*}
+        G(x,h) = e^{2hx - h^2} = \sum_{n=0}^{\infty}\frac{H_n(x)}{n!}h^n
+    \end{equation*}
+\end{defn}
+\begin{proof}
+    We first write $G(x,h) = e^{x^2}e^{-(x-h)^2}$. Differentiating this form $k$ times with respect to $h$ gives \begin{equation*}
+        \sum_{n=k}^{\infty}\frac{H_n}{(n-k)!}h^{n-k} = \frac{\partial^kG}{\partial h^k} = e^{x^2}\frac{\partial^k}{\partial h^k}e^{-(x-h)^2} = (-1)^ke^{x^2}\frac{\partial^k}{\partial x^k}e^{-(x-h)^2}
+    \end{equation*}
+    Relabelling the summation on the LHS using the new index $m = n-k$ we obtain \begin{equation*}
+        \sum_{m=0}^{\infty}\frac{H_{m+k}}{m!}h^m = (-1)^ke^{x^2}\frac{\partial^k}{\partial x^k}e^{-(x-h)^2}
+    \end{equation*}
+    Setting $h = 0$ in this equation we find \begin{equation*}
+        H_k(x) = (-1)^ke^{x^2}\frac{d^k}{dx^k}(e^{-x^2})
+    \end{equation*}
+    which is the Rodrigues' formula for the Hermite polynomials.
+\end{proof}
+
+\subsection{Recurrence Relations}
+
+The two most useful recurrence relations satisfied by the Hermite polynomials are \begin{align}
+    H_{n+1}(x) &= 2xH_n(x) - 2nH_{n-1}(x) \\
+    H_n'(x) &= 2nH_{n-1}(x)
+\end{align}
+
+
 
 
 

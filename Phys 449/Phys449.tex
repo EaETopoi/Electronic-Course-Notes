@@ -2801,11 +2801,333 @@ We close with some important remarks:
 \section{Examples of Ensembles}
 
 
+\subsection{Pauli Paramagnet or the Two-Level System}
+
+This system corresponds to a collection of atomic magnetic spins with two possible orientations (for example $N$ atoms in a crystal with a single valence electron or $N$ impurity atoms trapped in a solid matrix with two states each). The microstate of such a system can be described by the set of occupation numbers $\mu = \{n_i\}$ where each occupation number is either $0$ or $1$ corresponding to the two possible states.
+
+How can we obtain a Hamiltonian in this case? Our starting point is that the Hamiltonian is equal to the internal energy. For the system here each orientation corresponds to a different energy level - for example $e_{down} = 0$ and $e_{up} = \epsilon$. Thus we can write the Hamiltonian as \begin{equation*}
+    H = \sum_{i=1}^Nn_i\epsilon_i
+\end{equation*}
+neglecting any interactions between the different spins. This can be justified as a reasonable first order approximation by the fact that we consider a paramagnet here, which has the property that there is no macroscopic net magnetization in the absence of an external magnetic field. So we can treat the different spins as independent.
+
+The above Hamiltonian is the simplest model of a two-level system, often called a \Emph{Pauli paramagnet}.
+
+We need to determine the macrostate and the ensemble, while we are considering the thermodynamic limit so we are free to choose any ensemble. We use the canonical ensemble in the following such that the macrostate is $M \equiv (T,N)$. The phase space density is given by \begin{equation*}
+    p(\{n_i\}) = \frac{1}{Z}e^{-\beta\varepsilon \sum_{i=1}^Nn_i}
+\end{equation*}
+For the partition function we then have \begin{equation*}
+    Z(T,N) = \sum_{n_1=0}^1\cdots \sum_{n_N=0}^1e^{-\beta \epsilon\sum_{i=1}^Nn_i} = \left[\sum_{n_1=0}^1e^{-\beta \epsilon n_1}\right]\cdots \left[\sum_{n_N=0}^1e^{-\beta \epsilon n_N}\right] = (1+e^{-\beta \epsilon})^N
+\end{equation*}
+
+Now, we can find the probability that a single spin is in a specific orientation using the unconditional probability \begin{equation*}
+    p_1(n_1) \equiv \sum_{n_2=0}^1\cdots \sum_{n_N=0}^1p(\{n_i\}) = \sum_{n_2=0}^1\cdots \sum_{n_N=0}^1\frac{1}{Z}e^{-\beta \epsilon\sum_{i=1}^Nn_i} = \frac{e^{-\beta \epsilon n_1}}{1+e^{-\beta \epsilon}}
+\end{equation*}
+Analogous expressions hold for all other spins. Comparison with the expression for $p(\{n_i\})$ shows that we can write $p(\{n_i\}) = \prod_{i=1}^Np_i(n_i)$. This indicates that the different spins are independent as expected.
+
+We now investigate the relevant thermodynamic potential, which is the Helmholtz free energy for the canonical ensemble: \begin{equation*}
+    F(T,N) = -k_BT\ln Z = -k_BT\ln (1+e^{-\beta \epsilon})^N = -Nk_BT\ln(1+e^{-\beta \epsilon})
+\end{equation*}
+Recall that the exact differential of the Helmholtz free energy is $dF = dU-d(ST) = \vec{J}\cdot d\vec{q} + \vec{\mu}\cdot d\vec{N}-SdT$. We first determine the entropy by \begin{equation*}
+    S(T,N) = -\left(\frac{\partial F}{\partial T}\right)_N = Nk_B\ln(1+e^{-\epsilon/k_BT}) + nK_bT\frac{e^{-\epsilon/k_BT}\frac{\epsilon}{k_BT^2}}{1+e^{-\epsilon/k_BT}} = -\frac{F(T,N)}{T} + \frac{N\epsilon}{T}\frac{1}{1+e^{\epsilon/k_BT}}
+\end{equation*}
+For the internal energy, we can use the expression for the entropy to get \begin{equation*}
+    \langle U \rangle = F + TS = \frac{N\epsilon}{1+e^{\epsilon/k_BT}}
+\end{equation*}
+
+Recall we could have also calculated it from $\langle U \rangle = -\frac{\partial \ln Z}{\partial \beta}$. Now, in the low temperature limit, $T\rightarrow 0$, we see that $\langle U\rangle \rightarrow 0$, which means all spins are in the lower energy state such that the system is in its ground state. Conversely, in the high temperature limit, $T\rightarrow \infty$, $\langle U \rangle \rightarrow \frac{N\epsilon}{2}$, which means that on average half of the spins are in the higher energy state.
+
+For the heat capacities we only have $C_N$ for the Pauli paramagnet since the macrostate doesn't involve any generalized coordinates. So we find \begin{equation*}
+    C_N = \left(\frac{\partial U}{\partial T}\right)_N = \left(\frac{\partial \langle U\rangle}{\partial T}\right)_N = \frac{N\epsilon^2}{k_BT^2}\frac{e^{\epsilon/k_BT}}{(1+e^{\epsilon/k_BT})^2}
+\end{equation*}
+In the limit $T\rightarrow 0$, we have $C_N\rightarrow 0$, consistent with the 3rd law. In the limit $T\rightarrow \infty$, we have $C_N\rightarrow 0$ again.
+
+
+\subsection{Ideal Gas in the Canonical Ensemble}
+
+The microstate for a gas is given by $\mu = \{\vec{q},\vec{p}\}$. Our main assumption for an ideal gas is that the interactions between the particles can be neglected, so we do not take into account any interaction potential. We also assume the particles can be treated as point particles such that they have no rotational or vibrational energy. Thus, the Hamiltonian has only two contributions, the translational kinetic energy of all particles and a confining potential that captures the interactions of the particles with the wall of the container: \begin{equation*}
+    H = \sum_{i=1}^N\left[\frac{\vec{p}_i\cdot\vec{p}_i}{2m} + \tilde{U}(\vec{q}_i)\right]
+\end{equation*}
+where $m$ is the mass of the particles and the confining potential $\tilde{U}$ is assumed to be zero inside the container and infinite outside.
+
+In the canonical ensemble, the macrostate is then $M \equiv (T,V,N)$ and the equilibrium phase space density takes on the following form: \begin{equation*}
+    p(\{\vec{q}_i,\vec{p}_i\}) = \frac{1}{Z}\exp\left\{-\beta\sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}\right\}\delta(\{\vec{q}_i\} \in container)
+\end{equation*}
+For the partition function we then find \begin{align*}
+    Z(T,V,N) &= \int d\Gamma\exp\left\{-\beta\sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}\right\}\delta(\{\vec{q}_i\} \in container) \\
+    &= \int \prod_{i=1}^Nd\vec{q}_id\vec{p}_i\exp\left\{-\beta\sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}\right\}\delta(\{\vec{q}_i\} \in container) \\
+    &= \int_Vd\vec{q}_1\cdots \int_Vd\vec{q}_N\int_{-\infty}^{\infty}d\vec{p}_1\cdots \int_{-\infty}^{\infty}d\vec{p}_N\exp\left\{-\beta\sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}\right\} \\
+    &=\prod_{i=1}^N\left(V\int_{-\infty}^{\infty}d\vec{p}_ie^{-\beta\vec{p}_i\cdot\vec{p}_i/2m}\right) \\
+    &= \prod_{i=1}^N\left(V\sqrt{2\pi mk_BT}^3\right) = \left(\frac{V}{\lambda(T)^3}\right)^N
+\end{align*}
+where $\lambda(T) = \frac{1}{\sqrt{2\pi mk_BT}}$, which can be considered a characteristic ``length."
+
+Now for the Helmholtz free energy, we obtain: \begin{equation*}
+    F(T,V,N) = -k_BT\ln Z = -Nk_BT\ln\frac{V}{\lambda^3}
+\end{equation*}
+For the internal energy we find \begin{equation*}
+    \langle U\rangle = -\frac{\partial\ln Z}{\partial \beta} = N\frac{3}{2}\beta = \frac{3}{2}Nk_BT
+\end{equation*}
+Thus, as in the case experimentally, we find that the internal energy does not depend on $V$. Note in the thermodynamic limit the fluctuations around $\langle U \rangle$ vanish due to the central limit theorem, such that there is no difference between $U$ and $\langle U \rangle$.
+
+We can compute the pressure from the Helmholtz free energy by \begin{equation*}
+    P(T,V,N) = -\left(\frac{\partial F}{\partial V}\right)_{T,N} = Nk_BT\frac{1}{V}
+\end{equation*}
+and we arrive at the equation of state for an ideal gas.
+
+To derive the kinetic energy in terms of temperature, let us consider the unconditional pdf that particle $1$ has a specific momentum $\vec{p}_1$. By definition we have \begin{align*}
+    p(\vec{p}_1) &= \int_Vd\vec{q}_1\cdots\int_Vd\vec{q}_N\int_{-\infty}^{\infty}d\vec{p}_2\cdots...\int_{-\infty}^{\infty}d\vec{p}_Np(\{\vec{q}_i,\vec{p}_i\}) \\
+    &= \frac{V}{Z}e^{-\beta\vec{p}_1\cdot\vec{p}_1/2m}\prod_{i=2}^N(V[2\pi mk_BT]^{3/2}) \\
+    &= \frac{e^{-\beta\vec{p}_1\cdot\vec{p}_1/2m}}{(2\pi mk_BT)^{3/2}}
+\end{align*}
+which is a three dimensional Gaussian distribution in $\vec{p}$, with $\langle p_x\rangle = \langle p_y\rangle = \langle p_z\rangle = 0$ and $\langle p_x^2\rangle = \langle p_y^2\rangle = \langle p_z^2\rangle = mk_BT$. Then the average kinetic energy is \begin{equation*}
+    \langle E_{kin}\rangle = \frac{1}{2m}\sum_{i=1}^N(\langle p_x^2\rangle + \langle p_y^2\rangle + \langle p_z^2\rangle) = \frac{1}{2m}\sum_{i=1}^N(3mk_BT) = \frac{3}{2}Nk_BT = U
+\end{equation*}
+
+
+\subsection{Maxwell-Boltzmann distribution for speed}
+
+The pdf that a given particle has a specific momentum $mv$ is \begin{align*}
+    p(mv) &= \int_{-\infty}^{\infty}dp_x\int_{-\infty}^{\infty}dp_y\int_{-\infty}^{\infty}dp_zp(\vec{p})\delta(|\vec{p}|-mv) \\
+    &= \int_0^{\infty}dp_r\int_0^{\pi}dp_{\theta}\int_0^{2\pi}dp_{\phi}p_r^2\sin p_{\theta}\frac{1}{(2\pi mk_BT)^{3/2}}e^{-\beta p_r^2/2m}\delta(p_r - mv) \\
+    &= \frac{1}{(2\pi mk_BT)^{3/2}}(mv)^2e^{-\beta(mv)^2/2m}\int_0^{\pi}dp_{\theta}\int_0^{2\pi}dp_{\phi}\sin p_{\theta} \\
+    &= \frac{4\pi m^2v^2}{(2\pi mk_BT)^{3/2}}e^{-\beta mv^2/2}
+\end{align*}    
+
+Now, with a change of variables we have \begin{equation*}
+    p_V(v) = p(mv)\left|\frac{d(mv)}{dv}\right| = \left(\frac{m}{2\pi k_BT}\right)^{3/2}4\pi v^2e^{-\beta mv^2/2}
+\end{equation*}
+to obtain the pdf that a particle has a specific speed $v$. Note that this is no longer a Gaussian, but instead is asymmetric.
+
+
+\subsection{Ideal Gas in the Microcanonical Ensemble}
+
+We repeat the previous analysis in the microcanonical ensemble. In the microcanonical ensemble the macrostate is $M \equiv (U,V,N)$ and the equilibrium phase space density takes the form \begin{equation*}
+    p(\{\vec{q}_i,\vec{p}_i\}) = \frac{1}{\Omega}\delta\left(U - \sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}\right)\delta(\{\vec{q}_i\}\in container)
+\end{equation*}
+For the normalization constant we have \begin{align*}
+    \Omega(U,V,N) &= \int\prod_{i=1}^Nd\vec{q}_id\vec{p}_i\delta\left(U - \sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}\right)\delta(\{\vec{q}_i\}\in container) \\
+    &= V^N\int_{-\infty}^{\infty}\prod_{i=1}^Nd\vec{p}_i\delta\left(U - \sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}\right)
+\end{align*}
+The delta function enforces $2mU \equiv \sum_{i=1}^N\vec{p}_i\cdot\vec{p}_i$. This describes the surface of a $3N$-dimensional sphere of radius $R = \sqrt{2m U}$. This surface has area given by $S_{3N}R^{3N-1}$, where the \Emph{generalized solid angle} is given by $S_d = \frac{2\pi^{d/2}}{(d/2-1)!}$. Note that if the argument of the factorial is not an integer, the analytical extension of the factorial to real numbers has to be used, which is the Gamma function: \begin{equation*}
+    N! = \int_0^{\infty}dx x^Ne^{-x} \equiv \Gamma(N+1)
+\end{equation*}
+Together we have that \begin{equation*}
+    \Omega(U,V,N) = V^N\frac{2\pi^{3N/2}}{(3N/2-1)!}(2mU)^{(3N-1)/2}
+\end{equation*}
+Taking advantage of $N >>1$ we can compute the entropy: \begin{align*}
+    S(U,V,N) &= k_B\ln\Omega(U,V,N) \\
+    &= k_B\left[N\ln V + \ln 2 + 3N/2\ln \pi - \ln([3N/2-1]!) + (3N-1)/2\ln(2mU)\right] \\
+    &\approx k_BN[\ln V+3/2\ln\pi - 3/2\ln(3N/2-1) + 3/2\ln 3 + 3/2\ln(2mU)] \\
+    &\approx k_BN\ln\left[V\left(\frac{4\pi emU}{3N}\right)^{3/2}\right]
+\end{align*}
+From this we can calculate other thermodynamic properties such as the temperature: \begin{equation*}
+    \frac{1}{T} = \left(\frac{\partial S}{\partial U}\right)_{N,V} = k_BN3/2\frac{1}{U}
+\end{equation*}
+Rewriting this expression we once again attain $U = \frac{3}{2}Nk_BT$, from which we can obtain the heat capacity: \begin{equation*}
+    C_V = \left(\frac{\partial U}{\partial T}\right)_V = \frac{3}{2}Nk_B
+\end{equation*}
+For the pressure we have \begin{equation*}
+    \frac{p}{T} = \left(\frac{\partial S}{\partial V}\right)_{U,N} = k_BN\frac{1}{V}
+\end{equation*}
+so $pV = Nk_BT$.
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 2.3
 \chapter{Gibbs Canonical Ensemble}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.3.1
+\section{Mixing Entropy and Gibbs Paradox}
+
+We now wish to address the question of what happens if we mix two ideal gases of different types. First, we want to compute the temperature of the joint system after mixing, $T_f$, given that the initial temperatures of the two subsystems $T_1$ and $T_2$ were identical. Since the joint system is isolated, we are in teh microcanonical ensemble. Also for an ideal gas we have already found that $U = \frac{3}{2}Nk_BT$ such that $T = \frac{2U}{3Nk_B}$. Hence we have \begin{equation*}
+    T_1 = T_2 \iff \frac{U_1}{N_1} = \frac{U_2}{N_2}\iff U_2 = U_1\frac{N_2}{N_1}
+\end{equation*}
+After mixing, the final state has an internal energy given by \begin{equation*}
+    U= U_1+U_2 = \frac{3}{2}N_1k_BT_f + \frac{3}{2}N_2k_BT_f
+\end{equation*}
+Rewriting the above equation we have \begin{equation*}
+    \frac{3}{2}k_BT_f = \frac{U_1+U_2}{N_1+N_2} = \frac{U_1+U_1\frac{N_2}{N_1}}{N_1+N_2} = \frac{U_1}{N_1} = \frac{3}{2}k_BT_1
+\end{equation*}
+Hence the final temperature is the same as the initial temperature as expected. Now we consider entropy. Since mixing is typically an irreversible process, we expect an increase in entropy. For the initial entropy we have \begin{equation*}
+    S_{initial} = S_1+S_2 = k_BN_1\ln\left[V_1\left(\frac{4\pi 2m_1U_1}{3N_1}\right)^{3/2}\right] + k_BN_2\ln\left[V_2\left(\frac{4\pi 2m_2U_2}{3N_2}\right)^{3/2}\right]
+\end{equation*}
+where we have used the expression for the entropy of an ideal gas derived previously. Using the notation \begin{equation*}
+    \sigma_i \equiv \ln\left(\frac{4\pi em_iU_i}{3N_i}\right)^{3/2} = \frac{3}{2}\ln(2\pi em_iT_i)
+\end{equation*}
+we can write $S_{initial} = k_BN_1(\ln V_1+\sigma_1) + k_BN_2(\ln V_2 + \sigma_2)$. For the final entropy we have \begin{align*}
+    S_{final} &= k_B\ln \Omega(U_1,U_2,V,N_1,N_2) \\
+    &= k_B\ln[\Omega(U_1,V,N_1)\Omega(U_2,V,N_2)] \\
+    &= k_B\ln\Omega(U_1,V,N_1) + k_B\ln\Omega(U_2,V,N_2) 
+\end{align*}
+assuming the two ideal gases do not interact such that the internal energies $U_1$ and $U_2$ do not change over time. Thus, mixing only leads to a change in the accessible volume to $V = V_1+V_2$ for both gases such that \begin{equation*}
+    S_{final} = S_1(U_1,V,N_1) + S_2(U_2,V,N_2) = k_BN_1(\ln V + \sigma_1) + k_BN_2(\ln V +\sigma_2) 
+\end{equation*}
+For the difference in entropy, called the \Emph{mixing entropy} it follows that \begin{align*}
+    \Delta S_{mix} &= S_{final} - S_{initial} \\
+    &= k_BN_1(\ln V + \sigma_1) + k_BN_2(\ln V +\sigma_2) - k_BN_1(\ln V_1 + \sigma_1) - k_BN_2(\ln V_2 +\sigma_2) \\
+    &= k_BN_1\ln\frac{V}{V_1} + k_BN_2\ln\frac{V}{V_2} \\
+    &= k_BN\left[\frac{N_1}{N}\ln\frac{V}{V_1} + \frac{N_2}{N}\ln\frac{V}{V_2}\right]
+\end{align*}
+defining $N \equiv N_1+N_2$. Since $V > \max\{V_1,V_2\}$, the above expression implies that $\Delta S_{mix} > 0$ as expected.
+
+\begin{cust}[Gibbs Paradox]
+    For identical gases with identical initial densities, $n = \frac{N_1}{V_1} = \frac{N_2}{V_2}$, the calculation above also gives $\Delta S_{mix} > 0$. Yet, in this case removing the partition does not change the state of the system and it is reversible such that we should have $\Delta S_{mix}$.
+\end{cust}
+
+\subsection{Resolution to Gibbs Paradox}
+
+Gibbs paradox implies an issue with our derived formula for the entropy of an ideal gas. The ultimate answer for how to fix this is given by Quantum mechanics. In the context of Classical Mechanics we can resolve this issue by an additional postulate, which takes into account whether particles are distinguishable or not. For the ideal gas, we are dealing with indistinguishable particles. This implies that there are $N!$ permutations or relabellings of the particles leading to indistinguishable microstates. To correct for this overcounting, we can divide our measure for the total number of states $\Omega$ obtained previously by $N!$, such that \begin{equation*}
+    \Omega(U,V,N) = \frac{1}{N!}V^N\frac{2\pi^{3N/2}}{(3N/2-1)!}(2mU)^{(3N-1)/2}
+\end{equation*}
+This gives a slight modified expression for the entropy, after applying Stirling's formula in the thermodynamic limit: \begin{align*}
+    S(U,V,N) &= k_B\ln\Omega(U,V,N) \\
+    &= k_B\left[-\ln N! + N\ln V + \ln 2 + 3N/2\ln \pi - \ln([3N/2-1]!) + (3N-1)/2\ln (2mU)\right] \\
+    &\approx k_BN\ln\left[\frac{e}{N}V\left(\frac{4\pi emU}{3N}\right)^{3/2}\right] \\
+    &= Nk_B\left(\ln\frac{eV}{N} + \sigma\right)
+\end{align*}
+So $V$ has been replaced by $eV/N$. Going back to our calculations for the mixed entropy, let us consider the case of non=identical ideal gases: \begin{align*}
+    \Delta S_{mix} &= S_{final} - S_{initial} \\
+    &= N_1k_B\left(\ln\frac{eV}{N_1} + \sigma_1\right) + N_2k_B\left(\ln\frac{eV}{N_2} + \sigma_2\right) - N_1k_B\left(\ln\frac{eV_1}{N_1} + \sigma_1\right) - N_2k_B\left(\ln\frac{eV_2}{N_2} + \sigma_2\right) \\
+    &= Nk_B\left[\frac{N_1}{N}\ln\frac{V}{V_1}+\frac{N_2}{N}\ln\frac{V}{V_2}\right] > 0
+\end{align*}
+as before. Returning to the case of ideal gases of the same type with identical initial densities, the final entropy now takes into account $(N_1+N_2)!$ instead of just $N_1!$ and $N_2!$, so specifically \begin{align*}
+    S_{final} &= k_B\ln \Omega(U_1,U_2,V,N_1,N_2) \\
+    &= k_B\ln\left[\frac{1}{(N_1+N_2)!}V^{N_1}\frac{2\pi^{3N_1/2}}{(3N_1/2-1)!}(2m_1U_1)^{(3N_1-1)/2}V^{N_2}\frac{2\pi^{3N_2/2}}{(3N_2/2-1)!}(2m_2U_2)^{(3N_2-1)/2}\right] \\
+    &\approx -k_B(N\ln N - N\ln e) + k_BN_1(\ln V + \sigma_1) + k_BN_2(\ln V+\sigma_2) 
+\end{align*}
+With this we can calculate the mixing entropy: \begin{align*}
+    \Delta S_{mix} &= S_{final} - S_{initial} \\
+    &= k_BN_1(\ln V + \sigma_1) + k_BN_2(\ln V+\sigma_2) - k_BN\ln\frac{N}{e} - k_BN_1\left(\ln\frac{eV_1}{N_1}+\sigma_1\right)-k_BN_2\left(\ln\frac{eV_2}{N_2}+\sigma_2\right) \\
+    &= k_BN_1\left(\ln V - \ln N + \ln e - \ln\frac{eV_1}{N_1}\right) + k_BN_2\left(\ln V - \ln N + \ln e - \frac{eV_2}{N_2}\right) \\
+    &= k_BN_1\left(\ln\frac{V}{N}-\ln\frac{V_1}{N_1}\right) + k_BN_2\left(\ln\frac{V}{N} - \ln\frac{V_2}{N_2}\right) \\
+    &= 0
+\end{align*}
+since by construction the initial and final densities are the same.
+
+\subsection{Postulate for Indistinguishable Particles}
+
+\begin{cust}[Postulate for Indistinguishable Particles]
+    The phase space volume for \Emph{indistinguishable particles} takes on the form \begin{equation*}
+        d\Gamma_N = \frac{1}{h^{3N}N!}\prod_{i=1}^Nd^3\vec{q}_id^3\vec{p}_i
+    \end{equation*}
+    where $h$ is Planck's constant, which is necessary to make the phase space volume dimensionless, which can be motivated by Heisenber's uncertainty principle, $\Delta p\Delta q \geq h$, leading to an effective coarse graining in phase space.
+\end{cust}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.3.2
+\section{Gibbs Canonical Ensemble}
+
+
+The \Emph{Gibbs Canonical ensemble} describes the case of a closed system that is thermally coupled to a heat bath or reservoir at temperature $T$ while also allowed to exchange work with the environment at constant generalized force $\vec{J}$. The numbers of particles of different types $\vec{N}$ are fixed (closed system $\implies$ no chemical work). Note that the internal energy $U$ is not fixed due to the exchange of heat and mechanical work. In summary, our macrostate is $M \equiv (T,\vec{J},\vec{N})$ for the Gibbs canonical ensemble. This macrostate corresponds to the natural variables of the Gibbs free energy, $G = U - TS - \vec{q}\cdot\vec{J}$, making it the appropriate thermodynamic potential. The total energy has the two contributions, the internal energy representing the microscopic contributions of the system itself, and the energy due to the external forces representing macroscopic contributions: \begin{equation*}
+    E_{tot} = H - \vec{J}\cdot \vec{q}
+\end{equation*}
+We can treat the combined system consisting of the system of interest, the heat bath, and the reservoir of mechanical work as an isolated system such that it falls into the microcanonical ensemble. This gives: \begin{equation*}
+    p(\mu_S,\vec{q}) = \frac{e^{-\beta(H_S(\mu_S)-\vec{J}\cdot\vec{q})}}{Z_G(T,\vec{J},\vec{N})}
+\end{equation*}
+where $\beta = \frac{1}{k_BT}$, and we have defined \begin{equation*}
+    Z_G(T,\vec{J},\vec{N}) \equiv \int d\vec{q}d\Gamma_Se^{-\beta(H_S(\mu_S)-\vec{J}\cdot\vec{q})}
+\end{equation*}
+called the \Emph{Gibbs partition function}.
+
+\begin{defn}
+    The average generalized displacements are given by \begin{equation*}
+        \langle q_i\rangle = \frac{1}{Z_G(T,\vec{J},\vec{N})} \int d\vec{q}d\Gamma_S q_ie^{-\beta(H_S(\mu_S) - \vec{J}\cdot\vec{q})} 
+    \end{equation*}
+    which we can express equivalently as \begin{equation*}
+        \langle q_i\rangle = k_BT\frac{\partial \ln Z_G}{\partial J_i}
+    \end{equation*}
+\end{defn}
+Based on our thermodynamic relations for the Gibbs free energy we have $q_i = -\left(\frac{\partial G}{\partial J_i}\right)_{T,\vec{N},J_{j\neq i}}$, so the Gibbs free energy can be expressed in terms of the Gibbs partition function by \begin{equation*}
+    G(T,\vec{J},\vec{N}) = -k_BT\ln Z_G
+\end{equation*}
+
+\subsection{Heat Capacities}
+
+In the canonical ensemble we could only consider $C_{\vec{q}}$ since there was no exchange of mechanical work. In contrast, in the Gibbs canonical ensemble we can now also calculate $C_{\vec{J}}$. Indeed, we have \begin{equation*}
+    C_{\vec{J}} \equiv \left(\frac{\delta Q}{dT}\right)_{\vec{J}} = \left(\frac{\partial U}{\partial T}\right)_{\vec{q}} + \sum_{i=1}^m\left[\left(\frac{\partial U}{\partial q_i}\right)_{T,q_{j\neq i}} - J_i\right]\left(\frac{dq_i}{dT}\right)_{\vec{J}} = \left(\frac{\partial}{\partial T}\right)_{\vec{J},\vec{N}}\left[U(T,\vec{q},\vec{N}) - \vec{q}\cdot \vec{J}\right] = \left(\frac{\partial \mathcal{H}}{\partial T}\right)_{\vec{J},\vec{N}}
+\end{equation*}
+where $\mathcal{H}$ is the enthalpy. From the Gibbs partition function we find \begin{equation*}
+    -\frac{\partial \ln Z_G}{\partial \beta} = \langle H-\vec{q}\cdot\vec{J}\rangle = \langle H\rangle - \langle \vec{q}\rangle \cdot\vec{J} = \mathcal{H}
+\end{equation*}
+where the last equality holds in the thermodynamic limit. Hence we have all the pieces needed to compute $C_{\vec{J}}$.
+
+Finally, we can calculate the internal energy in the Gibbs canonical ensemble by \begin{equation*}
+    \langle U\rangle = \langle H\rangle = \mathcal{H} + \langle \vec{q}\rangle \cdot \vec{J}
+\end{equation*}
+
+
+\subsection{Ideal Gas in the Isobaric Ensemble}
+
+As in the canonical ensemble, $\mu \equiv\{\vec{q},\vec{p}\}$ and the Hamiltonian also remains unchanged, $H = \sum_{i=1}^N\left[\frac{\vec{p}_i\cdot\vec{p}_i}{2m} + \tilde{U}(\vec{q}_i)\right]$, where $\tilde{U}$ is the confining potential. The macrostate is determined by the temperature, pressure, and number of particles $M \equiv (T,p,N)$, since the pressure is held constant but not the volume. For the equilibrium phase space density we have in this case \begin{equation*}
+    p(\{\vec{q},\vec{p}\},V) = \frac{1}{Z_G(T,p,N)}e^{-\beta\sum_{i=1}^N\frac{\vec{p_i}\cdot\vec{p}_i}{2m} - \beta pV}\delta(\{\vec{q}_i\}\in V)
+\end{equation*}
+For the Gibbs partition function we calculate \begin{align*}
+    Z_G(T,p,N) &= \int_0^{\infty}dV\int d\Gamma e^{-\beta\sum_{i=1}^N\frac{\vec{p_i}\cdot\vec{p}_i}{2m} - \beta pV}\delta(\{\vec{q}_i\}\in V)\\
+    &= \int_0^{\infty}dVe^{-\beta p V}\int\frac{1}{N!}\left(\prod_{i=1}^N\frac{d\vec{q}_id\vec{p}_i}{h^3}\right)e^{-\beta\sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}}\delta(\{\vec{q}_i\}\in V) \\
+    &= \int_0^{\infty}dV\frac{e^{-\beta pV}}{N!h^{3N}}\int_Vd\vec{q}_1\cdots \int_Vd\vec{q}_N\int_{-\infty}^{\infty}d\vec{p}_1\cdots \int_{-\infty}^{\infty}d\vec{p}_Ne^{-\beta\sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m}}\delta(\{\vec{q}_i\}\in V) \\
+    &=\frac{1}{N!h^{3N}}\int_0^{\infty}dVe^{-\beta pV}\prod_{i=1}^N\left(\int_Vd\vec{q}_i\delta(\{\vec{q}_i\}\in V)\int_{-\infty}^{\infty}d\vec{p}_ie^{-\beta\frac{\vec{p}_i\cdot\vec{p}_i}{2m}}\right) \\
+    &= \frac{1}{N!h^{3N}}\int_0^{\infty}dVe^{-\beta pV}\prod_{i=1}^N\left(V\cdot \left(\frac{2\pi m}{\beta}\right)^{3/2}\right) \\
+    &= \frac{1}{N!\lambda(T)^{3N}}\int_0^{\infty}dV V^Ne^{-\beta pV}
+\end{align*}
+where $\lambda(T) = \frac{h}{\sqrt{2\pi mk_BT}}$, which is now a proper characteristic length due to the use of the correct dimensionless phase space volume. The remaining integral, with $\int_0^{\infty}dV V^Ne^{-\beta pV} = \frac{1}{(\beta p)^{N+1}}\Gamma(N+1) = \frac{N!}{(\beta p)^{N+1}}$, so \begin{equation*}
+    Z_G(T,p,N) = \frac{1}{N!\lambda(T)^{3N}}\cdot \frac{N!}{(\beta p)^{N+1}} = \frac{1}{\lambda(T)^{3N}(\beta p)^{N+1}}
+\end{equation*}
+Thus we have the Gibbs free energy \begin{equation*}
+    G(T,p,N) = -k_BT\ln Z_G = k_BTN\ln(\lambda(T)^3(\beta p)^{(N+1)/N}) \approx k_BTN\ln (\lambda(T)^3\beta p)
+\end{equation*}
+where the approximation becomes exact in the thermodynamic limit. Since $dG = -SdT + Vdp + \mu dN$, we obtain \begin{equation*}
+    \langle V\rangle = \left(\frac{\partial G}{\partial p}\right)_{T,N} = \frac{Nk_BT}{p}
+\end{equation*}
+recovering the equation of state of an ideal gas. We also obtain the enthalpy \begin{equation*}
+    \mathcal{H} = -\frac{\partial \ln Z_G}{\partial \beta} = \frac{5}{2}Nk_BT
+\end{equation*}
+and the heat capacity \begin{equation*}
+    C_P = \left(\frac{\partial\mathcal{H}}{\partial T}\right)_{p,N} = \frac{5}{2}Nk_B
+\end{equation*}
+For the internal energy we find \begin{equation*}
+    \langle U\rangle = \mathcal{H} - p\langle V\rangle = \frac{3}{2}Nk_BT
+\end{equation*}
+coinciding with the result obtained in the canonical ensemble. Smilarly, we also get \begin{equation*}
+    C_V = \left(\frac{\partial \langle U\rangle}{\partial T}\right)_{V,N} = \frac{3}{2}Nk_B
+\end{equation*}
+Thus we have $C_p - C_V = Nk_B > 0 $ as expected.
+
+\subsection{Paramagnet in an External Magnetic Field}
+
+We consider a paramagnet in the form of the spins of $N$ molecules making up the magnet. However, we allow the spins to have any orientation such that the microstate is fully determined by a set of $N$ three dimesnional vectors $\mu = \{\vec{\sigma}_i\}$. We require that $|\vec{\sigma}_i| = 1$, so each spin is in one and only one orientation. Since we are interested in the effect of a constant external magnetic field $\vec{B}$, our macrostate is $M \equiv (T,\vec{B},N)$. The interaction between spins and an external magnetic field take on the form $\vec{B}\cdot \vec{M}$, where $\vec{M}$ is the net magnetic moment or net magnetization of our paramagnet. We can write it here as $\vec{M} = \mu_0\sum_{i=1}^N\vec{\sigma}_i$ where $\mu_0$ is the microscopic magnetic moment. Hence the Gibbs partition function for this discrete system can be written as \begin{equation*}
+    Z_G(T,\vec{B},N) = \sum_{\{\sigma\}}e^{-\beta H + \beta \vec{B}\cdot\vec{M}}
+\end{equation*}
+where the sum runs over all possible microstates and $H$ is the Hamiltonian capturing the interactions between the spins. In the following we consider spin $1/2$ particles, $\sigma_i = \pm 1$, when the external magnetic field $\vec{B}$ is parallel to $\vec{M}$. We also neglect any interactions between the spins such that $H = 0$. Thus we have for the equilibrium phase space density \begin{equation*}
+    p(\{\sigma_i\}) = \frac{1}{Z_G}e^{\beta B\mu_0\sum_{i=1}^N\sigma_i}
+\end{equation*}
+Calculating the Gibbs partition function \begin{align*}
+    Z_G(T,B,N) &= \sum_{\{\sigma\}}e^{\beta B\mu_0\sum_{i=1}^N\sigma_i} \\
+    &= \sum_{\sigma_1 \in \{-1,1\}}\cdots \sum_{\sigma_N\in\{-1,1\}}e^{\beta B\mu_0\sum_{i=1}^N\sigma_i} \\
+    &=\sum_{\sigma_1 \in \{-1,1\}}e^{\beta B\mu_0\sigma_1}\cdots \sum_{\sigma_N\in\{-1,1\}}e^{\beta B\mu_0\sigma_N} \\
+    &= (e^{\beta B\mu_0} + e^{-\beta B\mu_0})^N = [2\cosh(\beta \mu_0B)]^N
+\end{align*}
+From this the Gibbs free energy can be found: \begin{equation*}
+    G(T,B,N) = -k_BT\ln Z_G = -k_BTN\ln[2\cosh(\beta\mu_0 B)]
+\end{equation*}
+Using the properties of the Gibbs free energy $dG = -SdT - MdB+\mu dN$, we obtain \begin{equation*}
+    \langle M\rangle = -\left(\frac{\partial G}{\partial B}\right)_{T,N} = Nk_BT\frac{2\sinh(\beta\mu_0 B}{2\cosh(\beta\mu_0B)}\beta\mu_0 = N\mu_0\tanh(\beta\mu_0B)
+\end{equation*}
+This is the \Emph{equation of state} for this system. From this equation of state we investigate the magnetic susceptibility, $\chi$, which measures how strong the magnetic response of the paramagnet to an external magnetic field is \begin{equation*}
+    \chi(T) \equiv\left(\frac{\partial M}{\partial B}\right)_{T,N}\Big\rvert_{B=0} = \frac{N\mu_0}{[\cosh(\beta\mu_0B)]^2}\beta\mu_0\Big\vert_{B=0} = \frac{N\mu_0^2}{k_BT}
+\end{equation*}
+This expression is known as the \Emph{Curie law}, which was first discovered experimentally.
+
+Next we investigate the heat capacity $C_B$. To do so we need the enthalpy first: \begin{equation*}
+    \mathcal{H} = -\frac{\partial \ln Z_G}{\partial \beta} = -N\mu_0B\tanh(\beta\mu_0B)
+\end{equation*}
+The last expression coincides with $-B\langle M\rangle$ as expected. Using the expression for the enthalpy we find \begin{equation*}
+    C_B = \left(\frac{\partial \mathcal{H}}{\partial T}\right)_{B,N} = \frac{Nk_B\mu_0^2B^2\beta^2}{[\cosh(\beta\mu_0B)]^2}
+\end{equation*}
+Observe that now the relevant quantity is the product $|B\beta|$ such that increasing the absolute value of $B$ has the same effect as decreasing $T$, and decreasing the absolute value of $B$ has the same effect as increasing $T$.
+
 
 
 

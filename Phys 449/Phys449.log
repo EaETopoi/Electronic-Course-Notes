@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  23 NOV 2021 14:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  5 DEC 2021 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1501,7 +1501,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../Crab.jpg, id=340, 962.09438pt x 769.37437pt>
+<../Crab.jpg, id=384, 962.09438pt x 769.37437pt>
 File: ../Crab.jpg Graphic file (type jpg)
 <use ../Crab.jpg>
 Package pdftex.def Info: ../Crab.jpg  used on input line 48.
@@ -1612,7 +1612,7 @@ xr/m/n/12 ,
  []
 
 [18]
-<Images/AdiabaticIdealGas.png, id=564, 1056.19594pt x 322.95656pt>
+<Images/AdiabaticIdealGas.png, id=619, 1056.19594pt x 322.95656pt>
 File: Images/AdiabaticIdealGas.png Graphic file (type png)
 <use Images/AdiabaticIdealGas.png>
 Package pdftex.def Info: Images/AdiabaticIdealGas.png  used on input line 683.
@@ -1679,65 +1679,98 @@ e{table.6.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2808 \chapter
-               {Gibbs Canonical Ensemble}]
+l.2812 
+       ] [54] [55] [56] [57] [58]
 Chapter 7.
-[54
-
-] [55
+[59
 
 ]
-Chapter 8.
-[56
-
-] [57]
-Overfull \hbox (11.26682pt too wide) detected at line 2910
+Overfull \hbox (13.34819pt too wide) detected at line 2989
 []
  []
 
-[58] [59] [60] [61] [62] [63]
-Overfull \hbox (15.86781pt too wide) in paragraph at lines 3176--3178
+
+Overfull \hbox (32.66968pt too wide) detected at line 2994
+[]
+ []
+
+[60]
+Overfull \hbox (8.46292pt too wide) detected at line 2999
+[]
+ []
+
+
+Overfull \hbox (55.33218pt too wide) detected at line 3006
+[]
+ []
+
+[61]
+Overfull \hbox (4.51625pt too wide) in paragraph at lines 3043--3043
+[]\OT1/txr/m/n/12 Based on our ther-mo-dy-namic re-la-tions for the Gibbs free 
+en-ergy we have $\OML/txmi/m/it/12 q[] \U/matha/m/n/12 ^^P ^^A [][]$\OT1/txr/m/
+n/12 ,
+ []
+
+
+Overfull \hbox (60.64102pt too wide) detected at line 3051
+\OML/txmi/m/it/12 C[] \U/matha/m/n/12 ^^Q [][] ^^P [][] ^^@ [] [] [][] ^^P [][]
+ [] ^^P [][]
+ []
+
+[62] [63] [64] [65] [66
+
+]
+Chapter 8.
+[67
+
+] [68]
+Overfull \hbox (11.26682pt too wide) detected at line 3232
+[]
+ []
+
+[69] [70] [71] [72] [73] [74]
+Overfull \hbox (15.86781pt too wide) in paragraph at lines 3498--3500
 \OT1/txr/m/n/12 the []\OT1/txr/bx/it/12 neg[]-[]a[]-[]tive [][]bi[]-[]no[]-[]mi
 al [][]dis[]-[]tri[]-[]bu[]-[]tion \OT1/txr/m/n/12 with pa-ram-e-ters $\OML/txm
 i/m/it/12 r$ \OT1/txr/m/n/12 and $\OML/txmi/m/it/12 p$\OT1/txr/m/n/12 , and whe
 re $[] \U/matha/m/n/12 ^^P []$
  []
 
-[64] [65] [66] [67]
-Overfull \hbox (45.25143pt too wide) detected at line 3294
+[75] [76] [77] [78]
+Overfull \hbox (45.25143pt too wide) detected at line 3616
 []
  []
 
-[68]
+[79]
 Chapter 9.
 
-Overfull \hbox (9.71205pt too wide) in paragraph at lines 3319--3319
+Overfull \hbox (9.71205pt too wide) in paragraph at lines 3641--3641
 |[]\OT1/txr/bx/n/20 Gaussian Dis-tri-bu-tion and Con-tin-u-ous Ran-dom
  []
 
 
-Overfull \hbox (387.5073pt too wide) detected at line 3337
+Overfull \hbox (387.5073pt too wide) detected at line 3659
 []
  []
 
 
-Overfull \hbox (77.02719pt too wide) detected at line 3340
+Overfull \hbox (77.02719pt too wide) detected at line 3662
 [] \OML/txmi/m/it/12 P[]\U/matha/m/n/12 p\OML/txmi/m/it/12 x\U/matha/m/n/12 q ^
 ^P ^^A[] []p\OT1/txr/m/n/12 2\OML/txmi/m/it/12 ^^Y^^[[]\U/matha/m/n/12 q ^^A []
  [] [] ^^A [] [] []
  []
 
-[69
+[80
 
 ]
-Overfull \hbox (125.49493pt too wide) detected at line 3346
+Overfull \hbox (125.49493pt too wide) detected at line 3668
 [] \OML/txmi/m/it/12 P[]\U/matha/m/n/12 p\OML/txmi/m/it/12 x\U/matha/m/n/12 q ^
 ^P ^^A[] []p\OT1/txr/m/n/12 2\OML/txmi/m/it/12 ^^Y^^[[]\U/matha/m/n/12 q ^^A []
  [] ^^A [] []
  []
 
 
-Overfull \hbox (21.92958pt too wide) detected at line 3352
+Overfull \hbox (21.92958pt too wide) detected at line 3674
 []
  []
 
@@ -1747,8 +1780,8 @@ Make it at least 26.87802pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[70]
-Overfull \hbox (34.06612pt too wide) detected at line 3410
+[81]
+Overfull \hbox (34.06612pt too wide) detected at line 3732
 \OML/txmi/m/it/12 P\U/matha/m/n/12 p\OML/txmi/m/it/12 F\U/matha/m/n/12 p\OML/tx
 mi/m/it/12 X\U/matha/m/n/12 q ¤ \OML/txmi/m/it/12 ^^U\U/matha/m/n/12 q ^^P [][]
  \OML/txmi/m/it/12 p[]\U/matha/m/n/12 p\OML/txmi/m/it/12 x\U/matha/m/n/12 q\OML
@@ -1760,54 +1793,54 @@ OML/txmi/m/it/12 x\U/matha/m/n/12 q\OML/txmi/m/it/12 dx \U/matha/m/n/12 ^^P [][
 OML/txmi/m/it/12 y\U/matha/m/n/12 qq [] \OML/txmi/m/it/12 dy
  []
 
-[71] [72]
+[82] [83]
 Chapter 10.
-[73
+[84
 
-] [74] [75] [76
+] [85] [86] [87
 
 ]
 Chapter 11.
-[77
+[88
 
 ]
-Overfull \hbox (23.49217pt too wide) in paragraph at lines 3591--3591
+Overfull \hbox (23.49217pt too wide) in paragraph at lines 3913--3913
 |[]\OT1/txr/bx/n/20 Microstates, Macrostates, and Phase Space Den-
  []
 
-[78] [79] [80] [81]
+[89] [90] [91] [92]
 Chapter 12.
-[82
+[93
 
-] [83
+] [94
 
 ]
 Chapter 13.
-[84
+[95
 
 ]
 Chapter 14.
-[85
+[96
 
-] [86
+] [97
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3730.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3730.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4052.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4052.
  (./Phys449.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3730.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3730.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4052.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4052.
 
 Package rerunfilecheck Info: File `Phys449.out' has not changed.
-(rerunfilecheck)             Checksum: 49B4D2D0456ADB73433163B59F970725;6266.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3730.
+(rerunfilecheck)             Checksum: 69686E2B72515BE22257E04BBF123204;7214.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4052.
  ) 
 Here is how much of TeX's memory you used:
- 25022 strings out of 481239
- 456142 string characters out of 5920377
- 751710 words of memory out of 5000000
- 39334 multiletter control sequences out of 15000+600000
+ 25058 strings out of 481239
+ 456603 string characters out of 5920377
+ 751722 words of memory out of 5000000
+ 39345 multiletter control sequences out of 15000+600000
  625429 words of font info for 246 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,14n,84p,1047b,769s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1832,10 +1865,10 @@ exlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 i8a.pfb>
-Output written on Phys449.pdf (87 pages, 951167 bytes).
+Output written on Phys449.pdf (98 pages, 997918 bytes).
 PDF statistics:
- 1161 PDF objects out of 1200 (max. 8388607)
- 1036 compressed objects within 11 object streams
- 359 named destinations out of 1000 (max. 500000)
- 687 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1271 PDF objects out of 1440 (max. 8388607)
+ 1134 compressed objects within 12 object streams
+ 384 named destinations out of 1000 (max. 500000)
+ 775 words of extra memory for PDF output out of 10000 (max. 10000000)
 
