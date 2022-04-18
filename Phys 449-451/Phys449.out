@@ -61,34 +61,98 @@
 \BOOKMARK [2][-]{subsection.7.2.1}{Heat Capacities}{section.7.2}% 61
 \BOOKMARK [2][-]{subsection.7.2.2}{Ideal Gas in the Isobaric Ensemble}{section.7.2}% 62
 \BOOKMARK [2][-]{subsection.7.2.3}{Paramagnet in an External Magnetic Field}{section.7.2}% 63
-\BOOKMARK [-1][-]{part.3}{III Probability Theory}{}% 64
-\BOOKMARK [0][-]{chapter.8}{Characteristics of Probability Theory}{part.3}% 65
-\BOOKMARK [1][-]{section.8.1}{Measure Theory}{chapter.8}% 66
-\BOOKMARK [2][-]{subsection.8.1.1}{Set Functions}{section.8.1}% 67
-\BOOKMARK [2][-]{subsection.8.1.2}{The Measure Extension Theorem}{section.8.1}% 68
-\BOOKMARK [2][-]{subsection.8.1.3}{Measurable Maps}{section.8.1}% 69
-\BOOKMARK [2][-]{subsection.8.1.4}{Physical Interpretation}{section.8.1}% 70
-\BOOKMARK [1][-]{section.8.2}{Random variables}{chapter.8}% 71
-\BOOKMARK [1][-]{section.8.3}{States and Combined Events}{chapter.8}% 72
-\BOOKMARK [1][-]{section.8.4}{Characteristics of Probability Distributions}{chapter.8}% 73
-\BOOKMARK [0][-]{chapter.9}{Continuous Random Variables and the Gaussian Distribution}{part.3}% 74
-\BOOKMARK [1][-]{section.9.1}{Gaussian Distribution and Continuous Random Variables}{chapter.9}% 75
-\BOOKMARK [2][-]{subsection.9.1.1}{Properties of Continuous Random Variables}{section.9.1}% 76
-\BOOKMARK [2][-]{subsection.9.1.2}{Change of Variables}{section.9.1}% 77
-\BOOKMARK [1][-]{section.9.2}{Multivariate Random Variables and the Central Limit Theorem}{chapter.9}% 78
-\BOOKMARK [0][-]{chapter.10}{Information and Entropy}{part.3}% 79
-\BOOKMARK [1][-]{section.10.1}{Introduction to Information Theory}{chapter.10}% 80
-\BOOKMARK [1][-]{section.10.2}{Information Content of a Distribution}{chapter.10}% 81
-\BOOKMARK [1][-]{section.10.3}{Maximum Entropy Principle}{chapter.10}% 82
-\BOOKMARK [-1][-]{part.4}{IV Real Gases and Phase Transitions}{}% 83
-\BOOKMARK [0][-]{chapter.11}{Kinetic Theory of Gases}{part.4}% 84
-\BOOKMARK [1][-]{section.11.1}{Hamiltonian Dynamics and Phase Space}{chapter.11}% 85
-\BOOKMARK [1][-]{section.11.2}{Microstates, Macrostates, and Phase Space Density}{chapter.11}% 86
-\BOOKMARK [1][-]{section.11.3}{Liouville's Theorem}{chapter.11}% 87
-\BOOKMARK [1][-]{section.11.4}{Ergodicity}{chapter.11}% 88
-\BOOKMARK [1][-]{section.11.5}{Time Reversibility and the Arrow of Time}{chapter.11}% 89
-\BOOKMARK [0][-]{chapter.12}{Classification of Phase Transitions}{part.4}% 90
-\BOOKMARK [-1][-]{part.5}{V Quantum Statistics}{}% 91
-\BOOKMARK [0][-]{chapter.13}{Quantum States}{part.5}% 92
-\BOOKMARK [0][-]{chapter.14}{Ideal Quantum Gases}{part.5}% 93
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.5}% 94
+\BOOKMARK [1][-]{section.7.3}{Grand Canonical Ensemble}{chapter.7}% 64
+\BOOKMARK [2][-]{subsection.7.3.1}{Ideal Gas in the Grand Canonical Ensemble}{section.7.3}% 65
+\BOOKMARK [2][-]{subsection.7.3.2}{Surfactant Adsorption}{section.7.3}% 66
+\BOOKMARK [-1][-]{part.3}{III Probability Theory}{}% 67
+\BOOKMARK [0][-]{chapter.8}{Characteristics of Probability Theory}{part.3}% 68
+\BOOKMARK [1][-]{section.8.1}{Measure Theory}{chapter.8}% 69
+\BOOKMARK [2][-]{subsection.8.1.1}{Set Functions}{section.8.1}% 70
+\BOOKMARK [2][-]{subsection.8.1.2}{The Measure Extension Theorem}{section.8.1}% 71
+\BOOKMARK [2][-]{subsection.8.1.3}{Measurable Maps}{section.8.1}% 72
+\BOOKMARK [2][-]{subsection.8.1.4}{Physical Interpretation}{section.8.1}% 73
+\BOOKMARK [1][-]{section.8.2}{Random variables}{chapter.8}% 74
+\BOOKMARK [1][-]{section.8.3}{States and Combined Events}{chapter.8}% 75
+\BOOKMARK [1][-]{section.8.4}{Characteristics of Probability Distributions}{chapter.8}% 76
+\BOOKMARK [0][-]{chapter.9}{Continuous Random Variables and the Gaussian Distribution}{part.3}% 77
+\BOOKMARK [1][-]{section.9.1}{Gaussian Distribution and Continuous Random Variables}{chapter.9}% 78
+\BOOKMARK [2][-]{subsection.9.1.1}{Properties of Continuous Random Variables}{section.9.1}% 79
+\BOOKMARK [2][-]{subsection.9.1.2}{Change of Variables}{section.9.1}% 80
+\BOOKMARK [1][-]{section.9.2}{Multivariate Random Variables and the Central Limit Theorem}{chapter.9}% 81
+\BOOKMARK [0][-]{chapter.10}{Information and Entropy}{part.3}% 82
+\BOOKMARK [1][-]{section.10.1}{Introduction to Information Theory}{chapter.10}% 83
+\BOOKMARK [1][-]{section.10.2}{Information Content of a Distribution}{chapter.10}% 84
+\BOOKMARK [1][-]{section.10.3}{Maximum Entropy Principle}{chapter.10}% 85
+\BOOKMARK [-1][-]{part.4}{IV Real Gases and Phase Transitions}{}% 86
+\BOOKMARK [0][-]{chapter.11}{Kinetic Theory of Gases}{part.4}% 87
+\BOOKMARK [1][-]{section.11.1}{Hamiltonian Dynamics and Phase Space}{chapter.11}% 88
+\BOOKMARK [1][-]{section.11.2}{Microstates, Macrostates, and Phase Space Density}{chapter.11}% 89
+\BOOKMARK [1][-]{section.11.3}{Liouville's Theorem}{chapter.11}% 90
+\BOOKMARK [1][-]{section.11.4}{Ergodicity}{chapter.11}% 91
+\BOOKMARK [1][-]{section.11.5}{Time Reversibility and the Arrow of Time}{chapter.11}% 92
+\BOOKMARK [0][-]{chapter.12}{Classification of Phase Transitions}{part.4}% 93
+\BOOKMARK [1][-]{section.12.1}{Ising Model}{chapter.12}% 94
+\BOOKMARK [1][-]{section.12.2}{Existence of Phase Transitions: Energy-Entropy Argument}{chapter.12}% 95
+\BOOKMARK [1][-]{section.12.3}{How Phase Transitions Occur In Practice}{chapter.12}% 96
+\BOOKMARK [1][-]{section.12.4}{Mean-Field Theory}{chapter.12}% 97
+\BOOKMARK [2][-]{subsection.12.4.1}{Critical Exponents}{section.12.4}% 98
+\BOOKMARK [1][-]{section.12.5}{Renormalization Group Theory}{chapter.12}% 99
+\BOOKMARK [2][-]{subsection.12.5.1}{Coarse Graining and Renormalization Group Procedure}{section.12.5}% 100
+\BOOKMARK [2][-]{subsection.12.5.2}{Notes on Critical Exponents}{section.12.5}% 101
+\BOOKMARK [2][-]{subsection.12.5.3}{Renormalization Group Method and the One-Dimensional Ising Model}{section.12.5}% 102
+\BOOKMARK [-1][-]{part.5}{V Quantum Statistics}{}% 103
+\BOOKMARK [0][-]{chapter.13}{Breakdown of Classical Mechanics}{part.5}% 104
+\BOOKMARK [1][-]{section.13.1}{Dilute Polyatomic Gases}{chapter.13}% 105
+\BOOKMARK [2][-]{subsection.13.1.1}{Small Oscillations and Linear Stability}{section.13.1}% 106
+\BOOKMARK [1][-]{section.13.2}{Linear Triatomic Molecule}{chapter.13}% 107
+\BOOKMARK [1][-]{section.13.3}{Dilute Polyatomic Gas in the Canonical Ensemble}{chapter.13}% 108
+\BOOKMARK [1][-]{section.13.4}{Experimental Tests and QM Description}{chapter.13}% 109
+\BOOKMARK [0][-]{chapter.14}{Condensed Matter and Solid-State Physics}{part.5}% 110
+\BOOKMARK [1][-]{section.14.1}{Vibrations of a Solid}{chapter.14}% 111
+\BOOKMARK [1][-]{section.14.2}{Experimental Tests and QM Description}{chapter.14}% 112
+\BOOKMARK [0][-]{chapter.15}{Black-body Radiation}{part.5}% 113
+\BOOKMARK [1][-]{section.15.1}{Classical Description}{chapter.15}% 114
+\BOOKMARK [1][-]{section.15.2}{QM Description \(Planck\)}{chapter.15}% 115
+\BOOKMARK [1][-]{section.15.3}{Black-hole thermodynamics}{chapter.15}% 116
+\BOOKMARK [0][-]{chapter.16}{Quantum Microstates}{part.5}% 117
+\BOOKMARK [1][-]{section.16.1}{Observables}{chapter.16}% 118
+\BOOKMARK [1][-]{section.16.2}{Time Evolution}{chapter.16}% 119
+\BOOKMARK [0][-]{chapter.17}{Quantum Macrostates}{part.5}% 120
+\BOOKMARK [1][-]{section.17.1}{Density Matrix}{chapter.17}% 121
+\BOOKMARK [1][-]{section.17.2}{Time Evolution of Desity Matrix and Equilibrium}{chapter.17}% 122
+\BOOKMARK [0][-]{chapter.18}{Quantum Ensembles}{part.5}% 123
+\BOOKMARK [1][-]{section.18.1}{Microcanonical Ensemble}{chapter.18}% 124
+\BOOKMARK [1][-]{section.18.2}{Canonical Ensemble}{chapter.18}% 125
+\BOOKMARK [1][-]{section.18.3}{Grand Canonical Ensemble}{chapter.18}% 126
+\BOOKMARK [2][-]{subsection.18.3.1}{Ideal Gas in the Canonical Ensemble}{section.18.3}% 127
+\BOOKMARK [1][-]{section.18.4}{Entropy and Extremal Properties of Thermodynamic Potentials}{chapter.18}% 128
+\BOOKMARK [1][-]{section.18.5}{Third Law of Thermodynamics}{chapter.18}% 129
+\BOOKMARK [0][-]{chapter.19}{Ideal Quantum Gas}{part.5}% 130
+\BOOKMARK [1][-]{section.19.1}{Indistinguishable Particles}{chapter.19}% 131
+\BOOKMARK [2][-]{subsection.19.1.1}{Fermions}{section.19.1}% 132
+\BOOKMARK [2][-]{subsection.19.1.2}{Bosons}{section.19.1}% 133
+\BOOKMARK [2][-]{subsection.19.1.3}{Anyons}{section.19.1}% 134
+\BOOKMARK [1][-]{section.19.2}{Hilbert Space of Indistinguishable Particles}{chapter.19}% 135
+\BOOKMARK [2][-]{subsection.19.2.1}{Fermionic and Bosonic Subspaces}{section.19.2}% 136
+\BOOKMARK [1][-]{section.19.3}{Ideal Quantum Gas in the Canonical Ensemble}{chapter.19}% 137
+\BOOKMARK [1][-]{section.19.4}{Ideal Quantum Gas in the Grand Canonical Ensemble}{chapter.19}% 138
+\BOOKMARK [2][-]{subsection.19.4.1}{The Degenerate Fermi Gas}{section.19.4}% 139
+\BOOKMARK [2][-]{subsection.19.4.2}{Thermodynamic Properties of the Ideal Quantum Gas}{section.19.4}% 140
+\BOOKMARK [2][-]{subsection.19.4.3}{Thermodynamic Properties of the Degenerate Fermi Gas}{section.19.4}% 141
+\BOOKMARK [2][-]{subsection.19.4.4}{The Degenerate Bose Gas}{section.19.4}% 142
+\BOOKMARK [-1][-]{part.6}{VI Complexity}{}% 143
+\BOOKMARK [0][-]{chapter.20}{Crackling Noise and Earthquakes}{part.6}% 144
+\BOOKMARK [1][-]{section.20.1}{Dynamics of Crackling Noise}{chapter.20}% 145
+\BOOKMARK [2][-]{subsection.20.1.1}{Plasticity}{section.20.1}% 146
+\BOOKMARK [2][-]{subsection.20.1.2}{Magnetic Barkhausen Noise}{section.20.1}% 147
+\BOOKMARK [2][-]{subsection.20.1.3}{What is an avalanche?}{section.20.1}% 148
+\BOOKMARK [1][-]{section.20.2}{The Renormalization Group}{chapter.20}% 149
+\BOOKMARK [1][-]{section.20.3}{Avalanches}{chapter.20}% 150
+\BOOKMARK [2][-]{subsection.20.3.1}{Avalanche Temporal Shapes}{section.20.3}% 151
+\BOOKMARK [2][-]{subsection.20.3.2}{Spatial Structure}{section.20.3}% 152
+\BOOKMARK [2][-]{subsection.20.3.3}{Earthquakes}{section.20.3}% 153
+\BOOKMARK [2][-]{subsection.20.3.4}{Space Weather}{section.20.3}% 154
+\BOOKMARK [0][-]{chapter.21}{Complex Systems}{part.6}% 155
+\BOOKMARK [1][-]{section.21.1}{Introduction and Overview}{chapter.21}% 156
+\BOOKMARK [2][-]{subsection.21.1.1}{Neuron Networks}{section.21.1}% 157
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.6}% 158

@@ -1,0 +1,56 @@
+\contentsline {part}{I\hspace {1em}Theory}{3}{part.1}%
+\contentsline {chapter}{\numberline {1}The Wave Equation}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}The Schr\"{o}dinger Equation}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Statistical Interpretation}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Probability}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Normalization and the Wave Function}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Momentum}{8}{section.1.5}%
+\contentsline {section}{\numberline {1.6}The Uncertainty Principle}{9}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Time Independent Schr\"{o}dinger Equation}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Stationary States}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Infinite Square Well}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.3}The Harmonic Oscillator}{15}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Ladder Operator Technique}{15}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}The Free Particle}{18}{section.2.4}%
+\contentsline {section}{\numberline {2.5}The Delta-Function Potential}{21}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Bound States and Scattering States}{21}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}The Delta-Function Well}{21}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}The Finite Square Well}{23}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Formalism}{26}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Hilbert Space}{26}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Observables}{28}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Determinate States}{29}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Eigenfunctions of a Hermitian Operator}{30}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Discrete Spectra}{30}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Continuous Spectra}{31}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Generalized Statistical Interpretation}{32}{section.3.4}%
+\contentsline {section}{\numberline {3.5}The Uncertainty Principle}{34}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}The Minimum-Uncertainty Wave Packet}{36}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}The Energy-Time Uncertainty Principle}{37}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Vectors and Operators}{38}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Changing Bases}{40}{subsection.3.6.1}%
+\contentsline {chapter}{\numberline {4}Quantum Mechanics in Three Dimensions}{42}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Schr\"{o}dinger Equation in 3D}{42}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Spherical Coordinates}{43}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}The Hydrogen Atom}{45}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Angular Momentum}{46}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Spin}{48}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Spin 1/2}{49}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Electron in a Magnetic Field}{49}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Addition of Angular Momenta}{49}{subsection.4.4.3}%
+\contentsline {chapter}{\numberline {5}Identical Particles}{51}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Two-Particle Systems}{51}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Bosons and Fermions}{52}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Exchange Forces}{52}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Spin}{53}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Generalized Symmetrization Principle}{53}{subsection.5.1.4}%
+\contentsline {chapter}{\numberline {6}Symmetries and Conservation Laws}{54}{chapter.6}%
+\contentsline {part}{II\hspace {1em}Applications}{55}{part.2}%
+\contentsline {chapter}{\numberline {7}Time-Independent Perturbation Theory}{56}{chapter.7}%
+\contentsline {chapter}{\numberline {8}The Variational Principle}{57}{chapter.8}%
+\contentsline {chapter}{\numberline {9}The WKB Approximation}{58}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Scattering}{59}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Quantum Dynamics}{60}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Afterword}{61}{chapter.12}%
+\contentsline {chapter}{Appendices}{62}{section*.1}%
+\contentsfinish 

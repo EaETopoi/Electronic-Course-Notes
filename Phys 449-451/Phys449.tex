@@ -3129,6 +3129,90 @@ The last expression coincides with $-B\langle M\rangle$ as expected. Using the e
 Observe that now the relevant quantity is the product $|B\beta|$ such that increasing the absolute value of $B$ has the same effect as decreasing $T$, and decreasing the absolute value of $B$ has the same effect as increasing $T$.
 
 
+%%%%%%%%%%%%%%%%%%%% Section 2.3.3
+\section{Grand Canonical Ensemble}
+
+The \Emph{Grand canonical ensemble} is for a system that is allowed to exchange heat and particles with the environment under the constraint that the system is maintained at constant temperature $T$ and constant chemical potential $\mu$. The macrostate is given by $M \equiv (T,\vec{\mu},\vec{q})$. 
+
+Let $R$ be our heat and particle reservoir interacting with our system of interest, $S$, in which no work is exchanged. Let $H_R(\mu_R)$ denote the internal energy of $R$ and $H_S(\mu_S)$ denote the internal energy of $S$. Derivations follows as with the canonical ensemble (i.e. using the maximum entropy principle with $\langle N\rangle$ fixed): \begin{equation*}
+    \rho_{eq}(\mu_s) = \int d\Gamma_R\rho_{eq}(\mu_S\otimes\mu_R) = \frac{e^{-\beta(H(\mu_S)-\vec{\mu}\cdot\vec{N}(\mu_S))}}{Q(T,\vec{\mu},\vec{q}}
+\end{equation*}
+where \begin{equation*}
+    Q(T,\mu,\vec{q} = \int d\Gamma_S e^{-\beta(H(\mu_S) - \mu N(\mu_S))} = \sum_{N=0}^{\infty}e^{\beta\mu N}\int d\Gamma_{S\backslash N}e^{-\beta H(\mu_S)} = \sum_{N=0}^{\infty}e^{\beta\mu N}Z(T,N,\vec{q})
+\end{equation*}
+is the grand partition function, and $Z(T,N,\vec{q})$ is the canonical partition function. Then the probability density function for the number of particles is given by \begin{equation*}
+    p(N) = \frac{e^{\beta\mu N}Z(T,N,\vec{q})}{Q(T,N,\vec{q})}
+\end{equation*}
+and we have \begin{equation*}
+    \langle N\rangle = \frac{1}{Q}\frac{1}{\beta}\left(\frac{\partial Q}{\partial \mu}\right)_{T,\vec{q}} = \frac{1}{\beta}\left(\frac{\partial \ln Q}{\partial \mu}\right)_{T,\vec{q}}
+\end{equation*}
+As $p(N)$ is a probability density function, it obeys the central limit theorem in the limit $\langle N\rangle \rightarrow \infty$, and so all three ensembles are equivalent in the thermodynamic limit. Thus \begin{align*}
+    Q(T,\mu,\vec{q}) &= \sum_{N=0}^{\infty}e^{\beta\mu N}Z(T,N,\vec{q}) \\
+    &\approx e^{\beta \mu N^*}Z(T,N^*,\vec{q}) \tag{saddle point integration} \\
+    &\approx e^{\beta \mu\langle N\rangle}Z(T,\langle N\rangle,\vec{q}) \tag{CLT} \\
+    &= e^{\beta \mu\langle N\rangle}e^{-\beta F} \tag{substituting $F = -k_BT\ln Z$} \\
+    &= e^{-\beta(-\mu\langle N\rangle + \langle U\rangle - TS)} \tag{substituting $F = \langle U\rangle - TS$} \\
+    &= e^{-\beta\mathcal{G}}
+\end{align*}
+with $\mathcal{G}(T,\mu,\vec{q}) := \langle U\rangle - TS - \mu\langle N\rangle$ is the grand potential. Solving for $\mathcal{G}$ we obtain the expression \begin{equation*}
+    \boxed{\mathcal{G}(T,\mu,\vec{q} = -k_BT\ln Q(T,\mu,\vec{q})}
+\end{equation*}
+
+\subsection{Ideal Gas in the Grand Canonical Ensemble}
+
+Consider an ideal gas which is allowed to exchange heat and particles, of the same kind, with a reservoir. Then the microstate is $\mu_S \equiv \{\vec{p}_i,\vec{q}_i\}$, and $M \equiv (T,\mu,V)$. Then the grand partition function is \begin{align*}
+    Q(T,\mu,V) &= \sum_{N=0}^{\infty}e^{\beta \mu N}\frac{1}{N!}\int\left(\prod_{i=1}^N\frac{d^3\vec{q}_id^3\vec{p}_i}{h^3}\right)e^{-\beta \sum_{i=1}^N\vec{p}_i\cdot\vec{p}_i/2m}\delta(\{\vec{q}_i\} \in \text{box}) \\
+    &= \sum_{N=0}^{\infty}e^{\beta \mu N}\frac{1}{N!}\left(\frac{V}{\lambda(T)^3}\right)^N \tag{$\lambda(T) = \frac{h}{\sqrt{2\pi mk_BT}}$} \\
+    &= \exp\left\{e^{\beta \mu}\frac{V}{\lambda(T)^3}\right\}
+\end{align*}
+Then the grand potential for the gas is \begin{equation*}
+    \mathcal{G}(T,\mu,V) = -k_BT\ln Q = -k_BTe^{\beta \mu}\frac{V}{\lambda(T)^3}
+\end{equation*}
+From thermodynamics we have that $d\mathcal{G} = -SdT - Nd\mu - PdV$. Then \begin{equation*}
+    P = -\left(\frac{\partial\mathcal{G}}{\partial V}\right)_{\mu,T} = k_BTe^{\beta \mu}\frac{1}{\lambda(T)^3} 
+\end{equation*}
+and \begin{equation*}
+    \langle N\rangle = -\left(\frac{\partial \mathcal{G}}{\partial \mu}\right)_{T,V} = e^{\beta \mu}\frac{V}{\lambda(T)^3}
+\end{equation*}
+and so we obtain the equation of state \begin{equation*}
+    P = k_BT\frac{\langle N\rangle}{V}
+\end{equation*}
+Solving for $\mu$ we get \begin{equation*}
+    \mu = k_BT\ln\left(\frac{P\lambda(T)^3}{k_BT}\right) = k_BT\ln\left(\frac{\langle N\rangle \lambda(T)^3}{V}\right)
+\end{equation*}
+which is the chemical potential necessary to add particles. Recall that the differential of chemical work is given by $\delta W_{chem} = \vec{\mu}\cdot d\vec{N}$.
+
+\subsection{Surfactant Adsorption}
+
+\begin{defn}
+    \Emph{Surfactant} are compounds that reduce the surface tension between two liquids, e.g. molecules with a hydrophil head and hydrophobe tail.
+\end{defn}
+
+Surfactant molecules can reduce their energy by contacting with air (increased DLL)
+
+\begin{qst}
+    What is the ratio of surfactants in a solution versus at the surface?
+\end{qst}
+
+To answer this we construct a model. In our model we assume surfactants in the solution can be regarded as an ideal 3D gas, that surfactants on the surface can be treated as an ideal 2D gas, that there is a difference in potential energy of $\varepsilon_0$ between the surface and the solution, and that water only serves as a heat bath.
+
+Thus, in isolation: $$H_d = \underbrace{N_d\varepsilon_d}_{\text{uniform attraction potential}} + \sum_{i=1}^{N_d}\frac{\vec{p}_i\cdot\vec{p}_i}{2m}$$ for $d = 2$ and $d = 3$, with $\varepsilon_0 = \varepsilon_3 - \varepsilon_2 > 0$. Then the partition function is  \begin{align*}
+    Z_d &= \frac{1}{N_d!h^{dN_d}}\int\cdots \int \prod_{i=1}^{N_d}d^d\vec{q}_id^d\vec{p}_ie^{-\beta H_d}\cdot\delta(\{\vec{q}_i\}\in V_d) \\
+    &= \frac{1}{N_d!}\left(\frac{V_d}{\lambda(T)^d}\right)^{N_d}e^{-\beta N_d\varepsilon_d},\;\;\lambda(T) = \frac{h}{\sqrt{2\pi mk_BT}}
+\end{align*}
+Then $F_d = -k_BT\ln Z_d$, so as $dF = -SdT + \vec{J}\cdot d\vec{q}+\vec{\mu}\cdot d\vec{N}$, $$\mu_d = \left(\frac{\partial F_d}{\partial N_d}\right)_{V,T} = -k_BT\left(\frac{\partial\ln Z_d}{\partial N_d}\right)_{V,T} \approx \varepsilon_d - k_BT\ln\left(\frac{V_d}{N_d\lambda(T)^d}\right)$$
+using Stirling's approximation in the limit $N\rightarrow \infty$.
+
+Now we consider the coupled system at temperature $T$ and chemical potential $\mu$: \begin{align*}
+    Q_d(\mu,T,V_d) &= \sum_{N_d=0}^{\infty}Z_d(N_d,V_d,T) e^{\beta \mu N_d} \\
+    &= \sum_{N_d=0}^{\infty}\frac{1}{N_d!}\left(\frac{V_d}{\lambda(T)^d}\right)^{N_d}e^{-\beta N_d\varepsilon_d}e^{\beta\mu N_d} \\
+    &= \exp\left[\frac{V_d}{\lambda(T)^d}e^{\beta(\mu-\varepsilon_d)}\right]
+\end{align*}
+Thus, $$\langle N_d\rangle = \frac{1}{\beta}\left(\frac{\partial \ln Q_d}{\partial \mu}\right)_{T,V_d} = \frac{V_d}{\lambda(T)^d}e^{\beta(\mu-\varepsilon_d)}$$
+We are interested in the coexistence of teh surfactants in the 3D solution and its 2D surface: \begin{equation*}
+    \frac{\langle N_2\rangle}{\langle N_3\rangle} = \frac{V_2\lambda(T)}{V_3}e^{\beta(\varepsilon_3-\varepsilon_2)} =\frac{V_2}{V_3}\lambda(T)e^{\beta\varepsilon_0}
+\end{equation*}
+Then we have $$n_2 = \frac{\langle N_2\rangle}{V_2} = \frac{\langle N_3\rangle}{V_3}\lambda(T)e^{\beta\varepsilon_0} = n_3\lambda(T)e^{\beta\varepsilon_0}$$ where $n_d$ is the density of surfactants in the $d$ dimensional portion of the solution.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 3
@@ -4020,6 +4104,455 @@ so they are unaltered and Hamilton's equations have a time-reversal symmetry: an
 \chapter{Classification of Phase Transitions}
 
 
+We now consider phase transitions and critical phenomena. Important examples of this are:
+
+\begin{eg}
+    Important examples of this are: \begin{itemize}
+        \item liquid-gas transition (water: $T_c = 645\;K, p_c = 22.1\;MPa$)
+        \item paramagnetic-ferromagnetic transition
+    \end{itemize}
+\end{eg}
+
+Throughout we consider \Emph{control parameter(s)}, and \Emph{power laws ($\neq$ characteristic scalars)} (proportionalities of the form $y \propto x^{\alpha}$). Power laws often satisfy a property known as \Emph{universality}, which states that power laws of similar forms hold across materials and phenomena for similar physical behaviour. In our current study, this behaviour is a change of phase.
+
+\begin{qst}
+    Why do phase transitions occur at all?
+\end{qst}
+
+From a formal perspective, all macroscopic properties can be deduced from the free energy or the partition function. Since phase transitions typically involve dramatic changes in various response functions, they must correspond to singularities in the free energy. For example, the Gibbs free energy for the Ising model, $G(T,N,\vec{J}) = -k_BT\ln Z_G$, has $Z_G$ non-analytic at phase transitions, despite having the same Hamiltonian $H$ in both phases. Such non-analycities only occur in the thermodynamic limit, when an infinite number of particles are considered.
+
+\begin{defn}
+    A \Emph{coexistence line} is a curve in the phase diagram which is the boundary between the set of conditions in which it is thermodynamically favorable for the system to be fully mixed and the set of conditions in which it is thermodynamically favorable for it to phase separate. Equivalently, it is a curve on which two distinct phases may coexist (i.e. it is the boundary between the regions that favour two distinct phases).
+\end{defn}
+
+\begin{defn}
+    Many different observable quantities exhibit scaling behaviour and have associated \Emph{critical exponents} for their power laws. They are often independent of the specific system under consideration. The fact that two apparently different physical systems might share precisely the same sets of critical exponents is known as \Emph{universality}. Universality describes phenomena with the same behaviour up to a change in coordinates.
+
+    Phenomena with the same set of critical exponents are said to form a \Emph{universality class}. Members of a universality class have in general only three things in common: the symmetry group of the Hamiltonian, the dimensionality, and whether or not the forces are short-ranged.
+\end{defn}
+
+\begin{note}
+    Critical exponents are only definied in the limit $T\rightarrow T_c$.
+\end{note}
+
+As an example, for the liquid gas critical point we have the power law $\rho - \rho_c \propto (T_c - T)^{\beta}$, and for the ising critical point we have the power law $M(T) \propto (T_c - T)^{\beta}$ where $\beta = 0.332$ is the same critical exponent (up to measurement precision) for both phenomena!
+
+In fact, all power-law singularities $(\chi, c_V, \xi)$ are shared by magnets and liquid/gas. Note there is no ``formula" for critical exponents ($D > 2$).
+
+\begin{qst}
+    How can we calculate the phase diagram of a system? How do we calculate the critical exponents? Why does universality occur and what are the factors that determine which set of phenomena have the same critical exponents?
+\end{qst}
+
+Many of these questions were answered by K.G. Wilson with his \Emph{Renormalization group theory}.
+
+\begin{defn}
+    The singular behaviour in the vicinity of a critical point is characterized by a set of \Emph{critical exponents}. These exponents describe the non-analyticity of various thermodynamic functions. The most common are listed below: \begin{itemize}
+        \item \Emph{Order Parameter}: By definition there is more than one equilibrium phase on a coexistence line. The order parameter is a thermodynamic function that is different in each phase, and hence can be used to distinguish between them. Eg: for a magnet the average magnetization is an order parameter. These are neither unique, nor necessarily scalars!!
+        \item \Emph{Response Functions}: The critical system is quite sensitive to external perturbations, as typified by the infinite compressibility at the liquid-gas critical point. The divergence in the response of the order parameter to a field conjugate to it is indicated by an exponent $\gamma$. For example, the heat capacity is the thermal response function, and its singularities at zero field are described by the exponent $\alpha$.
+        \item \Emph{Long-range Correlations}: Divergences of the response functions at a critical point imply, and are consequences of, correlated fluctuations (of microscopic constituents of a material) over large distances.
+    \end{itemize}
+\end{defn}
+
+\section{Ising Model}
+
+Our motivation for the Ising model is two-fold:
+\begin{itemize}
+    \item Universality implies simple or minimal models should be sufficient
+    \item For continuous phase transitions at $T \gg 0$, QM is often not important
+\end{itemize}
+
+The macrostate for this model is $M \equiv (T,B,N)$, which corresponds to the Gibbs canonical ensemble. The microstate is the collection of magnetic moments, $\{\sigma_i\}$, describing the direction and magnitude of spins. For this model \begin{equation*}
+    E_{tot} = -\sum_{i=1}^N\sum_{j\neq i}J_{ij}\sigma_i\sigma_j - \mu_0\sum_{i=1}^NB_i\sigma_i
+\end{equation*}
+where the first term corresponds to the internal interactions (i.e. Hamiltonian), while the second term is the external work. We consider the following simplifications: $B_i = B \equiv$ constant, $\mu_0 = 1$, $\sigma_i \in \{-1,1\}$, and $J_{ij} = J$ for $i,j$ nearest neighbors, and $0$ otherwise. 
+
+We have the \Emph{order parameter} corresponding to the average magnetization: $$m := \frac{M}{N} = \frac{1}{N}\left\langle \sum_{i=1}^N\sigma_i\right\rangle = -\frac{1}{N}\frac{\partial G}{\partial B}$$
+For $B = 0$ we have the following: \begin{itemize}
+    \item no phase transition for finite $T \neq 0$, in 1-dimension
+    \item phase transition in 2-dimensions 
+    \item no analytical results for 3-dimensions
+\end{itemize}
+
+
+\section{Existence of Phase Transitions: Energy-Entropy Argument}
+
+\begin{thm}[Energy-Entropy Argument]
+    In essence, the \Emph{energy-entropy argument} is as follows: At high temperature, the entropy $S$ always dominates the free energy, and the free energy is minimised by maximising $S$. At low temperatures, there is the possibility that the internal energy $E$ dominates $TS$ in the free energy, and the free energy may be minimised by minimising $E$. If the macroscopic states of the system obtained by these two procedures are different, then we conclude that at least one phase transition has occurred at some intermediate temperature.
+\end{thm}
+
+Recall that in thermodynamic equilibrium, the Gibbs potential $G(T,N,B)$ is minimized, and that functionally $G = U - TS - BM$. For $T \gg 1$, this implies $G \approx -TS$, so maximizing $S$ minimizes $G$. For $T \ll 1$, $G \approx U - BM$, so minimizing $U - BM$ minimizes $G$. 
+
+If the two macroscopic states for $T \gg 1$ and $T \ll 1$ are different, there should be at least one phase transition at some intermediate $T$.
+
+\begin{qst}
+    How about the Ising model?
+\end{qst}
+
+\begin{eg}[Ising Model in 1D with zero temperature and non-zero magnetic field]
+    For the Ising model in 1-dimension with $T = 0$ and $B \neq 0$, $$G = E_{tot} = -J\sum_{i=1}^N\sum_{j \in nn_i}\sigma_i\sigma_j - B\sum_{i=1}^N\sigma_i$$ This implies $U = -J\sum_i\sum_{j\in nn_i}\sigma_i\sigma_j$, which is minimzed for $\sigma_i = \sigma_j$, and $-BM = -B\sum_i\sigma_i$ which is minimized for either $\sigma_i = 1$ if $B > 0$, or $\sigma_i = -1$ if $B < 0$. This implies that the energy ground state corresponds to the microstates given by $\sigma_i = 1$ if $B > 0$, or $\sigma_i = -1$ if $B < 0$:
+    \begin{figure}[H]
+        \centering
+        \caption{Symmetry Breaking}
+        \includegraphics[scale = 0.8]{Images/symmetryBreak.PNG}
+    \end{figure}
+
+    If $B = 0$, since we have $T = 0$ we are dealing with a first order phase transition.
+\end{eg}
+
+\begin{defn}
+    The \Emph{Enrenfest classification} of phase transitions is that a phase transition is said to be of \Emph{nth order} if any nth derivative of the free energy with respect to any of its arguments yields a discontinuity at the phase transition.
+
+    Second order phase transitions are often called \Emph{critical phenomena}. For $n > 1$, or if the free energy is divergent, we call the transition a \Emph{continuous phase transition}. Continuous, or second-order, phase transititons are characterized by a divergent susceptibility, an infinite correlation length, and a power law decay of correlations near criticality.
+\end{defn}
+
+
+We note that this classification fails in many repsects. For example, thermodynamic quantities such as specific heat actually diverge at continuous transitions (critical phenomena), rather than exhibiting a simple discontinuity, as the Ehrenfest classification implies. This is related to the failure of Mean Field Theory.
+
+\begin{qst}
+    What about $m(B=0)$?
+\end{qst}
+
+This depends on the initial conditions, and corresponds to \Emph{spontaneous symmetry breaking}.
+
+\begin{defn}
+    \Emph{Spontaneous symmetry breaking} is a set of phenomena occur due to the fact that for the given system, when $H = 0$, $$H_{\Omega}[\{S_i\}] = H_{\Omega}[\{-S_i\}]$$ Even though the Hamiltonian is invariant under $\{S_i\}\rightarrow \{-S_i\}$, the statistical expectation values are not invariant under time-reversal symmetry. This is most evident in the case of magnetization in the absence of a magnetic field as we shall now discuss.
+\end{defn}
+
+
+\begin{eg}[Ising Model in 1D with non-zero temperature and zero magnetic field]
+    We split into cases: \begin{itemize}
+        \item[(i)] Consider an ordered phase: all spin up or all spin down. Since if the system is in one orientation it cannot swap to the other, the number of \Emph{accessible} states is always $1$, so $S = k_B\ln\Omega = k_B\ln 1 = 0$. It follows that $G = U-TS-BM = U = -2NJ$ when minimized.
+        \item[(ii)] Now we consider two domains: In the thermodynamic limit we have $\approx N$ (really $N+1$) choices for where we can have the interface. Then $S \approx k_B\ln N$, and $U = -J\sum_i\sum_{j\in nn_i}\sigma_i\sigma_j = -2NJ$, where the $2J$ comes from the single interface. Now, the difference between these two minimized gibbs energies is $$\Delta G := G_{(ii)} - G_{(i)} = 2NJ + 2J - k_BT\ln N + 2NJ = 2J-k_BT\ln N\rightarrow -\infty$$ in the thermodynamic limit, so the system can lower $G$ by creating a domain wall. Domain walls correspond to instability. 
+    \end{itemize}
+    Proceeding inductively with this argument, we find that $G$ is minimized when the number of domain walls are maximized with the condition that half the spins are up and half are down, resulting in $m = 0$ for all $T \neq 0$ (i.e. there is no phase transition for non-zero temperatures)
+\end{eg}
+
+\begin{eg}[Ising Model in 2D with znon-zero temperatuer and zero magnetic field]
+    Again we can split into cases like the 1D case. For an ordered phase we have $G = -4NJ$ (four neighbors instead of 2). For two domains we now need the number of possible ways of sectioning off the region into two domains, with the interface having a specified length $L$. In this case $U \approx -4NJ +2JL$, and $S = k_B\ln\Omega \approx k_BL\ln 3$. Then $\Delta G \approx L(2J - k_BT\ln 3)$, giving the approximate critical temperature $T_c \approx \frac{2J}{k_B\ln 3}$ with $T > T_c$ corresponding to disorder and $T < T_c$ corresponding to order (spontaneous magnetization).
+\end{eg}
+
+\begin{rmk}
+    The (2D) Ising model exhibits a property known as scale invariance, in which the system remains nearly identical in general form at the critical temperature at various scales.
+\end{rmk}
+
+
+
+These heuristic arguments can be made rigorous, and easily generalized, such as for short-ranged interactions, and Hamiltonians with discrete symmetry.
+
+
+\section{How Phase Transitions Occur In Practice}
+
+\begin{eg}[Ising Model in 1D]
+    Consider the Ising model in 1D, so we have $$E_{tot} = -B\sum_{i=1}^N\sigma_i-2J\sum_{i=1}^N\sigma_i\sigma_{i+1}$$
+    Then the partition function is computed by $$Z(T,B,N) = \sum_{\sigma_1 \in \{-1,1\}}\cdots\sum_{\sigma_N\in\{-1,1\}}e^{\beta B\sum_i\sigma_i+\beta 2J\sum_{i}\sigma_i\sigma_{i+1}}$$
+    We now divide into two cases: \begin{itemize}
+        \item[(i)] $B = 0$, free boundaries: Then we write \begin{align*}
+                Z &= \sum_{[\sigma_1,...,\sigma_N]}e^{2\beta J\sum_{i=1}^{N-2}\sigma_i\sigma_{i+1}}\sum_{\sigma_N}e^{2\beta J\sigma_{N-1}\sigma_N} \\
+                &= \sum_{[\sigma_1,...,\sigma_N]}e^{2\beta J\sum_{i=1}^{N-2}\sigma_i\sigma_{i+1}}\sum_{\sigma_N}2\cosh(2\beta J\sigma_{N-1}) \\
+                &= \sum_{[\sigma_1,...,\sigma_N]}e^{2\beta J\sum_{i=1}^{N-2}\sigma_i\sigma_{i+1}}\sum_{\sigma_N}2\cosh(2\beta J) \\
+                &= (2\cosh(2\beta J))^{N-1}\sum_{\sigma_1}1 = 2\cdot(2\cosh(2\beta J))^{N-1}
+        \end{align*}
+            Now, we consider spatial \Emph{correlations} (\Emph{spin-spin or two-point correlation fluctuations}): \begin{equation*}
+                G(i,j) := \langle (\sigma_i-\langle \sigma_i\rangle)(\sigma_j-\langle\sigma_j\rangle)\rangle = \langle \sigma_i\sigma_j\rangle - \langle \sigma_i\rangle\langle \sigma_j\rangle
+            \end{equation*}
+            It is a measure of how the local fluctuations in one part of the system effect those of another part. Typically such influences occur over a characteristic distance $\xi$, called the \Emph{correlation length}.
+            For the Ising model $\langle \sigma_i \rangle = 0 = \langle \sigma_j\rangle$ when $T > 0$ in 1 dimension. We claim that in this case the correlation is translation invariant: \begin{align*}
+                G(i,i+r) &= \langle \sigma_i\sigma_{i+r}\rangle = \frac{1}{Z}\sum_{[\sigma_1,...,\sigma_N]}\sigma_i\sigma_{i+r}e^{2\beta J\sum_{j}\sigma_j\sigma_{j+1}} \\
+                &= \frac{1}{Z}\left[\sum_{[\sigma_1,...,\sigma_{N-1}]}\sigma_i\sigma_{i+r}e^{2\beta J\sum_{j=1}^{N-2}\sigma_j\sigma_{j+1}}2\cosh(2\beta J)\right] \\
+                &= \frac{1}{Z}\left[\sum_{[\sigma_1,...,\sigma_{i+r-1}]}\sigma_ie^{2\beta J\sum_{j=1}^{i+r-2}\sigma_j\sigma_{j+1}}(2\cosh(2\beta J))^{N-i-r}\sum_{\sigma_{i+r}}\sigma_{i+r}e^{2\beta J\sigma_{i+r-1}\sigma_{i+r}}\right] \\
+                &= \frac{1}{Z}\left[\sum_{[\sigma_1,...,\sigma_{i+r-1}]}\sigma_ie^{2\beta J\sum_{j=1}^{i+r-2}\sigma_j\sigma_{j+1}}(2\cosh(2\beta J))^{N-i-r}(2\sigma_{i+r-1}\sinh(2\beta J))\right] \\
+                &= \frac{1}{Z}2(2\cosh(2\beta J))^{N-r-1}(2\sinh(2\beta J))^r \\
+                &= \tanh(2\beta J)^r 
+            \end{align*}
+            Thus, we have \Emph{translational invariance}, with $G(i,i+r) \equiv G(r) = \tanh(2\beta J)^r$. At $T = 0$ we have $\langle \sigma_i\sigma_{i+r}\rangle = \tanh(\infty)^r = 1^r = 1$, which is to say we have \Emph{perfect long-range order}, the spin of one atom dictates the spin of all the others. If $T \neq 0$, $\tanh(\beta J) < 1$ which implies we can write $$G(r) = e^{-r/\xi}$$ where $\xi =(\ln(\coth(2\beta J)))^{-1} > 0$ is called the \Emph{characteristic length}. It is the distance from the $y$-axis that the tangent to the graph of $G(r)$ at $r = 0$ hits the $x$-axis. Note that $\xi\rightarrow \infty$ as $T\rightarrow 0$, which is \Emph{characteristic for all continuous phase transitions}.
+        \item[(ii)] $B \neq 0$, with periodic boundary conditions: First, we can compute the partition function as follows: \begin{align*}
+                Z &= \sum_{[\sigma_1,...,\sigma_N]}e^{2\beta J\sum_i\sigma_i\sigma_{i+1}+\beta B\sum_i\sigma_i} \\
+                &= \sum_{[\sigma_1,...,\sigma_N]}\left(e^{2\beta J\sigma_1\sigma_2 + \frac{\beta B}{2}(\sigma_1+\sigma_2)}\right)\cdots \left(e^{2\beta J\sigma_N\sigma_1 + \frac{\beta B}{2}(\sigma_N+\sigma_1)}\right) \\
+                &= \sum_{[\sigma_1,...,\sigma_N]}T_{\sigma_1,\sigma_2}\cdot \;\cdots \;\cdot T_{\sigma_N,\sigma_1}
+        \end{align*}
+            where $T$ is the \Emph{transfer matrix} defined by \begin{equation*}
+                T = \begin{pmatrix} T_{1,1} & T_{1,-1} \\ T_{-1,1} & T_{-1,-1} \end{pmatrix} = \begin{pmatrix} e^{\beta(2J+B)} & e^{-\beta 2J} \\ e^{-\beta 2J} & e^{\beta (2J-B)} \end{pmatrix}
+            \end{equation*}
+            Note that $T_{\sigma_i,1}T_{1,\sigma_{i+2}}+T_{\sigma_i,-1}T_{-1,\sigma_{i+2}} = T^2_{\sigma_i,\sigma_{i+2}}$, simply by definition of matrix multiplication. Then we can concatenate the terms in our sum to form $$Z = \sum_{\sigma_1}T^N_{\sigma_1,\sigma_1} = \text{Tr}(T^N) = \lambda_1^N+\lambda_2^N$$ where $\lambda_1,\lambda_2$ are the eigenvalues of $T$. Via the characteristic polynomial for $T$, we have $$\lambda_{1,2} = e^{2\beta J}\left[\cosh(\beta B) \pm\sqrt{\sinh^2(\beta B)+e^{-4\beta 2J}}\right]$$ 
+            For the special case of $B = 0$ we obtain $$\lambda_{1,2} = e^{\beta 2J}\pm e^{-\beta 2J}$$ which is either $2\cosh(2\beta J)$ or $2\sinh(2\beta J)$. Then $$Z = (\lambda_1^N+\lambda_2^N) = 2^N(\cosh^N(2\beta J)+\sinh^N(2\beta J))$$ 
+            In the thermodynamic limit, $N\rightarrow \infty$, $Z = 2^N\cosh^N(2 \beta J)$, which matches the case for free boundaries.
+
+            In general, $$Z = \lambda_1^N+\lambda_2^N = \lambda_1^N(1+\left(\frac{\lambda_2}{\lambda_2}\right)^N)\rightarrow \lambda_1^N$$ in the thermodynamic limit if $|\lambda_1| > |\lambda_2|$.
+
+            Now, the \Emph{free energy per spin} is given by $$f(B,T) := \lim\limits_{N\rightarrow \infty}\frac{G(B,T,N)}{N} = -k_BT\ln\lambda_1 = -2J-k_BT\ln\left[\cosh(\beta B)+\sqrt{\sinh^2(\beta B)+e^{-4\beta 2J}}\right]$$
+
+            Now we observe phase transitions for:\begin{itemize}
+                \item $\lambda_1 = 0$
+                \item $\lambda_1 = \lambda_2$ (if and only if $\sqrt{\sinh^2(\beta B)+e^{-4\beta 2J}} = 0$)
+                \item $\lambda_1$ is a non-analytic unction
+            \end{itemize}
+            For the Ising model in 1 dimension, none of these conditions are met if $T > 0$, which implies there is no phase transition for $T > 0$, as we have seen previously with the Energy-Entropy argument.
+    \end{itemize}
+\end{eg}
+
+ 
+\begin{qst}
+    What happens at $T = 0$? in the last example for periodic boundaries?
+\end{qst}
+
+As $T\rightarrow 0$, $$\lambda_1 = e^{\beta 2J}\left[\cosh(\beta B)+\sqrt{\sinh^2(\beta B)}(1 + \mathcal{O}(e^{-4\beta 2J}))\right]$$ where $|\sinh(\beta B)|$ is non-analytic at $\beta B = 0$, and we can write $$\lambda_1 \approx e^{\beta 2J}[e^{|\beta B|}] = e^{\beta (2J+|B|)}$$
+which implies $f = -k_BT\ln\lambda_1 \rightarrow -(2J+|B|)$ in the limit as $T\rightarrow 0$. Consequently, the average magnetization $m$, is now $$\langle \sigma_i \rangle = m = -\frac{\partial f}{\partial B} = \left\{\begin{array}{cc} 1 & B > 0 \\ -1 & B < 0 \end{array}\right.$$ which shows the partial is not defined or continuous at $B = 0$, so we have a \Emph{zero-temperature phase transition}.
+
+
+
+
+
+\section{Mean-Field Theory}
+
+
+In the Ising model we have $$E_{tot} = -B\sum_{i=1}^N\sigma_i - J\sum_{i=1}^N\sum_{j \in nn(i)}\sigma_i\sigma_j$$ for $J > 0$ a coupling factor, where the dimensionality of the system enters in the sum over nearest neighbors. Interactions in dimensions $D > 1$ make it hard, and often impossible, to analytically calculate $Z$.
+
+\begin{axi}[Central Idea of Mean-Field Theory]
+    We aim to approximate the Hamiltonian $H$ by a ``non-interacting" Hamiltonian, but keep the essential physics still present. This involves looking at the interactions of particles with the ``mean-field" rather than with eachother.
+\end{axi}
+
+In general, mean field theory studies the behaviour of high-dimensional random models by studying a simpler model that approximates the original by averaging over degrees of freedom. The effect of all the other components on any given component is approximated by a single averaged effect, reducing a many body problem to a one body problem. We aim to replace all interactions to any one body with an average or effective interaction. 
+
+\begin{qst}
+    How can we do that for the Ising model?
+\end{qst}
+
+First we linear the Hamiltonian. Observe: $$\sigma_i\sigma_j = (\langle \sigma_i\rangle + (\sigma_i - \langle \sigma_i\rangle))(\langle \sigma_j\rangle + (\sigma_j-\langle \sigma_j\rangle))$$
+Assuming $\langle \sigma_i \rangle = \langle \sigma_j\rangle = m$, we can write $$\sigma_i\sigma_j = (m+(\sigma_i-m))(m+(\sigma_j-m)) = m^2 + m(\sigma_i-m)+m(\sigma_j-m) + O((\Delta \sigma)^2)$$
+where we ignore terms representing differences of power greater than or equal to two, as in the limit the CLT applied to the Ensemble picture tells us these quantities will go to zero. So $\sigma_i\sigma_j \approx (\sigma_i+\sigma_j)m - m^2$. Then our mean-field partition function, assuming periodic boundary conditions, is \begin{align*}
+    Z_{mf} &= \sum_{[\sigma_1,...,\sigma_N]}e^{\beta B\sum_{i=1}^N\sigma_i + \beta J\sum_{i=1}^N\sum_{j\in nn(i)}(m(\sigma_i+\sigma_j)-m^2)} \\
+    &= \sum_{[\sigma_1,...,\sigma_N]}e^{\beta(B+Jm4D)\sum_{i=1}^N\sigma_i - \beta Jm^2N2D} \\
+    &= e^{-\beta Jm^2N2D}\sum_{[\sigma_1,...,\sigma_N]}e^{\beta(B+Jm4D)\sum_{i=1}^N\sigma_i} \\
+    &= e^{-\beta Jm^2N2D}\sum_{[\sigma_1]}e^{\beta(B+Jm4D)\sigma_1}\cdots \sum_{[\sigma_N]}e^{\beta(B+Jm4D)\sigma_N} \\
+    &=e^{-\beta Jm^2N2D}[2\cosh(\beta(B+Jm4D))]^N 
+\end{align*}
+Now, the mean-field free energy per spin is $$f_{mf} := \frac{-k_BT\ln Z_{mf}}{N} = Jm^22D - \frac{1}{\beta}\ln[2\cosh(\beta(B+Jm4D))]$$
+\begin{qst}
+    How exactly can we determine $m$?
+\end{qst}
+
+We need to have self-consistency, so $m = -\left(\frac{\partial f_{mf}}{\partial B}\right)_{T,N}$. Note since $m$ is a function of the macroscopic variables, not a variable itself, when taking the partial we will need to employ the chain rule on $m$: \begin{align*}
+    m &= -J4Dm\frac{\partial m}{\partial B} + \frac{1}{\beta}\tanh(\beta(B+Jm4D))\cdot(\beta+\beta J4D\frac{\partial m}{\partial B}) \\
+    &= J4D\frac{\partial m}{\partial B}(-m+\tanh(\beta(B+Jm4D))) + \tanh(\beta(B+Jm4D))
+\end{align*}
+and so $$0 = (J4D\frac{\partial m}{\partial B} + 1)(-m+\tanh(\beta(B+Jm4D)))$$
+In order for this to be zero, either the second factor must be zero of $\frac{\partial m}{\partial B} = -\frac{1}{J4D} < 0$. But, this would imply that as the magnetic field increases, the magnetization decreases, which is a non-physical result. Thus, we must have $$m = \tanh(\beta(B+Jm4D))$$
+In the special case of $B = 0$, $m = \tanh(\beta Jm4D)$. We proceed with a graphical solution:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.8]{Images/OneSolution.PNG}
+    \caption{Single solution for the magnetization, corresponding to $T > T_c$, with the horizontal axis being $m$}
+    \label{fig:1sol}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.8]{Images/ThreeSolutions.PNG}
+    \caption{Three solutions for the magnetization, corresponding to $T < T_c$, with the horizontal axis being $m$}
+    \label{fig:3sol}
+\end{figure}
+
+In the first figure, we observe that there is only one possible solution, with the magnetization being zero. However, in the second figure we have three possible solutions, and the exact one that is observed depends on which minimizes the Gibbs free energy. It turns out the non-zero magnetizations minimize the Gibbs free energy, with the exact one of the two depending on the history of the system.
+
+Now, the critical temperature corresponds with the point that the slope of the tangent at the origin passes $1$, so $T_c$ is given by solving $$\frac{d}{dm}\tanh(\beta Jm4D)\Bigg\rvert_{m=0} = 1$$
+We can calculate directly or use power series expansions to determine that $$T_c = \frac{4DJ}{k_B}$$
+Note that this is a prediction and an approximation, and hence is not guaranteed to hold even to good approximation depending on the dimension and system involved. Nonetheless, this is a good starting point for a prediction of the critical point of the phase transition.
+
+\begin{qst}
+    What happens for $B \neq 0$?
+\end{qst}
+In this case the $\tanh$ graph gets shifted either right, for $B < 0$, or left, for $B > 0$.
+
+
+\subsection{Critical Exponents}
+
+Recall we have our self-consistency equation for the magnetization order parameter: $$m = \tanh(\beta(B+Jm4D)) = \tanh(\beta B+m\tau)$$ 
+with $\tau := \frac{T_c}{T} = \frac{4DJ}{k_BT}$. Using a power series expansion we can write \begin{equation*}
+    m = \tanh(\beta B+m\tau) = (\beta B+m\tau) -\frac{1}{3}(\beta B+m\tau)^3+\cdots
+\end{equation*}
+We note the following cases:
+\begin{itemize}
+    \item If $B = 0$: $m \approx m\tau - \frac{1}{3}(m\tau)^3$, for $\tau\rightarrow 1$ from above and $m \neq 0$, which implies $$m^2 = 3\frac{\tau-1}{\tau^3} = 3\frac{T_c-T}{T_c^3/T^2} \approx 3\frac{(T_c-T)}{T_c}$$
+        which would imply $$m\propto \pm(T_c-T)^{1/2}$$
+        where $1/2$ is our \Emph{critical exponent} $\beta$.
+    \item If $T = T_c$ (the critical isotherm) we have $0 = \beta B -\frac{1}{3}m^3$, for $B\rightarrow 0$, so $$B\propto m^3$$
+        where $3$ is our critical exponent $\delta$
+    \item For the \Emph{isothermal magnetic susceptibility} we have \begin{equation*}
+            \chi \equiv \frac{\partial m}{\partial B}\Bigg\rvert_{T,B=0}
+    \end{equation*}
+        which implies we can write it as $\chi\approx \beta +\chi T -m^2\tau^3\chi - \beta m^2\tau^2$, so $$\chi(1-\tau+m^2\tau^3) \approx \beta(1-m^2\tau^2)$$
+        As $T\rightarrow T_c$ from above, with $m = 0$, $$\chi \approx \frac{\beta}{1-\tau} = \frac{1}{k_B(T-T_c)}$$
+        giving the power law $$\chi\propto (T-T_c)^{-1}$$ 
+        where $1$ is our critical exponent $\gamma$.
+\end{itemize}
+
+\begin{rmk}
+    In summary: \begin{itemize}
+        \item \Emph{Mean-field theory} predicts phase transitions at non-universal $T_c$ for all $D$ ($T_c(D)$) but with \Emph{universal critical exponents}. Its classification of \Emph{universal} and \Emph{non-universal} aspects is consistent with experiments. 
+        \item Mean-field theory typically becomes exact only for high-dimensional systems (fluctuations are important)
+        \item The Ising model correctly reproduces the critical exponents observed in experiments
+        \item Mean-field theory provides a simple first approach to estimating the phase diagram
+    \end{itemize}
+\end{rmk}
+
+
+
+
+
+\section{Renormalization Group Theory}
+
+\begin{qst}
+    What exactly happens at the critical point?
+\end{qst}
+
+\begin{rmk}
+    We have the following properties of phase transititons (e.g. Ising model):\begin{itemize}
+        \item $G(r) = e^{-r/\xi}$ (the spin-spin correlation function) with $\xi(T) \propto |T-T_c|^{-\nu}$ for $T\rightarrow T_c$ (the \Emph{correlation length}). 
+        \item More generally, this implies \Emph{self-similarity} at the critical point in the form of power laws (invariance under zooming/rescaling)
+    \end{itemize}
+\end{rmk}
+
+\begin{qst}
+    Are there other values of $T$ for which we have self-similarity?
+\end{qst}
+
+\begin{eg}
+    In the Ising model we have self-similarity at $T = 0$ and $T=\infty$ where $G(r) \equiv 0$ or $\xi = 0$. Recall that \begin{equation*}
+        \boxed{G(r) := \langle \sigma_i\sigma_{i+r}\rangle - \langle \sigma_i\rangle\langle \sigma_{i+r}\rangle}
+    \end{equation*}
+\end{eg}
+
+\begin{qst}
+    How can we identify self-similarity/scale-invariance?
+\end{qst}
+
+We look for a fixed point under ``zooming out," aka a rescaling transformation: \begin{itemize}
+    \item We rescale all length scales by a factor $b > 1$: $$\xi \mapsto \xi/b$$
+    \item Fixed points are given by points where $\xi = \xi/b$, which only occurs if $\xi = 0$ (\Emph{trivial} solution, \Emph{stable}), and $\xi = \infty$ (\Emph{non-trivial} solution, \Emph{unstable})
+\end{itemize}
+
+\subsection{Coarse Graining and Renormalization Group Procedure}
+
+We need to have full information about a system for a rescaling transformation. A possible simplification to this is to note $\xi\rightarrow \infty$ as $T\rightarrow T_c$. This implies that small length scales are expected to be less important for determining the behaviour close to $T_c$. We then introduce \Emph{coarse graining} in the lead up to a new transformation $R_b$: the \Emph{real-space renormalization group transformation}. Be warned that this transformation is not invertible.
+
+\begin{rmk}
+    Coarse graining may be done in many different ways, but the general idea is to remove microscopic details. We go to the `continuum limit', averaging over details in small regions to get effective laws for coarser systems. For example, in a 2D grid with spins we could take $3\times 3$ blocks and replace the blocks with with a single spin that occurs most, then rescale so that the new spins are the same size as the original spins. This is commonly referred to as \Emph{Kadanoff's block spin transformation}.
+\end{rmk}
+
+Let's consider the one dimensional Ising model with $B = 0$, periodic boundary conditions, and $N$ even. Then $$Z(k_1,N) = \sum_{[\sigma_1,...,\sigma_N]}e^{k_1\sum_{i=1}^N\sigma_i\sigma_{i+1}}$$
+where $k_1 := \beta J'$ is a scaled coupling constant. For our renormalization scheme we take $b = 2$, and in our selection of neighboring spins we coarse-grain by taking the odd value spin. This is sometimes referred to as \Emph{decimating/decimation}. We do this as follows: \begin{align*}
+    Z(k_1,N) &= \sum_{[\sigma_1,\sigma_3,...,\sigma_{N-1}]}\sum_{[\sigma_2,\sigma_4,...,\sigma_N]}e^{k_1\sum_{i=1}^N\sigma_i\sigma_{i+1}} \\
+    &= \sum_{[\sigma_1,\sigma_3,...,\sigma_{N-1}]}\sum_{[\sigma_2,\sigma_4,...,\sigma_N]}\prod_{i=1}^{N/2}e^{k_1(\sigma_{2i-1}\sigma_{2i}+\sigma_{2i}\sigma_{2i+1})} \\
+    &= \sum_{[\sigma_1,\sigma_3,...,\sigma_{N-1}]}\prod_{i=1}^{N/2}\sum_{[\sigma_{2i}]}e^{k_1(\sigma_{2i-1}\sigma_{2i}+\sigma_{2i}\sigma_{2i+1})} \\
+    &= \sum_{[\sigma_1,\sigma_3,...,\sigma_{N-1}]}\prod_{i=1}^{N/2}2\cosh(k_1[\sigma_{2i-1}+\sigma_{2i+1}])
+\end{align*}
+The possible arguments of $\cosh$ are $-2k_1,0,2k_1$, which is just $\cosh(2k_1)$ and $\cosh(0) = 1$ since $\cosh$ is even. We can rewrite $\cosh$ using two new parameters here: \begin{equation*}
+    2\cosh[k_1(\sigma_{2i-1}+\sigma_{2i+1})] = e^{k_0'+k_1'\sigma_{2i-1}\sigma_{2i+1}}
+\end{equation*}
+where $k_0'$ and $k_1'$ are renormalized coupling constants. Specifying certain values of the spins we can determine $k_0'$ and $k_1'$ to be \begin{align*}
+    k_0' &= \ln(2\sqrt{\cosh(2k_1)}) \\
+    k_1' &= \ln(\sqrt{\cosh(2k_1)})
+\end{align*}
+so we can write the partition function as \begin{equation*}
+    Z(k_1,N) = e^{Nk_0'/2}\sum_{[\sigma_I]}e^{k_1'\sum_{I=1}^{N'}\sigma_I\sigma_{I+1}}
+\end{equation*}
+where $N' = N/b$ in general, or $N/2$ in our current case. In particular $Z(k_1,N) = e^{N'k_0'}Z(k_1',N')$, so $Z$ is \Emph{invariant} under renormalization up to a multiplicative constant.
+
+\begin{qst}
+    Is this constant relevant?
+\end{qst}
+For Gibb's free energy we have: \begin{align*}
+    G(k_1,N) &= -k_BT\ln Z(k_1,N) \\
+    &= -k_BT(N'k_0'+\ln Z(k_1',N')) \\
+    &= G(k_1',N') - k_BTN'k_0'
+\end{align*}
+which results in simply a free energy offset, which is irrelevant for ensemble averages. Thus $H$ remains invariant under renormalization but $k_1\rightarrow k_1'$ with $$\boxed{k_1' = \frac{1}{2}\ln(\cosh(2k_1))}$$
+
+\begin{qst}
+    What are the fixed points of the renormalization transformation flow?
+\end{qst}
+
+For $k_1 > 0$ we observe that $k_1' < k_1$. The only fixed points occur at $k_1^* = 0$ and $k_1^* = \infty$, with $\infty$ being an unstable fixed point and $0$ being a trivial stable fixed point. $k_1^* = 0$ is the high temperature fixed point (weak coupling) where $T = \infty$ (non-interacting spins) and $\xi = 0$. $k_1^* = \infty$ is the low temperature fixed point (strong coupling) where $T = 0$ (fully aligned spins) and $\xi = 0$, corresponding to a non-trivial fixed point. We observe no phase transition for $T > 0$ and $B = 0$, consistent with our previous results.
+
+\begin{qst}
+    What happens in 2D?
+\end{qst}
+
+In a 2D square lattice we have coupling with all four neighbors. Under renormalization this coupling turns into coupling with diagonal neighbors and neighbors that were originally two across. These two types of neighbors have two types of $K$ constants, implying that under each renormalization our number of coupling constants increase. In general we must represent a renormalization trajectory on a possibly infinite dimensional manifold of coupling constants. Nonetheless, $\xi(\mathbf{K}) = \infty$ corresponds to the critical surface and for $\mathbf{K}^*$ a fixed point on this surface would be non-trivial. On the other hand, for fixed points where $\xi(\mathbf{K}^*) = 0$ we can either have weak-coupling (all coupling constants zero), or strong-coupling (a number of coupling constants infinite).
+
+\subsection{Notes on Critical Exponents}
+
+\begin{qst}
+    How can we obtain the critical exponents?
+\end{qst}
+We can look for them in the vicinity of the non-trivial (unstable) fixed point $T_c$ for the real-space renormalization transformation: $(t,h)\mapsto (t',h')$ with $t = \frac{T-T_c}{T_c}$ and $h = \beta B$. For $t > 0$, $t' > t$, and for $t < 0$ $t' < t$, so the flow of the renormalization transformation is away from $T_c$ and is linear to first order in $t$: $$t' = \lambda_t(b)t$$ with $\lambda_t(b)$ a \Emph{constant of proportionality} satisfying $\lambda_t(b) > 1$ for $b > 1$ and $\lambda_t(1) =1$. Then renormalization twice gives \begin{equation*}
+    \boxed{t'' = \lambda_t(b_2)t' = \lambda_t(b_2)\lambda_t(b)t = \lambda_t(b_2b)t}
+\end{equation*}
+The unique solution to this desired equality is $t' = b^{y_t}t$ with $y_t > 0$. This was found by Christensen and Moloney. In sum we have $$\boxed{t' = b^{y_t}t \;\;for\;\;t\rightarrow 0^{\pm}\;\;with\;y_t > 0}$$
+We also have the following relation to correlation length: $\xi' = \xi/b$ and $\xi(t,0) \propto |t|^{-\nu}$ for $t\rightarrow 0^{\pm}$, so $$|b^{y_t}t|^{-\nu} = |t'|^{-\nu} = \frac{|t|^{-\nu}}{t}$$ for $t\rightarrow 0^{\pm}$ and $h = 0$, so $$b^{-y_t\nu} = b^{-1}$$ which implies $$\boxed{y_t = \frac{1}{\nu}}$$
+
+\begin{rmk}
+    In summary the properties of the linear flow at the non-trivial fixed point determine the critical exponents.
+\end{rmk}
+
+
+
+
+\subsection{Renormalization Group Method and the One-Dimensional Ising Model}
+
+We shall average groups of spins and then determine which parameters characterize the renormalized lattice. Our result will be to calculate the fixed points. An unstable fixed point will correspond to a critical point. Further, the rate of change of the renormalized parameters near a critical point yields approximate values of the critical exponents.
+
+The energy of the Ising chain with toroidal boundary conditions is \begin{equation*}
+    E = -J\sum_{i=1}^N-\frac{1}{2}H\sum_{i=1}^N(s_i+s_{i+1})
+\end{equation*}
+It is convenient to absorb the factors of $\beta$ and define the dimensionless parameters $K = \beta J$ and $h = \beta H$. The partition function can be written as \begin{equation*}
+    Z = \sum_{\{s\}}\exp\left[\sum_{i=1}^N(Ks_is_{i+1}+\frac{1}{2}h(s_i+s_{i+1})\right]
+\end{equation*}
+where the sum is over all possible spin configurations. We first consider $h = 0$.
+
+For $d = 1$ Ising model we can write $Z$ as \begin{equation*}
+    Z(K,N) = \sum_{s_1,s_2,s_3,...}e^{K(s_1s_2+s_2s_3)}e^{K(s_3s_4+s_4s_5)}\cdots
+\end{equation*}
+This form suggests that we sum over even spins $s_2,s_4,...,$ and write \begin{equation*}
+    Z(K,N) = \sum_{s_1,s_3,s_5,...}\left[e^{K(s_1+s_3)} + e^{-K(s_1+s_3)}\right]\left[e^{K(s_3+s_5)} + e^{-K(s_3+s_5)}\right]\cdots
+\end{equation*}
+We write the partition function in its original form with $N/2$ spins and a different interaction $K'$. If such a rescaling were possible, we could obtain a recursion relation for $K'$ in terms of $K$. We require that \begin{equation*}
+    e^{K(s_1+s_3)} + e^{-K(s_1+s_3)} = A(K)e^{K's_1s_3}
+\end{equation*}
+where the function $A(K)$ does not depend on $s_1$ or $s_3$. If the relation exists we can write \begin{equation*}
+    Z(K,N) = \sum_{s_1,s_3,s_5,...}A(K)e^{K's_1s_3}A(K)e^{K's_3s_5}\cdots = [A(K)]^{N/2}Z(K',N/2)
+\end{equation*}
+In the limit $N\rightarrow \infty$ we know that $\ln Z$ is proportional to $N$, that is \begin{equation*}
+    \ln Z = Ng(K)
+\end{equation*}
+where $g(K)$ is independent of $N$. Then we obtain \begin{equation*}
+    \ln Z(K,N) = Ng(K) = \frac{N}{2}\ln A(K) + \ln Z(K',N/2) = \frac{N}{2}\ln A(K) + \frac{N}{2}g(K')
+\end{equation*}
+and \begin{equation*}
+    g(K') = 2g(K) - \ln A(K)
+\end{equation*}
+We can find the form of $A(K)$ from the recurrence relation. We use the fact that the relation holds for all values of $s_1$ and $s_3$, and first consider $s_1=s_3 = 1$ or $s_1=s_3 = -1$, for which \begin{equation*}
+    e^{2K}  +e^{-2K} = A(K)e^{K'}
+\end{equation*}
+and for opposite spins $2 = A(K)e^{-K'}$, so $A = 2e^{K'}$, and hence we obtain \begin{equation*}
+    e^{2K} + e^{-2K} = 2e^{2K'}
+\end{equation*}
+or $$K' = R(K) = \frac{1}{2}\ln[\cosh(2K)]$$
+Then we find that \begin{equation*}
+    A(K) = 2\sqrt{\cosh(2K)}
+\end{equation*}
+We can use the form of $A(K)$ to rewrite $g(K')$ as \begin{equation*}
+    g(K') = 2g(K) - \ln[2\sqrt{\cosh(2K)}]
+\end{equation*}
+$g(K')$ and $K'$ are the main results of the renormalization group analysis. Because $\frac{1}{2}\ln\cosh(2K) \leq K$, the successive use of the renormalization leads to a smaller value of $K$ (higher temperatures) and hence a smaller value of the correlation length. Thus $K = 0$ or $T = \infty$ is a trivial fixed point. This is expected since the Ising chain does not have a phase transition at nonzero temperature. The only other fixed point is when $K = \infty$, or $T = 0$, which is unstable because any perturbation away from $T = 0$ is amplified. The fixed point at $T = \infty$ is stable. 
+
+Because there is no nontrivial fixed point between $T=0$ and $T=\infty$ the recursion relation is reversible and we can follow the transformation backward starting at $K \approx 0$ ($T=\infty$) and going to $K=\infty$ ($T = 0$). The advantage of starting from $T \approx \infty$ is that we can start with the exact solution for $K = 0$ and iterate the recursion relation to higher values of $K$ for which the interaction between the spins become increasingly important. To find the relation that works in this direction we solve for $K$ in terms of $K'$ and $g(K)$ in terms of $g(K')$. The result is \begin{align*}
+    K &= \frac{1}{2}\cosh^{-1}(e^{2K'}) \\
+    g(K) &= \frac{1}{2}\ln 2 + \frac{1}{2}K' + \frac{1}{2}g(K')
+\end{align*}
+
+
 
 
 
@@ -4029,15 +4562,894 @@ so they are unaltered and Hamilton's equations have a time-reversal symmetry: an
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 5.1
-\chapter{Quantum States}
+\chapter{Breakdown of Classical Mechanics}
+
+Recall we need quantum mechanics to derive the 3rd law of quantum mechanics in ensemble thoery: $\lim\limits_{T\rightarrow 0}S(T) = 0$ which implies $\lim\limits_{T\rightarrow 0}C_{\vec{x}}(T) = 0$.
+
+\section{Dilute Polyatomic Gases}
+
+For each molecule of $n$ atoms we take the Hamiltonian \begin{equation*}
+    H_1 = \sum_{i=1}^n\frac{\vec{p}_i\cdot\vec{p}_i}{2m} + V_{int}(\vec{q}_1,...,\vec{q}_n)
+\end{equation*}
+
+\begin{qst}
+    What can we say about the motion of the atoms within a molecule?
+\end{qst}
+
+\subsection{Small Oscillations and Linear Stability}
+
+With one degree of freedom (e.g. pendulum), we can write $\ddot{x} = f(x)$, for $x \in \R$, which we can express as $\dot{x} = v$ and $\dot{v} = f(x)$, giving the matrix form the DE $\begin{pmatrix} \dot{x} \\ \dot{v} \end{pmatrix} = \vec{F}(x,v)$. At the equilibrium point $\vec{F}(x=x_0,v=v_0) = 0$ if and only if $\dot{x} = 0$ and $\dot{v} = 0$, which implies $x = x_0$ is constant. Under a small perturbation, $x(t) = x_0+\eta(t)$, $\ddot{\eta} = \ddot{x} = f(x) = f(x_0+\eta)$, which we can expand about the equilibrium as $$f(x_0+\eta) \approx f(x_0) + f'(x_0)\eta + \frac{1}{2}f''(x_0)\eta^2+\cdots$$
+where we will have $f(x_0) = 0$. To first order $\ddot{\eta} \approx f'(x_0)\eta$ assuming $f'(x_0) \neq 0$.
+\begin{itemize}
+    \item If $f'(x_0) < 0$: Harmonic oscillator. We find $\eta(t) = A\cos(\omega(t-t_0))$, where $A$ and $t_0$ are constants of integration, and $\omega^2 = -f'(x_0)$, giving \Emph{stable} oscillations about $x = x_0$ with frequency $\omega_0$.
+    \item If $f'(x_0) > 0$, we write $\eta(t) = Ae^{\lambda t} + Be^{-\lambda t}$, where $\lambda^2 = f'(x_0)$. In this case for $A \neq 0$ perturpations grow, so the approximation of $\eta$ small breaks down - \Emph{linearly unstable}.
+\end{itemize}
+
+For the first case, as $f(x) = -\partial_xV(x)$, we find a concave up function near equilibrium (symmetric oscillations), while for the second case we find a concave down function near equilibrium. 
+
+Now in general we have $$\ddot{q}_i = f_i(q_1,...,q_s),\;\;1\leq i\leq s$$ Let $\vec{q}^o$ denote the equilibrium point, so for all $i$, $f_i(\vec{q}_1^o,...,\vec{q}_s^o) = 0$. Under small perturbations we can write \begin{equation*}
+    q_i(t) = q_i^o+\eta_i(t)
+\end{equation*}
+implying that \begin{equation*}
+    \ddot{\eta}_i \approx \sum_{j=1}^s\frac{\partial f_i}{\partial q_j}\Bigg\rvert_{\vec{q}=\vec{q}^o}\eta_j
+\end{equation*}
+In vector notation $\ddot{\vec{\eta}} = F\vec{\eta}$, for $F$ the jacobian of the force at $\vec{q}=\vec{q}^o$.
+
+Consider the special case of $F$ symmetric. Then $F$ is orthogonally diagonalizable with real eigenvalues. This creates decoupled ODEs corresponding to $s$ 1D problems. In general for a conservative system eigenvalues of $F$ are real and $F$ is diagonalizable, but not necessary orthogonally diagonalizable. Let $\vec{\mu}_a$, for $a = 1,...,s$, denote an eigenvector for the eigenvalue $\lambda_a^2$. We also say that $\vec{\mu}_a$ is a \Emph{normal mode}. We can write $\vec{\eta}(t) = \sum_ac_a(t)\vec{\mu}_a$, so $$\sum_a\ddot{c}_a(t)\vec{\mu}_a = \ddot{\vec{\eta}} = \sum_ac_a(t)\lambda^2\vec{\mu}_a$$
+It follows by linear independence that $\ddot{c}_a(t) = \lambda_a^2c_a(t)$, which reduces us to a one-dimensional problem, with solutions \begin{equation*}
+    c_a(t) = A_ae^{\lambda_at} + B_ae^{-\lambda_at}
+\end{equation*}
+Thus, our general solution is \begin{equation*}
+    \vec{\eta}(t) = \sum_a\vec{\mu}_a\left[A_ae^{\lambda_at} + B_ae^{-\lambda_at}\right]
+\end{equation*}
+We have the following cases for our eigenvalues: \begin{itemize}
+    \item If $\lambda_a^2 < 0$: $\lambda_a = i\omega_a$ for $\omega_a \in \R$, which corresponds with stable oscillations in the corresponding direction $\vec{\eta} = \vec{\mu}_a$
+    \item If $\lambda_a^2 > 0$: $\lambda_a \in \R$, giving unstable solutions in the direction $\vec{\eta} = \vec{\mu}_a$.
+\end{itemize}
+Then we can write \begin{equation*}
+    \vec{\eta}(t) = \sum_{a,\lambda_a^2>0}\vec{\mu}_a\left[A_ae^{\lambda_at} + B_ae^{-\lambda_at}\right] + \sum_{a,\lambda_a^2 < 0}\vec{\mu}_aA_a\cos(\omega_a(t-t_a))
+\end{equation*}
+
+
+\section{Linear Triatomic Molecule}
+
+
+Consider a triatomic molecule with middle mass $M$ and side masses $m$ at locations $x_1,x_2,x_3$. Focusing on the  motion parallel to the molecule for each atom only we can write \begin{equation*}
+    L = \frac{1}{2}m\dot{x}_1^2 + \frac{1}{2}M\dot{x}_2^2 + \frac{1}{2}m\dot{x}_3^2 - V(x_1-x_2) - V(x_2-x_3)
+\end{equation*}
+Assume $x_i = x_i^o$ is the equilibrium position, with $|x_1^o-x_2^o| = |x_2^o-x_3^o| = r_0$. We consider perturbations of the form $x_i(t) = x_i^o +\eta_i(t)$. Expanding $V$ about the equilibrium $r_o$ to the first non-zero order we have \begin{equation*}
+    L \approx \frac{1}{2}m\dot{\eta}_1^2 + \frac{1}{2}M\dot{\eta}_2^2 + \frac{1}{2}m\dot{\eta}_3^2 - \frac{k}{2}\left[(\eta_1-\eta_2)^2+(\eta_2-\eta_3)^2\right]
+\end{equation*}
+where $k := \frac{\partial^2V}{\partial r^2}\Bigg\rvert_{r=r_0} > 0$ (minimum for stable molecule). Using Lagrange's equations $\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\eta}_i}\right) - \frac{\partial L}{\partial \eta_i} = 0$ we can write $\ddot{\vec{\eta}} = F\vec{\eta}$ for the matrix \begin{equation*}
+    F = \begin{pmatrix} -k/m & k/m & 0 \\ k/M & -2k/M & k/M \\ 0 & k/m & -k/m \end{pmatrix}
+\end{equation*}
+$F$ has eigenvalues $\lambda_1^2 = 0, \lambda_2^2 = -k/m$, and $\lambda_3^2 = -(k/m)(1+2m/M)$, with associated eigenvectors/normal modes: \begin{align*}
+    \vec{\mu}_1 &= \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} \;\;(\text{translation}) \\
+        \vec{\mu}_2 &= \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix} \;\;(\text{out of phase oscillation, }\omega_2 = \sqrt{k/m}) \\
+    \vec{\mu}_3 &= \begin{pmatrix} 1 \\ -2m/M \\ 1 \end{pmatrix}\;\;(\omega_3 = \sqrt{(k/m)(1+2m/M)})
+\end{align*}
+Then a general solution of this system is given by \begin{equation*}
+    \vec{\eta}(t) = \vec{\mu}_1(A+Bt) + \vec{\mu}_2C\cos(\omega_2(t-t_2)) + \vec{\mu}_3D\cos(\omega_3(t-t_3))
+\end{equation*}
+
+
+
+
+\section{Dilute Polyatomic Gas in the Canonical Ensemble}
+
+For each molecule of $n$ atoms we write \begin{equation*}
+    H_1 = \sum_{i=1}^n\frac{\vec{p}_i\cdot\vec{p}_i}{2m}+V_{int}(\vec{q}_1,...,\vec{q}_n)
+\end{equation*}
+Assume no interactions between the molecules: \begin{equation*}
+    Z(T,N) = \frac{Z(T,1)^N}{N!} = \frac{1}{N!}\left[\int\prod_{i=1}^n\frac{d^3\vec{p}_id^3\vec{q}_i}{h^3}e^{-\beta\sum_{i=1}^n\frac{\vec{p}_i\cdot\vec{p}_i}{2m}-\beta V_{int}(\vec{q}_1,...,\vec{q}_n)}\right]^N
+\end{equation*}
+We take the approximation for $V_{int}$ at temperatures much smaller than the corresponding dissociation temperature $\approx 10^4\;K$: \begin{itemize}
+    \item (Stable - non-zero eigenvalues) equilibrium positions $(\vec{q}_1^*,...,\vec{q}_n^*)$, \textbf{minimize} potential $V_{int}$ 
+    \item Taylor expansion around equilibrium: \begin{equation*}
+            V_{int} = V_{int}^* + \frac{1}{2}\sum_{i,j=1}^n\sum_{\alpha,\beta=1}^3\frac{\partial^2V_{int}}{\partial q_{i,\alpha}\partial q_{j,\beta}}\Bigg\rvert_{\{\vec{q}_i^*\}}u_{i,\alpha}u_{j,\beta} + O(u^3)
+    \end{equation*}
+        with $\vec{u}_i := \vec{q}_i-\vec{q}_i^*$
+    \item We diagonalize the matrix with entries $\frac{\partial^2V_{int}}{\partial q_{i,\alpha}\partial q_{j,\beta}}$ ($3n\times 3n$ symmetric matrix) which has $3n$ real non-negative eigenvalues $\{k_s\}$ with associated eigenvectors, which we move to with a change of variables $\{\vec{u}_i\}\rightarrow \{\tilde{u}_s\}$ (amplitudes of eigenmods) and corresponding conjugate momenta $\tilde{p}_s = m\dot{\tilde{u}}_s$. This is a unitary or canonical transformation, and so it preserves lengths: $\prod_{i,\alpha}du_{i,\alpha}dp_{i,\alpha} = \prod_sd\tilde{u}_sd\tilde{p}_s$. Using this transformation we can write \begin{equation*}
+            H_1 = V_{int}^* + \sum_{s=1}^{3n}\left[\frac{1}{2m}\tilde{p}_s^2 + \frac{k_s}{2}\tilde{u}_s^2\right]
+    \end{equation*}
+\end{itemize}
+
+It follows that the partition function becomes \begin{align*}
+    Z(T,1) &= \int\prod_s\frac{d\tilde{u}_sd\tilde{p}_s}{h}e^{-\beta\left[V_{int}^* + \sum_{s=1}^{3n}\left[\frac{1}{2m}\tilde{p}_s^2 + \frac{k_s}{2}\tilde{u}_s^2\right]\right]} \\
+    &=e^{-\beta V_{int}^*}\prod_s\frac{1}{h}\left[\int d\tilde{u}_se^{-\beta\frac{k_s}{2}\tilde{u}_s^2}\int d\tilde{p}_se^{-\beta\frac{1}{2m}\tilde{p}_s^2}\right] \\
+    &= e^{-\beta V_{int}^*}\frac{1}{h^{3n}}\left[\sqrt{\frac{2\pi}{\beta k_S}}\right]^{\tilde{n}}\left[\sqrt{\frac{2\pi m}{\beta}}\right]^{3n}\cdot \tilde{V}^{\frac{3n-\tilde{n}}{3}}
+\end{align*}
+where $\tilde{n}$ is the number of eigenvectors with $k_s \neq 0$. The average internal energy can then be written \begin{equation*}
+    \langle H_1\rangle = -\frac{\partial \ln Z_1}{\partial \beta} = V_{int}^*+\frac{3n+\tilde{n}}{2}k_BT
+\end{equation*}
+where each \Emph{quadratic degree of freedom} classically contributes $k_BT/2$ (this is the equipartition theorem). $\tilde{n}$ corresponds with the number of \Emph{vibrational modes}. Note $\tilde{n} \neq 3n$ since $V_{int}$ depends on $\{\Delta \vec{q}_i\}$ only: \begin{itemize}
+    \item translational symmetry ($V_{int}(\vec{q}_1+\vec{c},...,\vec{q}_n+\vec{c}) = V_{int}(\vec{q}_1,...,\vec{q}_n)$), so $k_{trans,i} = 0$
+    \item rotational symmetry: $k_{rot,i} = 0$, for $0 < i \leq r$, where $r$ depends on the shape of the molecule, where generally $r = 3$
+\end{itemize}
+Then $\tilde{n} = 3n-3-r$ in three dimensions, so \begin{equation*}
+    \langle H_1\rangle = V_{int}^* + \frac{6n-3-r}{2}k_BT
+\end{equation*}
+We can then find the specific heat capacities \begin{equation*}
+    C_V = \frac{d\langle H_1\rangle}{dT} = \frac{6n-3-r}{2}k_B
+\end{equation*}
+and \begin{equation*}
+    C_p = C_V+k_B = \frac{6n-1-r}{2}k_B
+\end{equation*}
+which are both independent of $T$. Note that the adiabatic exponent $\gamma :=\frac{C_p}{C_V}$ is what is experimentally accessible.
+
+
+\section{Experimental Tests and QM Description}
+
+
+Using our previous results we have the predictions that for a monoatomic gas $C_V/Nk_B = \frac{3}{2}$ and for a diatomic gas $C_V/Nk_B = \frac{7}{2}$ (note both are independent of $T$). However, for a diatomic gas experimentally we observe a decrease in $C_V/Nk_B$ from $7/2$ to $5/2$ and finally to $3/2$ as the temperature decreases - hence we see a breakdown of the classical description.
+
+\begin{qst}
+    Can QM explain this?
+\end{qst}
+
+\begin{itemize}
+    \item Vibrational modes: For a diatomic molecule $\tilde{n} = 6-3-2 = 1$ - only vibrations along the $x$-axis with stiffness/spring constant $k_{vib}$ (harmonic oscillator) and normal frequency $\omega_{vib} = \sqrt{k_{vib}/m}$. The classical partition function is \begin{equation*}
+            Z_{vib}^c = \frac{k_BT}{\hbar\omega}
+    \end{equation*}
+        and the classical average energy is \begin{equation*}
+            \langle H_{vib}^c\rangle = 2\frac{k_BT}{2}
+        \end{equation*}
+        as expected.
+\end{itemize}
+
+Now, to explain why we observe these discrepancies we breakdown the Hamiltonian into different contributions: \begin{equation*}
+    H_1 = H_{trans}(\vec{R},\vec{P}) + H_{rot}(\theta,\phi,\psi,p_{\theta},p_{\phi},p_{\psi}) + H_{vib}(\vec{q},\vec{p})
+\end{equation*}
+where the center coordinates are Euler angles, and the left coordinates are center of mass coordinates.
+
+\begin{qst}
+    Is this expression exact?
+\end{qst}
+In general vibrations lead to variations in moments of intertia, so $H_{vib}$ and $H_{rot}$ are coupled. Thus this expression assumes the variations in moments of intertia are small, so we can neglect the interactions. Now we look at different parts of the Hamiltonian individually and check whether QM can explain the experimental observations.
+
+For a quantum harmonic oscillator we have $H_{vib}^q = \hbar\omega(n+\frac{1}{2})$, where $n = 0,1,2,3,...$, so we have quantized energy levels, and $n$ is the \Emph{occupation number}. For the QM partition function we have \begin{equation*}
+    Z_{vib}^q = \sum_{n=0}^{\infty}e^{-\beta(\hbar \omega(n+1/2))} = \frac{e^{-\beta \hbar \omega/2}}{1-e^{-\beta\hbar\omega}}
+\end{equation*}
+Do we recover the classical result for high $T$? As $T\rightarrow \infty,\beta\rightarrow 0$ and we find \begin{equation*}
+    Z_{vib}^* \approx \frac{1-\beta \hbar\omega/2}{\beta\hbar\omega} \approx \frac{k_BT}{\hbar\omega} = Z_{vib}^c
+\end{equation*}
+What happens for low $T$. We observe that \begin{equation*}
+    \langle H_{vib}^q\rangle = \frac{\hbar\omega}{2}+\hbar\omega\frac{e^{-\beta\hbar\omega}}{1-e^{-\beta\hbar\omega}}
+\end{equation*}
+The first term independent of $T$ corresponds with quantum fluctuations while the second term dependent on $T$ corresponds with thermal fluctuations. Now the specific heat is \begin{equation*}
+    C_{vib}^q=\frac{d\langle H_{vib}^q\rangle}{dT} = k_B(\hbar\omega\beta)^2\frac{e^{-\beta\hbar\omega}}{(1-e^{-\beta\hbar\omega})^2}
+\end{equation*}
+As $T\rightarrow 0$ associated momenta are frozen, and thermal fluctuations are insufficient to reach higher energy states. QM can explain the experimentally observed drop in $C_V$ from $7/2Nk_B$ to $5/2Nk_B$, corresponding to the breakdown of the classical equipartition theorem.
+
+Next consider the rotational modes: the Lagrangian for rotations of a diatomic molcule (rigid body) are given by \begin{equation*}
+    T_{rot}^c = \frac{I}{2}\left(\dot{\theta}^2+\sin^2\theta\dot{\phi}^2\right) = \mathcal{L}_{rot}^c
+\end{equation*}
+$\theta$ and $\phi$ are angles of orientation of the molecule and $I$ is the moment of inertia. Using the Lagrange equations we then have \begin{equation*}
+    p_{\theta} = \frac{\partial \mathcal{L}_{rot}^c}{\partial \dot{\theta}} = I\dot{\theta},\;\;p_{\phi} = \frac{\partial \mathcal{L}_{rot}^c}{\partial \dot{\phi}} = I\sin^2\theta \dot{\phi}
+\end{equation*}
+which implies that the Hamiltonian is \begin{equation*}
+    H_{rot}^c = \dot{\theta}p_{\theta} + \dot{\phi}p_{\phi}-\mathcal{L}_{rot}^c = \frac{1}{2I}\left(p_{\theta}^2+\frac{p_{\phi}^2}{\sin^2\theta}\right) = \frac{\vec{L}\cdot\vec{L}}{2I}
+\end{equation*}
+
+
+\begin{prop}
+    An arbitrary rotation may be expressed as the product of three successive rotations about three (in general) different axis.
+\end{prop}
+
+A specific choicer corresponds to Euler angles: Substitute $x,y,z$ to rotations about the $z$-axis with $\phi$: $\xi,\eta,\zeta$. Then rotate $\theta$ about the $\xi$ axis giving $\xi',\eta',\zeta'$. Finally rotate $\psi$ about the $\xi'$ axis giving $x',y',z'$.
+
+Then we have that $\vec{x}' = A\vec{x}$ where $A = BCD$ and $\theta \in [0,\pi],\phi,\psi\in[0,2\pi]$, and \begin{align*}
+    D &= \begin{pmatrix} \cos\phi & \sin\phi & 0 \\ -\sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{pmatrix} \\
+    C &= \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\theta & \sin\theta \\ 0 & -\sin\theta & \cos\theta \end{pmatrix} \\
+    B &= \begin{pmatrix} \cos\psi & \sin\psi & 0 \\ -\sin\psi & \cos\psi & 0 \\ 0 & 0 & 1 \end{pmatrix}
+\end{align*}
+
+It follows that the kinetic energy can be written as \begin{equation*}
+    T_{rot} = \frac{I_1}{2}(\dot{\theta}^2+\dot{\phi}^2\sin^2\theta)+\frac{I_3}{2}(\dot{\psi}^2+\dot{\phi}^2\cos\theta)^2
+\end{equation*}
+for symmetrical tops with moments of inertia $I_1 = I_2, I_3$ in the principle axis frame. For a diatomic molecule $I_3 = 0$, so \begin{equation*}
+    T_{rot} = \frac{I_1}{2}(\dot{\theta}^2+\dot{\phi}^2\sin^2\theta)
+\end{equation*}
+Then the rotational partition function becomes \begin{align*}
+    Z_{rot}^c &= \frac{1}{h^2}\int_0^{\pi}d\theta\int_0^{2\pi}\int_{-\infty}^{\infty}dp_{\theta}dp_{\phi}e^{-\frac{\beta}{2I}\left(p_{\theta}^2+\frac{p_{\phi}^2}{\sin^2\theta}\right)} \\
+    &= \frac{1}{h^2}2\pi\int_0^{\pi}\sqrt{\frac{2\pi I}{\beta}}\sqrt{\frac{2\pi I\sin^2\theta}{\beta}} \\
+    &= \frac{4\pi^2}{h^2}\frac{I}{\beta}\int_0^{\pi}d\theta\sin\theta = \frac{2I}{\hbar^2\beta}
+\end{align*}
+
+Then the average rotational energy is \begin{equation*}
+    \langle H_{rot}^c\rangle = \frac{1}{\beta} = 2\frac{k_BT}{2}
+\end{equation*}
+
+Now we go to QM where the angular momentum is quantized as $\vec{L}\cdot\vec{L} = \hbar^2l(l+1)$, $l = 0,1,2,3,...$, and each state is degenerated $2L=1$ times $(L_z = -l,-l+1,...,l-1,l)$. The natural choice for the partition function is \begin{equation*}
+    Z_{rot}^q = \sum_{l=0}^{\infty}e^{-\beta(\hbar^2l(l+1)/2I)}(2l+1) = \sum_{l=0}^{\infty}e^{-\theta_{rot}l(l+1)/T}(2l+1)
+\end{equation*}
+where $\theta_{rot} = \frac{\hbar^2}{2Ik_B}$ (the characteristic temperature). Consider the limit of $T \gg \theta_{rot}$, in which case we can use the Euler-Maclaurin expansion: \begin{align*}
+    Z_{rot}^q \approx \int_0^{\infty}dx(2x+1)e^{-\frac{\theta_{rot}x(x+1)}{T}} \\
+    &= \frac{T}{\theta_{rot}} = Z_{rot}^c
+\end{align*}
+so we recover the classical partition function. Next, in the low temperature limit, $T\ll \theta_{rot}$, the partition function takes the form $Z_{rot}^q \approx 1 + 3e^{-2\theta_{rot}/T}$. Then the average energy in this limits is \begin{equation*}
+    \langle H_{rot}^q\rangle \approx 6k_B\theta_{rot}e^{-2\theta_{rot}/T}
+\end{equation*}
+which gives the specific heat capacity \begin{equation*}
+    C_{rot}^q \approx 3k_B\left(\frac{2\theta_{rot}}{T}\right)^2e^{-2\theta_{rot}/T}
+\end{equation*}
+Usually $\theta_{rot}\approx 1-10\;K$.
+
+\textbf{Summary}: \begin{itemize}
+    \item QM can explain the variations in the heat capacity of diatomic molecules with $T$
+    \item Vibrational modes and associated momenta do not contribute below $\theta_{vib} \approx 10^3-10^4\;K$
+    \item The two rotational modes do not contribute below $\theta_{rot} \approx 1-10\;K$
+    \item For $T <\theta_{rot}$ the diatomic molecule behaves as a monoatomic particle
+    \item Including $\frac{1}{h^{3n}}$ for the phase space volume and $\frac{1}{N!}$ for indistinguishable particles is not sufficient to save the classical stat mech.
+    \item Full QM is necessary
+    \item Note: at even lower $T$, the heat capacity vanishes (3rd law) due to other QM effects.
+\end{itemize}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 5.2
-\chapter{Ideal Quantum Gases}
+\chapter{Condensed Matter and Solid-State Physics}
+
+\begin{defn}
+    An \Emph{ordered solid} is an arrangement of atoms or molecules in a crystal structure or lattice.
+\end{defn}
+
+\begin{defn}
+    A \Emph{crystal lattice} is an array of ``small boxes" infinitely repeating in all spatial directions (neglects boundary conditions); these boxes are called \Emph{unit cells} and it is the smallest unit of volume that contains all of the structural and symmetry information to build the macroscopic structure of the lattice by translation.
+\end{defn}
+
+Examples include cubic lattices, base-centered orthorhombic latices, etcetera.
+
+\begin{qst}
+    What can we say about the motion of the atoms within a solid?
+\end{qst}
+
+
+
+\section{Vibrations of a Solid}
+
+We start by regarding a solid as a ``very large molecule" with $$H = \sum_{i=1}^N\frac{\vec{p}_i\cdot\vec{p}_i}{2m} + V_{int}(\vec{q}_1,...,\vec{q}_N)$$
+and approximate $V_{int}$ as before: \begin{itemize}
+    \item Equilibrium positions $(\vec{q}_1^*,...,\vec{q}_N^*)$ minimize $V_{int}$ (ground state of the solid). For an ordered solid we have a periodic arrangement of atoms forming the crystal lattice, which implies $$\vec{q}_i^* = \vec{q}^*(l,m,n) = l\hat{a}+m\hat{b}+n\hat{c}$$ for $l,m,n \in \Z$. In the following let $\vec{r} := l\hat{a}+m\hat{b}+n\hat{c}$.
+    \item Consider $T \neq 0$, so we have small deformations. Performing a second order Taylor expansion on $V_{int}$ with $\vec{u}(\vec{r}) = \vec{q}_{\vec{r}} - \vec{r}$ being the perturbation from equilibrium \begin{equation*}
+            V_{int} = V_{int}^* + \frac{1}{2} \sum_{\begin{array}{c}\vec{r},\vec{r}' \\ \alpha,\beta\end{array}}\frac{\partial^2V_{int}}{\partial q_{\vec{r},\alpha}\partial q_{\vec{r}',\beta}}u_{\alpha}(\vec{r})u_{\beta}(\vec{r}')
+    \end{equation*}
+    \item Next we diagonalize and find normal modes of the crystal. By translational symmetry of a lattice we know that \begin{equation*}
+        \frac{\partial^2V}{\partial q_{\vec{r},\alpha}\partial q_{\vec{r}',\beta}} = K_{\alpha,\beta}(\vec{r}-\vec{r}')
+    \end{equation*}
+        which can be thought of as entries of a $3N\times 3N$ matrix, where $N$ is the number of lattice points. Then we apply the DFT which partially diagonalizes the matrix as we now see: \begin{equation*}
+            u_{\alpha}(\vec{r}) = \sum_{\vec{k}} \frac{e^{i\vec{k}\cdot\vec{r}}}{\sqrt{N}}\tilde{u}_{\alpha}(\vec{k})
+        \end{equation*}
+        where $\vec{k}$ is the wavevector with $|\vec{k}| = \frac{2\pi}{\lambda}$, $e^{i\vec{k}\cdot\vec{r}}$ represents waves in the lattice (\Emph{phonons}), and $\tilde{u}_{\alpha}(\vec{k})$ are the Fourier coefficients or amplitudes. $\vec{k}$ is restricted due to the discrete periodic lattice arrangement (wavelength can't be shorter than twice lattice spacing). For example in a simple cubic lattice of spacing $a$, we require $k_{\alpha} \in [-\pi/a,\pi/a]$, for $\alpha \in \{x,y,z\}$ corresponding to two transversal and one longitudinal orientation. This restricted region is known as the \Emph{Brillouin zone}. So we have an upper bound on $|\vec{k}| \equiv$ a lower bound on wavelength $\lambda$.
+\end{itemize}
+
+\begin{qst}
+    Why are larger values of $|k_{\alpha}|$ excluded?
+\end{qst}
+Any $\vec{k}$ outside the Brillouin zone can be written as the sum of $\vec{k}_{in}$ and $\vec{k}'$ where $\vec{k}' = \frac{2\pi}{a}\begin{pmatrix} i \\ j \\ k\end{pmatrix}$ with $i,j,k \in \Z$ and $\vec{k}_{in} \in$ the Brillouin zone. It follows that $\vec{k}\cdot\vec{r} = \vec{k}_{in}\cdot\vec{r} + 2\pi i'$ for $i' \in \Z$, so the complex exponential of the two wave-vectors are equivalent. So wavevectors inside Brillouin zone fully determine the $u_{\alpha}(\vec{r})$. Then we can write \begin{equation*}
+    V_{int} = V_{int}^* + \frac{1}{2N}\sum_{\begin{array}{c} (\vec{r},\vec{r}') \\ (\vec{k},\vec{k}') \\ \alpha,\beta\end{array}} K_{\alpha\beta}(\vec{r}-\vec{r}')e^{i\vec{k}\cdot\vec{r}}\tilde{u}_{\alpha}(\vec{k})e^{i\vec{k}'\cdot\vec{r}'}\tilde{u}_{\beta}(\vec{k}')
+\end{equation*}
+Now we perform a change of variables to relative, $\vec{\rho} = \vec{r} - \vec{r}'$, and center of mass, $\vec{R} = \frac{\vec{r}+\vec{r}'}{2}$, coordinates. This turns the potential into \begin{equation*}
+    V_{int} = V_{int}^* + \frac{1}{2N}\sum_{\begin{array}{c} \vec{k},\vec{k}' \\ \alpha,\beta \end{array}}\left(\sum_{\vec{R}}e^{i(\vec{k}+\vec{k}')\cdot\vec{R}}\right)\left(\sum_{\vec{\rho}}K_{\alpha\beta}(\vec{\rho})e^{i(\vec{k}-\vec{k}')\cdot\vec{\rho}/2}\tilde{u}_{\alpha}(\vec{k})\tilde{u}_{\beta}(\vec{k}')\right)
+\end{equation*}
+The first bracket takes the form $N\delta_{\vec{k}+\vec{k}',0}$ in the thermodynamic limit. Then we can write \begin{equation*}
+    V_{int} = V_{int}^*+\frac{1}{2}\sum_{\vec{k},\alpha,\beta}\left[\sum_{\vec{\rho}}K_{\alpha\beta}(\vec{\rho})e^{i\vec{k}\cdot\vec{\rho}}\right]\tilde{u}_{\alpha}(\vec{k})\tilde{u}_{\beta}(-\vec{k})
+\end{equation*}
+where the first bracketed term we denote by $\tilde{K}_{\alpha\beta}(\vec{k})$, and $\tilde{u}_{\beta}(-\vec{k}) = \tilde{u}_{\beta}^*(\vec{k})$. So we have \begin{equation*}
+    V_{int} = V_{int}^*+\frac{1}{2}\sum_{\vec{k},\alpha,\beta}\tilde{K}_{\alpha\beta}(\vec{k})\tilde{u}_{\alpha}(\vec{k})\tilde{u}_{\beta}^*(\vec{k})
+\end{equation*}
+which is a linear superposition of contributions depending on single wave vectors. We assume the Fourier modes are decoupled yielding partial diagonalization. We now need to diagonalize $[\tilde{K}_{\alpha\beta}(\vec{k})]$ for each $\vec{k}$. These matrices depend on the specific crystal and its symmetries, so for simplicity we assume $\tilde{K}_{\alpha\beta}(\vec{k}) = \delta_{\alpha,\beta}\tilde{K}(\vec{k})$. Then the Hamiltonian becomes \begin{equation*}
+    H = V_{int}^* + \sum_{\vec{k},\alpha}\left[\frac{1}{2m}|\tilde{p}_{\alpha}(\vec{k})|^2 + \frac{\tilde{K}(\vec{k})}{2}|\tilde{u}_{\alpha}(\vec{k})|^2\right] 
+\end{equation*}
+where $T = \sum_{i=1}^N\frac{m}{2}\dot{\vec{q}}_i^2 = \sum_{\vec{k},\alpha}\frac{m}{2}\dot{\tilde{u}}_{\alpha}(\vec{k})\dot{\tilde{u}}_{\alpha}(\vec{k})^* = \sum_{\vec{k},\alpha}\frac{|\tilde{p}_{\alpha}(\vec{k})|^2}{2m}$, with $\tilde{p}_{\alpha}(\vec{k}) = \frac{\partial \mathcal{L}}{\partial \dot{\tilde{u}}_{\alpha}(\vec{k})} = m\dot{\tilde{u}}_{\alpha}(\vec{k})$. This is the Hamiltonian for small deformations, which equates to $3N$ independent harmonic oscillators with frequencies $\omega_{\alpha}(\vec{k}) = \sqrt{\frac{\tilde{K}(\vec{k})}{m}}$ in the wave amplitudes, which reduces us to the same problem as the dilute polyatomic gas in the canonical ensemble. Then \begin{equation*}
+    \langle H\rangle = V_{int}^*+\frac{3N+\tilde{n}}{2}k_BT \geq V^* + \frac{6N-6}{2}k_BT
+\end{equation*}
+and as $N\rightarrow \infty$, $C = C_V \approx 3Nk_B$.
+
+
+\section{Experimental Tests and QM Description}
+
+At $T$ near zero we observe $C_V\propto T^3$. Can QM explain this as well? First observe that \begin{equation*}
+    H^q = V_{int}^* + \sum_{\vec{k},\alpha}\hbar\omega_{\alpha}(\vec{k})\left(n_{\vec{k},\alpha}+\frac{1}{2}\right)
+\end{equation*}
+with QM microstate $\{n_{\vec{k},\alpha}\}, n_{\vec{k},\alpha} = 0,1,2,3,...$ ($3N$ occupation numbers). The partition function is then \begin{equation*}
+    Z^q = \sum_{\{n_{\vec{k},\alpha}\}}e^{-\beta H^q} = e^{-\beta E_0}\prod_{\vec{k},\alpha}\frac{1}{1-e^{-\beta\hbar\omega_{\alpha}(\vec{k})}}
+\end{equation*}
+where $E_0 = V_{int}^* + \sum_{\vec{k},\alpha}\hbar\omega_{\alpha}(\vec{k})\frac{1}{2}$ is the ground state energy. THe average energy is \begin{equation*}
+    \langle H^q\rangle = E_0+\sum_{\vec{k},\alpha}\hbar\omega_{\alpha}(\vec{k})\langle n_{\vec{k},\alpha}\rangle
+\end{equation*}
+where \begin{equation*}
+    \langle n_{\vec{k},\alpha}\rangle = \sum_{n_{\vec{k}_1,1}}\cdots\sum_{n_{\vec{k}_N,3}}n_{\vec{k}_i,j}\frac{e^{-\beta H^q}}{Z^q}  = \frac{1}{e^{\beta\hbar\omega_{\alpha}(\vec{k})} - 1}
+\end{equation*}
+Then \begin{equation*}
+    \langle H^q\rangle = E_0+\sum_{\vec{k},\alpha}\hbar\omega_{\alpha}(\vec{k})\frac{1}{e^{\beta\hbar\omega_{\alpha}(\vec{k})}-1}
+\end{equation*}
+Left we have to determine $\omega_{\alpha}(\vec{k})$ or equivalently $\tilde{K}(\vec{k})$ which correspond to eigenvalues or spring constant/stiffness:
+
+\begin{itemize}
+    \item We have the Einstein model: Assume $\omega_{\alpha}(\vec{k}) = \omega_E$ (identical frequencies) Then the average energy becomes \begin{equation*}
+            \langle H^q\rangle = E_0 + 3N\frac{\hbar\omega_E}{e^{\beta\hbar\omega_E}-1}
+    \end{equation*}
+        and $C_V = 3Nk_B\left(\frac{T_E}{T}\right)^2\frac{e^{-T_E/T}}{(1-e^{-T_E/T})^2}$ with $T_E := \frac{\hbar\omega_E}{k_B}$. This is not consistent with experiments where $C \propto T^3$ for $T\rightarrow 0$.
+    \item In the Debye model we take the Taylor series expansion of $\tilde{K}(\vec{k})$ for small $|\vec{k}|$ (or long wavelengths): \begin{equation*}
+            \tilde{K}(\vec{k}) = C+\vec{A}\cdot\vec{k}+\vec{k}\cdot(B\vec{k})+\cdot
+    \end{equation*}
+        By symmetry of $K(\vec{r}-\vec{r}')$, $K(\vec{r}-\vec{r}') = K(\vec{r}'-\vec{r})$ which implies $\tilde{K}(\vec{k}) = \tilde{K}(-\vec{k})$, so no odd terms ($\vec{A} = 0$). Translations correspond to $\vec{k} = 0$ and have $\tilde{K} = 0$, so continuity gives $\lim\limits_{\vec{k}\rightarrow 0}\tilde{K}(\vec{k}) = 0$, which implies $C = 0$. Ignoring crystal symmetries we can assume $B$ is diagonal with diagonal entries $B$, so \begin{equation*}
+            \tilde{K}(\vec{k}) = Bk^2 + O(k^4)
+        \end{equation*}
+        and $\omega(\vec{k}) = \sqrt{\frac{\tilde{K}(\vec{k})}{m}} = \sqrt{\frac{B}{m}}k$ is our \Emph{dispersion relation} for phonons. $v := \sqrt{\frac{B}{m}}$ is the speed of sound in crystals. 
+        \begin{defn}
+            \Emph{Phonons} are the quanta of vibrational modes characterized by $\vec{k}$ (equivalent to photons in EM)
+        \end{defn}
+        full dispersion relation of phonons in a real isotropic crystal depends on $\omega$, with $\omega_l$: longitudinal waves and $\omega_t$: transversal waves, corresponding to different speeds of sound. 
+        
+        Now we have the average energy \begin{equation*}
+            \langle H^q\rangle = E_0 + \sum_{\vec{k},\alpha} \frac{\hbar vk}{e^{\beta\hbar vk}-1}
+        \end{equation*}
+        Over which $\vec{k}$ do we have to sum? We have periodic boundary conditions for a lattice $(L_x\times L_y\times L_z)$, so we require standing waves: \begin{equation*}
+            \vec{k} = 2\pi \begin{pmatrix} n_x/L_x \\ n_y/L_y \\ n_z/L_z \end{pmatrix}
+        \end{equation*}
+        for $n_x,n_y,n_z \in \Z$. In the thermodynamic limit, $V\rightarrow \infty$, the number of modes in volume element $d^3\vec{k}$ is \begin{equation*}
+            dN = dn_xdn_ydn_z = \frac{dk_x}{2\pi/L_x}\frac{dk_y}{2\pi/L_y}\frac{dk_z}{2\pi/L_z}=\frac{V}{(2\pi)^3}d^3\vec{k}
+        \end{equation*}
+        Then in the limit $V\rightarrow \infty$ we approximate \begin{equation*}
+            \langle H^q\rangle = E_0 + 3V \int_{B.Z.} \frac{d^3\vec{k}}{(2\pi)^3}\frac{\hbar vk}{e^{\beta\hbar vk}-1}
+        \end{equation*}
+        Can we reproduce the classical result for $T\rightarrow \infty$?
+        \begin{equation*}
+            \langle H^q\rangle \approx E_0 + 3V\int_{B.Z}\frac{d^3\vec{k}}{(2\pi)^3}\cdot\frac{1}{\beta} = E_0+3Nk_BT
+        \end{equation*}
+        which agrees with the classical case and is independent of the Brillouin zone.
+
+        What happens for low $T$? Define $T_D := \frac{\hbar vk_{max}}{k_B} \approx \frac{\hbar v}{k_B}\cdot\frac{\pi}{a}$ for a simple cubic unit cell. For $T << T_D$, we can replace the B.Z. with all space in the integral and make the change of variables $x := \beta\hbar v|\vec{k}|$ and $d^3\vec{k} = 4\pi x^2dx/(\beta\hbar v)^3$:\begin{equation*}
+            \langle H^q \rangle \approx E_0+\frac{3V}{8\pi^3}\left(\frac{k_BT}{\hbar v}\right)^34\pi k_BT\int_0^{\infty}dx\frac{x^3}{e^x-1} = E_0+\frac{\pi^2}{10}V\left(\frac{k_BT}{\hbar v}\right)^3k_BT
+        \end{equation*}
+        and $C_V \approx k_BV\frac{2\pi^2}{5}\left(\frac{k_BT}{\hbar v}\right)^3 \propto T^3$ as expected from experiments, and which is independent of the Brillouin zone.
+\end{itemize}
+
+For $T \ll T_D$ we have the following physical interpretations: \begin{itemize}
+    \item Only a fraction of the phonons can be thermally excited, these are the low-frequency ones with energy quanta $\hbar\omega(\vec{k}) < k_BT$ since $\langle n_{\vec{k}}\rangle = \frac{1}{e^{\beta\hbar\omega(\vec{k})}-1}$
+    \item The corresponding wave vectors are \begin{equation*}
+            |\vec{k}| < k^*(T) = \frac{\omega^*(T)}{v} = \frac{k_BT/\hbar}{v}
+    \end{equation*}
+    \item The number of these modes in $d$ dimensions is: \begin{equation*}
+            Vk^*(T)^d\sim V\left(\frac{k_BT}{\hbar v}\right)^d
+    \end{equation*}
+    \item Treating each excited mode classically, it should contribute $k_BT$ to $\langle H^q\rangle$, so $\langle H^q\rangle \sim V\left(\frac{k_BT}{\hbar v}\right)^dk_BT$, and $C_V\sim Vk_B\left(\frac{k_BT}{\hbar v}\right)^d \sim T^d$.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 5.3
+\chapter{Black-body Radiation}
+
+A black-body absorbs light perfectly at all wavelengths, and re-emits EM radiation. The experimental design consists of a 3D box (cavity) in a heat bath (so we are at thermal equilibrium). We take observations of emitted EM radiation through a tiny hole of area $A$.
+\begin{itemize}
+    \item The escaping energy flux per unit area and per unit time follows the Stefan-Boltzmann law: \begin{equation*}
+            \phi = \sigma T^4
+    \end{equation*}
+        with $\sigma \approx 5.67\times 10^{-8}Wm^{-2}K^{-4}$ (Stefan's constant)
+    \item The distribution of emitted wavelengths/frequencies (=spectrum) is universal and only depends on $T$
+\end{itemize}
+In nature this is seen in cosmic background radiation
+
+
+
+\section{Classical Description}
+
+The Hamiltonian for electromagnetic field in Fourier space using appropriate coordinates in a vacuum is \begin{equation*}
+    H^c = \frac{1}{2}\sum_{\vec{k},\alpha}\left[|\tilde{p}_{\vec{k},\alpha}|^2 + \omega_{\alpha}(\vec{k})^2|\tilde{u}_{\alpha}(\vec{k})|^2\right]
+\end{equation*}
+Photons (EM waves) are characterized by wavenumber $\vec{k}$ and two possible polarizations $\alpha$ (no longitudinal mode since $\nabla\cdot\vec{E} = 0$), and $\omega_{\alpha}(\vec{k}) = ck$, where $c$ is the speed of light. The sum of harmonic oscillators as for the case of phonons. Do we sum over the same $\vec{k}$ as for phonons? The box side length $L$ will induce periodic boundary conditions (standing waves): $\vec{k} = \frac{2\pi}{L}\begin{pmatrix} n_x \\ n_y \\ n_z\end{pmatrix}$, but no Brillouin zone since there is no discrete lattice for photons. $|\vec{k}|$ can be arbitrarily large, $n_x,n_y,n_z$ are unbounded, giving infinitely many Fourier modes $(N = \infty)$.
+
+In the classical case this implies infinite energy (each Fourier mode carries $k_BT$ energy) resulting in the \Emph{ultraviolet catastrophe} (large $|\vec{k}| = $ small $\lambda$).
+
+\section{QM Description (Planck)}
+
+The QM Hamiltonian is \begin{equation*}
+    H^q = \sum_{\vec{k},\alpha}\hbar\omega_{\alpha}(\vec{k})(n_{\vec{k},\alpha} + \frac{1}{2}) = \sum_{\vec{k},\alpha}\hbar cK(n_{\vec{k},\alpha}+\frac{1}{2})
+\end{equation*}
+with QM microstate $\{n_{\vec{k},\alpha}\}$, $n_{\vec{k},\alpha} = 0,1,2,3,...$ as for phonons, giving $2N$ occupation numbers (number of photons with a given wavevector and polarization)
+The average energy is then \begin{equation*}
+    \langle H^q \rangle = E_0+\sum_{\vec{k},\alpha}\hbar\omega_{\alpha}(\vec{k}) \langle n_{\vec{k},\alpha}\rangle = E_0+\sum_{\vec{k},\alpha}\hbar ck\frac{1}{e^{\beta\hbar ck}-1}
+\end{equation*}
+with $E_0 = \sum_{\vec{k},\alpha}\hbar ck\frac{1}{2}$. In the thermodynamic limit $V = L^3 \rightarrow \infty$: the number of modes in a volume element $d^3\vec{k}$ is \begin{equation*}
+    dN = \frac{V}{(2\pi)^3}d^3\vec{k}
+\end{equation*}
+Then the average energy per unit volume is \begin{equation*}
+    \frac{\langle H^q\rangle}{V} \approx \int_{-\infty}^{\infty}d^3\vec{k}\frac{2}{(2\pi)^2}\hbar ck\frac{1}{2}+\int_{-\infty}^{\infty}d^3\vec{k}\frac{2}{(2\pi)^3}\frac{\hbar ck}{e^{\beta \hbar ck}-1}
+\end{equation*}
+where the first integral diverges and is an infinite zero point energy density per volume, but constant, and the second integral is what we take as $\frac{\langle H^q\rangle^*}{V}$ (since potentials are only defined up to a constant). The finite energy stored in excited modes $\langle H^q\rangle^*$, as the zero-point energy is irrelevant, as only energy differences can be measured (no ultraviolet catastrophe).
+
+\begin{qst}
+    Can QM reproduce the Stefan-Boltzmann law?
+\end{qst}
+
+The number of photons hitting the entry area $A$ in time interval $dt$ from direction $\vec{\Omega}$ is \begin{equation*}
+    dN(\vec{\Omega}) = A\cdot cdt\cos\theta \cdot n\cdot \frac{d\vec{\Omega}}{4\pi}
+\end{equation*}
+which implies $dN(\theta) = Acdt\cos\theta n\frac{1}{4\pi}\int d\vec{\Omega}\Bigg\rvert_{\theta,\theta+d\theta}$, and hence $dN(\theta) = Acdt\cos\theta n \frac{\sin\theta 2\pi d\theta}{4\pi}$ and \begin{equation*}
+    \frac{N}{Adt} = cn\frac{1}{2}\int_0^{\pi/2}d\theta\cos\theta\sin\theta = \frac{c}{4}n
+\end{equation*}
+Similarly for the average escaping energy flux per unit area and per unit time: \begin{equation*}
+    \phi = \frac{c}{4}\frac{\langle H^q\rangle^*}{V} = \sigma T^4
+\end{equation*}
+with $\sigma = \frac{\pi^2}{60}\frac{k_B^4}{\hbar^3c^2}$ universal.
+
+Can QM also explain the black-body spectrum? \begin{equation*}
+    \frac{\langle H^q\rangle^*}{V} = \int_0^{\infty}dk\frac{\hbar c}{\pi^2}\frac{k^3}{e^{\beta\hbar ck}-1}
+\end{equation*}
+where the integrand is the energy density in the wave vector $k$, $\epsilon(k,T)$. The average escaping energy flux per unit area and per unit time in the interval $[k,k+dk]$: \begin{equation*}
+    I(k,T)dk = \frac{c}{4}\epsilon(k,T)dk \approx \left\{\begin{array}{cc} ck_BTk^3/(4\pi)^2,& k\ll k^*(T) \\ \hbar c^2k^3e^{-\beta\hbar ck}/(4\pi)^2,& k\gg k^*(T) \end{array}\right.
+\end{equation*}
+with $k^*(T) = k_BT/(\hbar c)$ as experimentally observed. From $\sigma$ and $I_{max,k}(k,T)$ one can determine $k_B$.
+
+What can we say about other thermodynamic properties of blackbody radiation?
+
+\begin{equation*}
+    Z^q = e^{-\beta E_0}\prod_{\vec{k},\alpha}\frac{1}{1-e^{-\beta\hbar ck}}
+\end{equation*}
+with $E_0 = \sum_{\vec{k},\alpha}\hbar ck\frac{1}{2}$, so $Z = \prod_{\vec{k},\alpha}\frac{e^{-\beta\hbar ck/2}}{1-e^{-\beta\hbar ck}}$. The free energy is then \begin{equation*}
+    F = -k_BT\ln Z = k_BT\sum_{\vec{k},\alpha}\left[\beta\hbar ck/2+\ln(1-e^{-\beta \hbar ck})\right]
+\end{equation*}
+In the thermodynamic limit, $dN = \frac{V}{(2\pi)^3}d^3\vec{k}$, and \begin{equation*}
+    F \approx \frac{V}{\pi^2}\int_0^{\infty}dk\left[\frac{\hbar ck^3}{2}+k^2k_BT\ln(1-e^{-\beta \hbar ck})\right]
+\end{equation*}
+WE then have a pressure \begin{equation*}
+    P = -\frac{\partial F}{\partial V}\Bigg\rvert_T \approx -\int_0^{\infty}\frac{\hbar ck^3}{2\pi^2}dk - \int_0^{\infty}\frac{k_BT}{\pi^2}k^2\ln(1-e^{-\beta \hbar ck})dk
+\end{equation*}
+where the first term is $P_0$, the infinite zero-point pressure (negative!), which is related to the Casimir force. Proceeding by integration by parts on the second integral we can write \begin{equation*}
+    P\approx P_0+\frac{1}{3}\frac{\langle H^q\rangle^*}{V}
+\end{equation*}
+
+
+
+\section{Black-hole thermodynamics}
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 5.4
+\chapter{Quantum Microstates}
+
+
+The behaviour of many systems for low $T$ is not captured by classical stat mech (heat capacity of polyatomic gas or solid, black-body radiation,...) including the 3rd law of thermodynamics. We need a theory that explains low $T$ behaviour (QM).
+
+For classical systems our microstates were $\{\vec{p}_i,\vec{q}_i\}$, while in quantum mechanics a microstate is given by a \Emph{unit vector} in hilbert space $|\psi\rangle$. If we have an orthonormal basis $\{|n\rangle\}$, we can write $$|\psi\rangle = \sum_n\langle n \vert \psi\rangle |n\rangle$$
+For example if we take the coordinate basis $|\{\vec{q}_i\}\rangle$ we can write \begin{equation*}
+    \langle \{\vec{q}_i\}|\psi\rangle = \psi(\vec{q}_1,...,\vec{q}_N)
+\end{equation*}
+Normalization means that \begin{equation*}
+    \langle \psi|\psi\rangle = \sum_n\langle \psi|n\rangle \langle n|\psi\rangle = 1
+\end{equation*}
+or in the case of a continuous basis \begin{equation*}
+    \langle \psi|\psi\rangle = \int \prod_{i=1}^Nd^d\vec{q}_i|\psi(\vec{q}_1,...,\vec{q}_N)|^2 = 1
+\end{equation*}
+
+
+\section{Observables}
+
+In a classical system an observable is a function $O(\{\vec{p}_i,\vec{q}_i\})$, while in quantum mechanics an observable is a Hermitian operator on the Hilbert space - $O = O^{\text{\textdagger}} = \overline{O}^t$. 
+
+\begin{rmk}
+    Experimentally observed values of $O$ are not unique for fixed $|\psi\rangle$, instead it is a random variable: all eigenvalues of $O$ can in principle be observed for an orthonormal eigenbasis of $O$: $O|n\rangle = o_n|n\rangle$. Then $$|\langle n|\psi\rangle|^2 = \text{the probability to measure eigenvalue $o_n$}$$
+    The expectation value or average for an operator is \begin{equation*}
+        \langle O \rangle = \langle \psi|O|\psi\rangle = \sum_no_n|\langle n|\psi\rangle|^2
+    \end{equation*}
+\end{rmk}
 
 
 
 
+\section{Time Evolution}
+
+In a classical system time evolution is described by the Hamiltonian $H(\{\vec{p}_i,\vec{q}_i\})$ plus Hamilton's equations of motion $\partial_t\vec{p}_i = -\frac{\partial H}{\partial \vec{q}_i}$ and $\partial_t\vec{q}_i = \frac{\partial H}{\partial \vec{p}_i}$. In quantum mechanics we have the Schr\"{o}dinger equation \begin{equation*}
+    i\hbar\partial_t|\psi(t)\rangle = H|\psi(t)\rangle
+\end{equation*}
+
+For an orthonormal eigenbasis of $H$, $H|n\rangle = \mathcal{E}_n|n\rangle$, we can represent $|\psi(t)\rangle = \sum_n\langle n|\psi(t)\rangle |n\rangle$, so by Schr\"{o}dinger's equation $i\hbar\partial_t\langle n|\psi(t)\rangle = \mathcal{E}_n\langle n|\psi(t)\rangle$ for all $n$, and \begin{equation*}
+    \langle n|\psi(t)\rangle = e^{-i\mathcal{E}_nt/\hbar}\langle n|\psi(0)\rangle
+\end{equation*}
+
+
+%%%%%%%%%%%%%%%%%%%%% Chapter 5.5
+\chapter{Quantum Macrostates}
+
+\begin{rmk}
+    The macrostate depends only on a few thermodynamic quantities. Many different microstates belong to the same macrostate - ensembles. For a fixed macrostate, each corresponding microstate occurs with a certain probability - ensemble averages.
+\end{rmk}
+
+In the case of a classical system: \begin{equation*}
+    \langle O(\{\vec{p}_i,\vec{q}_i\})\rangle(t) = \left\{\begin{array}{cc} \int\prod_{i=1}^Nd^3\vec{p}_id^3\vec{q}_iO(\{\vec{p}_i,\vec{q}_i\})\rho(\{\vec{p}_i,\vec{q}_i\},t) & \text{continuous} \\ \sum_{\alpha}p_{\alpha}O(\mu_{\alpha}(t)) & \text{discrete} \end{array}\right.
+\end{equation*}
+In QM we need to take two averages. The value of $O$ for fixed microstate is a random variable. Then the microstates are also random variables (for \Emph{mixed states}). Then \begin{align*}
+    \overline{\langle O\rangle} &:= \sum_{\alpha}p_{\alpha}\langle O\rangle_{\alpha} = \sum_{\alpha}p_{\alpha}\langle \psi_{\alpha}(t)|O|\psi_{\alpha}(t)\rangle \\
+    &= \sum_{\alpha,m,n}p_{\alpha}\langle \psi_{\alpha}|m\rangle\langle m|O|n\rangle\langle n|\psi_{\alpha}\rangle \tag{$\langle m|n\rangle=\delta_{m,n}$} \\
+    &= \sum_{\alpha,m,n}p_{\alpha}\langle n|\psi_{\alpha}\rangle\langle \psi_{\alpha}|m\rangle\langle m|O|n\rangle \\
+    &= \sum_{m,n}\Bigg\langle n \Bigg\vert\sum_{\alpha}p_{\alpha}|\psi_{\alpha}\rangle\langle \psi_{\alpha}|\Bigg\vert m \Bigg\rangle\langle m|O|n\rangle \\
+    &= \sum_{m,n}\langle n|\rho(t)|m\rangle\langle m|O|n\rangle \\
+    &= \sum_n\langle n|\rho(t)O|n\rangle = tr(\rho(t)O)
+\end{align*}
+using the fact that $\sum_m|m\rangle\langle m|$ is the identity. Here \begin{equation*}
+    \rho(t) = \sum_{\alpha}p_{\alpha}|\psi_{\alpha}\rangle\langle \psi_{\alpha}|
+\end{equation*}
+plays the same role as the phase space density in the classical case.
+
+
+
+
+\section{Density Matrix}
+
+\begin{qst}
+    What are the properties of $\rho$? Do they coincide with the properties of the phase space density?
+\end{qst}
+
+\begin{itemize}
+    \item $\rho$ must be normalized: \begin{align*}
+            \overline{\langle \text{id}\rangle} &= tr(\rho) = \sum_n\langle n|\rho|n\rangle = \sum_{\alpha,n}p_{\alpha}\langle n|\psi_{\alpha}\rangle\langle \psi_{\alpha}|n\rangle \\
+            &= \sum_{\alpha,n}p_{\alpha}|\langle n|\psi_{\alpha}\rangle|^2 = \sum_{\alpha}p_{\alpha}\sum_n|\langle n|\psi_{\alpha}\rangle|^2 \\
+            &= \sum_{\alpha}p_{\alpha} = 1
+        \end{align*}
+    \item $\rho$ corresponds to a pure state if and only if $\rho^2 = \rho$ (assume $|\psi_{\alpha}\rangle$ are orthonormal without loss of generality): \begin{align*}
+            \rho^2 &= \left(\sum_{\alpha}p_{\alpha}|\psi_{\alpha}\rangle \langle \psi_{\alpha}|\right)\left(\sum_{\beta}p_{\beta}|\psi_{\beta}\rangle\langle \psi_{\beta}|\right) \\
+            &= \sum_{\alpha,\beta}p_{\alpha}p_{\beta}|\psi_{\alpha}\rangle\langle \psi_{\alpha}|\psi_{\beta}\rangle\langle\psi_{\beta}| \\
+            &= \sum_{\alpha}p_{\alpha}^2|\psi_{\alpha}\rangle\langle \psi_{\alpha}|
+    \end{align*}
+        For a \Emph{pure state} $\beta$: $p_{\alpha} = \delta_{\alpha,\beta}$, which implies $\rho^2 = \rho$. Conversely, if $\rho^2 = \rho$, $tr(\rho^2) = tr(\rho) = 1$, which implies $\sum_{\alpha}p_{\alpha}^2 = 1$ which implies we have a pure state since if any $p_{\alpha} \in (0,1)$, $p_{\alpha}^2 < p_{\alpha}$. The density matrix allows us to describe pure and mixed states.
+    \item $\rho$ is Hermitian $(\rho^{\text{\textdagger}} = \rho)$: \begin{align*}
+            \langle m|\rho^{\text{\textdagger}}|n\rangle &= \langle n | \rho |m\rangle^* = \sum_{\alpha}p_{\alpha}\langle n | \psi_{\alpha}\rangle^*\langle \psi_{\alpha}|m\rangle^* \\
+            &= \sum_{\alpha}p_{\alpha}\langle \psi_{\alpha}|n\rangle\langle m|\psi_{\alpha}\rangle \\
+            &= \sum_{\alpha}p_{\alpha}\langle m|\psi_{\alpha}\rangle \langle \psi_{\alpha}|n\rangle = \langle m|\rho|n\rangle
+    \end{align*}
+        which implies $\overline{\langle O\rangle} \in \R$.
+    \item $\rho$ is positive definite: \begin{equation*}
+            \langle \phi|\rho|\phi\rangle = \sum_{\alpha}p_{\alpha}\langle \phi|\psi_{\alpha}\rangle\langle \psi_{\alpha}|\phi\rangle = \sum_{\alpha}p_{\alpha}|\langle \phi|\psi_{\alpha}\rangle|^2\geq 0
+    \end{equation*}
+        This implies all eigenvalues are non-negative. The eigenvalues are the $p_{\alpha}$ if $|\psi_{\alpha}\rangle$ are orthonormal.
+\end{itemize}
+
+Moving forward we notate $\langle O\rangle = tr(\rho O)$.
+
+
+
+\section{Time Evolution of Desity Matrix and Equilibrium}
+
+For classical systems we have Liouville's equation which says that the phase space density acts as an incompressible fluid: \begin{equation*}
+    0=\frac{d}{dt}\rho = \partial_t\rho - \sum_{\alpha=1}^{3N}\frac{\partial H}{\partial q_{\alpha}}\frac{\partial \rho}{\partial p_{\alpha}} - \frac{\partial H}{\partial p_{\alpha}}\frac{\partial \rho}{\partial q_{\alpha}} = \partial_t\rho - \{H,\rho\}
+\end{equation*}
+where $\{H,\rho\}$ is the \Emph{Poisson bracket}. This implies that \begin{equation*}
+    \partial_t\rho = \{H,\rho\}
+\end{equation*}
+In quantum mechanics we instead have the Schr\"{o}dinger equation, which implies \begin{align*}
+    i\hbar\partial_t\langle n|\rho(t)|m\rangle &= i\hbar \partial_t\left[\sum_{\alpha}p_{\alpha}\langle n|\psi_{\alpha}(t)\rangle\langle \psi_{\alpha}(t)|m\rangle\right] \\
+    &= \sum_{\alpha}p_{\alpha}i\hbar\left[\left(\partial_t\langle n|\psi_{\alpha}(t)\rangle\right)\langle \psi_{\alpha}(t)|m\rangle + \langle n|\psi_{\alpha}(t)\rangle\left(\partial_t\langle \psi_{\alpha}(t)|m\rangle\right)\right] \\
+    &= \sum_{\alpha}p_{\alpha}\left[\langle n|H|\psi_{\alpha}(t)\rangle\langle\psi_{\alpha}(t)|m\rangle - \langle n|\psi_{\alpha}(t)\rangle \langle \psi_{\alpha}(t)|H|m\rangle \right] \\
+    &= \langle n | H\rho | m\rangle - \langle n | \rho H| m \rangle \\
+    &= \langle n|[H,\rho]|m\rangle
+\end{align*}
+Thus the quantum equivalent to Liouville's theorem is \begin{equation*}
+    i\hbar \partial_t\rho(t) = [H,\rho]
+\end{equation*}
+In equilibrium we have $\partial_t\rho = 0$, so $[H,\rho] = 0$. As in analogy with classical statistical mechanics, we postulate that $\rho = \rho(H)$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%% Chapter 5.6
+\chapter{Quantum Ensembles}
+
+\begin{qst}
+    What is the density matrix for a given ensemble?
+\end{qst}
+
+\section{Microcanonical Ensemble}
+
+Recall in the microcanonical ensemble our macrostate is $(E,\vec{q},\vec{N})$, corresponding with an isolated system with internal energy $E = $ constant. In equilibrium $[H,\rho] = 0$, which implies $\rho$ and $H$ have a common set of eigenstates.
+
+\begin{rmk}
+    The \Emph{central postulate of statistical mechanics} is that all allowed states are equally likely $(\rho = \rho(H))$.
+\end{rmk}
+
+In the basis of energy eigenstates we can write \begin{equation*}
+    \langle n|\rho|m\rangle = \sum_{\alpha}p_{\alpha}\langle n|\psi_{\alpha}\rangle\langle \psi_{\alpha}|m\rangle = \left\{\begin{array}{cc} \frac{1}{\Omega}, & \varepsilon_n = E, m =n \\ 0, & \varepsilon_n = E, m \neq n \end{array}\right.
+\end{equation*}
+with $\Omega$ fixed by normalization, $tr\rho = 1$, so we have \begin{equation*}
+    \Omega(E) = tr\left(\sum_n^{\varepsilon_n = E}|n\rangle \langle n|\right)
+\end{equation*}
+Finally we need to identify a suitable entropy. Recall we have the candidate Shannon-Boltzmann entropy, $S(E,\vec{q},\vec{N}) = k_B\ln\Omega(E,\vec{q},\vec{N})$. The \Emph{Volume entropy} (gibbs) is better suited if the thermodynamic limit is not taken: $S(E,\vec{q},\vec{N}) = k_B\ln\Omega(U< E,\vec{q},\vec{N})$.
+
+\section{Canonical Ensemble}
+
+Recall the canonical ensemble has the macrostate $(T,\vec{q},\vec{N})$, which is a system coupled to a heat bath with fixed $T$. We consider the combined system of the heat bath, $\sum_2$, and our system, $\sum_1$. We assume $\sum_1,\sum_2$ exchange heat to reach thermal equilibrium but the interaction is weak which means we can neglect the energy due to interactions: $U_{\sum} = U_{\sum_1} + U_{\sum_2}$. Recall $|\psi_{\alpha}\rangle$ is the possible state of system $\sum_1$ corresponding to eigenstate of $H_1$ with eigenenergy $\varepsilon_{\alpha}$. For $\sum$: \begin{align*}
+    \Omega_{\sum}(E) &= \sum_{\alpha}\Omega_{\sum_1}(\varepsilon_{\alpha})\cdot \Omega_{\sum_2}(E-\varepsilon_{\alpha})
+\end{align*}
+which implies $p_{\alpha} \propto \Omega_{\sum_2}(E-\varepsilon_{\alpha})$. Using a Taylor expansion of the entropy around $E$ since $E \gg \varepsilon_{\alpha}$: \begin{equation*}
+    k_B\ln\Omega_{\sum_2}(E-\varepsilon_{\alpha}) = k_B\ln\Omega_{\sum_2}(E) - k_B\varepsilon_{\alpha}\left(\frac{\partial }{\partial E_2}\ln\Omega_{\sum_2}(E_2)\right)\Bigg\rvert_{E_2 = E}+\cdots \approx k_B\ln\Omega_{\sum_2}(E) - \frac{\varepsilon}{T}
+\end{equation*}
+since $E-\varepsilon_{\alpha}\approx E$. Then $p_{\alpha}\propto\Omega_{\sum_2}(E-\varepsilon_{\alpha})\propto e^{-\beta\varepsilon_{\alpha}}$ with $\beta = \frac{1}{k_BT}$. It follows that \begin{equation*}
+    \rho\propto \sum_{\alpha}e^{-\beta\varepsilon_{\alpha}}|\psi_{\alpha}\rangle\langle\psi_{\alpha}| = e^{-\beta H_1}\sum_{\alpha}|\psi_{\alpha}\rangle\langle\psi_{\alpha}|
+\end{equation*}
+which implies that \begin{equation*}
+    \rho = \frac{e^{-\beta H_1}}{tr(e^{-\beta H_1})} = \frac{e^{-\beta H_1}}{Z(\beta)}
+\end{equation*}
+with $Z = tr(e^{-\beta H_1}) = \sum_ne^{-\beta\varepsilon_n}$ which is our partition function, where we sum over the discrete energy levels including multiplicity/degenerated energies. 
+
+\begin{itemize}
+    \item Observables: \begin{equation*}
+            \langle O\rangle = tr(\rho O) = \frac{tr(e^{-\beta H}O)}{tr(e^{-\beta H})} 
+        \end{equation*}
+    \item Internal energy: \begin{equation*}
+            U = \langle H\rangle = -\frac{\partial }{\partial \beta}\ln Z
+        \end{equation*}
+    \item Helmholtz free energy: \begin{equation*}
+            F(T,\vec{q},\vec{N}) = -k_BT\ln Z
+    \end{equation*}
+\end{itemize}
+
+
+
+\section{Grand Canonical Ensemble}
+
+In the grand canonical ensemble the macrostate is $(T,\vec{q},\vec{\mu})$, and the system coupled to a heat bath with fixed $T$ and a particle reservoir at fixed $\vec{\mu}$. We again consider the total system as one isolated system with the reservoir $\sum_2$ and the system of interest $\sum_1$. We assume $U_1 \ll U_2$ and $N_1 \ll N_2$. For the combined system $\sum = \sum_1 \cup \sum_2$, we have $U \approx U_1+U_2, N \approx N_1+N_2,$ and $V = V_1+V_2$.
+
+THepossible states of $\sum_1$ consist of joint eigenstates of the Hamilton operator $H_1$ and the number operator $N_1$ ($[H_1,N_1] = 0$): \begin{align*}
+    H_1|E_{\alpha}(N_1)\rangle &= \varepsilon_{\alpha}(N_1)|E_{\alpha}(N_1)\rangle \\
+    N_1|E_{\alpha}(N_1)\rangle &= N_1|E_{\alpha}(N_1)\rangle
+\end{align*}
+where \begin{equation*}
+    \rho = \sum_{N_1}\sum_{\alpha}p_{\alpha}(N_1)|E_{\alpha}(N_1)\rangle\langle E_{\alpha}(N_1)|
+\end{equation*}
+for $\sum$ in the microcanonical ensemble \begin{equation*}
+    \Omega_{\sum}(E,N,V) = \sum_{N_1}\sum_{\alpha}\Omega_{\sum_1}(\varepsilon_{\alpha}(N_1),N_1,V_1)\Omega_{\sum_2}(E-\varepsilon_{\alpha}(N_1),N_2, V_2)
+\end{equation*}
+We then have \begin{equation*}
+    p_{\alpha}(N_1) \propto \Omega_{\sum_2}(E-\varepsilon_{\alpha}(N_1),N-N_1,V_2)
+\end{equation*}
+Taking a Taylor expansion we can write \begin{equation*}
+    k_B\ln\Omega_{\sum_2}(E-\varepsilon_{\alpha}(N_1),N-N_1,V_2) \approx S_2(E,N,V_2) - \varepsilon_{\alpha}(N_1)\left(\frac{\partial S_2}{\partial U_2}\right)_{V_2,N_2}(E,N,V_2) - N_1 \left(\frac{\partial S_2}{\partial N_2}\right)_{U_2,V_2}(E,N,V_2)
+\end{equation*}
+We also have \begin{equation*}
+    \left(\frac{\partial S_2}{\partial U_2}\right)_{N_2,V_2}(E,N,V_2) \approx \left(\frac{\partial S_2}{\partial U_2}\right)_{N_2,V_2}(E_2,N_2,V_2) = \frac{1}{T}
+\end{equation*}
+and 
+\begin{equation*}
+    \left(\frac{\partial S_2}{\partial N_2}\right)_{U_2,V_2}(E,N,V_2) \approx \left(\frac{\partial S_2}{\partial N_2}\right)_{U_2,V_2}(E_2,N_2,V_2) = -\frac{\mu}{T}
+\end{equation*}
+It follows that \begin{equation*}
+    p_{\alpha}(N_1) \propto e^{-\beta(\varepsilon_{\alpha}(N_1) - \mu N_1)}
+\end{equation*}
+Then \begin{equation*}
+    \rho \propto \sum_{N_1}\sum_{\alpha}e^{-\beta(\varepsilon_{\alpha}(N_1)-\mu N_1)}|E_{\alpha}(N_1)\rangle \langle E_{\alpha}(N_1)| = e^{-\beta(H_1-\mu \hat{N}_1)}\sum_{N_1}\sum_{\alpha}|E_{\alpha}(N_1)\rangle\langle E_{\alpha}(N_1)|
+\end{equation*}
+Thus, we have that \begin{equation*}
+    \boxed{\rho(T,\mu) = \frac{e^{-\beta(\hat{H}-\mu\hat{N})}}{tr(e^{-\beta(\hat{H}-\mu\hat{N})})} = \frac{e^{-\beta(\hat{H}-\mu\hat{N})}}{Q}}
+\end{equation*}
+With $$Q(T,\mu) = tr e^{-\beta(\hat{H}-\mu\hat{N})} = \sum_{N=0}^{\infty}\sum{\alpha}e^{-\beta(E_{\alpha}(N)-\mu N)}=\sum_{N=0}^{\infty}e^{\beta \mu N}Z_N(T)$$
+\begin{itemize}
+    \item Observables: $$\langle O\rangle = tr(\rho O) = \frac{tr(e^{-\beta(\hat{H}-\mu\hat{N})}O)}{tr(e^{-\beta(\hat{H}-\mu\hat{N})})}$$
+    \item Particle number: $$\langle N\rangle = k_BT\frac{\partial }{\partial \mu}\ln Q = \frac{\partial}{\partial(\beta \mu)}\ln Q$$
+    \item Internal energy: $$U = \langle H\rangle = -\frac{\partial }{\partial \beta}\ln Q + \mu \langle N\rangle$$
+    \item Grand Potential: $$\mathcal{G}(T,\vec{\mu},\vec{q}) = -k_BT\ln Q$$
+\end{itemize}
+
+
+
+
+
+\subsection{Ideal Gas in the Canonical Ensemble}
+
+We consider a single particle in a box of volume $V = L^3$. Then \begin{equation*}
+    H_1 = \frac{\vec{p}\cdot\vec{p}}{2m} = -\frac{\hbar^2}{2m}\nabla^2 
+\end{equation*}
+the representation of momentum operators in coordinate basis. Consider the energy eigenstates $H_1|\vec{k}\rangle = \varepsilon(\vec{k})|\vec{k}\rangle$. In the coordinate basis \begin{equation*}
+    |\vec{k}\rangle = \sum_{\vec{k}}|\vec{x}\rangle\langle \vec{x}|\vec{k}\rangle
+\end{equation*}
+so \begin{equation*}
+    -\frac{\hbar^2}{2m}\nabla^2\langle \vec{x}|\vec{k}\rangle = \varepsilon(\vec{k})\langle \vec{x}|\vec{k}\rangle
+\end{equation*}
+The solution to this DE is the plane waves \begin{equation*}
+    \langle \vec{x}|\vec{k}\rangle = \frac{e^{i\vec{k}\cdot\vec{x}}}{\sqrt{V}}
+\end{equation*}
+so $\varepsilon(\vec{k}) = \frac{\hbar^2k^2}{2m}$. By periodic boundary equations $\vec{k} = \frac{2\pi }{L}\langle n_x,n_y,n_z\rangle$, with $n_i \in \Z$, which corresponds with an infinite number of energy eigenstates. In the thermodynamic limit as $V\rightarrow \infty$, the number of modes in the volume element $d^3\vec{k}$ is \begin{equation*}
+    dN = \frac{V}{(2\pi)^3}d^3\vec{k}
+\end{equation*}
+Then the partition function in the thermodynamic limit is \begin{align*}
+    Z_1 &= tr(e^{-\beta H_1}) = \sum_{\vec{k}}e^{-\beta \hbar^2k^2/2m} \\
+    &= V\int\frac{d^3\vec{k}}{(2\pi)^3}e^{-\beta\hbar^2k^2/2m} \\
+    &= \frac{V}{(2\pi)^3}\left(\sqrt{\frac{2\pi mk_BT}{\hbar^2}}\right)^3 = \frac{V}{\lambda^3}
+\end{align*}
+with $\lambda := \frac{h}{\sqrt{2\pi mk_BT}}$ the characteristic wavelength.
+
+The density matrix can be found as follows: \begin{align*}
+    \langle \vec{x}'|\rho|\vec{x}\rangle &= \sum_{\vec{k}}\langle \vec{x}'|\vec{k}\rangle \frac{e^{-\beta\varepsilon(\vec{k})}}{Z_1}\langle \vec{k}|\vec{x}\rangle \\
+    &= \frac{\lambda^3}{V}\int\frac{Vd^3\vec{k}}{(2\pi)^3}\frac{e^{-i\vec{k}\cdot(\vec{x}-\vec{x}')}}{V}e^{-\beta\hbar^2k^2/2m} \\
+    &= \frac{\lambda^3}{V}\frac{1}{(2\pi)^3}\prod_{j=1}^3\int dk_je^{-\frac{\beta\hbar^2}{2m}\left(k_j+i(x_j-x_j')\frac{m}{\beta\hbar^2}\right)^2} \cdot e^{-(x_j-x_j')^2m/2\beta\hbar^2} \\
+    &= \frac{1}{V}e^{-m||\vec{x}-\vec{x}'||^2/2\beta\hbar^2} \\
+    &= \frac{1}{V}e^{-\pi||\vec{x}-\vec{x}'||^2/\lambda^2}
+\end{align*}
+The diagonal elements are $\langle \vec{x}|\rho|\vec{x}\rangle = \frac{1}{V} = $ the probability of finding the particle at $\vec{x}$. For the off-diagonal elements there is no classical analog. The particle has a wave packet of size $\lambda = \frac{h}{\sqrt{2\pi mk_BT}}$, the \Emph{thermal wavelength}. As $T\rightarrow \infty$, $\lambda\rightarrow 0$, so off-diagonal elements vanish (classical limit). As $T\rightarrow 0$, $\lambda \rightarrow \infty > L$ which is an issue of our approximation!!
+
+
+
+
+\section{Entropy and Extremal Properties of Thermodynamic Potentials}
+
+
+
+\section{Third Law of Thermodynamics}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%% Chapter 5.7
+\chapter{Ideal Quantum Gas}
+
+\section{Indistinguishable Particles}
+
+\subsection{Fermions}
+
+\subsection{Bosons}
+
+\subsection{Anyons}
+
+\section{Hilbert Space of Indistinguishable Particles}
+
+
+\subsection{Fermionic and Bosonic Subspaces}
+
+\section{Ideal Quantum Gas in the Canonical Ensemble}
+
+\section{Ideal Quantum Gas in the Grand Canonical Ensemble}
+
+
+\subsection{The Degenerate Fermi Gas}
+
+
+\subsection{Thermodynamic Properties of the Ideal Quantum Gas}
+
+
+\subsection{Thermodynamic Properties of the Degenerate Fermi Gas}
+
+
+\subsection{The Degenerate Bose Gas}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 6
+\part{Complexity}
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 6.1
+\chapter{Crackling Noise and Earthquakes}
+
+\section{Dynamics of Crackling Noise}
+
+\begin{defn}
+    \Emph{Crackling noise} relates to phenomena in which events of all sizes (/an enourmous range of sizes) occur with probability following a power distribution.
+\end{defn}
+
+Crackling is observed in many phenomena including paper crumbling, rise krispies, magnets and magnetization, earthquakes, fire, crackling foam, solar flares, fractures, etc.
+
+In the case of Earthquakes the power law is observed as the number of earthquakes versus their magnitude, following the \Emph{Gutenberg-Richter law}: $$Probability\sim Size^{-Power}$$
+
+\subsection{Plasticity}
+
+We observe what are known as \Emph{dislocation avalanches} when bending plastics, such as forks, where there are sudden changes once the strain has reached a certain point, and these fractures result in an avalanche of fractures.
+
+\subsection{Magnetic Barkhausen Noise}
+
+In Barkhausen noise we observe events of all sizes, and structure on all scales. This is both observed temporaly and spatially in the magnetic with avalanche fractals in time and space. This is also seen in the Hysterisis curve of the magnetization.
+
+\subsection{What is an avalanche?}
+
+To understand what an avalanch we look at hysteresis in the $T = 0$ random field Ising model: $$\mathcal{H} = -\sum_{ij, nn}JS_iS_j-\sum_iHS_i-h_iS_i$$
+where $S_i = \pm 1$ is the magnetic spin of the domain, $J$ the coupling between neighboring spins, $H$ the external magnetic field, and $h_i$ the random field at the site, ``dirt," chosen from a Gaussian distribution of RMS width $R$.
+
+It has the following dynamics: \begin{itemize}
+    \item Starts all spins down: $H = -\infty$
+    \item Increase field slowly 
+    \item Spin flips when pushed over
+    \item Initial center spin pushed by $H$
+    \item Pushes neighbors causing an avalanche
+\end{itemize}
+The coupling with neighbors causes the avalanches. For $R < R_c$ we see neighbors dominating and one big avalanche (first spin triggers all others). For $R > R_c$ we observe large disorder, with dirt dominating and many small avalanches occurring (each spin to itself). At $R = R_c$ we have the power law $M-M_c \sim (H-H_c)^{1/\delta}$ for the critical exponent $\delta$.
+
+\section{The Renormalization Group}
+
+Why do we observe universality? It corresponds to a fixed point under coarse graining. In this model our system space consists of properties $=$ coordinates. We have many ways of coarse-graining including $\epsilon$-expansion, Monte Carlo, functional RG, etc. In any case the flow on the system space involves a dynamical system on a space of dynamical systems. We look for the system state $S^*$ which is a fixed point at which we observe self-similarity, and that lies on the critical manifold $C$. The critical manifold should flow into $S^*$, corresponding to universality, while all other positions flow away.
+
+We can also have spontaneous criticality, involving generic scale invariance and self-organized criticality. For instance we could have an attracting fixed point. Sometimes we still observe fluctations in these cases. On the other hand we could have a slow driving/inhomogeneous/long range forces which drive to the critical point. This occurs in such phenomena as earthquakes, sandpiles, magnets, front propagation, forest fires, etcetera. 
+
+\section{Avalanches}
+
+\subsection{Avalanche Temporal Shapes}
+
+\begin{note}
+    An avalanche or cascade occurs when one event causes one or more subsequent events, which in turn may cause further events in a chain reaction
+\end{note}
+
+\begin{defn}
+    The \Emph{temporal profiles} of avalanches of a fixed duration $\tau$ are the average of avalanche shapes. 
+\end{defn}
+
+At the critical point we observe universal scaling of avalanches. For instance the distribution of avalanche sizes has a power-law scaling at the critical point. We obtain the average avalanche shape by averaging the temporal profiles of all avalanches that have a fixed duration $T$. At criticality the average avalanche shape is a universal function of the rescaled time $t/T$, meaning that the average avalanche shapes for different durations can be rescaled to collapse onto a single curve. 
+
+For some threshold height, we consider an event to be described by the temporal window in which the magnitude is above the threshold. When we plot the average size versus the duration of the event we obtain a power law of the form $$S \sim \xi^{\sigma\nu}\sim T^{\sigma\nu z}$$
+
+\begin{rmk}[Magnetization case]
+    Dividing the time scale by $T$ and the voltage scale by $V_{max}$, we obtain universal scaling forms. Experimentally and theoretically we observe that for larger durations, $T$, the characteristic parabola appears to widen.
+\end{rmk}
+
+\subsection{Spatial Structure}
+
+We expect that all geometrical features of large avalanches should be universal: 
+\begin{itemize}
+    \item Correlation functions and fractal dimensions
+    \item Aspect ratios
+    \item Topology (i.e. holes,  interconnectedness, etc)
+    \item Front shapes
+    \item Height and width distributions
+\end{itemize}
+Avalanches often appear to evolve fractally in the spatial domain. An example of this evolution is the distribution of earthquakes, or the adjustment of foam (which produces crackling noise) as one squashes it and applies stress.
+
+
+\subsection{Earthquakes}
+
+In Elastic rebound theory earthquakes are modeled as the tectonic plates shearing about some line in a very slow manor over many years (for example $5 cm/year$). THen when the stress has reached a certain degree one part of the plates snaps, with the component of the plate on either side of the axis moving in the opposite direction at very high speeds ($3.5 km/s$). This then casues a chain reaction as the other portions of the plate break and shift.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.8]{Images/Earthquake.PNG}
+    \caption{Diagram of earthquake sheering}
+    \label{fig:quake}
+\end{figure}
+
+THis model is described by the Seismic moment, $M = \mu A \delta_e$ where $\mu$ is the shear modulus of the rocks involved, $A$ is the area of the rupture along the geological fault, and $\delta_e$ is the average slip oon $A$. However, this values are often very large so instead we use the moment magnitude: $$m = (\log_{10}M - d)/c$$
+
+Over time we observe that the strength of the stress on the plates. In particular, instead of perfectly periodic behaviour in the actual stress, with a linear increase then a sudden drop (triangular wave), the rate of increasing stress and the magnitude it hits before an event occurs and it drops varies. This is due to the presence of aftershocks and interference between quakes and aftershocks.
+
+Quakes cause both static and dynamic stress changes in the nearby plates, which can cause other quakes farther away. The dynamic stress changes are typically seen as wave pulses of stress that propogate out from the initial quake location, while static stresses are constant shifts in the stress for a region due to a shift (a step like function if you will).
+
+The Gutenberg Richter law is a scale-free and universal way of describing quake phenomena. 
+
+\subsection{Space Weather}
+
+In solar wind and flare phenomena we observe crackling noise as well as associated power-law relations.
+
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter 6.2
+\chapter{Complex Systems}
+
+
+\section{Introduction and Overview}
+
+\begin{defn}
+    \Emph{Complexity} is a scientific theory which asserts that some systems display behavioral phenomena that are completely inexplicable by any conventional analysis of the systems' constituent parts (the whole is more than the sum of its parts - the behvaiour as a whole is not suggested by the behaviour of a part). These phenomena commonly referred to as \Emph{emergent behaviour} seem to occur in many complex systems involving living organisms (eg the brain)
+\end{defn}
+
+\begin{rmk}
+    Behind many complex systems there is a \Emph{network}, that defines the pattern of connections between the interacting components.
+\end{rmk}
+
+\begin{eg}[Network examples]
+    The internet, which is composed of machines and routers. Social networks such as facebook. Biological networks such as neural networks.
+\end{eg}
+
+\subsection{Neuron Networks}
+
+Neuron's are composed of a central cell body as well as a tell of axon's (connecting fibers) which end off in axon terminals (transmitters). The central body also has a number of dendrites which act as recievers. A signal or event in a Neuron corresponds with an action potential, where once the electrical potential passes a certain threshold, it spikes in a characteristic fashion. This spikes in a neural network can cause \Emph{neuronal avalanches}, where one neuron spiking influences neighboring neurons making it more likely for them to spike in a cascading fashion. These avalanches follow a power law distribution of the proportion versus the sequence size or total number of spikes. In particular these types of avalanches can be seen in the brain, where one neuron spiking in a particular location can cause a large portion of neurons to spike in succession in that location.
+
+At criticality we obtain \Emph{optimiality}, which equates to a maximum of information transfer, storage, and computational power. Being subcritical corresponds with a state akin to a comma, while being supercritical can correspond to a state akin to a seizure.
+
+\begin{rmk}
+    We can model these different criticality stages and avalanches using a branching process described by directed percolation.
+\end{rmk}
 
 
 
