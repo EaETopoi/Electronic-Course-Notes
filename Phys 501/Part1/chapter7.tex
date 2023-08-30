@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{The Geometry Outside a Spherical Star}
+\label{GeomSphere} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{To be completed once done}
+
+\section{Schwarzschild Geometry}
+\label{sec:schwarz}
+
+The line element summarizing the \textbf{Schwarzschild geometry} is given by $$ds^2 = -\left(1-\frac{2GM}{c^2r}\right)(cdt)^2+\left(1-\frac{2GM}{c^2r}\right)^{-1}dr^2+r^2(d\theta^2+\sin^2\theta d\phi^2)$$
+The coordinates are called \textbf{Schwarzschild coordinates} and the corresponding metric $g_{\alpha\beta}(x)$ is called the \textbf{Schwarzschild metric}. It has the following properties: \begin{itemize}
+    \item \textbf{Time independent}: The metric is independent of $t$.
+    \item \textbf{Spherically Symmetric}: The geometry of a two-dimensional surface of constant $t$ and $r$ in the four-dimensional geometry describes the geometry of a sphere of radius $r$ in flat three-dimensional space. The Schwarzschild coordinate $r$ is $$r = (A/4\pi)^{1/2}$$
+        where $A$ is the area of a two-dimensional sphere of fixed $r$ and $t$.
+    \item \textbf{Mass}: if $GM/c^2r$ is small, the coefficient $dr^2$ in the line element can be expanded to give $$ds^2 \approx -\left(1-\frac{2GM}{c^2r}\right)(cdt)^2+\left(1+\frac{2GM}{c^2r}\right)dr^2+r^2(d\theta^2+\sin^2\theta d\phi^2)$$
+        which is the form of the static, weak field metric with a Newtonian gravitational potential $\Phi$ given by $\Phi = -GM/r$. Any form of energy is a source of spacetime curvature. 
+    \item \textbf{Schwarzschild Radius}: The radius $r  = 2GM/c^2$ is called the \textbf{Schwarzschild radius} and is the characteristic length scale for curvature in the Schwarzschild geometry.
+\end{itemize}
+
+We can put $G = 1$ by measuring mass in units of length through the conversion $$M(in\;cm) = \frac{G}{c^2}M(in\;g) = 0.742\times 10^{-28}\left(\frac{cm}{g}\right)M(in\;g)$$
+These length units are called \textbf{geometrized units}, or $c = G = 1$ units. When converting back replace $M$ by $GM/c^2, \tau$ by $c\tau$, $dx^i/d\tau$ by $(1/c)(dx^i/d\tau)$, etc.
+
+In geometrized units the Schwarzschild line element has the form $$ds^2 = -\left(1-\frac{2G}{r}\right)dt^2+\left(1-\frac{2M}{r}\right)^{-1}dr^2+r^2(d\theta^2+\sin^2\theta d\phi^2)$$
+
+
+\section{The Gravitational Redshift}
+\label{sec:redShiftGrav}
+
+The energy of the photon measured by an observer with four velocity $\mathbf{u}_{obs}$ is $$E = -\mathbf{p}\cdot\mathbf{u}_{obs}$$
+Since the energy of a photon is related to its frequency by $E = \hbar\omega$, $$\hbar\omega = -\mathbf{p}\cdot\mathbf{u}_{obs}$$
+giving the frequency measured by an observer with four-velocity $\mathbf{u}_{obs}$. The frequency of a photon measured by a stationary observer at radius $R$ is \begin{equation*}
+    \hbar\omega_* = \left(1-\frac{2M}{R}\right)^{-1/2}(-\mathbf{\xi}\cdot\mathbf{p})_R
+\end{equation*}
+As $\mathbf{\xi}\cdot\mathbf{p}$ is conserved along the photon's geodesic, the frequencies at $R$ and infinity are related by $$\omega_{\infty} = \omega_0\left(1-\frac{2M}{R}\right)^{1/2}$$
+The photon has suffered a gravitational redshift.
+
+
+
+\section{Particle Orbits---Precession of the Perihelion}
+\label{sec:perihelion}
+
+
+We investigate the orbits of test particles following timelike geodesics in Schwarzschild geometry.
+
+
+\subsection{Conserved Quantities}
+
+Because the metric is independent of time and spherically symmetric the laws of conservation of energy and angular momentum hold.We define quantities $e$ (conserved energy per unit rest mass) and $\ell$ (conserved angular momentum per unit rest mass) by \begin{equation*}
+    \boxed{e = -\mathbf{\xi}\cdot\mathbf{u} = \left(1-\frac{2M}{r}\right)\frac{dt}{d\tau}}
+\end{equation*}
+and \begin{equation*}
+    \boxed{\ell = \mathbf{\eta}\cdot\mathbf{u} = r^2\sin^2\theta\frac{d\phi}{d\tau}}
+\end{equation*}
+$e$ is the energy per unit rest mass in flat space, and $\ell$ is the angular momentum per unit rest mass for low velocities.
+
+\subsection{Effective Potential and Radial Equation}
+
+Conservation of angular momentum implies that orbits lie in a ``plane." For the remainder of the discussion we consider $\theta = \pi/2$ and $u^{\theta} = 0$ after a possible reorientation of the coordinates so that the particle orbits in the equatorial ``plane." THen the normalization of the 4-velocity reads \begin{equation*}
+     -\left(1-\frac{2M}{r}\right)(u^t)^2 + \left(1-\frac{2M}{r}\right)^{-1}(u^r)^2+r^2(u^{\phi})^2 = -1
+\end{equation*}
+Using our expressions for $e$ and $\ell$ we can write $$-\left(1-\frac{2M}{r}\right)^{-1}e^2+\left(1-\frac{2M}{r}\right)^{-1}\left(\frac{dr}{d\tau}\right)^2+\frac{\ell^2}{r^2}=-1$$
+Let $\mathcal{E} = (e^2-1)/2$ and define the \textbf{effective potential} to be \begin{equation*}
+    V_{eff}(r) \equiv -\frac{M}{r} + \frac{\ell^2}{2r^2}-\frac{M\ell^2}{r^3}
+\end{equation*}
+the correspondence becomes the exact $$\boxed{\mathcal{E} = \frac{1}{2}\left(\frac{dr}{d\tau}\right)^2+V_{eff}(r)}$$
+Putting back in the factors of $c$ and $G$ by replacing $t$ and $\tau$ by $ct$ and $c\tau$, and replacing $M$ by $GM/c^2$, the conserved quantity $\ell$ is replaced by $\ell/c$, $\ell = r^2(d\phi/d\tau)$, and the effective potential becomes $$V_{eff}(r) = \frac{1}{c^2}\left(-\frac{GM}{r} + \frac{\ell^2}{2r^2}-\frac{GM\ell^2}{c^2r^3}\right)$$
+Define $E_{Newt}$ by $$e \equiv \frac{mc^2+E_{Newt}}{mc^2}$$
+so $$E_{Newt} = \frac{m}{2}\left(\frac{dr}{d\tau}\right)^2+\frac{L^2}{2mr^2}-\frac{GMm}{r}-\frac{GML^2}{c^2mr^3}$$
+where $L = m\ell$. This has the same form as the energy integral in Newtonian gravity with an additional relativistic correction to the potential proportional to $1/r^3$.
+
+Observe that $V_{eff}(r)$ goes to $-M/r$ as $r\rightarrow \infty$, and $V_{eff}(2M) =  -1/2$. $V_{eff}(r)$ has one local min and one local max with radii \begin{equation*}
+    r_{min/max} = \frac{\ell^2}{2M}\left[1\pm\sqrt{1-12\left(\frac{M}{\ell}\right)^2}\right]
+\end{equation*}
+Turning points occur at the radii $r_{tp}$ where $\mathcal{E} = V_{eff}(r_{tp})$, because that's where the radial velocity vanishes.
+
+
+\subsection{Radial Plunge Orbits}
+
+The radial free fall of a particle from infinity is described by $\ell = 0$. If the particle starts at rest $e = 1$, so we have $$0 = \frac{1}{2}\left(\frac{dr}{d\tau}\right)^2-\frac{M}{r}$$
+which gives the radial component of the four-velocity $dr/d\tau$. This gives the four-veloicty $$u^{\alpha} = \left(\frac{1}{1-\frac{2M}{r}},-\sqrt{\frac{2M}{r}},0,0\right)$$
+We also have that $$r^{1/2}dr = -(2M)^{1/2}d\tau$$
+so $$r(\tau) = (3/2)^{2/3}(2M)^{1/3}(\tau_*-\tau)^{2/3}$$
+where $\tau_*$ is an arbitrary integration constant that fixes the proper time when $r = 0$. Observe that \begin{equation*}
+    \frac{dt}{dr} = -\left(\frac{2M}{r}\right)^{-1/2}\left(1-\frac{2M}{r}\right)^{-1}
+\end{equation*}
+which gives $$t= t_*+2M\left[-\frac{2}{3}\left(\frac{r}{2M}\right)^{3/2}-2\left(\frac{r}{2M}\right)^{1/2}+\log\left|\frac{(r/2M)^{1/2}+1}{(r/2M)^{1/2}-1}\right|\right]$$
+The relation $t=t(\tau)$ can then be found by substituting our expression for $r(\tau)$. From our expression for $r(\tau)$ we see that it only takes a finite proper time to reach $r = 2M$ from any initial $r_*$ even though our expression for $t(r)$ shows that it takes an infinite amount of coordinate time $t$.
+
+\begin{eg}
+    Consider a projectile launched by a stationary position at Schwarzschild coordinate radius $R$. The outward-bound projectile follows a radial geodesic since there are no forces acting on it. At infinity a projectile at rest has $e  =1$. Since $e$ is conserved, the observer must launch the projectile with a minimum value $e = 1$. This requires a four velocity which is described by $\left(\frac{dr}{d\tau}\right)^2 = \frac{2M}{r}$. The energy $E$ measured by the observer is $-\mathbf{p}\cdot\mathbf{u}_{obs}$, where $\mathbf{u}_{obs}$ is the stationary observer's four-velocity and $\mathbf{p} = m\mathbf{u}$ is the projectile's four momentum if $m$ is its rest mass.
+    
+    The energy required at launch to escape is, therefore, $$E = -\mathbf{p}\cdot\mathbf{u}_{obs} = m\left(1-\frac{2M}{R}\right)^{-1/2}$$
+    In the observer's frame the energy of a particle $E$ is related to its speed $V$ by $E = m/\sqrt{1-V^2}$. Thus the escape velocity is $$V_{escape} = \left(\frac{2M}{R}\right)^{1/2}$$
+\end{eg}
+
+
+\subsection{Stable Circular Orbits}
+
+
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

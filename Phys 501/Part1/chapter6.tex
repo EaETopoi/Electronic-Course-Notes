@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Geodesics}
+\label{geod} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{To be completed once done}
+
+\section{The Geodesic Equation}
+\label{sec:geodEq}
+
+Both experimentally and theoretically, the curved spacetimes of general relativity are explored by studying how test particles and light rays move through them.
+
+\begin{nthm}{Variational Principle for Free Test Particle Motion}
+    The world line of a free test particle between two timelike separated points extremizes the proper time between them.
+\end{nthm}
+
+Extremal proper time world lines are called \textbf{geodesics}, and the equations of motion that determine them comprise the \textbf{geodesic equation}.
+
+For a general metric $g_{\alpha\beta}$, we consider the variational principle $$\delta\int(-g_{\alpha\beta}dx^{\alpha}dx^{\beta})^{1/2} = 0$$
+which has equations of motion $$\frac{d^2x^{\alpha}}{d\tau^2} = -\Gamma_{\beta\gamma}^{\alpha}\frac{dx^{\beta}}{d\tau}\frac{dx^{\gamma}}{d\tau}$$
+where $\Gamma_{\beta\gamma}^{\alpha}$ are the Christoffel symbols for the metric. We can describe a world line parametrically by giving the four coordinates $x^{\alpha}$ as a function of a parameter $\sigma$ that varies between $\sigma = 0$ at a point $A$ to $\sigma = 1$ at a point $B$. We can rewrite the proper time between $A$ and $B$ as $$\tau_{AB} = \int_0^1d\sigma\left(-g_{\alpha\beta}(x)\frac{dx^{\alpha}}{d\sigma}\frac{dx^{\beta}}{d\sigma}\right)^{1/2}$$
+Applying Euler Lagrange equations we have that $$\frac{d}{dt}\left[\frac{\partial \mathcal{L}}{\partial \dot{x}^{\alpha}}\right] = \frac{\partial\mathcal{L}}{\partial x^{\alpha}}$$
+The Christoffel symbols $\Gamma_{\beta\gamma}^{\alpha}$ are constructed from the metric and its first derivatives. In terms of the four-velocity $u^{\alpha} = dx^{\alpha}/d\tau$ we have $$\frac{du^{\alpha}}{d\tau} = -\Gamma_{\beta\gamma}^{\alpha}u^{\beta}u^{\gamma}$$
+The Christoffel symbols may be taken to be symmetric in the lower two indices. We can express the Christoffel symbols by \begin{equation*}
+    g_{\alpha\delta}\Gamma_{\beta\gamma}^{\delta} = \frac{1}{2}\left(\frac{\partial g_{\alpha\beta}}{\partial x^{\gamma}} + \frac{\partial g_{\alpha\gamma}}{\partial x^{\beta}} - \frac{\partial g_{\beta\gamma}}{\partial x^{\alpha}}\right)
+\end{equation*}
+
+
+\section{Solving the Geodesic Equation--Symmetries and Conservation Laws}
+\label{sec:solvGeodEq}
+
+The normalization of the four-velocity gives the equation $$-1 = u\cdot u = g_{\alpha\beta}\frac{dx^{\alpha}}{d\tau}\frac{dx^{\beta}}{d\tau}$$
+
+Energy is conserved when there is a symmetry under displacements in time, linear momentum is conserved when there is a symmetry under displacements in space, and angular momentum is conserved when there is a symmetry under rotations.
+
+A \textbf{Killing vector} is a general way of characterizing symmetry in any coordinate system. A symmetry implies a conserved quantity along a geodesic. In an arbitrary coordinate system, a conserved quantity along a geodesic is a Killing vector $\xi$ such that $$\xi\cdot u = \text{constant}$$
+
+
+\section{Null Geodesics}
+
+Light rays move along null world lines for which $ds^2 = 0$. If $x^{\alpha}(\lambda)$ is the path of a light ray parameterized by some $\lambda$ and $u^{\alpha} := dx^{\alpha}/d\lambda$ is the tangent vector, then $$u\cdot u = g_{\alpha\beta}(x)\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\beta}}{d\lambda} = 0$$
+The equation for \textbf{null geodesics} is $$\frac{d^2x^{\alpha}}{d\lambda^2} = -\Gamma_{\beta\gamma}^{\alpha}\frac{dx^{\beta}}{d\lambda}\frac{dx^{\gamma}}{d\lambda}$$
+Note the affine parameter $\lambda$ is not a spacetime distance. Rather it is a parameter chosen so that the equation above takes the form of the geodesic equation.
+
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

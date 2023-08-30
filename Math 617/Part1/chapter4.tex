@@ -1,0 +1,246 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Locally Convex Spaces}
+\label{LocConv} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{Summary of material in chapter (to be completed after chapter)}
+
+\section{Elementary Properties and Examples}
+\label{sec:locConvSpace}
+
+
+\begin{defn}
+    A \textbf{topological vector space} (TVS) is a vector space $X$ together with a topology such that its addition and scalar multiplication operations are continuous.
+\end{defn}
+
+Suppose $X$ is a vector space and $\mathscr{P}$ is a family of seminorms on $X$. Let $\tau$ be the topology on $X$ that has as a subbase the sets $\{x:p(x-x_0) < \epsilon\}$, where $p \in \mathscr{P},x_0 \in X$ and $\epsilon > 0$. $X$ with this topology is a TVS.
+
+\begin{defn}
+    A \textbf{locally convex space} (LCS) is a TVS whose topology is defined by a family of seminorms $\mathscr{P}$ such that $\bigcap_{p \in \mathscr{P}}\{x:p(x) = 0\} = (0)$.
+\end{defn}
+
+The condition in this definition is imposed precisely so that the topology defined by the family of seminorms is Hausdorff.
+
+If $X$ is a TVS and $x_0 \in X$, then $x\mapsto x+x_0$ is a homeomorphism of $X$; also, if $\alpha \in \F$ and $\alpha \neq 0$, $x\mapsto \alpha x$ is a homeomorphism of $X$.
+
+\begin{prop}
+    Let $X$ be a TVS and let $p$ be a seminorm of $X$. The following statements are equivalent. \begin{enumerate}
+        \item[(a)] $p$ is continuous.
+        \item[(b)] $\{x\in X:p(x) < 1\}$ is open.
+        \item[(c)] $0 \in \text{int}\{x \in X:p(x) < 1\}$
+        \item[(d)] $0 \in \text{int}\{x \in X:p(x) \leq 1\}$
+        \item[(e)] $p$ is continuous at $0$.
+        \item[(f)] There is a continuous seminorm $q$ on $X$ such that $p \leq q$.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    Note the implications $(a)\implies(b)\implies(c)\implies(d)$ follow by definitions.
+
+    For $(d)\implies(e)$ observe that for every $\epsilon > 0$, $0 \in\text{int}\{x \in X:p(x) \leq \epsilon\}$; so if $\{x_i\}$ is a net in $X$ that converges to $0$ and $\epsilon > 0$, there is an $i_0$ such that $x_i \in \{x:p(x) \leq \epsilon\}$ for $i \geq i_0$; that is, $p(x_i) \leq \epsilon$ for $i\geq i_0$. So $p$ is continuous at $0$.
+
+    For $(e)\implies (a)$, if $x_i\rightarrow x$, then $|p(x) - p(x_i)| \leq p(x-x_i)$. Since  $x-x_i\rightarrow 0$, (e) implies that $p(x-x_i)\rightarrow 0$, so $p(x_i)\rightarrow p(x)$.
+
+    Finally, $(a)\implies (f)$, so it remains to show $(f)\rightarrow (e)$. If $x_i\rightarrow 0$ in $X$, then $q(x_i)\rightarrow 0$. But $0 \leq p(x_i)\leq q(x_i)$, so $p(x_i)\rightarrow 0$.
+\end{proof}
+
+\begin{prop}
+    If $X$ is a TVS and $p_1,...,p_n$ are continuous seminorms, then $p_1+\cdots+p_n$ and $\max_i(p_i(x))$ are continuous seminorms. If $\{p_i\}$ is a family of continuous seminorms such that there is a continuous seminorm $q$ with $p_i \leq q$ for all $i$, then $x\mapsto \sup_i\{p_i(x)\}$ defines a continuous seminorm.
+\end{prop}
+
+If $\mathscr{P}$ is a family of seminorms of $X$ that makes $X$ into a LCS, it is often convenient to enlarge $\mathscr{P}$ by assuming that $\mathscr{P}$ is closed under the formation of finite sums and supremums of bounded families. Sometimes it is convenient to assume $\mathscr{P}$ consists of all continuous seminorms. In either case the resulting topology on $X$ remains unchanged.
+
+\begin{eg}
+    Let $X$ be be completely regular and let $C(X) = C(X,\F)$. If $K$ is a compact subset of $X$, define $p_K(f) = \sup\{|f(x)|:x \in K\}$. Then $\{p_K:K\text{ compact in }X\}$ is a family of seminorms that makes $C(X)$ into a LCS.
+\end{eg}
+
+\begin{eg}
+    Let $G$ be an open subset of $\C$ and let $H(G)$ be the subset of $C_{\C}(G)$ consisting of all analytic functions on $G$. Define the seminorms of the previous example on $H(G)$. Then $H(G)$ is a LCS. Also, the topology defined on $H(G)$ by these seminorms is the topology of uniform convergence on compact subsets---the usual topology for discussing analytic functions.
+\end{eg}
+
+\begin{eg}
+    Let $X$ be a normed space. For each $x^* \in X^*$, define $p_{x^*}(x) = |x^*(x)|$. Then $p_{x^*}$ is a seminorm and if $\mathscr{P} = \{p_{x^*}:x^* \in X^*\}$, $\mathscr{P}$ makes $X$ into a LCS. The topology defined on $X$ by these seminorms is called the \textbf{weak topology} and is often denoted by $\sigma(X,X^*)$.
+\end{eg}
+
+\begin{eg}
+    Let $X$ be a normed space and for each $x$ in $X$ define $p_x:X^*\rightarrow [0,\infty)$ by $p_x(x^*) = |x^*(x)|$. Then $p_x$ is a seminorm and $\mathscr{P} = \{p_x:x \in X\}$ makes $X^*$ into a LCS. The topology defined by these seminorms is called the \textbf{weak-star topology} on $X^*$. It is often denoted by $\sigma(X^*,X)$.
+\end{eg}
+
+If $a,b \in X$, then the \textbf{line segment} from $a$ to $b$ is defined as $[a,b] := \{tb+(1-t)a:0\leq t\leq 1\}$. So a set $A$ is \textbf{convex} if and only if $[a,b] \subseteq A$ whenever $a,b \in A$.
+
+\begin{prop}
+    A set $A$ is convex if and only if whenever $x_1,...,x_n \in A$, and $t_1,...,t_n \in [0,1]$ with $\sum_jt_j = 1$, then $\sum_jt_jx_j \in A$. 
+
+    If $\{A_i:i \in I\}$ is a collection of convex sets, then $\bigcap_iA_i$ is convex.
+\end{prop}
+\begin{proof}
+    If the stronger condition holds, then indeed $A$ is convex, so suppose $A$ is convex. We proceed by induction on $n$. If $n = 2$, then the condition is simply convexity of $A$. Now, suppose $x_1,...,x_n,x_{n+1} \in A$, $t_1,...,t_n,t_{n+1} \in [0,1]$, and $\sum_jt_j = 1$. Without loss of generality we may suppose that some $t_1,...,t_n \neq 0$. Let $\lambda = \sum_{j=1}^nt_j$. Then $t_1/\lambda,...,t_n/\lambda \in [0,1]$, and $\sum_{j=1}^nt_j/\lambda = 1$, so by the induction hypothesis $$x:=\sum_{j=1}^n\frac{t_j}{\lambda}x_j \in A$$
+    Now, $t_{n+1} = 1-\lambda$. Thus, as $A$ is convex, $$\lambda x + (1-\lambda)x_{n+1} = \sum_{j=1}^{n+1}t_jx_j \in A$$
+
+    Now, suppose $\{A_i:i\in I\}$ is a collection of convex sets. Let $a,b \in \bigcap_iA_i$. Then $[a,b] \subseteq A_i$ for all $i$, so $[a,b] \subseteq \bigcap_iA_i$.
+\end{proof}
+
+\begin{defn}
+    If $A \subseteq X$, the \textbf{convex hull} of $A$, denoted by $\text{co}(A)$, is the intersection of all convex sets that contain $A$. If $X$ is a TVS, then the \textbf{closed convex hull} of $A$ is the intersection of all closed convex subsets of $X$ that contain $A$; it is denoted by $\overline{\text{co}}(A)$.
+\end{defn}
+
+Since a vector space itself is convex, each subset of $X$ is contained in a convex set.
+
+If $X$ is a normed space, then $\{x:\norm{x}\leq 1\}$ and $\{x:\norm{x} < 1\}$ are both convex sets. If $f \in X^*$, $\{x:|f(x)| \leq 1\}$, $\{x:\text{Re}\,f(x)\leq 1\}$, $\{x:\text{Re}\,f(x) > 1\}$ are all convex. In fact, if $T:X\rightarrow Y$ is a real linear map and $C$ is a convex subset of $Y$, then $T^{-1}(C)$ is convex in $X$.
+
+\begin{prop}
+    Let $X$ be a TVS and let $A$ be a convex subset. Then $\overline{A}$ is convex, and if $a \in \text{int}A$ and $b \in \overline{A}$, then $[a,b) := \{tb+(1-t)a:0\leq t< 1\}\subseteq \text{int}A$.
+\end{prop}
+\begin{proof}
+    Let $a \in A, b \in \overline{A}$, and $0 \leq t \leq 1$. Let $\{x_i\}$ be a net in $A$ such that $x_i\rightarrow b$. Then $tx_i+(1-t)a\rightarrow tb+(1-t)a$. This shows that $[a,b] \subseteq \overline{A}$. Then if $c \in \overline{A}$ and $c_i$ is a net in $A$ converging $c$, we have $tc_i+(1-t)b \in \overline{A}$ for all $i$. Thus, as $tc_i+(1-t)b\rightarrow tc+(1-t)b$, $tc+(1-t)b \in A$.
+
+    To prove the second statement fix $t$, $0 < t < 1$, and put $c = tb+(1-t)a$, where $a \in \text{int}(A)$ and $b \in \overline{A}$. There is an open set $V$ in $X$ such that $0 \in V$ and $a+V \subseteq A$. Hence, for any $d \in A$, \begin{align*}
+        A &\supseteq td+(1-t)(a+V) \\
+        &= t(d-b)+tb+(1-t)(a+V) \\
+        &=[t(d-b)+(1-t)V]+c
+    \end{align*}
+    If we can show $\exists d \in A$ such that $0\in t(d-b)+(1-t)V = U$, then the preceding inclusion shows $c \in \text{in}(A)$ since $U$ is open. Finding such a $d$ is equivalent to finding a $d$ such that $0 \in t^{-1}(1-t)+(d-b)$, or $d \in b-t^{-1}(1-t)V$. But $0 \in -t^{-1}(1-t)V$ and this set is open. Since $b \in \overline{A}$, $d$ can be found in $A$.
+\end{proof}
+
+\begin{cor}
+    If $A \subseteq X$, then $\overline{\text{co}}(A)$ is the closure of $\text{co}(A)$.
+\end{cor}
+
+A set $A \subseteq X$ is \textbf{balanced} if $\alpha x \in A$ whenever $x \in A$ and $|\alpha| \leq 1$. A set $A$ is \textbf{absorbing} if for each $x \in X$ there is an $\epsilon > 0$ such that $tx \in A$ for $0 \leq t < \epsilon$. If $a \in A$, then $A$ is \textbf{absorbing at $a$} if the set $A-a$ is absorbing.
+
+If $X$ is a vector space and $p$ is a seminorm, then $V = \{x:p(x) < 1\}$ is a convex balanced set that is absorbing at each of its points.
+
+\begin{prop}
+    If $X$ is a vector space over $\F$ and $V$ is a nonempty convex, balanced st that is absorbing at each of its points, then there is a unique seminorm $p$ on $X$ such that $V = \{x\in X:p(x) < 1\}$.
+\end{prop}
+\begin{proof}
+    Define $p(x)$ by $$p(x) = \inf\{t:t\geq 0,\text{ and }x\in tV\}$$
+    Since $V$ is absorbing, $X = \bigcup_{n=1}^{\infty}nV$, so that the set whose infimum is $p(x)$ is nonempty. Evidently $p(0)= 0$. To see that $p(\alpha x) = |\alpha|p(x)$, we can suppose that $\alpha \neq 0$. Hence, because $V$ is balanced, \begin{align*}
+        p(\alpha x) &= \inf\{t\geq 0:\alpha x \in tV\} \\
+        &= \inf\left\{t\geq 0:x \int\left(\frac{1}{\alpha}V\right)\right\} \\
+        &= \inf\left\{t\geq 0:x \int\left(\frac{1}{|\alpha|}V\right)\right\} \\
+        &= |\alpha|\inf\left\{\frac{t}{|\alpha|}:x \in \frac{t}{|\alpha|}V\right\} \\
+        &= |\alpha|p(x)
+    \end{align*}
+    Note that if $\alpha,\beta \geq 0$, and $a,b \in V$, then $$\alpha a+\beta b = (\alpha+\beta)\left(\frac{\alpha}{\alpha+\beta}a+\frac{\beta}{\alpha+\beta}b\right) \in (\alpha+\beta)V$$
+    by convexity of $V$. If $x,y \in X$, $p(x) = \alpha$, and $p(y) = \beta$, let $\delta > 0$. Then $x \in (\alpha+\delta)V$ and $y \in (\beta+\delta)V$. Hence $x+y \in (\alpha+\beta +2\delta)V$. Letting $\delta\rightarrow 0$ shows that $p(x+y) \leq \alpha+\beta=p(x)+p(y)$.
+
+    It remains to show that $V = \{x:p(x) < 1\}$. If $p(x) = \alpha < 1$, then $\alpha < \beta < 1$, implies $x \in \beta V\subseteq V$ since $V$ is balanced. Thus $V \supseteq \{x:p(x) < 1\}$. If $x \in V$, then $p(x) \leq 1$. Since $V$ is absorbing at $x$, there is an $\epsilon > 0$ such that for $0 < t < \epsilon$, $x+tx = y \in V$. But $x = (1+t)^{-1}y,y \in V$. Hence $p(x) = (1+t)^{-1}p(y) \leq (1+t)^{-1} < 1$.
+
+    Uniqueness follows by a previous result.
+\end{proof}
+
+The seminorm $p$ defined in the preceding proposition is called the \textbf{Minkowski function} of $V$ or the \textbf{gauge} of $V$.
+
+\begin{prop}
+    Let $X$ be a TVS and let $\mathscr{U}$ be the collection of all open convex balanced subsets of $X$. Then $X$ is locally convex if and only if $\mathscr{U}$ is a basis for the neighborhood system at $0$.
+\end{prop}
+
+
+
+\section{Metrizable and Normable Locally Convex Spaces}
+\label{sec:MetrNorm}
+
+
+If $\mathscr{P}$ is a family of seminorms on $X$ and $X$ is a TVS, say that $\mathscr{P}$ determines the topology on $X$ if the topology of $X$ is the same as the topology induced by $\mathscr{P}$.
+
+\begin{prop}
+    Let $\{p_1,p_2,...\}$ be a sequence of seminorms on $X$ such that $\bigcap_{n=1}^{\infty}\{x:p_n(x)=0\} = \{0\}$. For $x,y \in X$, define $$d(x,y) = \sum_{n=1}^{\infty}2^{-2}\frac{p_n(x-y)}{1+p_n(x-y)}$$
+    Then $d$ is a metric on $X$ and the topology on $X$ defined by $d$ is the topology on $X$ defined by the seminorms $\{p_1,p_2,...\}$. Thus a LCS is metrizable if and only if its topology is determined by a countable family of seminorms.
+\end{prop}
+\begin{proof}
+    By construction $d$ is finite, symmetric, and satisfies the triangle inequality. Further, as $\bigcap_{n=1}^{\infty}\{x:p_n(x)=0\}=(0)$, if $x\neq y$ then $d(x,y) > 0$ since at least one term is non-zero, and all terms are non-negative. It remains to show the topologies are equivalent. First let $B(x,r)$ be an open ball in the metric topology. Let $y \in B(x,r)$, so $d(x,y) < r$. Then there exists $n \in \N$ such that $2^{-n} < r-d(x,y)$. Consider $P := P_1(y,2^{-2n})\cap \cdots \cap P_{2n}(y,2^{-2n})$, which is open in the LCS topology. If $z \in P$ we have that $p_k(z-y) < 2^{-2n}$ for all $1\leq k \leq 2n$. It follows that $$d(y,z) = \sum_{k=1}^{\infty}2^{-k}\frac{p_k(z-y)}{1+p_k(z-y)} < 2^{-2n}+\sum_{n=2n+1}^{\infty}2^{-n} \leq  2^{-2n+1} \leq 2^{-n} < r-d(x,y)$$
+    so $z \in B(x,r)$. Thus $P \subseteq B(x,r)$, so $B(x,r)$ is open in the LCS topology. Conversely, consider $y\in\{x:p_n(x-t) < \epsilon\}$ for $\epsilon > 0$, and $t \in X$. Let $\delta = \epsilon - p_n(y-t)$, and $r = 2^{-n}\frac{\delta}{1+\delta}$. Then if $z \in B(y,r)$, for $d(y,z) < r$ we must have that $$2^{-n}\frac{p_n(y-z)}{1+p_n(y-z)} < 2^{-n}\frac{\delta}{1+\delta}$$
+    But $\frac{x}{1-x}$ is an increasing function on $[0,1)$, so $p_n(y-z) < \delta$, and hence $p_n(z-t) \leq p_n(y-z)+p_n(y-t) < \epsilon$. Thus $B(y,r) \subseteq \{x:p_n(x-t) < \epsilon\}$ so the subbasis for the LCS topology is in the metric topology, and hence the topologies coincide.
+
+    If $X$ is a LCS and its topology is determined by a countable family of seminorms we have shown $X$ is metrizable. For the converse, assume $X$ is metrizable and let $\rho$ denote its metrix. Let $U_n = \{x:\rho(x,0) < 1/n\}$. Because $X$ is locally convex, there are continuous seminorms $q_1,...,q_k$ and positive numbers $\epsilon_1,...,\epsilon_k$ such that $\bigcap_{j=1}^k\{x:q_j(xx) < \epsilon_j\} \subseteq U_n$. If $p_n = \epsilon_1^{-1}q_1+\cdots+\epsilon_k^{-1}q_k$, then $x \in U_n$ whenever $p_n(x) < 1$. Clearly, $p_n$ is continuous for each $n$. Thus if $x_j\rightarrow 0$ in $X$, then for each $n$, $p_n(x_j)\rightarrow 0$ as $j\rightarrow \infty$. Conversely, suppose that for each $n$, $p_n(x_j)\rightarrow 0$ as $j\rightarrow \infty$. If $\epsilon > 0$, let $n > \epsilon^{-1}$. Then there is a $j_0$ such that for $j \geq j_0$, $p_n(x_j) < 1$. Thus, for $j \geq j_0$, $x_j \in U_n \subseteq \{x:\rho(x,0) < \epsilon\}$. That is, $\rho(x_j,0) < \epsilon$ for $j \geq j_0$ and so $x_j\rightarrow 0$ in $X$. That is, $\rho(x_j,0) < \epsilon$ for $j \geq j_0$ and so $x_j\rightarrow 0$ in $X$. This shows that $\{p_n\}$ determines the topology on $X$.
+\end{proof}
+
+\begin{eg}
+    If $X$ is locally compact and $C(X)$ is as before, then $C(X)$ is metrizable if and only if $X$ is $\sigma$-compact.
+\end{eg}
+
+If $X$ is a vector space and $d$ is a metric on $X$, say that $d$ is \textbf{translation invariant} if $d(x+z,y+z) = d(x,y)$ for all $x,y,z \in X$.
+
+\begin{defn}
+    A \textbf{Fr\'{e}chet space} is a TVS $X$ whose topology is defined by a translation invariant metric $d$ such that $(X,d)$ is complete.
+\end{defn}
+
+\begin{defn}
+    If $X$ is a TVS and $B \subseteq X$, then $B$ is \textbf{bounded} if for every open set $U$ containing $0$, there is an $\epsilon > 0$ such that $\epsilon B \subseteq U$.
+\end{defn}
+
+
+\begin{prop}
+    If $X$ is a LCS, then $X$ is normable if and only if $X$ has a nonempty bounded open set.
+\end{prop}
+\begin{proof}
+    All normed spaces have a bounded open set (namely $\{x:\norm{x} < 1\}$). So assume $X$ is a LCS with a bounded open set $U$. By translation we may assume that $0 \in U$. By local convexity, there is a continuous seminorm $p$ such that $\{x:p(x) < 1\}= V \subseteq U$. It will be shown that $p$ is a norm and defines the topology on $X$.
+
+    Suppose $x \in X$, $x \neq 0$. Let $W_0$ and $W_x$ be disjoint open sets such that $0 \in W_0$ and $x \in W_x$. Then there is an $\epsilon > 0$ such that $W_0 \supseteq \epsilon U\supseteq \epsilon V$. But $\epsilon V =\{y:p(y) < \epsilon\}$. Since $x \notin W_0$, $p(x) \geq \epsilon$. Hence $p$ is a norm.
+
+    Because $p$ is continuous on $X$, to show that $p$ defines the topology of $X$ it suffices to show that if $q$ is any continuous seminorm on $X$, there is an $\alpha > 0$ such that $q\leq \alpha p$. But because $q$ is continuous, there is an $\epsilon > 0$ such that $\{x:q(x) < 1\} \supseteq \epsilon U\supseteq \epsilon V$. That is, $p(x) < \epsilon$ implies $q(x) < 1$. Then $q\leq \epsilon^{-1}p$.
+\end{proof}
+
+
+\section{Some Geometric Consequences of Hahn-Banach Theorem}
+\label{sec:consHahn}
+
+
+
+\section{Some Examples of the Dual Space of a Locally Convex Space}
+\label{sec:dualLocConv}
+
+If $X$ is a LCS, $X^*$ denotes the space of all continuous linear functionals. $X^*$ is called the \textbf{dual space} of $X$.
+
+\begin{prop}
+    Let $X$ be completely regular (i.e for any closed set $A \subseteq X$ and any $x \in X\backslash A$, $\exists f:X\rightarrow \R$ continuous such that $f(x) = 1$ and $f\vert_A = 0$) and let $C(X)$ be topologized as by seminorms induced by compact subsets. If $L:C(X)\rightarrow \F$ is a continuous linear functional, then there is a compact set $K$ and a regular Borel measure $\mu$ on $K$ such that $L(f) = \int_Kfd\mu$ for every $f \in C(X)$. Conversely, each such measure defines an element of $C(X)^*$.
+\end{prop}
+\begin{proof}
+    If $p_K(f) = \sup\{|f(x)|:x \in K\}$ and $L(f) = \int_Kfd\mu$, then $|L(f)| \leq \norm{\mu}p_K(f)$, and so $L$ is continuous.
+
+    Now assume $L \in C(X)^*$. There are compact sets $K_1,...,K_n$ and positive numbers $\alpha_1,...,\alpha_n$ such that $|L(f)|\leq \sum_{j=1}^n\alpha_jp_{K_j}(f)$. Let $K = \bigcup_{j=1}^nK_j$ and $\alpha = \max\{\alpha_j:1\leq j \leq n\}$. Then $|L(f)| \leq \alpha p_K(f)$. Hence if $f \in C(X)$ and $f\vert_K \equiv 0$, then $L(f) = 0$.
+
+    Define $F:C(K)\rightarrow \F$ as follows. If $g \in C(K)$, let $\widetilde{g}$ be any continuous extension of $g$ to $X$ and put $F(g) = L(\widetilde{g})$. Any two extension agree on $K$, and hence are equal under $L$. Thus $F$ is well defined. Additionally, $F$ is linear. If $g \in C(K)$ and $\widetilde{g}$ is an extension in $C(X)$, then $|F(g)| = |L(\widetilde{g})| \leq \alpha p_K(\widetilde{g}) = \alpha\norm{g}$, where the norm is the norm of $C(K)$. By a previous result there is a measure $\mu$ in $M(K)$ such that $F(g) = \int_Kgd\mu$. If $f \in C(X)$, then $g = f\vert_K \in C(K)$ and so $L(f) = F(g) = \int_Kfd\mu$.
+\end{proof}
+
+
+
+\section{Inductive Limits and the Space of Distributions}
+\label{sec:indLim}
+
+
+
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

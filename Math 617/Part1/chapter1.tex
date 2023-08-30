@@ -1,0 +1,681 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Hilbert Spaces}
+\label{Hilb} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{Summary of material in chapter (to be completed after chapter)}
+
+\section{Elementary Properties}
+\label{sec:Hilb1}
+
+\begin{ndefn}{Semi-inner Product}\index{Semi-inner product}
+    If $V$ is a vector space over $\F$, a \textbf{semi-inner product} on $V$ is a mapping $u:V\times V\rightarrow F$ such that for all $x,y,z \in V$ and $\alpha,\beta \in F$ \begin{enumerate}
+        \item[(a)] $u(\alpha x+\beta y,z) = \alpha u(x,z)+\beta u(y,z)$ (linearity in first component)
+        \item[(b)] $u(x,\alpha y+\beta z) = \overline{\alpha}u(x,y)+\overline{\beta}u(x,z)$ (conjugate-linearity in second component)
+        \item[(c)] $u(x,x) \geq 0$ (real non-negativity)
+        \item[(d)] $u(x,y) = \overline{u(y,x)}$ (conjugate-symmetry)
+    \end{enumerate}
+\end{ndefn}
+
+We note a simple properties of semi-inner products; $u(x,0) = u(0,y) = 0$ for any $x,y \in V$. 
+
+An \textbf{inner product}\index{Inner product} on $V$ is a semi-inner product that is also positive. That is it satisfies the following \begin{enumerate}
+    \item[(e)] If $u(x,x) = 0$, then $x = 0$.
+\end{enumerate}
+
+As indicated in the notation, we use $\inner{x}{y}$ to denote an inner product.
+
+\begin{eg}
+    Let $S = \{\alpha:\N\rightarrow \F:\supp \alpha \text{ is finite}\}$. If addition and scalar multiplication are defined component-wise then $S$ is a vector space over $\F$. If we define a map $$\inner{\alpha}{\beta} = \sum_{n=1}^{\infty}\alpha_{2n}\overline{\beta}_{2n}$$
+    then $\inner{\cdot}{\cdot}$ is a semi-inner product that is not an inner product. Note there are no convergence issues in the sum on the right since only finitely many terms are non-zero. Further, if $\alpha:\N\rightarrow \F$ is given by $\alpha_1 = 1$ and $\alpha_n = 0$ for $n > 1$, then $\inner{\alpha}{\alpha} = 0$. On the other hand, \begin{align*}
+        \inner{\alpha}{\beta} &= \sum_{n=1}^{\infty}\alpha_n\overline{\beta}_n \\
+        \inner{\alpha}{\beta} &= \sum_{n=1}^{\infty}\frac{1}{n}\alpha_n\overline{\beta}_n \\
+        \inner{\alpha}{\beta} &= \sum_{n=1}^{\infty}n^5\alpha_n\overline{\beta}_n 
+    \end{align*}
+    are all inner products on $V$.
+\end{eg}
+
+
+\begin{eg}
+    Let $(X,\Omega,\mu)$ be a measure space consisting of a set $X$, a $\sigma$-algebra $\Omega$, and a countably additive measure $\mu$ defined on $\Omega$ with values in the non-negative extended reals. If $f,g \in L^2(\mu)$, then H\"{o}lder's inequality implies $f\overline{g} \in L^1(\mu)$, with $$\int_Xf\overline{g}d\mu \leq \norm{f}_{L^2}\norm{\overline{g}}_{L^2} < \infty$$
+    Taking the left hand side as the value of $\inner{f}{g}$, this defines an inner product on $L^2(\mu)$.
+\end{eg}
+
+Note that for positivity we must be in the quotient space $L^2(\mu) = \mathcal{L}^2(\mu)/\mathcal{N}$, where $\mathcal{N}$ is the subspace of $\mathcal{L}^2(\mu)$ functions on $X$ which are $0$ almost everywhere with respect to $\mu$.
+
+H\"{o}lder's inequality in the special case used in this example is a general inequality satisfied by semi-inner products:
+
+\begin{nthm}{Cauchy-Bunyakowsky-Schwarz Inequality}\label{nthm:CBS}
+    If $\inner{\cdot}{\cdot}$ is a semi-inner product on $V$, then $$|\inner{x}{y}|^2 \leq \inner{x}{x}\inner{y}{y}$$
+    for any $x,y \in V$. Moreover, equality occurs if and only if there are scalars $\alpha,\beta \in F^{\times}$, such that $\inner{\beta x+\alpha y,\beta x+\alpha y} = 0$.
+\end{nthm}
+\begin{proof}
+    If $\alpha \in \F$ and $x,y \in V$, then \begin{align*}
+        0 &\leq \inner{x-\alpha y}{x-\alpha y} \\
+        &= \inner{x}{x} - \alpha\inner{y}{x} -\overline{\alpha}\inner{x}{y} + |\alpha|^2\inner{y}{y}
+    \end{align*}
+    Suppose $\inner{y}{x} = be^{i\theta}, b \geq 0$, and let $\alpha = e^{-i\theta}t$, $t \in \R$. The above inequality becomes \begin{align*}
+        0 \leq \inner{x}{x} - 2tb+t^2\inner{y}{y} = c-2bt+at^2=:q(t)
+    \end{align*}
+    where $c = \inner{x}{x}$ and $a = \inner{y}{y}$. $q(t)$ is a quadratic polynomial in the real variable $t$, and $q(t) \geq 0$ for all $t$. This implies that $q(t) = 0$ has at most one real solution $t$. From the quadratic formula it follows that $4b^2-4ac \leq 0$. Hence $$0 \geq b^2-ac = |\inner{x}{y}|^2 - \inner{x}{x}\inner{y}{y}$$
+    proving the inequality.
+
+    First we show sufficiency of equality. Hence suppose $\alpha,\beta \in \F^{\times}$ such that $\inner{\beta x+\alpha y}{\beta x+\alpha y} = 0$. As $\beta \neq 0$, we may without loss of generality replace $\beta = 1$ (multiply both sides by $1/|\beta|^2$), so $\inner{x+\alpha y}{x+\alpha y} = 0$. Let $\alpha = te^{i\varphi}$, $t > 0$, and $\inner{y}{x} = be^{i\theta}$, as before. Then $$0 = \inner{x}{x} + te^{i(\varphi+\theta)}b+te^{-i(\varphi+\theta)}b+t^2\inner{y}{y} = \inner{x}{x} + 2t\cos(\varphi+\theta)b+t^2\inner{y}{y}$$
+    From before the discriminant of this polynomial in $t$ must be $\leq 0$. As this expression implies it the polynomial has a real root, we must have that the discriminant $= 0$, so $$4b^2\cos^2(\varphi+\theta)-4\inner{x}{x}\inner{y}{y} = 0$$
+    But $\cos^2(\varphi+\theta) \leq 1$, so $$b^2 \geq \inner{x}{x}\inner{y}{y} \geq |\inner{x}{y}|^2$$
+    so we have equality.
+
+    To show necessity suppose $|\inner{x}{y}|^2 = \inner{x}{x}\inner{y}{y}$. Then in particular $|\inner{\beta x}{\alpha y}|^2 = \inner{\beta x}{\beta x}\inner{\alpha y}{\alpha y}$ for any $\alpha,\beta \in \F$. If both $\inner{x}{x} = \inner{y}{y} = 0$, we may take $\alpha = \beta = 1$. Otherwise, suppose without loss of generality that $\inner{y}{y} \neq 0$. Take $\beta = 1$ and $\alpha = -te^{-i\theta}$, $t \in \R$, as before, so $$\inner{\beta x+\alpha y}{\beta x+\alpha y} = \inner{x}{x}-2bt+t^2\inner{y}{y}$$
+    Since $\inner{y}{y} \neq 0$, we may set $t = \sqrt{\frac{\inner{x}{x}}{\inner{y}{y}}}$. Then the equation becomes $$\inner{\beta x+\alpha y}{\beta x+\alpha y} = \inner{x}{x} - 2\sqrt{\inner{x}{x}\inner{y}{y}}\sqrt{\frac{\inner{x}{x}}{\inner{y}{y}}}+\frac{\inner{x}{x}}{\inner{y}{y}}\inner{y}{y} = 0$$
+    completing the proof.
+\end{proof}
+
+This theorem provides us with the triangle inequality.
+
+\begin{cor}
+    If $\inner{\cdot}{\cdot}$ is a semi-inner product on $V$, and $\norm{x} := \sqrt{\inner{x}{x}}$, then for all $x,y \in V$ and $\alpha \in \F$, \begin{enumerate}
+        \item[(a)] $\norm{x+y} \leq \norm{x}+\norm{y}$ (triangle inequality)
+        \item[(b)] $\norm{\alpha x} = |\alpha|\norm{x}$ (absolute homegeneity)
+    \end{enumerate}
+    If $\inner{\cdot}{\cdot}$ is an inner product, then \begin{enumerate}
+        \item[(c)] $\norm{x}  = 0$ implies $ x =0$
+    \end{enumerate}
+\end{cor}
+\begin{proof}
+    To see (a), let $x,y \in V$. Then \begin{align*}
+        \norm{x+y}^2 &= \inner{x+y}{x+y} \\
+        &= \norm{x}^2+\inner{y}{x}+\inner{x}{y} + \norm{y}^2 \\
+        &= \norm{x}^2 + 2\text{Re}\inner{x}{y} + \norm{y}^2 \\
+        &\leq \norm{x}^2 + 2|\inner{x}{y}| + \norm{y}^2 \\
+        &\leq \norm{x}^2 + 2\norm{x}\norm{y}+\norm{y}^2 \tag{by CBS \ref{nthm:CBS}} \\
+        &= (\norm{x}+\norm{y})^2
+    \end{align*}
+    The inequality follows by taking square roots. (b) and (c) are immediate from definitions.
+\end{proof}
+
+The identity $$\norm{x+y}^2 = \norm{x}^2+2\text{Re}\inner{x}{y}+\norm{y}^2$$
+in the previous proof is called the \textbf{polar identity}.
+
+The quantity $\norm{x} = \sqrt{\inner{x}{x}}$ is the special case of a mapping called a \textbf{norm}\index{Norm}. Norms induce metrics on a space, through the formula $d(x,y) = \norm{x-y}$, giving a metric space structure to $V$. Note that, essentially by construction, with this metric and its induced topology, the inner rpoduct becomes a continuous mapping from $V\times V$ to $\F$.
+
+\begin{ndefn}{Hilbert Space}\index{Hilbert space}
+    A \textbf{Hilbert space} is a vector space $\mathscr{H}$ over $\F$ together with an inner product $\inner{\cdot}{\cdot}$ such that relative to the metric $d(x,y) = \norm{x-y}$ induced by the norm, $\mathscr{H}$ is a complete metric space.
+\end{ndefn}
+
+$\mathscr{H} = L^2(\mu)$ with the standard inner product is an example of a Hilbert space, as is $\F^d$ with its usual inner product.
+
+\begin{eg}
+    Let $I$ be any set and let $l^2(I)$ denote the set of functions $x:I\rightarrow \F$ with countable suppose and $\sum_{i \in I}|x(i)|^2 < \infty$. For $x,y \in l^2(I)$, define $$\inner{x}{y} = \sum_ix(i)\overline{y(i)}$$
+    Then $l^2(I)$ is a Hilbert space.
+\end{eg}
+
+In fact, $l^2(I)$ is a special case of $L^2(\mu)$ with the counting measure $\mu$ on $I$.
+
+We recall a notion from analysis: A function $f:I\rightarrow \R$, where $I$ is an interval in $\R$, is said to be \textbf{absolutely continuous} on $I$ if for every $\epsilon > 0$ there is a $\delta > 0$ such that whenever a finite sequence of pairwise disjoint sub-intervals $(x_k,y_k)$ of $I$ satisfies $$\sum_k(y_k-x_k) < \delta$$
+then $$\sum_k|f(y_k)-f(x_k)| < \epsilon$$
+Note this is stronger than uniform continuity. We have the following characterization of such functions.
+
+\begin{thm}
+    A function $F:[a,b]\rightarrow \R$ is \textbf{absolutely continuous} if and only if there is a function $f:[a,b]\rightarrow \R$ such that $f$ is Lebesgue measurable and integrable with respect to $m$ (the Lebesgue measure on the line) and such that $$F(x) = F(a) + \int_{[a,x]}fdx,\forall a \leq x \leq b$$
+\end{thm}
+\begin{proof}
+    First consider the if part. Suppose the equation holds. Since $\int_{[a,b]}|f| dm < \infty$, for any $\epsilon > 0$ there exists a $\delta > 0$ such that if $m(A) < \delta$ $$\int_A|f|dm < \epsilon$$
+    Hence if $(a_j,b_j) \subset [a,b]$, $j = 1,...,k$ are such that $\sum_{j=1}^k(b_j-a_j) < \delta$, then $$\sum_{j=1}^k|F(b_j)-F(a_j)| \leq \int_{\bigcup_{j=1}^k(a_j,b_j)}|f|dm < \epsilon$$
+    since $m(\bigcup_{j=1}^k(a_j,b_j)) \leq \sum_{j=1}^k(b_j-a_j) < \delta$. Thus $F$ is absolutely continuous.
+
+    Now consider the only if part. (To be completed later).
+\end{proof}
+
+\begin{eg}
+    Let $\mathscr{H} = $ the collection of all absolutely continuous functions on $[0,1]$ such that $f(0) = 0$ and $f' \in L^2((0,1))$. If $\inner{f}{g} = \int_{[0,1]}f'(t)\overline{g'(t)}dt$ for $f,g \in \mathscr{H}$, then $\mathscr{H}$ is a Hilbert space.
+\end{eg}
+
+If $V$ is a vector space with an inner product, what happens if it is not complete with respect to the induced metric?
+
+\begin{prop}
+    If $V$ is an inner product space with inner product $\inner{\cdot}{\cdot}_V$, and $\mathscr{H}$ is the completion of $V$ w.r.t the metric induced by the norm on $V$, then there is an inner product $\inner{\cdot}{\cdot}_{\mathscr{H}}$ on $\mathscr{H}$ which agrees on $V$ with its inner product. That is, the completion of $V$ is a Hilbert space.
+\end{prop}
+
+This says we can embed an incomplete inner product space into a Hilbert space. We close with an example of a Hilbert space from analytic function theory.
+
+\begin{defn}
+    If $G$ is an open subset of the complex plane $\C$, then $L^2_a(G)$ denotes the collection of all analytic functions $f:G\rightarrow \C$ such that $$\int\int_G|f|^2d\mu < \infty$$
+    $L_a^2(G)$ is called the \textbf{Bergman space} for $G$.
+\end{defn}
+
+Note that $L_a^2(G) \subseteq L^2(\mu)$, so that $L_a^2(G)$ has a natural inner product and norm from $L^2(\mu)$.
+
+\begin{lem}
+    If $F$ is analytic in a neighborhood of $\overline{B}(a;r)$, then $$f(a) = \frac{1}{\pi r^2}\int\int_{B(a;r)}f$$
+\end{lem}
+\begin{proof}
+    By the mean value property, if $0 < t \leq r$, $f(a) = \frac{1}{2\pi}\int_{-\pi}^{\pi}f(a+te^{i\theta})d\theta$. Hence \begin{align*}
+        \frac{1}{\pi r^2}\int\int_{B(a;r)}f &= \frac{1}{\pi r^2}\int_0^rt\left[\int_{-\pi}^{\pi}\right]dt \\
+        &= \frac{2}{r^2}\int_0^rtf(a)dt = f(a)
+    \end{align*}
+    where we use Fubini's theorem in the first line.
+\end{proof}
+
+\begin{cor}
+    If $f \in L_a^2(G)$, $a \in G$, and $0 < r < \text{dist}(a,\partial G)$, then $$|f(a)| \leq \frac{1}{r\sqrt{\pi}}\norm{f}_2$$
+\end{cor}
+\begin{proof}
+    Since $\overline{B}(a;r)\subseteq G$, the preceding lemma and the CBS inequality imply \begin{align*}
+        |f(a)| &= \frac{1}{\pi r^2}\left|\int\int_{B(a;r)}f\cdot 1\right| \\
+        &\leq \frac{1}{\pi r^2}\norm{f}_2\sqrt{\text{Area}(B(a;r))} \\
+        &= \frac{1}{r\sqrt{\pi}}\norm{f}_2
+    \end{align*}
+\end{proof}
+
+\begin{prop}
+    $L_a^2(G)$ is a Hilbert space.
+\end{prop}
+\begin{proof}
+    If $\mu$ denotes the Lebesgue measure induced on $G$, then $L^2(\mu)$ is a Hilbert space and $L_a^2(G) \subseteq L^2(\mu)$. So it sufficies to show $L_a^2(G)$ is closed in $L^2(\mu)$. Let $\{f_n\}$ be a sequence in $L_a^2(G)$ and let $f \in L^2(\mu)$ such that $\norm{f_n-f}_2 \rightarrow 0$ as $n\rightarrow \infty$.
+
+
+    Suppose $\overline{B}(a;r) \subseteq G$ and let $0 < \rho < \text{dist}(B(a;r),\partial G)$. By the preceding corollary there exists $C$ such that $|f_n(z)-f_m(z)|\leq C\norm{f_n-f_m}_2$ for all $n,m$ and $|z-a| \leq \rho$. Thus $\{f_n\}$ is uniformly Cauchy on any closed disk in $G$. By Montel's Theorem or Morera's Theorem, there is an analytic function $g$ on $G$ such that $f_n(z)\rightarrow g(z)$ uniformly on compact subsets of $G$. But since $\norm{f_n-f}_2 \rightarrow 0$, a result of Riesz implies there is a subsequence $\{f_{n_k}\}$ such that $f_{n_k}(z)\rightarrow f(z)$ almost everywhere w.r.t $\mu$. Thus $f = g$ a.e. $[\mu]$, and so $f \in L_a^2(G)$.
+\end{proof}
+
+
+
+\section{Orthogonality}
+\label{sec:ortho}
+
+One of the greatest advantages to a Hilbert space is its underlying concept of orthogonality.
+
+\begin{defn}
+    If $\mathscr{H}$ is a Hilbert space and $f,g \in \mathscr{H}$, then $f$ and $g$ are said to be \textbf{orthogonal} if $\inner{f}{g} = 0$. In symbols $f\perp g$. If $A,B \subseteq \mathscr{H}$, then $A\perp B$ means $f\perp g$ for all $f \in A$ and $g \in B$.
+\end{defn}
+
+This allows us to generalize the notion of Pythagorean's theorem.
+
+\begin{nthm}{The Pythagorean Theorem}
+    If $f_1,...,f_n$ are pairwise orthogonal vectors in $\mathscr{H}$, then $$\norm{f_1+f_2+\cdots+f_n}^2 = \norm{f_1}^2+\norm{f_2}^2+\cdots+\norm{f_n}^2$$
+\end{nthm}
+\begin{proof}
+    If $f_1\perp f_2$, then $$\norm{f_1+f_2}^2 = \norm{f_1}^2+2\text{Re}\inner{f_1,f_2}+\norm{f_2}^2$$
+    by the polar identity. As $f_1\perp f_2$, this implies the result for $n = 2$. The general case follows by induction with the observeration $f_1+\cdots+f_n\perp f_{n+1}$ if $f_i\perp f_{n+1}$ for all $1 \leq i \leq n$.
+\end{proof}
+
+We also have a general law for norms.
+
+\begin{nthm}{Parallelogram Law}
+    If $\mathscr{H}$ is a Hilbert space and $f,g \in \mathscr{H}$, then $$\norm{f+g}^2+\norm{f-g}^2 = 2(\norm{f}^2+\norm{g}^2)$$
+\end{nthm}
+\begin{proof}
+    For any $f,g \in \mathscr{H}$, the polar identity implies \begin{align*}
+        \norm{f+g}^2 &= \norm{f}^2+2\text{Re}\inner{f}{g}+\norm{g}^2 \\
+        \norm{f-g}^2 &= \norm{f}^2-2\text{Re}\inner{f}{g}+\norm{g}^2
+    \end{align*}
+    Adding gives the result.
+\end{proof}
+
+Before moving to the next concept we recall the notion of convexity.
+
+\begin{defn}\index{Convex}
+    If $V$ is a vector space over $\F$ and $A \subseteq V$, then $A$ is \textbf{convex} if for any $x,y \in A$, and $t \in [0,1]$, $tx+(1-t)y \in A$.
+\end{defn}
+
+Note $\{tx+(1-t)y: t \in [0,1]\}$ is the straight-line segment joining $x$ and $y$. Thus convex sets contain straight lines between points in the set. A common example is given by any linear subspace of $V$. Further, any singleton set or intersection of convex sets is again convex. In particular, if $V$ is an inner product space, then every open ball $B(f;r) = \{g \in V:\norm{f-g} < r\}$ is convex, as is every closed ball.
+
+\begin{thm}
+    If $\mathscr{H}$ is a Hilbert space, $K$ is a closed convex nonempty subset of $\mathscr{H}$, and $h \in \mathscr{H}$, then there is a unique point $k_0 \in K$ such that $$\norm{h-k_0} = \text{dist}(h,K) := \inf\{\norm{h-k}:k \in K\}$$
+\end{thm}
+\begin{proof}
+    Consider $K - h$, the translate of $K$ by $-h$, so it suffices to assume that $h = 0$. Indeed if $K$ is closed and convex, so is $K-h$. Hence we want to show there is a unique vector $k_0$ in $K$ such that $$\norm{k_0} = \text{dist}(0,K)$$
+    Let $d = \text{dist}(0,K)$. Then there is a sequence $\{k_n\}$ in $K$ such that $\norm{k_n}\rightarrow d$. The Parallelogram Law implies that $$\norm{\frac{k_n-k_m}{2}}^2 = \frac{1}{2}(\norm{k_n}^2+\norm{k_m}^2)-\norm{\frac{k_n+k_m}{2}}^2$$
+    Since $K$ is convex $\frac{1}{2}(k_n+k_m) \in K$. Hence $\norm{(k_n+k_m)/2}^2 \geq d^2$. If $\epsilon > 0$, choose $N$ such that $n \geq N$ implies $\norm{k_n}^2 < d^2 +\epsilon^2/4$. By the equation above, if $n,m \geq N$, then $$\norm{\frac{k_n-k_m}{2}}^2 < \frac{1}{2}(2d^2+\epsilon^2/2)-d^2 = \epsilon^2/4$$
+    Thus $\norm{k_n-k_m}< \epsilon$ for $n,m \geq N$, and $\{k_n\}$ is a Cauchy sequence. Since $\mathscr{H}$ is complete and $K$ is closed, there is a $k_0 \in K$ such that $\norm{k_n-k_0}\rightarrow 0$. Also for all $k_n$, $$d \leq \norm{k_0} \leq \norm{k_0-k_n}+\norm{k_n}\rightarrow d$$
+    so $\norm{k_0} = d$.
+
+    To prove uniqueness suppose $h_0 \in K$ such that $\norm{h_0} = d$. By convexity $(k_0+h_0)/2 \in K$, so $$d \leq \norm{(h_0+k_0)/2} \leq (\norm{h_0}+\norm{k_0})/2 = d$$
+    So $\norm{(h_0+k_0)/2} = d$, and the Parallelogram Law implies $$d^2 = d^2 - \norm{\frac{h_0-k_0}{2}}^2$$
+    so $h_0 = k_0$.
+\end{proof}
+
+If the general convex set is replaced by a closed linear subspace, more can be said.
+
+\begin{thm}
+    If $W$ is a closed linear subspace of $\mathscr{H}$, $h \in \mathscr{H}$, and $f_0$ is the unique element of $M$ such that $\norm{h-f_0} = \text{dist}(h,M)$, then $h-f_0\perp M$. Conversely, if $f_0 \in M$ such that $h-f_0 \perp M$, then $\norm{h-f_0} = \text{dist}(h,M)$.
+\end{thm}
+\begin{proof}
+    Suppose $f_0 \in M$ is as described. Let $f \in M$ so $f_0+f \in M$, and hence $$\norm{h-f_0}^2 \leq \norm{h-(f_0+f)}^2 = \norm{h-f_0}^2-2\text{Re}\inner{h-f_0,f}+\norm{f}^2$$
+    Thus $$2\text{Re}\inner{h-f_0,f} \leq \norm{f}^2$$
+    for any $f \id M$. Fix $f \in M$ and substitute $te^{i\theta}$ for $f$ in the preceeding inequality, where $\inner{h-f_0,f} = re^{i\theta}$, $r \geq 0$. This yields $$2tr \leq t^2\norm{f}^2$$
+    Letting $t\rightarrow 0$, we see that $r = 0$, so $h-f_0 \perp f$.
+
+
+    For the converse suppose $f_0 \in M$ such that $h-f_0 \perp M$. If $f \in M$, then $h-f_0 \perp f_0-f$, so $$\norm{h-f}^2 = \norm{h-f_0}^2 +\norm{f_0-f}^2 \geq \norm{h-f_0}^2$$
+    with equality only if $f_0 = f$. Thus $\norm{h-f_0} = \text{dist}(h,M)$.
+\end{proof}
+
+If $A \subseteq \mathscr{H}$ we write $A^{\perp} := \{f \in \mathscr{H}:f\perp A\}$. Note that for any $A$, $A^{\perp}$ is a closed linear subspace of $\mathscr{H}$.
+
+If $M$ is a closed linear subspace of $\mathscr{H}$, let $P:\mathscr{H}\rightarrow M$ be the function defined by $Ph = f_0$< where $f_0 \in M$ is the unique element such that $h-f_0 \in M^{\perp}$.
+
+\begin{thm}
+    If $M$ is a closed linear subspace of $\mathscr{H}$, then \begin{enumerate}
+        \item[(a)] $P$ is a linear transformation on $\mathscr{H}$
+        \item[(b)] $\norm{Ph}\leq \norm{h}$ for all $h \in \mathscr{H}$,
+        \item[(c)] $P^2 = P$
+        \item[(d)] $\text{ker} P = M^{\perp}$ and $\text{ran} P = M$.
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    For (a), if $h_1,h_2 \in \mathscr{H}$, and $\alpha \in \F$, then for any $f \in M$, $$\inner{(\alpha h_1+h_2)-(\alpha Ph_1+Ph_2)}{f} = \alpha_1\inner{h_1-Ph_1,f}+\alpha_2\inner{h_2-Ph_2,f} = 0$$
+    so by uniqueness $P(\alpha h_1+h_2) = \alpha Ph_1 + Ph_2$.
+
+    For (b), if $h \in \mathscr{H}$, then $$\norm{h}^2 = \norm{h-Ph}^2+\norm{Ph}^2 \geq \norm{Ph}^2$$
+    as $Ph \in M$ and $h-Ph \in M^{\perp}$.
+
+    For (c), if $f \in M$, then $Pf = f$. Hence, for any $h \in \mathscr{H}$, as $Ph \in M$, $P^2h = P(Ph) = Ph$, so $P^2 = P$.
+
+    For (d), $Ph = 0$ if and only if $h \in M^{\perp}$. Further, $\text{ran} P \subseteq M$ and $Pf = f$ for any $f \in M$, so $\text{ran} P = M$.
+\end{proof}
+
+\begin{defn}
+    If $M$ is a closed linear subspace of $\mathscr{H}$, then the map $P$ in the previous theorem is called the \textbf{orthogonal projection} of $\mathscr{H}$ onto $M$.
+\end{defn}
+
+We write $M \leq \mathscr{H}$ to signify $M$ is a closed linear subspace of $\mathscr{H}$.
+
+\begin{cor}
+    If $M \leq \mathscr{H}$, then $(M^{\perp})^{\perp} = M$.
+\end{cor}
+\begin{proof}
+    Note that $\text{id}_{\mathscr{H}} - P_M = P_{M^{\perp}}$. Thus $(M^{\perp})^{\perp} = \text{ker}(\text{id}_{\mathscr{H}} - P_M) = \text{ran} P_M = M$ since $P_M$ is idempotent.
+\end{proof}
+
+\begin{cor}
+    If $A \subseteq \mathscr{H}$, then $(A^{\perp})^{\perp}$ is the closed linear span of $A$ in $\mathscr{H}$.
+\end{cor}
+\begin{proof}
+    Indeed if $A' = \langle A\rangle$ denotes the closed linear span of $A$, then $(A^{\perp})^{\perp} \subseteq ({A'}^{\perp})^{\perp} = A'$ from the previous result. Conversely, $(A^{\perp})^{\perp}$ is a closed linear span containing $A$, so it must coincide with $A'$.
+\end{proof}
+
+\begin{cor}
+    If $Y$ is a linear subspace of $\mathscr{H}$, then $Y$ is dense in $\mathscr{H}$ if and only if $Y^{\perp} = (0)$.
+\end{cor}
+
+
+\section{The Riesz Representation Theorem}
+\label{sec:Riesz}
+
+The present section deals with the representation of certain linaer functionals on Hilbert space, although there is another Riesz representation theorem which shall be discussed later.
+
+\begin{prop}
+    Let $\mathscr{H}$ be a Hilbert space and $L:\mathscr{H}\rightarrow \F$ a linear functional. The following are equivalent: \begin{enumerate}
+        \item[(a)] $L$ is continuous 
+        \item[(b)] $L$ is continuous at $0$
+        \item[(c)] $L$ is continuous at some point
+        \item[(d)] There is a constant $c> 0$ such that $|L(h)| \leq c\norm{h}$ for every $h \in \mathscr{H}$.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    Note that $(a)\implies (b)\implies (c)$ and $(d)\implies (b)$. Hence it is sufficient to show $(c)\implies (a)$ and $(b)\implies (d)$.
+
+    First, suppose $(c)$, and let $x \in \mathscr{H}$ be the point at which $L$ is continuous. Then fix $y \in \mathscr{H}$ and $\epsilon > 0$. Then there exists $\delta > 0$ such that if $\norm{x-h} < \delta$, $|L(x)-L(h)| < \epsilon$. Now let $z \in \mathscr{H}$ such that $\norm{y-z} < \delta$. Then setting $h = (x-y+z)$, $x-h = y-z$, so $\norm{y-z} < \delta$ implies $\norm{x-h} < \delta$, and consequently $$|L(y) - L(z)| = |L(y-z)| = |L(x-h)| = |L(x)-L(h)| < \epsilon$$
+    so $L$ is continuous.
+
+    Finally, to show $(b)\implies (d)$ consider $\epsilon = 1$. Then there exists $\delta > 0$ such that if $\norm{h} < \delta$, $|L(h)| < 1$. Setting $c = \frac{2}{\delta}$ we have that $\left|L(\delta h/2\norm{h})\right| < 1$, and so by linearity $$|L(h)| < c \norm{h}$$
+    completing the proof.
+\end{proof}
+
+Note that the previous result did not rely on the inner product of the Hilbert space but rather just its induced norm, and that it didn't require completeness of the domain or codomain. Hence, the previous result applies more generally for any linear map between normed spaces.
+
+\begin{defn}\index{Bounded linear functional}
+    A \textbf{bounded linear functional} $L$ on $\mathscr{H}$ is a linear functional for which there is a constant $c > 0$ such that $|L(h)| \leq c\norm{h}$ for all $h \in \mathscr{H}$. That is a bounded linear functional is precisely a continuous linear functional.
+\end{defn}
+For a bounded linear function $L:\mathscr{H}\rightarrow \F$, define $$\norm{L} = \text{sup}\{|L(h)|:\norm{h} \leq 1\}$$
+Note that $\norm{L} < \infty$, and in particular a linear functional is bounded if and only if this value is finite. $\norm{L}$ is called the supremum norm of $L$. Note again this may be generalized to linear maps between normed spaces.
+
+\begin{prop}
+    If $L$ is a bounded linear functional, then \begin{align*}
+        \norm{L} &= \text{sup}\{|L(h)|:\norm{h} = 1\} \\
+        &= \text{sup}\{|L(h)|/\norm{h}: h \in\mathscr{H},h\neq 0\} \\
+        &= \inf\{c > 0:|L(h)|\leq c\norm{h}, h \in \mathscr{H}
+    \end{align*}
+    Also $|L(h)| \leq \norm{L}\norm{h}$ for all $h \in \mathscr{H}$.
+\end{prop}
+\begin{proof}
+    Note the first two notions are supremums over the same sets, and hence agree. Further, if $0 < \norm{h} < 1$, $|L(h)| = \norm{h}|L(h/\norm{h})| \leq |L(h/\norm{h})|$, so the supremum must occur on the boundary of the unit circle. Thus it is sufficient to consider the last equality.
+
+    First, observe that if $c > 0$ and $|L(h)| \leq c\norm{h}$ for all $h$, then in particular $|L(h)| \leq c$ for $\norm{h} = 1$, so $\norm{L} \leq c$ by definition of the supremum. Thus $\norm{L} \leq \text{inf}\{c > 0:|L(h)|\leq c\norm{h}, h \in \mathscr{H}\}$. Further, as $|L(h)| \leq \norm{L}$ for all $h,\norm{h} = 1$, $|L(h)| \leq \norm{L}\norm{h}$ by linearity, so we have equality.
+\end{proof}
+
+Observe that for any $h_0 \in \mathscr{H}$ we have a linear functional $L:\mathscr{H}\rightarrow \F$ given by $L(h) = \inner{h}{h_0}$. Further, the CBS inequality implies that $|L(h)| \leq \norm{h}\norm{h_0}$, so $L$ is bounded and $\norm{L} \leq \norm{h_0}$. In fact, $L(h_0/\norm{h_0}) = \norm{h_0}$, so we have equality. We now give a converse to these observations.
+
+\begin{nthm}{The Riesz Representation Theorem}
+    If $L:\mathscr{H}\rightarrow \F$ is a bounded linear functional on a Hilbert space, then there is a unique $h_0 \in \mathscr{H}$ for which $L(h) = \inner{h}{h_0}$ for every $h \in \mathscr{H}$.
+\end{nthm}
+\begin{proof}
+    Let $M = \text{ker}L$. Because $L$ is continuous $M$ is a closed linear subspace of $\mathscr{H}$. Since we may assume that $M \neq \mathscr{H}$, $M^{\perp} \neq (0)$. Hence there exists $f_0 \in M^{\perp}$ such that $L(f_0) = 1$. Now if $h \in \mathscr{H}$ and $\alpha = L(h)$, then $L(h-\alpha f_0) = L(h)-\alpha = 0$, so $h-L(h)f_0 \in M$. Thus $$0 = \inner{h-L(h)f_0}{f_0} = \inner{h}{f_0} - L(h)\norm{f_0}^2$$
+    So if $h_0 = \norm{f_0}^{-2}f_0$, $L(h) = \inner{h}{h_0}$ for all $h \in \mathscr{H}$.
+
+    For uniqueness observe that if $h_0' \in \mathscr{H}$ also satisfies the claim, then $h_0-h_0' \perp \mathscr{H}$, so in particular $h_0-h_0'\perp h_0-h_0'$, so $h_0' = h_0$ by positive defniteness. 
+\end{proof}
+
+
+\begin{cor}
+    If $(X,\Omega,\mu)$ is a measure space and $F:L^2(\mu)\rightarrow \F$ is a bounded linear functional, then there is a unique $h_0$ in $L^2(\mu)$ such that $$F(h) = \int_Xh\overline{h_0}d\mu$$
+    for all $h \in L^2(\mu)$.
+\end{cor}
+
+This is a special case of a more general result on bounded linear functionals on $L^p(\mu)$, $1 \leq p < \infty$, but it is interesting to note that it is only a consequence of the result for Hilpert spaces and the fact that $L^2(\mu)$ has a natural Hilbert space structure.
+
+
+\section{Orthonormal Sets and Bases}
+\label{sec:orthonormal}
+
+As in Euclidean space, each Hilbert space can be coordinatized in a suitable sense. By this we mean we can introduce a notion of ``orthonormal basis" on the space.
+
+\begin{defn}
+    An \textbf{orthonormal} subset of a Hilbert space $\mathscr{H}$ is a subset $\mathscr{O}$ having the properties: \begin{enumerate}
+        \item[(a)] for $e \in \mathscr{O}$, $\norm{e} = 1$
+        \item[(b)] if $e_1,e_2 \in \mathscr{O}$, and $e_1 \neq e_2$, then $e_1\perp e_2$.
+    \end{enumerate}
+    An \textbf{orthonormal basis} for $\mathscr{H}$ is a maximal orthonormal set.
+\end{defn}
+
+Note that in general an orthonormal basis need not be a vector space basis for $\mathscr{H}$. Indeed, if $\mathscr{H}$ is infinite-dimensional then an orthonormal basis is never a vector space basis.
+
+\begin{prop}
+    If $\mathscr{O}$ is an orthonormal set in $\mathscr{H}$, then there is an orthonormal basis for $\mathscr{H}$ containing $\mathscr{O}$.
+\end{prop}
+
+This is a straightforward application of Zorn's Lemma.
+
+\begin{eg}
+    Let $\mathscr{H} = L^2_{\C}([0,2\pi])$ and for $n \in \Z$ define $e_n$ in $\mathscr{H}$ by $e_nt = (2\pi)^{-1/2}\exp(int)$. Then $\{e_n:n\in\Z\}$ is an orthonormal set in $\mathscr{H}$.
+\end{eg}
+
+It happens that the set in this example is in fact a basis. First we need a bit of theory to make this easier though.
+
+\begin{eg}
+    If $\mathscr{H} = \F^d$, and $1 \leq k \leq d$, $e_k =$ the $d$-tuple with $1$ in the $k$th place and zeros elsewhere, then $\{e_1,...,e_d\}$ is a basis for $\mathscr{H}$.
+\end{eg}
+
+\begin{eg}
+    Let $\mathscr{H} = l^2(I)$. For each $i \in I$, define $e_i$ in $\mathscr{H}$ to be the indicator function. Then $\{e_i:i \in I\}$ is a basis.
+\end{eg}
+
+\begin{nthm}{The Gram-Schmidt Orthogonalization Process}
+    If $\mathscr{H}$ is a Hilbert space and $\{h_n:n \in \N\}$ is a linearly independent subset of $\mathscr{H}$, then there is an orthonormal set $\{e_n:n \in \N\}$ such that for every $n$, the linear space of $\{e_1,...,e_n\}$ equals the linear span of $\{h_1,...,h_n\}$.
+\end{nthm}
+\begin{proof}
+    We shall proceed inductively. If $n=1$, set $e_1 = h_n/\norm{h_n}$. Now suppose $e_1,...,e_k$ have been constructed for some $k \geq 1$, such that for all $m \leq k$, $\text{span}(e_1,...,e_m) = \text{span}(h_1,...,h_m)$, and $\{e_1,...,e_k\}$ is an orthonormal set. Then define $e_{k+1}$ by setting $$e_{k+1}' = h_{k+1} - \sum_{i=1}^m\inner{h_{k+1}}{e_i}e_i$$
+    and then setting $e_{k+1} = e_{k+1}'/\norm{e_{k+1}'}$, where $e_{k+1}'$ is non-zero as $\{h_1,...,h_k,h_{k+1}\}$ is linearly independent by assumption. Thus $\{e_1,...,e_k,e_{k+1}\}$ satisfies the claim, so by induction we have the desired orthonormal set $\{e_n:n \in \N\}$.
+\end{proof}
+
+For $A \subseteq \mathscr{H}$, we write $\bigvee A$ for the closed linear span of $A$.
+
+\begin{prop}
+    Let $\{e_1,...,e_n\}$ be an orthonormal set in $\mathscr{H}$ and let $M = \bigvee\{e_1,...,e_n\}$. If $P$ is the orthogonal projection of $\mathscr{H}$ onto $M$, then $$Ph = \sum_{k=1}^n\inner{h,e_k}e_k$$
+    for all $h \in \mathscr{H}$.
+\end{prop}
+
+Follows from uniqueness of the vector $h_0 \in M$ for $h \in \mathscr{H}$ such that $h-h_0 \perp M$, and the definition on the right of the proposed equation.
+
+\begin{nthm}{Bessel's Inequality}
+    If $\{e_n:n \in \N\}$ is an orthonormal set and $h \in \mathscr{H}$, then $$\sum_{n=1}^{\infty}|\inner{h}{e_n}|^2 \leq \norm{h}^2$$
+\end{nthm}
+\begin{proof}
+    Let $h_n = h - \sum_{k=1}^n\inner{h}{e_k}e_k$. Then $h_n \perp e_k$ for $1\leq k \leq n$. By the Pythagorean Theorem \begin{align*}
+        \norm{h}^2 &= \norm{h_n}^2 + \norm{\sum_{k=1}^n\inner{h}{e_k}e_k}^2 \\
+        &= \norm{h_n}^2 + \sum_{k=1}^n|\inner{h}{e_k}|^2 \\
+        &\geq \sum_{k=1}^n|\inner{h}{e_k}|^2
+    \end{align*}
+    As $n$ was arbitrary the sum exists and the result follows.
+\end{proof}
+
+\begin{cor}
+    If $\mathscr{O}$ is an orthonormal set in $\mathscr{H}$ and $h \in \mathscr{H}$, then $\inner{h}{e} \neq 0$ for at most a countable number of vectors $e \in \mathscr{O}$.
+\end{cor}
+\begin{proof}
+    For each $n \geq 1$, let $\mathscr{O}_n = \{e \in \mathscr{O}:|\inner{h}{e}| \geq 1/n\}$. By Bessel's inequality, $\mathscr{O}_n$ must be finite. Thus, as the desired collection is a countable union of finite sets, it is countable.
+\end{proof}
+
+\begin{cor}
+    If $\mathscr{O}$ is an orthonormal set and $h \in \mathscr{H}$, then $$\sum_{e \in \mathscr{O}}|\inner{h}{e}|^2 \leq \norm{h}^2$$
+\end{cor}
+
+We make precise the notion of an infinite sum now. First we recall the notion of a \textbf{net}.
+
+\begin{defn}
+    A function whose domain is a \textbf{directed set} is called a \textbf{net}, where a directed set is a nonempty set $A$ together with a reflexive and transitive binary relation $\leq$ (i.e. a pre-order), such that for any $a,b \in A$, there exists $c \in A$ such that $a\leq c$ and $b \leq c$. 
+
+    A net $f:(A,\leq)\rightarrow X$ in a topological space $X$ is said to be \textbf{eventually in $S$}, where $S$ is a subset of $X$, if there exists $a \in A$ such that for all $b \in A$ with $b \geq a$, $f(b) \in S$. A point $x \in X$ is called a \textbf{limit} of the net $f$ if and only if for every open neighborhood $U$ of $x$, then net $f$ is eventually in $U$.
+\end{defn}
+
+
+Let $\mathscr{F}$ be the collection of all finite subsets of $I$ and order $\mathscr{F}$ by inclusion. For each $F \in \mathscr{F}$, define $$h_F = \sum\{h_i:i \in F\}$$
+Since this is a finite sum, $h_F$ is a well-defined element of $\mathscr{H}$ (by commutivity and associativity of addition). Now $\{h_F:F \in \mathscr{F}\}$ is a net in $\mathscr{H}$.
+
+\begin{defn}
+    With notation above, the sum $\sum\{h_i:i \in I\}$ converges if the net $\{h_F:F \in \mathscr{F}\}$ converges; the value of the sum is the limit of the net.
+\end{defn}
+
+Note that if $I$ is countable this definition of convergent sum is not the usual one. That is, if $\{h_n\}$ is a sequence in $\mathscr{H}$, then the convergence of $\sum\{h_n:n\in\N\}$ is not equivalent to the convergence of $\sum_{n=1}^{\infty}h_n$. Even if $\mathscr{H} = \F$, these concepts do not coincide. If, however, $\sum\{h_n:n\in\N\}$ converges, then $\sum_{n=1}^{\infty}h_n$ converges.
+
+\begin{lem}
+    If $\mathscr{O}$ is an orthonormal set and $h \in \mathscr{H}$, then $$\sum\{\inner{h}{e}e:e \in \mathscr{O}\}$$
+    converges in $\mathscr{H}$.
+\end{lem}
+\begin{proof}
+    By our previous work there are $e_1,e_2,...$ in $\mathscr{O}$ such that $\{e\in \mathscr{O}:\inner{h}{e} \neq 0\} = \{e_1,e_2,...\}$. We also know that $\sum_{n=1}^{\infty}|\inner{h}{e_n}|^2 \leq \norm{h}^2 < \infty$. So if $\epsilon > 0$, there is an $N$ such that $\sum_{n=N}^{\infty}|\inner{h}{e_n}|^2 < \epsilon^2$. Let $F_0 = \{e_1,...,e_{N-1}\}$, and let $\mathscr{F}$ be the collection of all finite subsets of $\mathscr{O}$. For $F$ in $\mathscr{F}$ define $h_F := \sum\{\inner{h}{e}e:e \in F\}$. If $F,G \in \mathscr{F}$, and both contain $F_0$, then 
+    \begin{align*}
+        \norm{h_F-h_G}^2 &= \sum\{|\inner{h}{e}|^2:e \in (F\backslash G)\cup (G\backslash F)\}  \\
+        &\leq \sum_{n=N}^{\infty}|\inner{h}{e_n}|^2 < \epsilon^2
+    \end{align*}
+    So $\{h_F:F \in \mathscr{F}\}$ is a Cauchy net in $\mathscr{H}$. Because $\mathscr{H}$ is complete this net converges. In fact, it converges to $\sum_{n=1}^{\infty}\inner{h}{e_n}e_n$.
+\end{proof}
+
+\begin{thm}
+    If $\mathscr{O}$ is an orthonormal set in $\mathscr{H}$, then the following statements are equivalent. \begin{enumerate}
+        \item[(a)] $\mathscr{O}$ is a basis for $\mathscr{H}$
+        \item[(b)] If $h \in \mathscr{H}$ and $h \perp \mathscr{O}$, then $h = 0$
+        \item[(c)] $\bigvee \mathscr{O} = \mathscr{H}$
+        \item[(d)] If $h \in \mathscr{H}$, then $h = \sum\{\inner{h}{e}e:e \in \mathscr{O}\}$
+        \item[(e)] If $g,h \in \mathscr{H}$, then $$\inner{g}{h} = \sum\{\inner{g}{e}\inner{e}{h}:e \in \mathscr{O}\}$$
+        \item[(f)] If $h \in \mathscr{H}$, then $\norm{h}^2 = \sum\{|\inner{h}{e}|^2:e \in \mathscr{O}\}$ (\textbf{Parseval's identity})
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    $(a)\implies (b)$ follows from maximality, $(b)\iff (c)$ was shown previously, $(e)\implies (f)$ is immediate. For $(b) \implies (d)$, if $h \in \mathscr{H}$ then $f = h -\sum\{\inner{h}{e}e:e \in \mathscr{O}\}$ is a well-defined vector by the previous Lemma. If $e_1 \in \mathscr{O}$, then $$\inner{f}{e_1} = \inner{h}{e_1} - \sum\{\inner{h}{e}\inner{e}{e_1}:e \in \mathscr{O}\} = \inner{h}{e_1}-\inner{h}{e_1} = 0$$
+    That is $f \in \mathscr{O}^{\perp}$, so $f = 0$.
+
+    $(f)\implies (a)$ follows by contradiction. If $\mathscr{O}$ is not a basis then there is a unit vector $e_0$ in $\mathscr{H}$ such that $e_0\perp \mathscr{O}$. Hence $0 = \sum\{|\inner{e_0}{e}|^2:e \in \mathscr{O}\}$, contrary to $(f)$.
+
+    Finally, for $(d)\implies (e)$, consider $f,g \in \mathscr{H}$. Then $f = \sum\{\inner{f}{e}e: e \in \mathscr{O}\}$ and $g = \sum\{\inner{g}{e}e:e \in \mathscr{O}\}$. Then we have $$\inner{g}{f} = \inner{\sum\{\inner{g}{e}e: e \in \mathscr{O}\}}{f} = \sum\{\inner{g}{e}\inner{e}{f}:e \in \mathscr{O}$$
+    using continuity and linearity of the inner product in its first component.
+\end{proof}
+
+
+Just as in finite dimensional spaces, we can use an orthonormal basis in Hilbert space to define a concept of dimension.
+
+\begin{prop}
+    If $\mathscr{H}$ is a Hilbert space, any two orthonormal basis have the same cardinality.
+\end{prop}
+\begin{proof}
+    Let $\mathscr{O}$ and $\mathscr{F}$ be two orthonormal bases for $\mathscr{H}$, and put $\kappa$ for the cardinality of $\mathscr{O}$ and $\eta$ for the cardinality of $\mathscr{F}$. If $\kappa$ or $\eta$ is finite, then $\mathscr{H}$ is finite dimensional so $\kappa = \dim\mathscr{H} = \eta$. Suppose both $\kappa$ and $\eta$ are infinite.  For $e\in \mathscr{O}$, let $\mathscr{F}_e := \{f \in \mathscr{F}:\inner{e}{f} \neq 0\}$; so $\mathscr{F}_e$ is countable. By part (b) of the previous theorem, each $f \in \mathscr{F}$ belongs to at leasat one set $\mathscr{F}_e$, $e \in \mathscr{O}$. That is, $\mathscr{F} = \bigcup\{\mathscr{F}_e:e \in \mathscr{O}\}$. Hence $\eta \leq \kappa \aleph_0 = \kappa$ since $\kappa$ is an infinite cardinal. Similarly $\kappa \leq \eta$, so $\kappa = \eta$.
+\end{proof}
+
+\begin{defn}
+    The \textbf{dimension} of a Hilbert space is the cardinality of abasis and is denoted by $\dim \mathscr{H}$.
+\end{defn}
+
+Recall that if $(X,d)$ is a separable metric space and $\{B_i = B(x_i;\epsilon_i):i \in I\}$ is a collection of pairwise disjoint open balls in $X$, then $I$ must be countable. Indeed, if $D$ is a countable dense subset, we can obtain an inclusion of $I$ into $D$ by taking a point $y_i$ in each $B_i \cap D \neq \emptyset$. Thus $I$ must be countable.
+
+\begin{prop}
+    If $\mathscr{H}$ is an infinite dimensional Hilbert space, then $\mathscr{H}$ is separable if and only if $\dim\mathscr{H} = \aleph_0$.
+\end{prop}
+\begin{proof}
+    Let $\mathscr{O}$ be a basis for $\mathscr{H}$. If $e_1,e_2 \in \mathscr{O}$, then $\norm{e_1-e_2}^2 = \norm{e_1}^2+\norm{e_2}^2 = 2$. Hence $\{B(e:1/\sqrt{2}):e \in \mathscr{O}\}$ is a collection of pairwise disjoint open balls in $\mathscr{H}$. From the previous discussion, the assumption that $\mathscr{H}$ is separable implies $\mathscr{O}$ is countable. 
+
+    Conversely, if $\mathscr{O}$ is countable, then first recall $\Q+\Q i$ is countable and dense in $\C$, and $\Q$ is dense and countable in $\R$. Let $S$ be the appropriate countable dense subset in $\F$. Then $$A := \{\sum_{i=1}^ns_ie_i:n\geq 1, s_i \in S\}$$
+    corresponds to the collection of finite sequences with terms in $S$, and hence is countable as $S$ is. We claim this is our dense subset of $\mathscr{H}$.
+
+    Let $x \in H$, so $$x = \sum_{i=1}^{\infty}\inner{x}{e_i}e_i$$
+    from our previous Theorem. Since this is convergent in the norm of $\mathscr{H}$, fixing $\epsilon > 0$ we can find $N$ such that $$\norm{\sum_{n=N+1}^{\infty}c_ne_n} <\epsilon/2$$
+    Also, since $S$ is a dense subset of $\F$, for every $i \leq N$, we can find $s_i \in S$ such that $$|c_i-s_i| <\epsilon/2^{i+1}$$
+    Consider the element $x_N = \sum_{i=1}^Ns_ie_i \in A$. Then \begin{align*}
+        \norm{x-x_N} &= \norm{\sum_{n\geq 1}c_ne_n - \sum_{i=1}^Ns_ie_i} \\
+        &\leq \norm{\sum_{n\geq N+1}c_ne_n}+\norm{\sum_{i=1}^N(c_i-s_i)e_i} \\
+        &\leq \epsilon/2 + \sum_{i=1}^N|c_i-s_i| \\
+        &\leq \sum_{i=1}^N\frac{\epsilon}{2^{i+1}} + \epsilon/2 \\
+        &\leq \sum_{n\geq 1}\frac{\epsilon}{2^{n+1}}+\epsilon/2 \\
+        &= \epsilon
+    \end{align*}
+    completing the proof.
+\end{proof}
+
+
+\section{Isomorphic Hilbert Spaces}
+\label{sec:Isom}
+
+We now define maps which preserve the structure of our Hilbert spaces to obtain a category.
+
+\begin{defn}
+    If $\mathscr{H}$ and $\mathscr{K}$ are Hilbert spaces, an \textbf{isomorphism} between $\mathscr{H}$ and $\mathscr{K}$ is a linear isomorphism $U:\mathscr{H}\rightarrow \mathscr{K}$ such that $$\inner{Uh}{Ug} = \inner{h}{g}$$
+    for all $h,g \in \mathscr{H}$.
+\end{defn}
+
+Note if $U$ is an isomorphism so is $U^{-1}$ so this is the correct notion. Recall an \textbf{isometry} between metric spaces is a map that preserves distances.
+
+\begin{prop}
+    If $V:\mathscr{H}\rightarrow \mathscr{K}$ is a linear map between Hilbert spaces, then $V$ is an isometry if and only if $\inner{Vh}{Vg} = \inner{h}{g}$ for all $h,g \in\mathscr{H}$.
+\end{prop}
+\begin{proof}
+    Assume $\inner{Vh}{Vg} = \inner{h}{g}$ for all $h,g \in \mathscr{H}$. Then $\norm{Vh}^2 = \inner{Vh}{Vh} = \inner{h}{h} = \norm{h}^2$, so $V$ is an isometry.
+
+    Now assume that $V$ is an isometry. If $h,g \in \mathscr{H}$ and $\lambda \in \F$, then $\norm{h+\lambda g}^2 = \norm{Vh+\lambda Vg}^2$. Using the polar identity on both sides of this equation gives $$\norm{h}^2+2\text{Re}\overline{\lambda}\inner{h}{g}+|\lambda|^2\norm{g}^2 = \norm{Vh}^2 + 2\text{Re}\overline{\lambda}\inner{Vh}{Vg} + |\lambda|^2\norm{Vg}^2$$
+    But $\norm{Vh} = \norm{h}$ and $\norm{Vg} = \norm{g}$, so this equation becomes $$\text{Re}\overline{\lambda}\inner{h}{g} = \text{Re}\overline{\lambda}\inner{Vh}{Vg}$$
+    for any $\lambda \in \F$. If $\F = \R$, take $\lambda = 1$, and if $\F = \C$, first take $\lambda = 1$, and then take $\lambda = i$, to find that $\inner{h}{g}$ and $\inner{Vh}{Vg}$ have the same real and imaginary components.
+\end{proof}
+
+Note this implies that isomorphisms preserve completeness, so if an inner product space is isomorphic to a Hilbert space, then it must be complete (i.e. a Hilbert space in its own right).
+
+\begin{eg}
+    Define $S:l^2\rightarrow l^2$ by $S(\alpha_1,\alpha_2,...) = (0,\alpha_1,\alpha_2,...)$. Then $S$ is an isometry that is not surjective.
+\end{eg}
+
+\begin{thm}
+    Two Hilbert spaces are isomorphic if and only if they have the same dimension.
+\end{thm}
+\begin{proof}
+    If $U:\mathscr{H}\rightarrow \mathscr{K}$ is an isomorphism and $\mathscr{O}$ is a basis for $\mathscr{H}$, then $U\mathscr{O}$ is a basis for $\mathscr{K}$. Hence $\dim \mathscr{H} = \dim\mathscr{K}$.
+
+    Let $\mathscr{H}$ be a Hilbert space and let $\mathscr{O}$ be a basis for $\mathscr{H}$. Consider the Hilbert space $l^2(\mathscr{O})$. If $h \in \mathscr{H}$, define $\hat{h}:\mathscr{O}\rightarrow \F$ by $\hat{h}(e) = \inner{h}{e}$. By Parseval's Identity $\hat{h} \in l^2(\mathscr{O})$ and $\norm{h} = \norm{\hat{h}}$. Define $U:\mathscr{H}\rightarrow l^2(\mathscr{O})$ by $Uh = \hat{h}$. Thus $U$ is linear and an isometry. The range of $U$ contains all the functions $f$ in $l^2(\mathscr{O})$ such that $f(e) = 0$ for all but a finite number of $e$; that is, the range is dense. But $U$, being an isometry, must have a closed range. Hence $U:\mathscr{H}\rightarrow l^2(\mathscr{O})$ is an isomorphism.
+
+    If $\mathscr{K}$ is a Hilbert space with a basis $\mathscr{I}$, $\mathscr{K}$ is isomorphic to $l^2(\mathscr{I})$. If $\dim \mathscr{H} = \dim \mathscr{K}$, $\mathscr{O}$ and $\mathscr{I}$ have the same cardinality; it follows that $l^2(\mathscr{O})$ is isomorphic to $l^2(\mathscr{I})$. Therefore $\mathscr{H}$ and $\mathscr{K}$ are isomorphic.
+\end{proof}
+
+\begin{cor}
+    All separable infinite dimensional Hilbert spaces are isomorphic.
+\end{cor}
+
+Let $\mathbb{D} = \{z \in \C:|z| < 1\}$.
+
+\begin{thm}
+    If $f:\partial \mathbb{D}\rightarrow \C$ is a continuous function, then there is a sequence $\{p_n(z,\overline{z})\}$ of polynomials in $z$ and $\overline{z}$ such that $p_n(z,\overline{z})\rightarrow f(z)$ uniformly on $\partial \mathbb{D}$.
+\end{thm}
+
+Note that if $z \in \partial \mathbb{D}, \overline{z} = z^{-1}$. Thus a polynomial in $z$ and $\overline{z}$ on $\partial \mathbb{D}$ becomes a Laurent polynomial $$\sum_{k=-m}^na_kz^k$$
+If we put $z = e^{i\theta}$, this becomes $$\sum_{k=-m}^na_ke^{ik\theta}$$
+Such functions are called \textbf{trigonometric polynomials}.
+
+\begin{thm}
+    If for each $n \in \Z$, $e_n(t) \equiv (2\pi)^{-1}\exp(int)$, then $\{e_n:n \in \Z\}$ is a basis for $L_{\C}^2[0,2\pi]$.
+\end{thm}
+\begin{proof}
+    Let $\mathscr{T} = \left\{\sum_{k=-n}^na_ke_k:a_k \in \C,n\geq 0\right\}$. Then $\mathscr{T}$ is a subalgebra of $C_{\C}[0,2\pi]$, the algebra of all continuous $\C$-valued functions on $[0,2\pi]$. Note that if $f \in \mathscr{T}, f(0) = f(2\pi)$. We want to show the uniform closure of $\mathscr{T}$ is $\mathscr{C} \equiv \{f \in C_{\C}[0,2\pi]:f(0) = f(2\pi)\}$. To do this let $f \in \mathscr{C}$ and define $F:\partial\mathbb{D}\rightarrow \C$ by $F(e^{it}) = f(t)$. $F$ is continuous. By the previous result there is a sequence of polynomials in $z$ and $\overline{z}$, $p_n$, such that $p_n(z,\overline{z})\rightarrow F(z)$ uniformly on $\partial \mathbb{D}$. Thus $p_n(e^{it},e^{-it})\rightarrow f(t)$ uniformly on $[0,2\pi]$. But $p_n(e^{it},e^{-it}) \in \mathscr{T}$.
+
+    Now the closure of $\mathscr{C}$ in $L_{\C}^2[0,2\pi]$ is all of $L_{\C}^2[0,2\pi]$. Hence, the closed span of $\{e_n:n \in \Z\}$ is $L_{\C}^2[0,2\pi]$ and $\{e_n\}$ is thus a basis.
+\end{proof}
+
+Define $e_n(t) = \exp(int)$. Hence $\{e_n:n \in \Z\}$ is a basis for $L_{\C}^2([0,2\pi],(2\pi)^{-1}dt)$. If $f \in \mathscr{H}$, then $$\hat{f}(n) := \inner{f}{e_n} = \frac{1}{2\pi}\int_0^{2\pi}f(t)e^{-int}dt$$
+is called the \textbf{$n$th Fourier coefficient} of $f$, $n \in \Z$. By the previous theorem $$f = \sum_{n=-\infty}^{\infty}\hat{f}(n)e_n$$
+where the convergence occurs in the norm induced by our inner product on the space. This is called the \textbf{Fourier series} of $f$.
+
+If $\mathscr{H}$ is any Hilbert space and $\mathscr{O}$ is a basis, the scalars $\{\inner{h}{e}:e \in \mathscr{O}\}$ are called the \textbf{Fourier coefficients} of $h$ relative to $\mathscr{O}$, and the series is called the \textbf{Fourier expansion of $h$}.
+
+\begin{thm}{The Riemann-Lebesgue Lemma}
+    If $f \in L_{\C}^2[0,2\pi]$, then $|int_0^{2\pi}f(t)e^{-int}dt \rightarrow 0$ as $n\rightarrow \pm\infty$.
+\end{thm}
+
+For $f \in L_{\C}^2[0,2\pi]$, the function $\hat{f}:\Z\rightarrow \C$ is called the \textbf{Fourier transform of $f$}. The map $U:L_{\C}^2[0,2\pi]\rightarrow l^2(\Z)$ defined by $Uf = \hat{f}$ is the \textbf{Fourier transform}.
+
+\begin{thm}
+    The Fourier transform is a linear isometry from $L_{\C}^2[0,2\pi]$ onto $l^2(\Z)$.
+\end{thm}
+
+
+\section{Direct Sum of Hilbert Spaces}
+\label{sec:DirSum}
+
+Throughout let $\mathscr{H}$ and $\mathscr{K}$ be Hilbert spaces.
+
+\begin{defn}
+    Define an inner product on $\mathscr{H}\oplus \mathscr{K}$ by $$\inner{h_1\oplus k_1}{h_2 \oplus k_2} := \inner{h_1}{h_2}+\inner{k_1}{k_2}$$
+\end{defn}
+
+This is again a Hilbert space. However, we can lose completeness when switching to infinite direct sums.
+
+\begin{prop}
+    If $\mathscr{H}_1,\mathscr{H}_2,...$ are Hilbert spaces, let $\mathscr{H}$ be the subspace of their direct sum consisting of sequences $(h_n)$ such that $\sum_{n\geq 1}\norm{h_n} < \infty$. For $h = (h_n)$ and $g = (g_n)$ in $\mathscr{H}$, define $$\inner{h}{g} = \sum_{n\geq 1}\inner{h_n}{g_n}$$
+    Then $\inner{\cdot}{\cdot}$ is an inner product on $\mathscr{H}$ and the norm relative to this inner product is the usual. WIth this inner product $\mathscr{H}$ is a Hilbert space.
+\end{prop}
+\begin{proof}
+    If $h = (h_n),g=(g_n) \in \mathscr{H}$, then the CBS inequality implies $$\sum|\inner{h_n}{g_n}| \leq \sum\norm{h_n}\norm{g_n} \leq \left(\sum\norm{h_n}^2\right)^{1/2}\left(\sum\norm{g_n}^2\right)^{1/2} < \infty$$
+    Hence the series in the statement converges absolutely.
+\end{proof}
+
+
+
+\begin{defn}
+    If $\mathscr{H}_1,...$ are Hilbert spaces, the space $\mathscr{H}$ of the previous proposition is called the \textbf{direct sum} of $\mathscr{H}_1,...$.
+\end{defn}
+
+%
+% \begin{acknowledgement}
+% If you want to include acknowledgments of assistance and the like at the end of an individual chapter please use the \verb|acknowledgement| environment -- it will automatically render Springer's preferred layout.
+% \end{acknowledgement}
+%
+% \section*{Appendix}
+% \addcontentsline{toc}{section}{Appendix}
+%
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

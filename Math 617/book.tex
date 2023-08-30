@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%% book.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Book template for lecture notes
+%
+%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox,envcountchap,sectrefs]{style/svmono}
+
+
+\input{book_packages}
+
+\usepackage{imakeidx}
+\makeindex[options=-s style/svind.ist]
+\newcommand\gobbleone[1]{}
+\newcommand{\seeonly}[2]{\ (\emph{\seename} #1)}
+\newcommand{\also}[2]{\unskip(\emph{\alsoname} #1)}
+\newcommand{\Also}[2]{\unskip\emph{See also} #1}
+\let\oldindex\index
+\renewcommand{\index}[1]{\def\exptoindex{#1}\expandafter\oldindex\expandafter{\exptoindex}}
+
+\newcommand{\seeonlyindex}[2]{\index{#1@#1\protect\gobbleone|seeonly{#2}}}
+\newcommand{\alsoindex}[2]{\index{#1!zzzz@\protect\gobbleone|also{#2}}}
+\newcommand{\Alsoindex}[2]{\index{#1!zzzz@\protect\gobbleone|Also{#2}}}
+
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{./}{images/}}
+
+\begin{document}
+
+\author{E/Ea Thompson (They/Them)}
+\title{Math 617: Functional Analysis}
+\subtitle{-- In Pursuit of Abstract Nonsence --}
+\maketitle
+
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \include{frontmatter/dedication}
+% \include{frontmatter/foreword}
+\include{frontmatter/preface}
+% \include{frontmatter/acknowledgement}
+
+\tableofcontents
+
+\include{frontmatter/notation}
+
+
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{Part1/part}
+\include{Part1/chapter1}
+\include{Part1/chapter2}
+
+
+\backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \include{backmatter/appendix}
+% \include{backmatter/glossary}
+% \include{backmatter/solutions}
+\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+
+
+

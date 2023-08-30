@@ -1,0 +1,27 @@
+\contentsline {part}{I\hspace {1em}The Real Numbers: StillWell}{2}{part.1}%
+\contentsline {chapter}{\numberline {1}Ordinals}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Counting Past Infinity}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}What are Ordinals?}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Finite Ordinals}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Infinite Ordinals: Successor and Least Upper Bound}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Uncountable Ordinals}{4}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Well-Ordering and Transfinite Induction}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}The Cantor-Bendixson Theorem}{6}{section.1.4}%
+\contentsline {section}{\numberline {1.5}The ZF Axioms for Set Theory}{7}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Finite Set Theory and Arithmetic}{8}{section.1.6}%
+\contentsline {section}{\numberline {1.7}The Rank Hierarchy}{9}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Cardinality}{9}{subsection.1.7.1}%
+\contentsline {section}{\numberline {1.8}Large Sets}{10}{section.1.8}%
+\contentsline {chapter}{\numberline {2}Axiom of Choice}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Some Naive Questions about Infinity}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Full Axiom of Choice and Well-Ordering}{12}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Cardinal Numbers}{13}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}The Continuum Hypothesis}{14}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Filters and Ultrafilters}{14}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Games and Winning Strategies}{16}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Infinite Games}{17}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Strategies}{17}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}The Countable Axiom of Choice}{18}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Zorn's Lemma}{19}{section.2.8}%
+\contentsline {chapter}{Appendices}{21}{section*.1}%
+\contentsfinish 

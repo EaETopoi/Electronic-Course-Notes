@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Gravity as Geometry}
+\label{GravGeomBitch} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{To be completed once done}
+
+\section{The Equivalence Principle}
+\label{sec:equivPrinc}
+
+The equivalence principle is regarded as a heuristic idea whose central content is incorporated automatically and precisely in general relativity where appropriate. The equality of gravitational and inertial mass is essential for this argument. Einstein's equivalence principle is the idea that there is no experiment that can distinguish a uniform acceleration from a uniform gravitational field. This implies that light falls in a gravitational field.
+
+
+\section{Clocks in a Gravitational Field}
+\label{sec:clockGrav}
+
+When the gravitational field is nonuniform the equivalence principle holds only for experiments in laboratories that are small enough and that take place over a short enough period of time that no nonuniformities in $\Phi$ can be detected.
+
+\begin{rmk}
+    The \textbf{Equivalence Principle} states that experiments in a sufficiently small freely falling laboratory, over a sufficiently short time, give results that are indistinguishable from those of the same experiments in an intertial frame in empty space.
+\end{rmk}
+
+
+\section{The Global Positioning System}
+\label{sec:GlobPos}
+
+\section{Spacetime is Curved}
+\label{sec:spaceCurve}
+
+\begin{qst}
+    What is the explanation of the difference between the rates at which signals are emitted and received at two different gravitational potentials?
+\end{qst}
+
+One explanation is that gravity affects the rates at which clocks run. In the absence of any gravitational field, two clocks at rest in an inertial frame of flat spacetime both keep track of the time of that frame. In the presence of a gravitational field, the spacetime remains flat, but clocks run at a rate that is a factor $(1+\Phi/c^2)$ different from their rates in empty spacetime, where $\Phi$ is the gravitational potential at the location of the clock. Clocks run faster where $\Phi$ is positive and slower where $\Phi$ is negative.
+
+
+However, it is simpler, more economical, and ultimately more powerful to recognize that clocks correctly measure timelike distances in spacetime and that its geometry is curved.
+
+\section{Newtonian Gravity in Spacetime Terms}
+\label{sec:NewtGrav}
+
+We consider a simple model that will introduce a clight curvature that will explain geometrically the behaviour of clocks we have been discussing. We specify the \textbf{Static Weak Field Metric} by \begin{equation}
+    \boxed{ds^2 = -\left(1+\frac{2\Phi(x^i)}{c^2}\right)(cdt)^2+\left(1-\frac{2\Phi(x^i)}{c^2}\right)(dx^2+dy^2+dz^2)}
+\end{equation}
+
+where the gravitational potential $\Phi(x^i)$ is a function of position satisfying the Newtonian field equation and assumed to vanish at infinity. For example, outside Earth $\Phi(r) = -GM_{\oplus}/r$. 
+
+\subsection{Rates of Emission and Reception}
+
+
+Consider signals propagating along the $x$-axis emitted at one location, $x_A$, and received at another, $x_B$. The world line of a light signal won't be a $45^{\circ}$ straight line, as in flat spacetime. But the world lines of both signals will have the same shape because the geometry is independent of $t$. The signals are therefore received at $B$ with the same coordinate separation $\Delta t$ as they were emitted with at $A$. But a coordinate separation $\Delta t$ corresponds to two different proper time intervals at the two locations. The coordinate separations between the two emissions at location $x_A$ are $\Delta t$ and $\Delta x = \Delta y = \Delta z = 0$. The proper time separation $\Delta \tau_A$ between these events is $d\tau^2 = -ds^2/c^2$ so $$\Delta \tau_A = \left(1+\frac{\Phi_A}{c^2}\right)\Delta t$$
+accurate to order $1/c^2$, where $\Phi_A = \Phi(x_A,0,0)$. Similarly, on reception $$\Delta \tau_B = \left(1+\frac{\Phi_B}{c^2}\right)\Delta t$$
+Eliminating $\Delta t$ between these two relations gives $$\Delta \tau_B = \left(1+\frac{\Phi_B-\Phi_A}{c^2}\right)\Delta \tau_A$$
+
+
+\subsection{Newtonian Motion in Spacetime Terms}
+
+The principle that a free particle follows a path of extremal proper time between ny two points also gives the motion of a particle in a gravitational potential $\Phi$ in the spacetime geometry described previously. The proper time between two points $A$ and $B$ in spacetime depends on the world line between them and is given by $$\tau_{AB} = \int_A^B\left[\left(1+\frac{2\Phi}{c^2}\right)dt^2-\frac{1}{c^2}\left(1-\frac{2\Phi}{c^2}\right)(dx^2+dy^2+dz^2)\right]^{1/2}$$
+integrated along the world line connecting $A$ and $B$. All of our considerations have been accurate only to first order in $1/c^2$, and to that order this becomes under a $t$ parameterization $$\tau_{AB} \approx \int_A^Bdt\left[1-\frac{1}{c^2}\left(\frac{1}{2}\left|\left|\vec{v}\right|\right|^2-\Phi\right)\right]$$
+The world line that extremizes the proper time between $A$ and $B$ will extremize the combination $$\int_A^Bdt\left(\frac{1}{2}\left|\left|\vec{v}\right|\right|^2-\Phi\right)$$
+since the first term in the original integral doesn't depend on which world line is traveled. The conditions for an extremum are Lagrange's equations, following from the Lagrangian $$L\left(\frac{d\vec{x}}{dt},\vec{x}\right) = \frac{1}{2}\left(\frac{d\vec{x}}{dt}\right)^2-\Phi(\vec{x},t)$$
+If multiplied by the mass, this is just the Lagrangian for a nonrelativistic particle moving in the gravitational potential $\Phi$. Lagrange's equations imply $$\frac{d^2\vec{x}}{dt^2} = -\nabla\Phi$$
+which, when both sides are multiplied by $m$ is just $\vec{F} = m\vec{a}$.
+
+\begin{table}[H]
+    \centering
+    \caption{Newtonian and Geometric Formulations of Gravity Compared}
+    \begin{tabular}{p{4cm}p{5cm}p{5cm}p{4cm}}
+        \hline
+        & Newtonian & Geometric Newtonian & General Relativity \\ \hline
+        What a mass does & Produces a field $\Phi$ causing a force on other masses $-m\nabla \Phi$ & Curves spacetime $ds^2 = -\left(1+\frac{2\Phi}{c^2}\right)(cdt)^2 + \left(1-\frac{2\Phi}{c^2}\right)(dx^2+dy^2+dz^2)$ & Curves spacetime \\
+        Motion of a particle & $m\vec{a} = \vec{F}$ & Curve of extremal proper time (first order in $1/c^2$) & Curve of extremal proper time \\ 
+        Field equation & $\nabla^2\Phi = +4\pi G\mu$ & $\nabla^2\Phi = +4\pi G\mu$ & Einstein's equation \\ \hline 
+    \end{tabular}
+    \label{tab:newtGeom}
+\end{table}
+
+The Newtonian gravitational law is inconsistent with the principles of special relativity because it specifies an instantaneous interaction between bodies. The asymmetry between space and time in the metric shows this in anothe rway. Even in a geometric formulation Newtonian gravity is inconsistent with special relativity. A fully relativisticm geometric theory of gravity would treat space and time on a symmetric footing.
+
+
+
+
+
+
+
+
+% \begin{acknowledgement}
+% If you want to include acknowledgments of assistance and the like at the end of an individual chapter please use the \verb|acknowledgement| environment -- it will automatically render Springer's preferred layout.
+% \end{acknowledgement}
+%
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+
+
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

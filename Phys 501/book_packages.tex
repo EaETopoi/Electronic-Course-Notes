@@ -1,0 +1,368 @@
+%%%%%%%%%%%%%%%%% Book Formatting Comments:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% for Part
+
+%%%%%%%%%%%%%%%%%%%%%% for chapter
+
+%%%%%%%%%%%%%%%%%%%% for section
+
+
+
+
+%%%%%% PACKAGES %%%%%%%
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{amsmath} % Math display options
+\usepackage{amssymb} % Math symbols
+%\usepackage{amsfonts} % Math fonts
+%\usepackage{amsthm}
+\usepackage{mathtools} % General math tools
+\usepackage{array} % Allows you to write arrays
+\usepackage{empheq} % For boxing equations
+% \usepackage{mathabx}
+% \usepackage{mathrsfs}
+\usepackage{nameref}
+\usepackage{wrapfig}
+
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+
+\usepackage{txfonts}
+\usepackage{cancel}
+\usepackage[toc, page]{appendix}
+\usepackage{titletoc,tocloft}
+\setlength{\cftchapindent}{1em}
+\setlength{\cftsecindent}{2em}
+\setlength{\cftsubsecindent}{3em}
+%\setlength{\cftsubsubsecindent}{4em}
+\usepackage{titlesec}
+
+%\titleformat{\section}
+%  {\normalfont\fontsize{25}{15}\bfseries}{\thesection}%{1em}{}
+%\titleformat{\section}
+%  {\normalfont\fontsize{20}{15}\bfseries}%{\thesubsection}{1em}{}
+%\setcounter{secnumdepth}{1}  
+  
+  
+
+%\newcommand\numberthis{\refstepcounter{equation}\tag{\theequation}} % For equation labelling
+\usepackage[framemethod=tikz]{mdframed}
+
+\usepackage{tikz} % For drawing commutative diagrams
+\usetikzlibrary{cd}
+\usetikzlibrary{calc}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75p
+
+\usepackage{datetime}
+\usepackage[margin=2cm]{geometry}
+\setlength{\parskip}{1em}
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}       % standard LaTeX graphics tool
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
+\usepackage{newtxtext}       % 
+\usepackage{newtxmath}       % selects Times Roman as basic font
+\usepackage{float}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt} 
+\pagestyle{fancy}
+\lhead[\leftmark]{}
+\rhead[]{\leftmark}
+
+%\usepackage{enumitem}
+
+\usepackage{url}
+\allowdisplaybreaks
+
+%%%%%% ENVIRONMENTS %%%
+\definecolor{purp}{rgb}{0.29, 0, 0.51}
+\definecolor{bloo}{rgb}{0, 0.13, 0.80}
+
+
+
+%%\newtheoremstyle{note}% hnamei
+%{3pt}% hSpace above
+%{3pt}% hSpace belowi
+%{}% hBody fonti
+%{}% hIndent amounti
+%{\itshape}% hTheorem head fonti
+%{:}% hPunctuation after theorem headi
+%{.5em}% hSpace after theorem headi
+%{}% hTheorem head spec (can be left empty, meaning ‘normal’)i
+
+
+
+
+
+% %%%%%%%%%%%%% THEOREM DEFINITIONS
+
+\spnewtheorem{axiom}{Axiom}[chapter]{\bfseries}{\itshape}
+
+\spnewtheorem{construction}{Construction}[chapter]{\bfseries}{\itshape}
+
+\spnewtheorem{props}{Properties}[chapter]{\bfseries}{\itshape}
+
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+\numberwithin{equation}{section}
+
+\newenvironment{qest}{
+    \begin{center}
+        \em
+    }
+    {
+    \end{center}
+    }
+
+%%%%%% MACROS %%%%%%%%%
+%% New Commands
+\newcommand{\ip}[1]{\left\langle#1\right\rangle} %%% Inner product
+\newcommand{\abs}[1]{\lvert#1\rvert} %%% Modulus
+\newcommand\diag{\operatorname{diag}} %%% diag matrix
+\newcommand\tr{\mbox{tr}\.} %%% trace
+\newcommand\C{\mathbb C} %%% Complex numbers
+\newcommand\R{\mathbb R} %%% Real numbers
+\newcommand\Z{\mathbb Z} %%% Integers
+\newcommand\Q{\mathbb Q} %%% Rationals
+\newcommand\N{\mathbb N} %%% Naturals
+\newcommand\F{\mathbb F} %%% An arbitrary field
+\newcommand\ste{\operatorname{St}} %%% Steinberg Representation
+\newcommand\GL{\mathbf{GL}} %%% General Linear group
+\newcommand\SL{\mathbf{SL}} %%% Special linear group
+\newcommand\gl{\mathfrak{gl}} %%% General linear algebra
+\newcommand\G{\mathbf{G}} %%% connected reductive group
+\newcommand\g{\mathfrak{g}} %%% Lie algebra of G
+\newcommand\Hbf{\mathbf{H}} %%% Theta fixed points of G
+\newcommand\X{\mathbf{X}} %%% Symmetric space X
+\newcommand{\catname}[1]{\normalfont\textbf{#1}}
+\newcommand{\Set}{\catname{Set}} %%% Category set
+\newcommand{\Grp}{\catname{Grp}} %%% Category group
+\newcommand{\Rmod}{\catname{R-Mod}} %%% Category r-modules
+\newcommand{\Mon}{\catname{Mon}} %%% Category monoid
+\newcommand{\Ring}{\catname{Ring}} %%% Category ring
+\newcommand{\Topp}{\catname{Top}} %%% Category Topological spaces
+\newcommand{\Vect}{\catname{Vect}_{k}} %%% category vector spaces'
+\newcommand\Hom{\mathbf{Hom}} %%% Arrows
+
+\newcommand{\map}[2]{\begin{array}{c} #1 \\ #2 \end{array}}
+\newcommand{\inner}[2]{\left\langle #1, #2\right\rangle}
+\newcommand{\norm}[1]{\left|\left| #1\right|\right|}
+
+\newcommand{\Emph}[1]{\textbf{\ul{\emph{#1}}}}
+
+
+
+
+%% Math operators
+\DeclareMathOperator{\ran}{Im} %%% image
+\DeclareMathOperator{\aut}{Aut} %%% Automorphisms
+\DeclareMathOperator{\spn}{span} %%% span
+\DeclareMathOperator{\ann}{Ann} %%% annihilator
+\DeclareMathOperator{\rank}{rank} %%% Rank
+\DeclareMathOperator{\ch}{char} %%% characteristic
+\DeclareMathOperator{\ev}{\bf{ev}} %%% evaluation
+\DeclareMathOperator{\sgn}{sign} %%% sign
+\DeclareMathOperator{\id}{Id} %%% identity
+\DeclareMathOperator{\supp}{supp} %%% support
+\DeclareMathOperator{\inn}{Inn} %%% Inner aut
+\DeclareMathOperator{\en}{End} %%% Endomorphisms
+\DeclareMathOperator{\sym}{Sym} %%% Group of symmetries
+
+
+%% Diagram Environments
+\iffalse
+\begin{center}
+    \begin{tikzpicture}[baseline= (a).base]
+        \node[scale=1] (a) at (0,0){
+          \begin{tikzcd}
+           
+          \end{tikzcd}
+        };
+    \end{tikzpicture}
+\end{center}
+\fi
+
+\usepackage[most]{tcolorbox}
+%%%%%%%%%%%%%% ENVIRONMENTS
+%%% tcolorbox environments
+
+%%% \tcolorboxenvironment: An existing environment is redefined to be allowed to be boxed inside another tcolorbox during use
+\tcolorboxenvironment{proof}{% `proof' from `amsthm'  
+blanker,breakable=true,left=0.3em,
+borderline west={3pt}{-3pt}{black!35}}
+
+
+%%% titled environments
+\newtcolorbox[auto counter, number within=section]{nthm}[2][]{
+colback=red!5!white,
+colframe=red!5!white,
+attach title to upper={},
+title={\textbf{Theorem \thetcbcounter\  (#2)\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{red!75!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{ndefn}[2][]{
+colback=blue!5!white,
+colframe=blue!5!white,
+attach title to upper={},
+title={\textbf{Definition \thetcbcounter\  (#2)\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{blue!75!black},
+#1
+}
+
+\newtcolorbox[auto counter, number within=section]{eg}[1][]{
+colback=white,
+attach title to upper={},
+title={\underline{Example:}\smallbreak},
+coltitle={green!50!black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{green!50!black},
+#1
+}
+
+\newtcolorbox[auto counter, number within=section]{qst}[1][]{
+colback=white,
+attach title to upper={},
+title={\underline{Question?}\smallbreak},
+coltitle={blue!50!black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{blue!50!black},
+#1
+}
+
+\newtcolorbox[auto counter, number within=section]{rmk}[1][]{
+colback=white,
+attach title to upper={},
+title={\underline{Remark:}\smallbreak},
+coltitle={red!50!black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{red!50!black},
+#1
+}
+
+
+\newtcolorbox[auto counter, number within=section]{nte}[1][]{
+colback=white,
+attach title to upper={},
+title={\underline{Note:}\smallbreak},
+coltitle={red!25!white},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{red!25!white},
+#1
+}
+
+
+%%% untitled environments
+\newtcolorbox[use counter from=nthm, number within=section]{thm}[1][]{
+colback=red!5!white,
+colframe=red!5!white,
+attach title to upper={},
+title={\textbf{Theorem \thetcbcounter\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{red!75!black},
+#1
+} 
+
+\newtcolorbox[use counter from=nthm, number within=section]{defn}[1][]{
+colback=blue!5!white,
+colframe=blue!5!white,
+attach title to upper={},
+title={\textbf{Definition \thetcbcounter\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{blue!75!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{cor}[1][]{
+colback=red!5!white,
+colframe=red!5!white,
+attach title to upper={},
+title={\textbf{Corollary \thetcbcounter\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{red!50!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{prop}[1][]{
+colback=orange!5!white,
+colframe=orange!5!white,
+attach title to upper={},
+title={\textbf{Proposition \thetcbcounter} \ },
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{orange!75!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{lem}[1][]{
+colback=orange!5!white,
+colframe=orange!5!white,
+attach title to upper={},
+title={\textbf{Lemma \thetcbcounter} \ },
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{orange!75!black},
+#1
+}
+
+\newtcolorbox[auto counter, number within=section]{home}[1][]{
+colback=white,
+attach title to upper={},
+title={\textbf{Exercise:}\ \ },
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{black!10!lime},
+#1
+}
+
+
+\newdateformat{monthdayyeardate}{%
+    \monthname[\THEMONTH]~\THEDAY, \THEYEAR}
+%%%%%%%%%%%%%%%%%%%%%%%

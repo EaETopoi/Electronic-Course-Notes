@@ -1,0 +1,346 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Special Relativistic Mechanics}
+\label{SpecMech} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{To be completed once done}
+
+\section{Four-Vectors}
+\label{sec:fourVect}
+
+Four vectors are four dimensional vectors invisioned in flat spacetime. Timelike, spacelike, and null four-vectors distinguish the direction of the vectors relative to the event they are attached to. We define the \textbf{length} of a four-vector as the absolute value of the spacetime distance between its tail and its tip. The vector operations are independent, or \textbf{invariant}, or the inertial frame.
+
+\subsection{Basis Four-Vecotrs}
+
+In a particular inertial frame, the standard basis consists of four unit vectors $e_t,e_x,e_y,e_z$ pointing in the corresponding directions. We use Einstein notation and write a vector in these coordinates as $$\mathbf{a} = a^{\alpha}e_{\alpha}$$
+
+\begin{nte}
+    The components of a four-vector are different in different inertial frames because the coordinate basis four-vectors are different.
+\end{nte}
+
+For example, for two inertial frames related by a uniform motino $v$ along the $x$-axis, the components of a four vector $\mathbf{a}$ transform as $$a^{t'} = \gamma(a^t-va^x),a^{x'} = \gamma(a^x - va^t), a^{y'} = a^y, a^{z'} = a^z$$
+where we're taking $c = 1$.
+
+\subsection{Scalar Product}
+
+We define a scalar product on four vectors using the psuedo-riemannian metric on our flat spacetime. In particular, if $\mathbf{a} = a^{\alpha}e_{\alpha},\mathbf{b} = b^{\beta}e_{\beta}$, then $$\mathbf{a}\cdot\mathbf{b} = (e_{\alpha}\cdot e_{\beta})a^{\alpha}b^{\beta}$$
+where we write $$\eta_{\alpha\beta} := e_{\alpha}\cdot e_{\beta}$$
+Note these are the coefficients of our psuedo-riemannian metric, so $$ds^2 = \eta_{\alpha\beta}dx^{\alpha}dx^{\beta}$$
+where $dx^{\alpha}dx^{\beta} = \frac{dx^{\alpha}\otimes dx^{\beta}+dx^{\beta}\otimes dx^{\alpha}}{2}$. Thus we have that $\eta_{tt} = -1,\eta_{xx} = \eta_{yy}=\eta_{zz} = 1$, and all other entries are zero. In particular we have a matrix representation $$(\eta_{\alpha\beta}) = \begin{pmatrix} -1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}$$
+As this makes no reference to a particular frame, the scalar product is an invariant.
+
+\begin{eg}
+    Lorentz boosts preserve the orthogonality of coordinate axes. In particular, they are isometries. In a frame $(t,x)$, consider a displacement $\mathbf{a}$ along $t'$ and a displacement $\mathbf{b}$ along $x'$ (both unit vectors). The $(t',x',y',z')$ components of these vectors are $a^{\alpha'} = (1,0,0,0)$ and $b^{\alpha'} = (0,1,0,0)$. These are therefore orthogonal in the $(t',x')$ frame. This means they are orthogonal in any other inertial frame as Lorentz boosts preserve the spacetime metric. To see this explicitly observe $$a^{\alpha} = (\gamma,v\gamma,0,0),\;b^{\alpha} = (v\gamma,\gamma,0,0)$$
+    and so $$ds^2(\mathbf{a},\mathbf{b}) = -v\gamma^2+v\gamma^2 = 0$$
+    as desired.
+\end{eg}
+
+
+
+\section{Special Relativistic Kinematics}
+\label{sec:SpecRelKin}
+
+When parameterizing a world line in spacetime we often use the proper time that gives the spacetime distance $\tau$ along the world line measured both positively and negatively from some arbitrary starting point. Thus we describe a world line by the equations $$x^{\alpha} = x^{\alpha}(\tau)$$
+\begin{eg}
+    A particle moves on the $x$-axis along a world line described parametrically by $$t(\sigma) = a^{-1}\sinh\sigma,\;\;\;x(\sigma) = a^{-1}\cosh\sigma$$
+    where $a$ is a constant with the dimension of inverse length. The parameter $\sigma \in (-\infty,\infty)$. For each value of $\sigma$, the equation determines a point $(t,x)$ in spacetime. As $\sigma$ varies, the world line is swept out. In a spacetime diagram this is a hyperbola $x^2-t^2 = a^{-2}$.
+
+    The world line is accelerated because it is not straight. Proper time $\tau$ alone the world line is related to $\sigma$ by $$d\tau^2 = dt^2-dx^2 = (a^{-1}\cosh\sigma d\sigma)^2 - (a^{-1}\sinh\sigma d\sigma)^2 = (a^{-1}d\sigma)^2$$
+    Fixing $\tau$ to be zero when $\sigma$ is zero, $\tau = a^{-1}\sigma$, and the world line can be expressed with proper time as the parameter in the form $$t(\tau) = a^{-1}\sinh(a\tau),\;\;\;x(\tau) = a^{-1}\cosh(a\tau)$$
+\end{eg}
+
+The \textbf{four-velocity} of a curve $x^{\alpha}$ is the derivative of the position along the world line with respect to the proper time parameter, $\tau$: $$\boxed{u^{\alpha} = \frac{dx^{\alpha}}{d\tau}}$$
+Using the chain rule we can express the components of the four-velocity in terms of the three-velocity $v = d\vec{x}/dt$ in a particular inertial frame by using the relation between $t$ and proper time $\tau$ as follows: $$u^t = \frac{dt}{d\tau} = \frac{1}{\sqrt{1-|v|^2}}$$
+and, for example, $$u^x = \frac{dx}{d\tau} = \frac{dx}{dt}\frac{dt}{d\tau} = \frac{v^x}{\sqrt{1-|v|^2}}$$
+Then, with $\gamma 1/\sqrt{1-|v|^2}$, we have $$u^{\alpha} = (\gamma,\gamma v)$$
+It follows immediately that the inner product of the tangent vector $u$ is $$u\cdot u = -1$$
+so that the four-velocity is always a unit timelike four-vector. Indeed, this follows directly from $$u\cdot u = \eta_{\alpha\beta}\frac{dx^{\alpha}}{d\tau}\frac{dx^{\beta}}{d\tau} = -1$$
+where the last equality follows from the connection $ds^2 = -d\tau^2$.
+
+\begin{eg}
+    The four-velocity $u$ of the world line discussed in the previous example has components \begin{equation*}
+        u^t \equiv dt/d\tau = \cosh(a\tau),\;\;\;u^x \equiv dx/d\tau = \sinh(a\tau)
+    \end{equation*}
+    The particle's three-velocity is $$v^x = \frac{dx}{dt} = \frac{dx}{d\tau}\frac{d\tau}{dt} = \tanh(a\tau)$$
+    This never exceeds the speed of light, $|v^x| = 1$, but approaches it at $\tau = \pm \infty$.
+\end{eg}
+
+
+
+
+
+\section{Special Relativistic Dynamics}
+\label{sec:RelDyn}
+
+\subsection{Equation of Motion}
+
+In the absence of forces, $$\frac{d\mathbf{u}}{d\tau} = 0$$
+where $\mathbf{u}$ is the $4$-velocity of the object. This is \textbf{Newton's First Law}. We next aim to introduce an analogue of Newton's second law, $\vec{F} = m\vec{a}$. This analogue must satisfy the principle of relativity, reduce to the first law when force is zero, and must reduce to the original from in any inertial frame where the speed of the particle is much less than the speed of light. THe choice \begin{equation*}
+    \boxed{m\frac{d\mathbf{u}}{d\tau} = \mathbf{F}}
+\end{equation*}
+naturally suggests itself. The constant $m$, which characterizes the particle's inertial properties, is called the \textbf{rest mass}, and $\mathbf{F}$ is called the \textbf{four-force}. We still need a proper choice of $\mathbf{F}$ so that this reduces to the classical case for non-relativistic situations. By introducing the \textbf{four-acceleration} $\mathbf{a} = \frac{d\mathbf{u}}{d\tau}$ we can express this as $\mathbf{F} = m\mathbf{a}$. The normalization of the four-velocity means $$m\frac{d(\mathbf{u}\cdot\mathbf{u})}{d\tau} = 0$$
+which implies $\mathbf{u}\cdot\mathbf{a} = 0$, or $$\mathbf{F}\cdot\mathbf{u} = 0$$
+
+\begin{eg}
+    The four-acceleration of the world line described in our previous examples has components $$a^t = du^t/d\tau = a\sinh(a\tau),\;\;\; a^x = du^x/d\tau = a\cosh(a\tau)$$
+    The magnitude of this acceleration is $(\mathbf{a}\cdot\mathbf{a})^{1/2} = a$.
+\end{eg}
+
+\subsection{Energy-Momentum}
+
+If the \textbf{four-momentum} is defined by $$\mathbf{p} = m\mathbf{u}$$
+then the equation of motion can be written $$\frac{d\mathbf{p}}{d\tau} = \mathbf{F}$$
+From normalization of the four-velocity $$\mathbf{p}^2 = \mathbf{p}\cdot\mathbf{p} = -m^2$$
+Then in an inertial frame where the three-velocity is $\vec{v}$, $$p^t = \frac{m}{\sqrt{1-||\vec{v}||^2}},\;\;\;\vec{p} = \frac{m\vec{v}}{\sqrt{1-||\vec{v}||^2}}$$
+For small speeds $||\vec{v}|| \ll 1$, $$p^t = m+\frac{1}{2}m||\vec{v}||^2+\cdots,\;\;\vec{p} = m\vec{v}+\cdots$$
+Note $p^t$ reducs to the kinetic energy plus the rest mass. For this reason $\mathbf{p}$ is also called the \textbf{energy-momentum four-vector}, and its components in an inertial frame are written $$p^{\alpha} = (E,\vec{p}) = (m\gamma,m\gamma \vec{v})$$
+Then by our normalization $$E = \sqrt{m^2+||\vec{p}||^2}$$
+where $\vec{p}$ is our three-momentum. For a particle at rest this reduces to the usual $E = mc^2$ in standard units.
+
+In a particular inertial frame define the three-force $\vec{F}$ as $$\frac{d\vec{p}}{dt} = \vec{F}$$
+Evidently, $\vec{f} = d\vec{p}/d\tau = (d\vec{p}/dt)(dt/d\tau) = \gamma\vec{F}$. The four-orce can be written in terms of the three-force as $$\boxed{\mathbf{F} = (\gamma\vec{F}\cdot\vec{v},\gamma\vec{F})}$$
+where $\vec{v}$ is the particle's three-velocity.
+
+\begin{eg}
+    A particle with charge $q$ and rest mass $m$ moves in a uniform magnetic field $\vec{B}$ with total energy $E$. 
+
+    Electromagnetism is unchanged in special relativity so that the three-force on a charged particle in a magnetic field is $$\vec{F} = q\vec{v}\times \vec{B}$$
+    The particle moves in a circular orbit of radius $R$ at constant speed, obeying the familiar equation of motion. Therefore $$\frac{d\vec{p}}{dt} = \frac{d}{dt}\left(\frac{m\vec{v}}{\sqrt{1-||\vec{v}||^2}}\right) = \frac{m}{\sqrt{1-||\vec{v}||^2}}\frac{d\vec{v}}{dt}$$
+    The centripetal acceleration $d\vec{v}/dt$ is given by the usual, purely kinematic relation $||\vec{v}||^2/R$. Therefore, $$\frac{m\gamma ||\vec{v}||^2}{R} = q||\vec{v}||B$$
+    Thus $$R = \frac{m||\vec{v}||\gamma}{qB} = \frac{||\vec{p}||}{qB} = \frac{\sqrt{E^2-m^2}}{qB}$$
+    which relates the radius to the total energy. The components of the four-force are $f^t = \gamma\vec{F}\cdot\vec{v} = 0$, and a radial component $$f^r = \gamma F^r = qVB\gamma = \frac{qB}{m}\sqrt{E^2-m^2}$$
+\end{eg}
+
+
+
+
+\section{Variational Principle for Newtonian Mechanics}
+\label{sec:varPrin}
+
+Consider the simple case of a particle of mass $m$ moving in one dimension in a potential $V(x)$, whose equations of motion are summarized by the Lagrangian: \begin{equation*}
+    L(\dot{x},x) = \frac{1}{2}m\dot{x}-V(x)
+\end{equation*}
+where the dot denotes a time derivative. Newton's law $m\ddot{x} = -dV/dx$ can be expressed as Lagrange's equation $$-\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}}\right) + \frac{\partial L}{\partial x} = 0$$
+Consider the possible paths between a point $x_A$ at time $t_A$ and a point $x_B$ at time $t_B$. For each path construct a real number called its \textbf{action}: $$S[x(t)] = \int_{t_A}^{t_B}dt L(\dot{x}(t),x(t))$$
+
+\begin{thm}{Variational Principle for Newtonian Mechanics}
+    A particle moves between a point in space at one time and another point in space at a later time so as to extremize the action in between.
+\end{thm}
+
+
+An extremum can be characterized as the place where the first variation of the function vanishes, $$\delta f = \sum_{a=1}^n\frac{\partial f}{\partial x^{\alpha}} \delta x^a = 0$$
+The extrema of the action functional $S[x(t)]$ are defined by the vanishing of its first-order variation $\delta S[x(t)]$ for arbitrary variations $\delta x(t)$ of the path connecting $(x_A,t_A)$ to $(x_B,t_B)$. To compute $\delta S[x(t)]$ just substitute $x(t)+\delta x(t)$ for $x(t)$ in the definition of the action, expand to first order in $\delta x(t)$, and integrate once by parts to find: \begin{align*}
+    \delta S[x(t)] &= \int_{t_A}^{t_B}dt\left[\frac{\partial L}{\partial \dot{x}(t)}\delta \dot{x}(t) + \frac{\partial L}{\partial x(t)}\delta x(t)\right] \\
+    &= \frac{\partial L}{\partial \dot{x}(t)}\delta x(t)\Bigg\vert_{t_A}^{t_B} + \int_{t_A}^{t_B}dt\left[-\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}(t)}\right)+\frac{\partial L}{\partial x(t)}\right]\delta x(t)
+\end{align*}
+Note that variations of the path that connects $x_A$ at $t_A$ to $x_B$ at $t_B$ necessarily vanish at the endpoints, so the first term vanishes. The remaining term has to vanish for arbitrary $\delta x(t)$ that meet these conditions for $\delta S[x(t)]$ to vanish. This can only happen if $$-\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}}\right)+\frac{\partial L}{\partial x} = 0$$
+If the Lagrangian is a function of $n$ coordinates $x^a(t)$ and their time derivatives, its extrema satisfy the $n$ equations $$-\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}^a}\right) +\frac{\partial L}{\partial x^a} = 0$$
+$a = 1,...,n$.
+
+
+
+\section{Variational Principle for Free Particle Motion}
+\label{sec:VarFree}
+
+
+Recall the straight lines along which free particles move in spacetime are paths of longest proper time between two events. 
+
+\begin{thm}{Variational Principle for Free Particle Motion}
+    The world line of a free particle between two timelike separated points extremizes the proper time between them.
+\end{thm}
+
+Note the proper time between two points $A$ and $B$ along some path is $$\tau_{AB} = \int_{A}^B[dt^2-dx^2-dy^2-dz^2]^{1/2}$$
+Parameterizing the worldline with parameter $\sigma$ such that $\sigma = 0$ at $A$ and $\sigma = 1$ at $B$, we have that $$\tau_{AB} = \int_0^1d\sigma\left[\left(\frac{dt}{d\sigma}\right)^2-\left(\frac{dx}{d\sigma}\right)^2-\left(\frac{dy}{d\sigma}\right)^2-\left(\frac{dz}{d\sigma}\right)^2\right]^{1/2}$$
+We seek the world lines that extremize $\tau_{AB}$. Lagrange's equations take the form $$-\frac{d}{d\sigma}\left(\frac{\partial L}{\partial (dx^{\alpha}/d\sigma)}\right) + \frac{\partial L}{\partial x^{\alpha}} = 0$$
+with $$L = \left[\left(\frac{dt}{d\sigma}\right)^2 - \left(\frac{dx}{d\sigma}\right)^2 - \left(\frac{dy}{d\sigma}\right)^2 - \left(\frac{dz}{d\sigma}\right)^2\right]^{1/2} = \left[-\eta_{\alpha\beta}\frac{dx^{\alpha}}{d\sigma}\frac{dx^{\beta}}{d\sigma}\right]^{1/2}$$
+The Lagrange equations for a free particle imply $$\frac{d^2x^{\alpha}}{d\tau^2} = 0$$
+
+
+
+\section{Light Rays}
+\label{sec:lightRays}
+
+
+\subsection{Zero Rest Mass Particles}
+
+We now consider particles that move at the speed of light, $v = 1$, along null world lines.
+
+Evidently the proper time can no longer be used as a parameter along the world line of a light ray---the proper time interval between any two points on it is zero. However, there are many other parameters that could be used. For example, the curve $$x= t$$
+which has $v = 1$ could be written parametrically as $$x^{\alpha} = u^{\alpha}\lambda$$
+where $\lambda$ is the parameter and $u^{\alpha} = (1,1,0,0)$. The four-vector $u$ is a tangent-four vector $u^{\alpha} = dx^{\alpha}/d\lambda$. However, here $u$ is a null vector. Therefore, we now have $$u\cdot u = 0$$
+With this choice of parameterization $$\frac{du}{d\lambda} = 0$$
+This is not true for every choice of parameterization. This is the same motion as for a particle---parameters which do this are called \textbf{affine parameters}.
+
+\subsection{Energy, Momentum, Frequency, and Wave Vector}
+
+Photons and neutrinos carry energy and three-momentum. In any inertial frame, the energy of a photon $E$ is connected to its frequency $\omega$ by the relation $$E = \hbar\omega$$
+Note that the three-velocity is given by $v = p/E$. Since $|v| = 1$, this implies that $|p| = E$ for a photon, so the three-momentum can be written $$p = \hbar k$$
+where $k$ points in the direction of propagation, has magnitude $|k| = \omega$, and is called the \textbf{wave three-vector}. In any inertial frame the components of the four-momentum of a photoncan therefore be written $$\boxed{p^{\alpha} = (E,p) = (\hbar\omega,\hbar k) = \hbar k^{\alpha}}$$
+where $\mathbf{k}$ is called the \textbf{wave four-vector}. Evidently, $$\mathbf{p}\cdot\mathbf{p} = \mathbf{k}\cdot\mathbf{k} = 0$$
+This implies that photons have zero rest mass, like all particles moving at the speed of light. The tangent vector $\mathbf{u}$ could be chosen so as to coincide with either $\mathbf{p}$ or $\mathbf{k}$ by adjusting the normalization of the affine parameter $\lambda$. Then the equation of motion can be written as $$\frac{d\mathbf{p}}{d\lambda} = 0,\;\;\text{ or }\;\;\frac{d\mathbf{k}}{d\lambda} = 0$$
+where $\lambda$ is an affine parameter.
+
+\subsection{Doppler Shift and Relativistic Beaming}
+
+Consider a source that emits photons of frequency $\omega$ in all directions in the source's rest frame. Suppose that in another frame the source is moving with speed $v$ along the $x'$-axis. What frequency will be observed for a photon that makes an angle $\alpha'$ with the direction of motion? Let $k^{\alpha} = (\omega,k)$ be the components of the wave four-vector $\mathbf{k}$ of the photon in the frame of the source and ${k'}^{\alpha} = (\omega',k')$ the components in the frame of the observer. Then $$\omega = \gamma(\omega' - vk^{x'})$$
+But ${k'}^x = \omega'\cos\alpha'$, where $\alpha'$ is the angle between the $x'$-axis and the direction of the photon in the observer's frame. Thus, \begin{equation*}
+    \boxed{\omega = \omega\frac{\sqrt{1-v^2}}{1-v\cos\alpha'}}
+\end{equation*}
+is formula for the relativstic Dopller shift. For small $v$ this is approximately $$\omega' \approx \omega(1+v\cos\alpha')$$ When $\alpha' = 0$, the photon is emitted in the same direction that the source is moving and there is a blue shift of $\Delta \omega w' = +V\omega$ in the frequency of the photon, and when $\alpha' = \pi$, the photon is moving opposite to the source and there is a red shift of $\Delta \omega' = -V\omega$.
+
+When the photons are transverse to the direction of motion of the source, $\alpha' = \pi/2$, they are still redshifted. This is called the \textbf{transverse Doppler shift}, and the equation shows this is just time-dilation.
+
+Suppose a photon makes an angle $\alpha$ with the $x$-axis in the source frame, where $\cos\alpha = k^x/\omega$. In the observer's frame, the angle it makes with the $x'$-axis is $\cos\alpha' = {k'}^x/\omega'$. The Lorentz transformation between these two frames shows $$\cos\alpha' = \frac{\cos\alpha + v}{1+v\cos\alpha}$$
+Thus the half of the photons emitted in the forward hemisphere in the source frame $(|\alpha| < \pi/2)$ are seen by the observer to be emitted in a smaller cone $|\alpha'| < \alpha'_{1/2}$, where $\cos\alpha'_{1/2} = v$. For $v$ close to $1$ this opening angle will be small. Photons are thus beamed along the direction of the source by its motion. The Doppler shift implies that the energy of the photons in the forward direction is greater than that in the backward direction, meaning that the \textbf{intensity} of the radiation is even more concentrated along the direction of motion. A uniformly radiating body moving toward you is brighter than if it is moving away. This is the phenomenon of \textbf{relativistic beaming}.
+
+
+\section{Observers and Observations}
+\label{sec:Obs}
+
+Note that the energy of a particle measured by an observer at rest in an inertial frame is the component of the particle's four-momentum along the time axis of that frame. But, how can we compute the predictions of accelerated observers?
+
+This is especially important for general relativity since there are no global inertial frames, but rather only local inertial frames in the neighborhood of each point and the neighborhood of the world lines of freely falling observers. Recall the path of an observer through spacetime is a timelike world line. We think of the observer carrying a laboratory along the world line which is arbitrarily small. Inside the laboratory the observer makes measurements by means of clocks and rulers.
+
+An observer carries along four orthogonal unit four-vectors $e_{\hat{0}},e_{\hat{1}},e_{\hat{2}},e_{\hat{3}}$, which define a time direction and three spatial directions, respectively, to which the observer will refer all measurements. The time-like unit four-vector $e_{\hat{0}}$ will be tangent to the observer's world line since that is the direction a clock at rest in the laboratory is moving in spacetime. Since the observer's four-velocity is a unit tangent vector $$e_{\hat{0}} = u_{obs}$$
+Only if the laborator is at rest in an inertial frame will the $e_{\hat{\alpha}}$ point along the axes of an inertial frame.
+
+\begin{eg}
+    Consider the observer moving along the accelerated world line described in our previous examples. What are the components of a set of orthonormal basis four-vectors for this observer in the inertial frame? These four-vectors will vary with the observer's proper time. First, $$(e_{\hat{0}}(\tau))^{\alpha} = u_{obs}^{\alpha}(\tau) = (\cosh(\alpha \tau),\sinh(\alpha \tau),0,0)$$
+    The only conditions on the other three four-vectors $e_{\hat{i}}(\tau)$ are that they be orthogonal to $e_{\hat{0}}(\tau)$, orthogonal to each other, and of unit length. An easy choice is taking $e_{\hat{2}}(\tau)$ and $e_{\hat{3}}(\tau)$ to point in the $y$- and $z$-directions, and take $e_{\hat{1}}(\tau) = (f(\tau),g(\tau),0,0)$, where $$-\cosh(a\tau)f(\tau)+\sinh(a\tau)g(\tau) = 0$$
+    and $$-f(\tau)^2+g(\tau)^2 = 1$$
+    This can be accomplished with $f(\tau) = \sinh(a\tau)$ and $g(\tau) = \cosh(a\tau)$.
+\end{eg}
+
+Note that, for instance, the energy of a particle measured by an accelerating observer is the component of the particle's four-momentum $\mathbf{p}$ along the basis four-vector $e_{\hat{0}}$. In particular $$\mathbf{p} = p^{\hat{\alpha}}e_{\hat{\alpha}}$$
+We can compute these using the scalar products with the orthonormal basis four-vectors of the observer, $$\eta_{\alpha\beta}p^{\hat{\alpha}} = \mathbf{p}\cdot e_{\hat{\beta}}$$
+for $\alpha \neq 0$, and we add a minus sign for $\alpha = 0$. In particular, the energy of the particle measured by an observer with four-velocity $u_{obs}$ is the first of these, or $$E = -\mathbf{p}\cdot u_{obs}$$
+
+\begin{eg}
+    Consider a particle at rest in some inertial frame. An observer is moving with velocity $v$ in this frame so that the observer's world line intersects the partile's. From the observer's point of view the particle moves through the observer's laboratory. What energy of the particle would be measured? The particle will move through the laboratory with speed $v$ and so the mesaured energy will be $$E = m\gamma$$
+    where $m$ is the particle's rest mass.
+
+    To see how this comes by scalar products, observe that in the particle's rest frame $$\mathbf{p} = (m,0,0,0)$$
+    In the same frame, the four-velocity of the observer is $$e_{\hat{0}} = u_{obs} = (\gamma,V\gamma,0,0)$$
+    The energy of the measured observer is again $E = -\mathbf{p}\cdot u_{obs} = m\gamma$.
+\end{eg}
+
+
+\begin{eg}
+    Consider an observer following the world line of our past examples. Suppose they observe the light from a star that remains stationary at the origin of the inertial frame, emitting light steadily. Assume for simplicity that the light is emitted at a single optical frequency $\omega_*$ in the rest frame of the star. What frequency $\omega(\tau)$ will the observer measure?
+
+    In the inertial frame in which the star is stationary the wave four-vector $\mathbf{k}$ of a photon reaching the observer has components $k^{\alpha} = (\omega_*,\omega_*,0,0)$. The observed frequency $\omega(\tau)$ could be worked out by transforming these components into the instantaneous rest frame of the observer at proper time $\tau$. But it is easier to note that $E = \hbar\omega$ for photons, and use $$\omega(\tau) = -\mathbf{k}\cdot u_{obs}$$
+    Explicitly this gives $$\omega(\tau) = \omega_*[\cosh(a\tau)-\sinh(a\tau)]=\omega_*\exp(-\alpha\tau)$$
+\end{eg}
+
+
+
+
+
+
+
+
+% \begin{acknowledgement}
+% If you want to include acknowledgments of assistance and the like at the end of an individual chapter please use the \verb|acknowledgement| environment -- it will automatically render Springer's preferred layout.
+% \end{acknowledgement}
+%
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+
+\subsection{Magnetism as a Relativistic Phenomenon}
+
+Consider a string of positive charges moving moving along to the right at speed $v$. Assume the charges are closed enough together so that we may regard them as a continuous line charge $\lambda$. Superimposed on this positive string is a negative one, $-\lambda$, proceeding to the left at the same speed $v$. We then have a net current to the right of magnitude $$I = 2\lambda v$$
+Consider also a charge a distance $s$ away of charge $q$ traveling to the right at speed $u < v$. Because the two line charges cancel there is no electrical force on $q$. However, if we switch the the frame of the charqe, $q$ is at rest, and by the velocity addition rule the velocities of the positive and negative lines are $$v_{\pm} = \frac{v\mp u}{1\mp vu/c^2}$$
+Because $v_-$ is greater than $v_+$, the Lorentz contraction of the spacing between the negative charges is more severe than that between the positive charges; in this frame, therefore, the wire carries a net negative charge! In fact, $$\lambda_{\pm} = \pm(\gamma_{\pm})\lambda_0$$
+where $$\gamma_{\pm} = \frac{1}{\sqrt{1-v_{\pm}^2/c^2}}$$
+and $\lambda_0$ is the charge density of the positive line in its own rest system. Thus $$\lambda = \gamma \lambda_0$$ where $$\gamma = \frac{1}{\sqrt{1-v^2/c^2}}$$
+After some algebra \begin{equation*}
+    \gamma_{\pm} = \gamma \frac{1\mp uv/c^2}{\sqrt{1-u^2/c^2}}
+\end{equation*}
+Evidently, then, the net line charge in the rest frame of the charge is $$\lambda_{tot} = \lambda_+ + \lambda_- = \lambda_0(\gamma_+-\gamma_-)$$
+\begin{rmk}
+    As a result of unequal Lorentz contraction of the positive and negative lines, a current-carrying wire that is electrically neutral in one inertial system will be charged in another.
+\end{rmk}
+
+The line charge sets up an electric field $$E = \frac{\lambda_{tot}}{2\pi \epsilon_0s}$$
+so there is an electrical force on $q$ in its rest frame $$F = qE = -\frac{\lambda v}{\pi\epsilon_0c^2s^2}\frac{qu}{\sqrt{1-u^2/c^2}}$$
+But if there is a force on $q$ in its rest frame, there must be a force in the original frame. As $F$ is perpendicular to $u$, the force in the original frame is $$F' = \sqrt{1-u^2/c^2}F = -\frac{\lambda v}{\pi\epsilon_0c^2}\frac{qu}{s}$$
+Taken together, then, electrostatics and relativity imply the existence of another force. This is of course the magnetic force. Using $c^2 = 1/(\epislon_0\mu_0)$, and expressing $\lambda v$ in terms of the current, this gives the familiar form $$F' = -qu\left(\frac{\mu_0I}{2\pi s}\right)$$
+
+
+\subsection{How the Fields Transform}
+
+Consider two inertial frames $S$ and $S'$ moving relative to one another. Consider also the uniform electric field in a region between the plates of a large parallel-plate capacitor. Say the capacitor is at rest in $S_0$ and carries surface charges $\pm \sigma_0$. Then $$\mathbf{E}_0 = \frac{\sigma_0}{\epsilon_0}\hat{y}$$
+Suppose system $S$ is moving to the right at speed $v_0$. In this system the plates are moving to the left, but the field still takes the form $$\mathbf{E} = \frac{\sigma}{\epsilon_0}\hat{y}$$
+the only difference is the value of the surface charge $\sigma$.
+
+Now, the total charge on each plate is invariant, and the width $w$ is unchanged, but the length $l$ is Lorentz-contracted by a factor $$\frac{1}{\gamma_0} = \sqrt{1-v_0^2/c^2}$$
+so the charge per unit area is increased by a factor $\gamma_0$: $$\sigma = \gamma_0\sigma_0$$
+Accordingly, $$\mathbf{E}_{\perp} = \gammma_0\mathbf{E}_{0,\perp}$$
+where the $\perp$ indicates we are looking at components of $\mathbf{E}$ perpendicular to the direction of motion of $S$. To get the rule for parallel components consider the capacitor lined up with the $yz$ plane. This time it is the plate separation $d$ that is Lorentz-contracted, whereas $l$ and $w$ and hence also $\sigma$ are the same in both frames. Since the field does not depend on $d$ it follows that $$\mathbf{E}_{||} = \mathbf{E}_{0,||}$$
+
+Now suppose we started in frame $S$, so in addition to the electric field $$E_y = \sigma/\epsilon_0$$
+there is a \textbf{magnetic field} due to the surface currents $$\mathbf{K}_{\pm} = \mp\sigma v_0\hat{x}$$
+By the right-hand rule, this field points in the negative $z$ direction; its magnitude is given by Ampere's law: $$B_z = -\mu_0\sigma v_0$$
+In a third system, $S'$, traveling with speed $v$ relative to $S$, the fields would be $$E_y' = \sigma'/\epsilon_0,\;\;B_z' = -\mu_0\sigma'v'$$
+where $v'$ is the velocity of $S$ relative to $S_0$: $$v' = \frac{v+v_0}{1+vv_0/c^2},\;\gamma' = \frac{1}{\sqrt{1-{v'}^2/c^2}}$$
+and $$\sigma' = \gamma'\sigma_0$$
+In view of these we have $$E_y' = \gamma(E_y - vB_z),\;\;B' = \gamma(B_z - (v/c^2)E_y)$$
+To do other components like $E_z$ and $B_y$ we simply align the same capacitor parallel to the $xy$ plane instead of the $xz$ plane. The fields in $S$ are then $$E_z = \frac{\sigma}{\epsilon_0},\;\;B_y = \mu_0\sigma v_0$$
+After some more work, we obtain the transformation rules \begin{align*}
+    E'_x &= E_x,\;\;E'_y = \gamma(E_y-vB_z),\;\; E_z' = \gamma(E_z+vB_y) \\
+    B_x' &= B_x,\;\; B_y'= \gamma(B_y+(v/c^2)E_z),\;\;B_z' = \gamma(B_z-(v/c^2)E_y)
+\end{align*}
+If $B = 0$ in $S$, then $$B' = -\frac{1}{c^2}(\vec{v}\times \mathbf{E}')$$
+If $E = 0$ in $S$, then $$E' = \vec{v}\times \mathbf{B}$$
+
+
+
+\subsection{The Field Tensor}
+
+Note that $\mathbf{E}$ and $\mathbf{B}$ do not transform like the spatial parts of two $4$-vecotrs. What sort of an object is this, which has six components and transforms in this way? It is an antisymmetric second-rank tensor.
+
+Remember that a $4$-vector transforms by the rule $$\overline{a}^{\mu} = \Lambda_{\nu}^{\mu}a^{\nu}$$
+where $\Lambda$ is the Lorents transformation matrix from $S$ to $\overline{S}$. If $\overline{S}$ is moving in the $x$ direction at speed $v$, $\Lambda$ has the form $$\Lambda = \begin{pmatrix} \gamma & -\gamma v & 0 & 0 \\ -\gamma v& \gamma & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$
+where $\Lambda_{\nu}^{\mu}$ is the entry in row $\mu$, column $\nu$. For a $(0,2)$-tensor $g_{\alpha\beta}$ we have that $$\overline{g}_{\mu\nu} = \Lambda_{\mu}^{\alpha}g_{\alpha\beta}\Lambda_{\nu}^{\beta}$$
+A symmetric $(0,2)$-tensor is symmetric if $g_{\alpha\beta} = g_{\beta\alpha}$, and is antisymmetric if $g_{\alpha\beta} = -g_{\beta\alpha}$. 
+
+\begin{defn}
+    The \textbf{Field tensor} $F_{\mu\nu}$ is given by $$F_{\mu\nu} = \begin{pmatrix} 0 & -E_x/c & -E_y/c & -E_z/c \\  E_x/c & 0 & B_z & -B_y \\ E_y/c & -B_z & 0 & B_x \\ E_z/c & B_y & -B_x & 0 \end{pmatrix}$$
+    We also have the \textbf{dual tensor} $$G_{\mu\nu} = \begin{pmatrix} 0 & -B_x & -B_y & -B_z \\  B_x & 0 & -E_z/c & E_y/c \\ -B_y & E_z/c & 0 & -E_x/c \\ -B_z & -E_y/c & E_x/c & 0 \end{pmatrix}$$
+\end{defn}
+
+
+
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

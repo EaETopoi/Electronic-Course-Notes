@@ -1,0 +1,231 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Principles of Special Relativity}
+\label{PrinSpec} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{To be completed once done}
+
+\section{Addition of Velocities and Michelson-Morley Experiment}
+\label{sec:addVel}
+
+Recall that Maxwell's equations governing electromagnetic fields do not take the same form in every intertial frame of Newtonian mechanics. Maxwell's equations, however, do imply that light travels with constant speed $c$ in vacuum, and this is a basic parameter in these equations. But the Galilean notion of transformation between inertial frames would imply that light should travel with different speeds in different inertial frames, moving with respect to each other.
+
+Consider $v^x,v^y,v^z$, components of the velocity of a particle measured in one frame, and $v^{x'},v^{y'},v^{z'}$, the components of the velocity measured in a frame moving with respect to the first along its $x$-axis with velocity $v$. Galilean transformations predict $$v^{x'}=v^x-v$$
+This would imply that Maxwell's equations can only be valid in one inertial frame, because they predict one velocity for light.
+
+\begin{rmk}
+    In an experiment whose results were published in 1887, Albert Michelson and Edward Morley tested the Newtonian addition of velocities law for light. The theory explaining the fact Maxwell's equations can only be valid in one intertial frame was explained using a notion of the rest frame of light, called the ether. Michelson and Morley showed using the Earth's orbital velocity around the sun would imply light should be measured at different speeds at different locations in the orbt. This was not the case, so either Newtonian mechanics or Maxwell's equations had to be modified.
+\end{rmk}
+
+
+\section{Einstein's Resolution}
+\label{sec:einRel}
+
+Einstein's 1905 successful modification of Newtonian mechanics is called the special theory of relativity. Einstein supposed that the velocity of light had the same value $c$ in all inertial frames. We must now determine a new notion of velocity addition. We will also need to re-examine the Newtonian notion of absolute time.
+
+Consider the following thought experiment. Three observers, $A$, $B$, and $O$, are riding a rocket of length $L$. $O$ is midway between $A$ and $B$. $A$ and $B$ each emit light signals directed along the rocket toward $O$. $O$ receives the signals simultaneously. Which signal was emitted first? This must depend on the inertial frame if the velocity of light is the same in all of them. 
+
+If the rocket is at rest in the inertial frame, they must be emitted simultaneously. If the rocket is moving in the inertial frame we reason as follows: The signals are received simultaneously by $O$. At earlier times when the signals were emitted $B$ was always closer to  $O$'s position at reception than $A$ (thinking of $B$ as on the side in which the rocket is traveling). Since both signals travel with speed $c$, the one from $A$ must have been emitted earlier than the one from $B$ because it has a longer distance to travel to reach $O$ at the same instant as the one from $B$.
+
+\begin{rmk}
+    Thus \textbf{two events simultaneous in one inertial frame are not simultaneous in one moving with respect to the first if the velocity of light is the same in both}.
+\end{rmk}
+
+
+\section{Spacetime}
+\label{sec:spaceTime}
+
+Newton's first law (free particles move at constant speed on straight lines) is unchanged in special relativity. Thus we can construct inertial frames as follows: start with an origin following the straight-line trajectory of a free particle. At one moment choose three Cartesian coordinates $(x,y,z)$ with this origin. Propagate these axes parallel to themselves as the origin moves to define $(x,y,z)$ at later times. The result is an inertial frame.
+
+For each inertial frame there is a notion of time $t$. From our previous discussion each inertial frame has a different notion of time and simultaneity. Thus inertial frames are spanned by four Cartesian coordinates, $(t,x,y,z)$, giving us spacetime. The defining assumption of special relativity is a geometry for four-dimensional spacetime.
+
+\subsection{Spacetime Diagrams}
+
+A \textbf{spacetime diagram} is a plot of two of the coordinate axes of an inertial frame---two coordinate axs of spacetime. Spacetime diagrams are slices or sections of spacetime in much the same way as an $xy$ plot is a two-dimensional slice of three-dimensional space. It is convenient to use $ct$ rather than $t$ as an axis, because then both have the same dimension.
+
+\begin{defn}
+    An \textbf{event} is a point $P$ in spacetime located at a particular place in space $(x_P)$ at a particular time $(t_P)$.
+\end{defn}
+
+\begin{defn}
+    A particle describes a curve in spacetime called a \textbf{world line}. It is the curve of positions of the particle at different instants.
+\end{defn}
+
+The slope of the world line gives the ratio $c/v^i$, since $d(ct)/dx_i = cdt/dx_i = c/v^i$, where zero velocity corresponds to infinite slope (no position change in time), and a velocity of $c$ corresponds to a slope of $1$. Hence light rays move along the $45^{circ}$ lines in a spacetime diagram.
+
+\subsection{The Geometry of Flat Spacetime}
+
+Consider the following thought experiment. We have two parallel mirrors separated by a distance $L$ that are at rest in an inertial frame in wich events are described by coordinates $(t,x,y,z)$. Take $y$ to be the vertical direction between the mirrors and $x$ the direction parallel to them. A light signal bounces back and forth between the mirrors. A clock measures the time interval $\Delta t$ between the event $A$ of the departure of the light ray and the event $C$ of its return to the same point in space. These two events are separated by coordinate intervals $$\Delta t = 2L/c,\;\;\;\Delta x = \Delta y = \Delta z = 0$$
+in the inertial frame where the mirrors are at rest.
+
+Now consider a frame that is moving with a speed $v$ with respect to the $(t,x,y,z)$ inertial frame along the negative $x$-direction parallel to the mirrors. Write events in this frame by $(t',x',y',z')$ wiith $x'$ parallel to $x$. In this frame the mirrors are moving with speed $V$ along the positive $x'$-direction. Consider the time $\Delta t'$ between the departure and return of a light ray. The light ray travels a distance $\Delta x' = v\Delta t'$ in the $x'$-direction between emission at $A$ and return at $C$. The distance traveled in the $y'$-direction is $L$, assuming the transverse distances are the same in both inertial frames. The total distance traveled is therefore $2[L^2+(\Delta x'/2)^2]^{1/2}$. Assuming with Einstein that the velocity of light is $c$ in this inertial frame, the time of travel $\Delta t'$ is this distance divided by $c$. Thus the coordinate intervals between $A$ and $C$ in this frame are $$\Delta t' = \frac{2}{c}\sqrt{L^2+\left(\frac{\Delta x'}{2}\right)^2},\;\;\Delta x' = v\Delta t',\;\;\Delta y' = 0,\;\;\Delta z' = 0$$
+It follows that $$-(c\Delta t')^2+(\Delta x')^2 = -4[L^2+(\Delta x'/2)^2]+(\Delta x')^2 = -4L^2 = -(c\Delta t)^2$$
+This identity is key to identifying an \textbf{invariant} and to finding the line element that describes the geometry of spacetime. Since $\Delta x = 0$ and the $\Delta y$'s and $\Delta z$'s are zero in both frames, we can judiciously add them back into the two sides of (4.5) to find that the combination \begin{equation*}
+    \boxed{(\Delta s)^2 := -(c\Delta t)^2+(\Delta x)^2+(\Delta y)^2+(\Delta z)^2}
+\end{equation*}
+is the same in both frames. The quantity $(\Delta s)^2$ is \textbf{invariant} under the change in inertial frames.
+
+\begin{rmk}
+    The distance between points defining spacetime geometry must be the same in all systems of coordinates used to label the points. The \textbf{principle of relativity} requires that the line element that defines the distance should have the same form in all inertial frames. Thus, we posit the \textbf{line element of flat spacetime}: \begin{equation}
+        \boxed{dS^2 = -(cdt)^2+dx^2+dy^2+dz^2}
+    \end{equation}
+\end{rmk}
+Note the geometry specified by (4.8) is non-Euclidean because of the minus sign (i.e. it is a Psuedo-Riemannian metric rather than a Riemannian metric). Sometimes this is referred to as \textbf{Minkowski space}.
+
+
+Lengths in spacetime are giving by the square root of the absolute value of $dS^2$.
+
+\begin{eg}
+    The analog of a circle of radius $R$ centered on the origin is the locus of points a constant spacetime distance from the origin. THis consists of the hyperbolas $x^2-(ct)^2 = R^2$. The ratios of arcs along a hyperbola to $R$ define hyperbolic angles, with the relation $$ct = R\sinh\theta,\;\;\;x = R\cosh\theta$$
+\end{eg}
+
+
+\subsection{Light Cones}
+
+Note, two points can be separated by distances whose square is positive, negative, or zero. When $dS^2$ is positive the points are said to be \textbf{spacelike separated}. When $dS^2$ is negative the points are said to be \textbf{timelike separated}. This can occur when $\Delta x_i = 0$ for all $i$, but $\Delta t \neq 0$. When $dS^2 = 0$, the two points are said to be \textbf{null separated}. Null separated points can be connected by light rays that move with speed $c$, so \textbf{lightlike separate} is used as a synonym.
+
+\begin{defn}
+    The locus of points that are null separated from a point $P$ in spacetime is its \textbf{light cone}. The light cone of $P$ is a three-dimensional surface in four dimensional spacetime specified by $$(x-x_0)^2+(y-y_0)^2+(z-z_0)^2 = c^2(t-t_0)^2$$
+    where $P = (t_0,x_0,y_0,z_0)$. 
+\end{defn}
+
+The future light cone of $P$ is generated by light rays that move outward from $P$, while the past light cone of $P$ is generated by light rays that converge on $P$.
+
+The points that are timelike separated from $P$ lie inside the light cone ($(x-x_0)^2+(y-y_0)^2+(z-z_0)^2 < c^2(t-t_0)^2$), and the points that are spacelike separated from $P$ lie outside the light cone ($(x-x_0)^2+(y-y_0)^2+(z-z_0)^2 > c^2(t-t_0)^2$). The paths of light rays are straight lines in spacetime with constant slope corresponding to the speed of light, that is, along null world lines. The distance between two points along a light ray is zero!
+
+
+Particles with nonzero rest mass move along \textbf{timelike world lines} that are always inside the light cone of any point along their trajectory. That way their velocity is always less than the speed of light at that point.
+
+Entities with spacelike world lines would move always with speeds greater than that of light (we call these \textbf{tachyons}). None have ever been observed to exist, and any would conflict with other principles of physics such as causality and positive energy. Hence we ignore these moving forward.
+
+Light cones therefore define the causal relationships between points in spacetime. An event at $P$ can signal or influence points inside or on its future light cone, but not outside it. Information can be received at $P$ only from events inside or on its past light cone, but not from events outside it. 
+
+\begin{rmk}
+    An event can be later than another spacelike separated event in one inertial frame and earlier in another. But, for two timelike separated events the notion of earlier is well-defined. This is because events to the future of $P$ are inside its future light cone, and the inside and outside of a light cone are properties of the geometry of spacetime---the same in all frames.
+\end{rmk}
+
+Two nearby points on a timelike world line are timelike separated, $dS^2 < 0$. To measure the distance along a particle's world line, it is convenient to introduce $$d\tau^2 := -dS^2/c^2$$
+Then $d\tau$ is real with units of time. Thus a clock moving along a timelike curve measures the distance $\tau$ along it. An alternative name for this distance is the \textbf{proper time}.
+
+\section{Time Dilation and the Twin Paradox}
+\label{sec:timeDil}
+
+\subsection{Time Dilation}
+
+The proper time, $\tau_{AB}$, between any two points $A$ and $B$ on a timelike world line can be computed from the line element as \begin{align*}
+    \tau_{AB} &= \int_A^Bd\tau = \int_A^B\left[dt^2-(dx^2+dy^2+dz^2)/c^2\right]^2 \\
+    &= \int_{t_A}^{t_B}dt\left\{1-\frac{1}{c^2}\left[\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2+\left(\frac{dz}{dt}\right)^2\right]\right\}^{1/2}
+\end{align*}
+More compactly, \begin{equation}
+    \boxed{\tau_{AB} = \int_{t_A}^{t_B}dt'\left[1-\norm{\vec{V}(t')}^2/c^2\right]^{1/2}}
+\end{equation}
+The proper time $\tau_{AB}$ is \textbf{shorter} than the interval $t_B-t_A$ because $\sqrt{1-\norm{\vec{V}(t')}^2/c^2} < 1$. This is our mathematical expression for \textbf{time dilation}, which informally says ``moving clocks run slow." In differential form $$d\tau = dt\sqrt{1-\norm{\vec{V}(t')}^2/c^2}$$
+Note these expressions are valid even when the velocity is dependent on time (i.e. the clock is accelerating).
+
+\subsection{The Twin Paradox}
+
+The time dilation equation shows that the time registered by a clocking moving between two points in space depends on the route traveled even if it returns to the same point it started from.
+
+Consider two twins, Alic and Bob, starting from rest at one point in space at time $t_1$ in an inertial frame. Alice moves away from the starting point but later returns to rest at the same point at time $t_2$. Bob remains at rest at the starting point. The time elapsed on Bob's clock is $t_2-t_1$. The time elapsed on Alice's clock is always less than this because $\sqrt{1-\norm{\vec{V}(t')}^2/c^2} < 1$. The moving twin ages less than the stationary twin.
+
+\begin{rmk}
+    The straight line path is the longest distance between any two timelike separated points in flat four-dimensional spacetime. (a line of constant velocity)
+\end{rmk}
+
+
+\section{Lorentz Boosts}
+\label{sec:LorBoosts}
+
+\subsection{The Connection Between Inertial Frames}
+
+Recall the principle of relativity implies that the line element must take the same form in the rectangular coordinates of any inertial frame. Thus, the transformation laws that connect different inertial coordinate frames must be among those that preserve our psuedo-riemannian metric. These are called \textbf{Lorentz transformations}.
+
+Recall the line element of Euclidean space is left unchanged by translations and isometries (i.e. rotations and reflections). Hence spatial translations and isometries will preserve the line element of special relativistic spacetime. But what new transformations that preserve the four-dimensional flat spacetime do we obtain? 
+
+The most important examples of new transformations are the analogs of rotations between time and space. These are called \textbf{Lorentz boosts} and correspond to the uniform motion of one frame with respect to another.
+
+Consider the analog of rotations in the $(ct,x)$ plane. Transformations of this character that leave the metric unchanged are the analogs of rotations in Euclidean space, but now due to the minus in front of $dt^2$, we replace the trigonometric functions with hyperbolic functions. Specifically $$ct' = (\cosh\theta)(ct)-(\sinh\theta)x,\;\;x' = (-\sinh\theta)(ct)+(\cosh\theta)x$$
+where $\theta$ can vary from $-\infty$ to $+\infty$.
+
+Superposing the axes of $(ct',x')$ and $(ct,x)$, we can find that a particle at rest at the origin $x' = 0$ in $(ct',x')$ coordinates has the $ct'$ axis as its world line. In $(ct,x)$ coordinates, that particle is moving with a constant speed along the $x$-axis. The speed $v$ can by found by putting $x' = 0$ in our transformation above, so $$v = c\tanh\theta$$
+A particle at rest at any other value of $x'$ in the $(ct',x')$ coordinates moves in the $x$-direction with the same speed in the $(ct,x)$ coordinates. The transformation is therefore from one inertial frame to another moving uniformly with respect to it along the $x$-axis with speed $v$.
+
+Replacing $\theta$ by $v$ using the above expression in our transformation, we find $$t' = \gamma(t-vx/c^2),\;\;x' = \gamma(x-vt)$$
+where we have introduced $$\gamma = \frac{1}{\sqrt{1-v^2/c^2}}$$
+The inverse transformation is then obtained just by changing $v$ into $-v$. When $v/c \ll 1$, this reduces to the Galilean transformations.
+
+
+\subsection{The Relativity of Simultaneity}
+
+Recall events $A$ and $B$ can be simultaneous in one inertial frame and be separated by a time $\Delta t = t_B-t_A$ in another frame. This difference can be computed from the Lorentz boost connecting the two frames. If $\Delta x' = x'_B - x'_A$ is the distance between the simultaneous events in the $(ct',x')$ frame, then $$\Delta t = \gamma(v/c^2)\Delta x'$$
+where the $(ct',x')$ frame is moving with velocity $v\hat{x}$ with respect to the $(ct,x)$ frame.
+
+
+\subsection{Lorentz Contraction}
+
+Consider a rod of length $L_*$ when measured in its own rest frame. What is its length when measured in an inertial frame in which it is moving with speed $V$? Note the length of a rod is the distance between two simultaneous events at its ends in spacetime. But simultaneity is different in different inertial frames, so the measured length of the rod is, therefore, also different. The length $L$ in the frame where the rod is moving is the spacetime distance between the ends of the rod at $t' = 0$.Then $$L^2 = L_*^2 - (c\Delta t)^2$$
+From our Lorentz boost equation $t' = 0$ is the line $t = (V/c^2)x$, so $\Delta t = (V/c^2)L_*$. Thus \begin{equation}
+    \boxed{L = L_*\sqrt{1-V^2/c^2}}
+\end{equation}
+This is \textbf{Lorentz contraction}.
+
+
+\subsection{Addition of Velocities}
+
+Consider a particle whose motion is described by $x(t),y(t),z(t)$ in one frame and $x'(t'),y'(t'),z'(t')$ in a second frame moving along the $x$-axis of the first with velocity $v$. From our Lorentz boost transformations we can compute the relation between $\vec{V} = d\vec{x}/dt$ in one frame and the velocity $\vec{V}' = d\vec{x}'/dt'$ in the other, namely $$V^{x'} = \frac{dx'}{dt'} = \frac{\gamma(dx-vdt)}{\gamma(dt-v/c^2dx)} = \frac{V^x-v}{1-vV^x/c^2}$$
+Similarly, \begin{align*}
+    V^{y'} &= \frac{V^y/\gamma}{1-vV^x/c^2} \\
+    V^{z'} &= \frac{V^z/\gamma}{1-vV^x/c^2}
+\end{align*}
+
+\section{Units}
+
+Today the velocity of light is not measured, it is defined to be exactly the conversion factor $$c = 299792458\;\text{m/s}$$
+Measuring time in units of length means changing from the mass-length-time system of units traditional in mechanics to a mass-length system. Measuring both space and time in length units has the effect of putting $c=1$ everywhere in our formulas. Further, in these units velocities are dimensionless.
+
+
+
+
+
+
+%
+% \begin{acknowledgement}
+% If you want to include acknowledgments of assistance and the like at the end of an individual chapter please use the \verb|acknowledgement| environment -- it will automatically render Springer's preferred layout.
+% \end{acknowledgement}
+%
+% \section*{Appendix}
+% \addcontentsline{toc}{section}{Appendix}
+%
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

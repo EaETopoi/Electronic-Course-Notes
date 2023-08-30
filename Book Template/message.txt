@@ -1,0 +1,130 @@
+``` \usepackage[most]{tcolorbox}
+%%%%%%%%%%%%%% ENVIRONMENTS
+%%% tcolorbox environments
+
+%%% \tcolorboxenvironment: An existing environment is redefined to be allowed to be boxed inside another tcolorbox during use
+\tcolorboxenvironment{proof}{% `proof' from `amsthm'  
+blanker,breakable=true,left=0.3em,
+borderline west={3pt}{-3pt}{black!35}}
+
+
+%%% titled environments
+\newtcolorbox[auto counter, number within=section]{nthm}[2][]{
+colback=red!5!white,
+colframe=red!5!white,
+attach title to upper={},
+title={\textbf{Theorem \thetcbcounter\  (#2)\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{red!75!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{ndefn}[2][]{
+colback=blue!5!white,
+colframe=blue!5!white,
+attach title to upper={},
+title={\textbf{Definition \thetcbcounter\  (#2)\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{blue!75!black},
+#1
+}
+
+\newtcolorbox[auto counter, number within=section]{eg}[1][]{
+colback=white,
+attach title to upper={},
+title={\underline{Example:}\smallbreak},
+coltitle={green!50!black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{green!50!black},
+#1
+}
+
+
+%%% untitled environments
+\newtcolorbox[use counter from=nthm, number within=section]{thm}[1][]{
+colback=red!5!white,
+colframe=red!5!white,
+attach title to upper={},
+title={\textbf{Theorem \thetcbcounter\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{red!75!black},
+#1
+} 
+
+\newtcolorbox[use counter from=nthm, number within=section]{defn}[1][]{
+colback=blue!5!white,
+colframe=blue!5!white,
+attach title to upper={},
+title={\textbf{Definition \thetcbcounter\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{blue!75!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{cor}[1][]{
+colback=red!5!white,
+colframe=red!5!white,
+attach title to upper={},
+title={\textbf{Corollary \thetcbcounter\ }},
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{red!50!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{prop}[1][]{
+colback=orange!5!white,
+colframe=orange!5!white,
+attach title to upper={},
+title={\textbf{Proposition \thetcbcounter} \ },
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+borderline west = {3pt}{-3pt}{orange!75!black},
+#1
+}
+
+\newtcolorbox[use counter from=nthm, number within=section]{lem}[1][]{
+colback=orange!5!white,
+colframe=orange!5!white,
+attach title to upper={},
+title={\textbf{Lemma \thetcbcounter} \ },
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{orange!75!black},
+#1
+}
+
+\newtcolorbox[auto counter, number within=section]{home}[1][]{
+colback=white,
+attach title to upper={},
+title={\textbf{Exercise:}\ \ },
+coltitle={black},
+sharp corners,
+breakable=true,
+enhanced jigsaw,
+frame hidden, 
+borderline west = {3pt}{-3pt}{black!10!lime},
+#1
+}```

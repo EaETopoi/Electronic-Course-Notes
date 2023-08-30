@@ -1,0 +1,109 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Description of Curved Spacetime}
+\label{CurvSpac} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{To be completed once done}
+
+\section{Coordinates}
+\label{sec:Coord}
+
+
+A line element specifies a geometry, but many different line elements describe the same spacetime geometry because different coordinate systems can be used. A good coordinate system provides unique labels for each point in spacetime. However, most coordinate systems only do this locally. Even polar coordinates fails to uniquely label points on the $\theta = 0$ axis. The singularities in most coordinate systems mean that different overlapping coordinate patches must be used to cover spacetime so that every point is labeled by a nonsingular set of coordinates.
+
+
+\section{Metric}
+\label{sec:metRic}
+
+To describe a general geometry we use a system of four coordinates, $x^{\alpha}$, to label the points and specify the line element giving the distance, $ds^2$, between nearby points separated by coordinate intervals $dx^{\alpha}$. That line element will have the form \begin{equation*}
+    \boxed{ds^2 = g_{\alpha\beta}(x)dx^{\alpha}dx^{\beta}}
+\end{equation*}
+where $g_{\alpha\beta}(x)$ is a symmetric, position-dependent matrix called the \textbf{metric}.
+
+
+\section{The Summation Convention}
+\label{sec:summConv}
+
+\begin{enumerate}
+    \item The location of the indices must be respected: superscripts for coordinates and vector components and subscripts for the metric.
+    \item Repeated indices always occur in superscript-subscript pairs and imply summation.
+    \item Indices that are not summed are called free indices.
+\end{enumerate}
+
+
+
+\section{Light Cones and World Lines}
+\label{sec:LightWorld}
+
+Points separated from $P$ by infinitesimal coordinate intervals $dx^{\alpha}$ can be timelike separated, spacelike separated, or null separated as the square of their distance away defined by the metric satisfies \begin{align*}
+    ds^2 &< 0 \tag{timelike separation} \\
+    ds^2 &= 0 \tag{null separation} \\
+    ds^2 &> 0 \tag{spacelike separation}
+\end{align*}
+Light rays move along null curves in spacetime along which $ds^2= 0$.
+
+Particles move on timelike world lines which can be specified parametrically by four functions $x^{\alpha}(\tau)$ of the distance $\tau$ along them.
+\begin{defn}
+    The distance between a point $A$ and a point $B$ along a timelike worl line is given by \begin{equation*}
+        \tau_{AB} = \int_A^B[-g_{\alpha\beta}(x)dx^{\alpha}dx^{\beta}]^{1/2}
+    \end{equation*}
+    where the integral is along the world line.
+\end{defn}
+
+The global arrangement of light cones is called the spacetime's \textbf{causal structure}.
+
+
+\section{Length, Area, Volume, and Four-Volume for Diagonal Metrics}
+\label{sec:measurements}
+
+In this section suppose $ds^2 = g_{\alpha\alpha}dx^{\alpha}dx^{\alpha}$ is a diagonal metric. The proper lengths of a segment will be of the form $d\ell^{1} = \sqrt{g_{11}}dx^{1}$. Since the coordinates are orthogonal, the area element created by the region spanned by two line segments is $$dA = d\ell^2d\ell^3 = \sqrt{g_{11}g_{22}}dx^1dx^2$$
+For three-volume $$dV = \sqrt{g_{11}g_{22}g_{33}}dx^1dx^2dx^3$$
+For a metric of signature $(1,3)$, the four-volume is $$dv = \sqrt{-\det(g_{\alpha\beta})}d^4x$$
+
+
+
+
+
+
+
+% \begin{acknowledgement}
+% If you want to include acknowledgments of assistance and the like at the end of an individual chapter please use the \verb|acknowledgement| environment -- it will automatically render Springer's preferred layout.
+% \end{acknowledgement}
+%
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+
+
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}

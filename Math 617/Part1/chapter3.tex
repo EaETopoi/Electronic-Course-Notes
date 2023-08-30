@@ -1,0 +1,691 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Banach Spaces}
+\label{BanSpc} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\abstract{Summary of material in chapter (to be completed after chapter)}
+
+\section{Elementary Properties}
+\label{sec:Ban}
+
+
+\begin{defn}\index{Seminorm}
+    If $V$ is a vector space over $\F$, a \textbf{seminorm} is a function $p:V\rightarrow [0,\infty)$ having the properties: \begin{enumerate}
+        \item[(a)] $p(x+y) \leq p(x)+p(y)$ for all $x,y$ in $V$
+        \item[(b)] $p(\alpha x) = |\alpha|p(x)$ for all $\alpha \in \F$ and $x \in V$
+    \end{enumerate}
+    It follows from (b) that $p(0) = 0$. A \textbf{norm} is a seminorm $p$ such that \begin{enumerate}
+        \item[(c)] $x = 0$ if $p(x) = 0$
+    \end{enumerate}
+\end{defn}
+
+If $V$ has a norm, then $d(x,y) := \norm{x-y}$ defines a metric on $V$.
+
+\begin{defn}
+    A \textbf{normed space} is a pair $(X,\norm{\cdot})$, where $V$ is a vector space and $\norm{\cdot}$ is a norm on $V$. A \textbf{Banach space} is a normed space that is complete with respect to the metric defined by the norm.
+\end{defn}
+
+\begin{prop}
+    If $V$ is a normed space, then \begin{enumerate}
+        \item[(a)] the function $V\times V\rightarrow V$ defined by $(x,y)\mapsto x+y$ is continuous;
+        \item[(b)] the function $\F\times V\rightarrow V$ defined by $(\alpha,x)\mapsto \alpha x$ is continuous.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    If $x_n\rightarrow x$ and $y_n\rightarrow y$, then $$\norm{(x_n+y_n)-(x+y)} \leq \norm{x_n-x}+\norm{y_n-y}\rightarrow 0$$
+    as $n\rightarrow \infty$. This proves (a). For $\alpha_n\rightarrow \alpha$ in $\F$, then $$\norm{\alpha_nx_n-\alpha x} \leq \norm{\alpha_n(x_n-x)} + \norm{(\alpha_n-\alpha)x} = |\alpha_n|\norm{x_n-x}+|\alpha_n-\alpha|\norm{x}\rightarrow 0$$
+    as $n\rightarrow \infty$ since $\alpha_n$ being convergent implies they are bounded.
+\end{proof}
+
+\begin{lem}
+    If $p$ and $q$ are seminorms on a vector space $V$, then the following statements are equivalent: \begin{enumerate}
+        \item[(a)] $p(x) \leq q(x)$ for all $x$
+        \item[(b)] $\{x \in V:q(x) < 1\} \subseteq \{x \in V:p(x) < 1\}$
+        \item[(b')] $p(x) < 1$ whenever $q(x) < 1$
+        \item[(c)] $\{x\in V:q(x) \leq 1\} \subseteq \{x \in V:p(x) \leq 1\}$
+        \item[(c')] $p(x) \leq 1$ whenever $q(x) \leq 1$
+        \item[(d)] $\{x\in V:q(x) < 1\} \subseteq \{x \in V:p(x) \leq 1\}$
+        \item[(d')] $p(x) \leq 1$ whenever $q(x) < 1$
+    \end{enumerate}
+\end{lem}
+\begin{proof}
+    Note that $(b) \iff (b'),(c) \iff (c'),$ and $(d) \iff (d')$ are simply logical tautologies. Further, (a) all of the remaining conditions, and (b) and (c) imply (d). It remains to show that (d) implies (a). Let $x \in V$. Let $q(x) = \alpha$ and fix $\epsilon > 0$. Then $q((\epsilon+\alpha)^{-1}(x)) = \frac{\alpha}{\alpha+\epsilon} < 1$, so by supposition, $p((\epsilon+\alpha)^{-1}(x)) \leq 1$. This implies that $p(x) \leq \epsilon+\alpha$. As this holds for all $\epsilon > 0$, we find $p(x) \leq \alpha = q(x)$.
+\end{proof}
+
+If $\norm{\cdot}_1$ and $\norm{\cdot}_2$ are two norms on $V$, they are said to be \textbf{equivalent norms} if they define the same topology on $V$.
+
+\begin{prop}
+    If $\norm{\cdot}_1$ and $\norm{\cdot}_2$ are two norms on $V$, then these norms are equivalent if and only if there are positive constants $c$ and $C$ such that $$c\norm{x}_1 \leq \norm{x}_2 \leq C\norm{x}_1$$
+    for all $x \in V$.
+\end{prop}
+\begin{proof}
+    First suppose we have such constants $c$ and $C$. Fix $x_0 \in V$ and $\epsilon > 0$. Then $$\{x \in V:\norm{x-x_0}_1 < \epsilon/C\} \subseteq \{x \in V:\norm{x-x_0}_2 < \epsilon\}$$
+    and $$\{x\in V:\norm{x-x_0}_2 < c\epsilon\} \subseteq \{x \in V:\norm{x-x_0}_1 < \epsilon\}$$
+    This shows that the two topologies are the same. Now, assume that the norms are equivalent. Hence, $\{x:\norm{x}_1 < 1\}$ is an open neighborhood of $0$ in the topology defined by $\norm{\cdot}_2$. Therefore, there is an $r > 0$ such that $\{x:\norm{x}_2 < r\} \subseteq \{x:\norm{x}_1 < 1\}$. If $q(x) = r^{-1}\norm{x}_2$ and $p(x) = \norm{x}_1$, the preceding lemma implies $\norm{x}_1 \leq r^{-1}\norm{x}_2$ or $c\norm{x}_1 \leq \norm{x}_2$ where $c = r$. THe other inequality follows by symmetry.
+\end{proof}
+
+\begin{eg}
+    Let $X$ be any Hausdorff space and let $C_b(X) = $ all continuous functions $f:X\rightarrow \F$ such that $\norm{f} := \sup\{|f(x)|:x \in X\} < \infty$. For $f,g$ in $C_b(X)$, define $(f+g):X\rightarrow \F$ by $(f+g)(x) = f(x) + g(x)$; for $\alpha$ in $\F$ defined $(\alpha f)(x) = \alpha f(x)$. Then $C_b(X)$ is a Banach space.
+
+    Let $f_n$ be a Cauchy sequence in $C_b(X)$. So if $\epsilon > 0$, there exists $N_{\epsilon}$ such that for $n,m \geq N_{\epsilon}$, $\epsilon > \norm{f_n-f_m} = \sup\{|f_n(x) - f_m(x)|:x \in X\}$. In particular, for any $x \in X$, $|f_n(x) - f_m(x)| \leq \norm{f_n-f_m} < \epsilon$. So $\{f_n(x)\}$ is a Cauchy sequence in $\F$, which is complete. Let $f(x) = \lim f_n(x)$ for $x \in X$. Now fix $x \in X$. If $n,m \geq N_{\epsilon}$, then $$|f(x) - f_n(x)| \leq |f(x) - f_m(x)| + \norm{f_m-f_n} < |f(x)-f_m(x)| + \epsilon$$
+    Letting $m\rightarrow \infty$ gives $|f(x) - f_n(x)| \leq \epsilon$ when $n \geq N_{\epsilon}$. As this is independent of $x$, $\norm{f-f_n} \leq \epsilon$ for $n \geq N_{\epsilon}$.
+
+    Thus, $f_n(x)\rightarrow f(x)$ uniformly on $X$, so $f$ is continuous. Further, $\norm{f} \leq \norm{f-f_n}+\norm{f_n} < \infty$. Hence $f \in C_b(X)$ so $C_b(X)$ is complete.
+\end{eg}
+
+\begin{prop}
+    If $X$ is a locally compact space and $C_0(X) = $ all continuous functions $f:X\rightarrow \F$ such that for all $\epsilon > 0$, $\{x \in X:|f(x)| \geq \epsilon\}$ is compact, then $C_0(X)$ is a closed subspace of $C_b(X)$ and hence is a Banach space.
+\end{prop}
+\begin{proof}
+    To see that $C_0(X)$ is a linear manifold in $C_b(X)$ let $f,g \in C_0(X)$ and $\alpha \in \F$. First, as $\{x \in X:|f(x)| \geq 1\}$ is compact and $f$ is continuous its image is compact in $\F$, and hence bounded. But its image is $\{|f(x)|: x \in X,|f(x)| \geq 1\}$. Thus there exists $M \in \R$ such that $|f(x)| \leq M$ for all $x \in X$. Thus $f \in C_b(X)$. Now, if $\alpha = 0$ it is clear that $\alpha f = 0 \in C_0(X)$. Otherwise, for $\epsilon > 0$ $$\{x \in X:|\alpha f(x)| \geq \epsilon\} = \{x \in X:|f(x)| \geq \epsilon/|\alpha|\}$$
+    which by assumption is compact. Thus $\alpha f \in C_0(X)$. Finally, as $|f(x)+g(x)| \leq |f(x)|+|g(x)|$, $$\{x \in X:|f(x)+g(x)| \geq \epsilon\} \subseteq \{x \in X:|f(x)| \geq \epsilon/2\}\cup\{x \in X:|g(x)|\geq \epsilon/2\}$$
+    which is compact being the finite union of compact sets. Thus $f+g \in C_0(X)$.
+
+    Now, to show $C_0(X)$ is closed let $\{f_n\}$ be a sequence in $C_0(X)$ such that $f_n\rightarrow f$ in $C_b(X)$. If $\epsilon > 0$, there is an integer $N$ such that $\norm{f_n-f} < \epsilon/2$; that is, $|f_n(x) - f(x)| < \epsilon/2$ for all $n \geq N$ and $x \in X$. If $|f(x)| \geq \epsilon$, then $\epsilon \leq \epsilon/2 + |f_n(x)|$ for $n \geq N$; so $|f_n(x)| \geq \epsilon/2$ for $n \geq N$. Thus $$\{x \in X:|g(x)| \geq \epsilon\} \subseteq \{x \in X:|f_N(x)| \geq \epsilon/2\}$$
+    so that $f \in C_0(X)$.
+\end{proof}
+
+The space $C_0(X)$ is the set of continuous functions on $X$ that \textbf{vanish at infinity}. If $X = \R$, then $C_0(\R) = $ all of the continuous functions $f:\R\rightarrow \F$ such that $\lim_{x\rightarrow \pm\infty}f(x) = 0$. If $X$ is compact, $C_0(X) = C_b(X) = C(X)$.
+
+If $I$ is any set, then give $I$ the discrete topology. Hence $I$ becomes locally compact. ALso, any function on $I$ is continuous. Rather than $C_b(I)$, the customary notation is $l^{\infty}(I)$. That is, $l^{\infty}(I) = $ all bounded functions $f:I\rightarrow \F$ with $\norm{f} = \sup\{|f(i)|: i \in I\}$. $C_0(I)$ consists of all functions $f:I\rightarrow \F$ such that for every $\epsilon > 0$, $\{i \in I;|f(i)| \geq \epsilon\}$ is finite. 
+
+\begin{eg}
+    If $(X,\Omega,\mu)$ is a measure space and $1 \leq p \leq \infty$, then $L^p(X,\Omega,\mu)$ is a banach space.
+\end{eg}
+
+\begin{eg}
+    Let $I$ be a set and $1 \leq p < \infty$. Define $l^p(I)$ to be the set of all functions $f:I\rightarrow \F$ such that $\sum\{|f(i)|^p:i \in I\} < \infty$; and define $\norm{f}_p = \left(\sum\{|f(i)|^p:i \in I\}\right)^{1/p}$. Then $l^p(I)$ is a Banach space.
+\end{eg}
+
+Note this is a special case of the previous example with the counting measure on $I$.
+
+\begin{eg}
+    Let $n \geq 1$ and let $C^{(n)}[0,1] = $ the collection of functions $f:[0,1]\rightarrow \F$ such that $f$ has $n$ continuous derivatives. Define $\norm{f} = \sup_{0\leq k \leq n}\{\sup\{|f^{(k)}(x)|:0\leq x\leq 1\}\}$. Then $C^{(n)}[0,1]$ is a Banach space.
+\end{eg}
+
+\begin{eg}
+    Let $1 \leq p < \infty$ and $n \geq 1$ and let $W^n_p[0,1] = $ the functions $f:[0,1]\rightarrow \F$ such that $f$ has $n-1$ continuous derivatives, $f^{(n-1)}$ is absolutely continuous, and $f^{(n)} \in L^p[0,1]$. For $f \in W_p^n[0,1]$ define $$\norm{f} = \sum_{k=0}^{n}\left[\int_0^1|f^{(k)}(x)|^pdx\right]^{1/p}$$
+    Then $W_p^n[0,1]$ is a Banach space.
+\end{eg}
+
+\begin{prop}
+    If $p$ is a seminorm on $V$, $|p(x) - p(y)| \leq p(x-y)$ for all $x,y$ in $V$.
+\end{prop}
+\begin{proof}
+    If $x,y \in V$, then $p(x) \leq p(x-y)+p(y)$, so $p(x)-p(y) \leq p(x-y)$. Similarly, $p(y)-p(x) \leq p(x-y)$.
+\end{proof}
+
+\begin{defn}
+    If $V$ and $W$ are normed spaces, $V$ and $W$ are \textbf{isometrically isomorphic} if there is a surjective linear isometry from $V$ onto $W$.
+\end{defn}
+
+
+
+\section{Linear Operators On Normed Spaces}
+\label{sec:linOpNorm}
+
+\begin{prop}
+    If $X$ and $Y$ are normed spaces and $A:X\rightarrow Y$ is a linear transformation, the following statements are equivalent: 
+    \begin{enumerate}
+        \item[(a)] $A \in \mathscr{B}(X,Y)$
+        \item[(b)] $A$ is continuous at $0$
+        \item[(c)] $A$ is continuous at some point
+        \item[(d)] There is a positive constant $c$ such that $\norm{Ax} \leq c\norm{x}$ for all $x \in X$.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    (a) implies (b) implies (c) is immediate. If $A$ is continuous at $x$, and $y_n\rightarrow 0$, then $x+y_n\rightarrow x$, so that $$\norm{Ay_n} = \norm{A(y_n+x)-Ax}\rightarrow 0$$
+    as $n$ goes to infinity, providing (c) implies (b). Now, assuming (b) there exists $\delta > 0$ such that for $\norm{x} < \delta$, $\norm{Ax} < 1$. Then for any $x \in X$, $x \neq 0$, we have that $\norm{\frac{\delta x}{2\norm{x}}} \leq \frac{\delta}{2} < \delta$, so $\norm{Ax} \leq \frac{2}{\delta}\norm{x}$, so setting $c = \frac{2}{\delta}$ we have (d). Finally, (d) implies $A$ is Lipschitz continuous and so $A \in \mathscr{B}(X,Y)$.
+\end{proof}
+
+If $A \in \mathscr{B}(X,Y)$ and $$\norm{A} = \sup\{\norm{Ax}:\norm{x} \leq 1\}$$
+then \begin{align*}
+    \norm{A} &= \sup\{\norm{Ax}:\norm{x} = 1\} \\
+    &= \sup\{\norm{Ax}/\norm{x}:x \neq 0\} \\
+    &= \inf\{c > 0:\norm{Ax}\leq c\norm{x},\forall x \in X\}
+\end{align*}
+With this function, $\mathscr{B}(X,Y)$ becoms a normed space if addition and scalar multiplication are defined pointwise. $\mathscr{B}(X,Y)$ is a Banach space if $Y$ is a Banach space. A continuous linear operator is also called a \textbf{bounded linear operator}.
+
+\begin{eg}
+    If $(X,\Omega,\mu)$ is a $\sigma$-finite measure space and $\phi \in L^{\infty}(X,\Omega,\mu)$, define $M_{\phi}:L^p(X,\Omega,\mu)\rightarrow L^p(X,\Omega,\mu), 1\leq p \leq \infty$, by $M_{\phi}f = \phi f$ for all $f \in L^p(X,\Omega,\mu)$. Then $M_{\phi} \in \mathscr{B}(L^p(X,\Omega,\mu))$ and $\norm{M_{\phi}} = \norm{\phi}_{\infty}$.
+\end{eg}
+
+\begin{eg}
+    If $(X,\Omega,\mu$, $k$, $c_1$, and $c_2$ are as in our previous example for Hilbert spaces and $1 \leq p \leq \infty$, then $K:L^p(\mu)\rightarrow L^p(\mu)$, defined by $$(Kf)(x) = \int_Xk(x,y)f(y)d\mu(y)$$
+    for all $f \in L^p(\mu)$ and $x \in X$ is a bounded operator on $L^p(\mu)$ and $\norm{K} \leq c_1^{1/q}c_2^{1/p}$, where $1/p+1/q = 1$.
+\end{eg}
+
+\begin{eg}
+    If $X$ and $Y$ are compact spaces and $\tau:Y\rightarrow X$ is a continuous map, define $A:C(X)\rightarrow C(Y)$ by $(Af)(y) = f(\tau(y))$, (i.e. $A = \tau^*$). Then $A \in \mathscr{B}(C(X),C(Y))$, and $\norm{A} = 1$.
+\end{eg}
+
+
+
+\section{Finite Dimensional Normed Spaces}
+\label{sec:FinDimNormSpc}
+
+\begin{thm}
+    If $X$ is a finite dimensional vector space over $\F$, then any two norms on $X$ are equivalent.
+\end{thm}
+\begin{proof}
+    Let $\{e_1,...,e_d\}$ be a Hamel basis for $X$. For $x = \sum_{j=1}^dx_je_j$, define $\norm{x}_{\infty} = \max\{|x_j|:1\leq j\leq d\}$. Let $\norm{\cdot}$ be any norm on $X$. We will show these are equivalent.
+
+    If $x = \sum_jx_je_j$, then $\norm{x} \leq \sum_j|x_j|\norm{e_j} \leq C\norm{x}_{\infty}$, when $C = \sum_j\norm{e_j}$. To show the other inequality let $\mathcal{T}$ be the topology defined on $X$ by $\norm{\cdot}_{\infty}$ and let $\mathcal{U}$ be the topology on $X$ defined by $\norm{\cdot}$. Put $B = \{x \in X:\norm{x}_{\infty} \leq 1\}$. The first part of the proof implies that $\mathcal{T} \supseteq \mathcal{U}$. Since $B$ is $\mathcal{T}$-compact and $\mathcal{T} \supseteq \mathcal{U}$, $B$ is $\mathcal{U}$-compact and the relativizations of the two topologies to $B$ agree. Let $A = \{x \in X:\norm{x}_{\infty} < 1\}$. Since $A$ is $\mathcal{T}$-open, it is open in $(B,\mathcal{U})$. Hence there is a set $U$ in $\mathcal{U}$ such that $U\cap B = A$. Thus $0 \in U$, and there is an $r > 0$ such that $\{x\in X:\norm{x} < r\} \subseteq U$. Hence $$\norm{x} < r\;\text{ and }\;\norm{x}_{\infty} \leq 1\;\text{ implies }\norm{x}_{\infty} < 1$$
+    \textbf{Claim:} $\norm{x} < r$ implies $\norm{x}_{\infty} < 1$.
+
+    Let $\norm{x} < r$ and put $x = \sum x_je_j, \alpha = \norm{x}_{\infty}$. So $\norm{x/\alpha}_{\infty} = 1$ and $x/\alpha \in B$. If $\alpha \geq 1$ then $\norm{x/\alpha} < r/\alpha \leq r$, and hence $\norm{x/\alpha}_{\infty} < 1$, a contradiction. Thus $\norm{x}_{\infty} = \alpha < 1$ and the claim is established.
+
+    By our previous work $\norm{x}_{\infty} \leq r^{-1}\norm{x}$ for all $x$.
+\end{proof}
+
+\begin{prop}
+    If $X$ is a normed space and $M$ is a finite dimensional linear manifold in $X$, then $M$ is closed.
+\end{prop}
+\begin{proof}
+    Using a Hamel basis $\{e_1,...,e_n\}$ for $M$, define a norm $\norm_{\infty}$ on $M$. $M$ is complete with respect to this norm. Thus, it must be complete with respect to its original norm, and hence must be a closed subspace of $X$.
+\end{proof}
+
+\begin{prop}
+    Let $X$ be a finite dimensional normed space and let $Y$ be any normed space. If $T:X\rightarrow Y$ is a linear transformation, then $T$ is continuous.
+\end{prop}
+\begin{proof}
+    Since all norms on $X$ are equivalent and $T:X\rightarrow Y$ is continuous with respect to one norm on $X$ precisely when it is continuous with respect to any equivalent norm, we may assume that $\norm{\sum_{j=1}^d\xi_je_j} = \max\{|\xi_j|:1\leq j \leq d\}$, where $\{e_j\}$ is a Hamel basis for $X$. Thus, for $x = \sum_j\xi_je_j$, $$\norm{Tx} = \norm{\sum_j\xi_jTe_j} \leq \sum_j|\xi_j|\norm{Te_j} \leq C\norm{x}$$
+    where $C = \sum_j\norm{Te_j}$. Then $T$ is continuous.
+\end{proof}
+
+
+\section{Quotients and Products of Normed Spaces}
+\label{sec:quot}
+
+Let $X$ be a normed space, let $M$ be a linear manifold in $X$, and let $Q:X\rightarrow X/M$ be the natural map $Qx = x+M$. Note that $X/M$ has a natural vector space structure such that $Q$ is a surjective linear mapping. We want to make $X/M$ into a normed space, so we define \begin{equation*}
+    \norm{x+M} := \inf\{\norm{x+y}:y \in M\}
+\end{equation*}
+Note that because $M$ is a linear space, $\norm{x+M} = \text{dist}(x,M)$. This is a semi-norm. First, to show well-definedness observe that if $x+M = x'+M$, then $x=x'+m$ for some $m \in M$. Then for any $m' \in M$, $\norm{x+m'} = \norm{x'+(m+m')}$ and $\norm{x'+m'} = \norm{x+(m'-m)}$ where both $m+m',m'-m \in M$ since it is a linear space. Thus the sets we're taking infimums over are identical, so $\norm{x+M} = \norm{x'+M}$. Next, for any $\alpha \in \F$, if $\alpha = 0$, then $\norm{\alpha x+M} \leq \norm{0} = 0$, so $\norm{0 x+M} = 0\norm{x+M}$, and if $\alpha \neq 0$ we have $$\norm{\alpha x+M} =\inf\{\norm{\alpha x+m}:m \in M\} = \inf\{|\alpha|\norm{x+m/\alpha}:m \in M\} = |\alpha|\inf\{\norm{x+m}:m \in M\}$$
+where we use the fact that $M$ is a linear manifold. Next, for any $x,y \in M$ and $m,m' \in M$ we have that $$\norm{x+y+m+m'} \leq \norm{x+m}+\norm{y+m'}$$
+Then taking infimum on the left $\norm{x+y+M} \leq \norm{x+m}+\norm{y+m'}$. Taking infimums over $m$ and $m'$ we obtain $$\norm{x+y+M} \leq \norm{x+M}+\norm{y+M}$$
+Thus, this indeed defines a seminorm on $X/M$. If $M$ is closed it is a closed convex nonempty subset of $X$ since it is a linear manifold, we have a unique $m_0 \in M$ such that $\norm{x+M} = \norm{x-m_0}$. Then, $\norm{x+M} = 0$ if and only if the unique $m_0$ equals $x$, in which case $x \in M$, so $x+M = 0+M$. Thus, in this case it becomes a norm.
+
+\begin{thm}
+    If $M \leq X$ and $\norm{x+M}$ is defined as above, then $\norm{\cdot}$ is a norm on $X/M$. Also: \begin{enumerate}
+        \item[(a)] $\norm{Q(x)}\leq \norm{x}$ for all $x \in X$ and hence $Q$ is continuous
+        \item[(b)] If $X$ is a Banach space, then so is $X/M$
+        \item[(c)] A subset $W$ of $X/M$ is open relative to the norm if and only if $Q^{-1}(W)$ is open in $X$.
+        \item[(d)] If $U$ is open in $X$, then $Q(U)$ is open in $X/M$.
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    (a) follows immediately since $\norm{Q(x)} = \norm{x+M} \leq \norm{x}$ as $0 \in M$.
+
+    For (b) let $\{x_n+M\}$ be a Cauchy sequence in $X/M$. Then there is a subsequence $\{x_{n_k}+M\}$ such that $$\norm{(x_{n_k}+M)-(x_{n_{k+1}}+M)} = \norm{x_{n_k}-x_{n_{k+1}}+M} < 2^{-k}$$
+    Now, let $y_1 = 0$, and choose $y_2 \in M$ such that $$\norm{x_{n_1}-x_{n_2}+y_2} \leq \norm{x_{n_1}-x_{n_2}+M} + 2^{-1} < 2\cdot 2^{-1}$$
+    Choose $y_3 \in M$ such that $$\norm{(x_{n_2}+y_2)-(x_{n_3}+y_3)} \leq \norm{x_{n_2}-x_{n_3}+M} + 2^{-2} < 2\cdot 2^{-2}$$
+    Continuing, there is a sequence $\{y_k\}$ in $M$ such that $$\norm{(x_{n_k}+y_k)-(x_{n_{k+1}}+y_{k+1})} < 2\cdot 2^{-k}$$
+    Thus, $\{x_{n_k}+y_k\}$ is a Cauchy sequence in $X$. Indeed, for $k \geq l$, \begin{align*}
+        \norm{(x_{n_l}+y_l)-(x_{n_{k+1}}+y_{k+1})} &\leq \sum_{i=l}^k\norm{(x_{n_i}+y_i)-(x_{n_{i+1}}+y_{i+1})} \\
+        &< 2\sum_{i=l}^k2^{-i} \\
+        &< 2\sum_{i=l}^{\infty}2^{-i} = \frac{2\cdot 2^{-l}}{1/2} = 2^{-l+2}
+    \end{align*}
+    which goes to zero as $l\rightarrow \infty$. Since $X$ is complete there is an $x_0 \in X$ such that $x_{n_k}+y_k\rightarrow x_0$ in $X$. By (a), $$x_{n_k}+M= Q(x_{n_k}+y_k)\rightarrow Qx_0 = x_0+M$$
+    Since $\{x_n+M\}$ is a Cauchy sequence, $x_n+M\rightarrow x_0+M$ and $X/M$ is complete.
+
+    (c) If $W$ is open in $X/M$, then $Q^{-1}(W)$ is open in $X$ because $Q$ is continuous. Now, assume that $W \subseteq X/M$ and $Q^{-1}(W)$ is open. Let $r > 0$ and put $B_r(0) = \{x\in X:\norm{x} < r\}$. Observe that $B_r(x) = x+B_r(0)$ for any $x \in X$. Now, if $\norm{x} < r$ we have that $\norm{x+M} \leq \norm{x} < r$. On the other hand, if $\norm{x+M} < r$, then there is a $y$ in $M$ such that $\norm{x+y} < r$. Thus, $x+M = Q(x+y) \in Q(B_r(0))$. Hence, $Q(B_r(0)) = B_r'(Q(0))$. If $x_0 + M \in W$, then $x_0 \in Q^{-1}(W)$. Since $Q^{-1}(W)$ is open there is an $r > 0$ such that $x_0+B_r(0) \subseteq Q^{-1}(W)$. Then we have $$W = QQ^{-1}(W) \supseteq Q(x_0+B_r(0)) = Q(x_0) + B_r'(Q(0))$$
+    Hence $W$ is open.
+
+    For (d), if $U$ is open in $X$ then $$Q^{-1}(Q(U)) = U+M = \{u+y : u \in U,y \in M\} = \bigcup\{U+y:y \in M\}$$
+    Each $U + y$ is open so $Q^{-1}(Q(U))$ is open in $X$. By (c), $Q(U)$ is open in $X/M$.
+\end{proof}
+
+
+\begin{prop}
+    If $X$ is a normed space, $M \leq X$, and $N$ is a finite dimensional subspace of $X$, then $M+N$ is a closed subspace of $X$.
+\end{prop}
+\begin{proof}
+    Consider $X/M$ and the quotient map $Q:X\rightarrow X/M$. Since $\dim Q(N) \leq \dim N < \infty$, $Q(N)$ is closed in $X/M$. Since $Q$ is continuous, $Q^{-1}(Q(N))$ is closed in $X$; but $Q^{-1}(Q(N)) = M+N$.
+\end{proof}
+
+Now for the product or direct sum of normed spaces. Suppose $\{X_i:i \in I\}$ is a collection of normed spaces. Then $\prod\{X_i:i \in I\}$ is a vector space if the linear operations are defined coordinatewise. Let $\norm{\cdot}$ denote the norm on each $X_i$. For $1 \leq p < \infty$, define $$\bigoplus_pX_i := \left\{x \in \prod_iX_i:\norm{x} := \left[\sum_{i}\norm{x(i)}^p\right]^{1/p} < \infty\right\}$$
+Define $$\bigoplus_{\infty}X_i := \left\{x \in \prod_iX_i:\norm{x} := \sup_i\norm{x(i)} <\infty\right\}$$
+If $\{X_1,X_2,...\}$ is a sequence of normed spaces, define $$\bigoplus_0X_n := \left\{x \in \prod_{n=1}^{\infty}X_n:\norm{x(n)}\rightarrow 0\right\}$$
+and give $\bigoplus_0X_n$ the norm it has as a subspace of $\bigoplus_{\infty}X_n$.
+
+
+\begin{prop}
+    Let $\{X_i:i \in I\}$ be a collection of normed spaces and let $X = \bigoplus_p X_i, 1 \leq p \leq \infty$. \begin{enumerate}
+        \item[(a)] $X$ is a normed space and the projection $P_i:X\rightarrow X_i$ is a continuous linear map with $\norm{P_i(x)} \leq \norm{x}$ for each $x \in X$.
+        \item[(b)] $X$ is a Banach space if and only if each $X_i$ is a Banach space.
+        \item[(c)] Each projection $P_i$ is an open map of $X$ onto $X_i$.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    (TBC)
+\end{proof}
+
+
+
+
+\section{Linear Functionals}
+\label{sec:BanLinFunc}
+
+Let $X$ be a vector space over $\F$. A \textbf{hyperplane} in $X$ is a linear manifold $M$ in $X$ such that $\dim(X/M) = 1$. If $f:X\rightarrow \F$ is linear functional and $f \neq 0$, then $\ker f$ is a hyperplane. In fact, $f$ induces an isomorphism between $X/\ker f$ and $\F$. Conversely, if $M$ is a hyperplane, let $Q:X\rightarrow X/M$ be the natural map and let $T:X/M\rightarrow \F$ be an isomorphism. Then $f := T\circ Q$ is a linear functional on $X$ and $\ker f = M$.
+
+Suppose now that $f,g$ are linear functionals on $X$ such that $\ker f = \ker g$. Let $x_0 \in X$ such that $f(x_0) = 1$; so $g(x_0) \neq 0$. If $x \in X$ and $\alpha = f(x)$, then $x-\alpha x_0 \in \ker f = \ker g$. So $0 = g(x) - \alpha g(x_0)$, or $g(x) = g(x_0)\alpha = g(x_0)f(x)$. Thus $g = \beta f$ for a scalar $\beta$.
+
+\begin{prop}
+    A linear manifold $X$ is a hyperplane if and only if it is the kernel of a non-zero linear functional. Two linear functional have the same kernel if and only if one is a non-zero multiple of the other.
+\end{prop}
+
+\begin{prop}
+    If $X$ is a normed space and $M$ is a hyperplane in $X$, then either $M$ is closed or $M$ is dense.
+\end{prop}
+\begin{proof}
+    Consider $\text{cl}M$. As $\text{cl}M$ is a linear manifold in $X$, $M \subseteq \text{cl}M$, and $\dim X/M = 1$, either $\text{cl}M = M$ or $\text{cl}M = X$.
+\end{proof}
+
+
+The dichotomy that exists for hyperplanes should be reflected in a dichotomy for linear functionals.
+
+\begin{thm}
+    If $X$ is a normed space and $f:X\rightarrow \F$ is a linear functional, then $f$ is continuous if and only if $\ker f$ is closed.
+\end{thm}
+\begin{proof}
+    If $f$ is continuous, $\ker f = f^{-1}(\{0\})$ and so $\ker f$ must be closed. Assume now that $\ker f$ is closed and let $Q:X\rightarrow X/\ker f$ be the natural map. $Q$ is continuous with the norm on $X/\ker f$ defined by $\norm{x+\ker f} = \text{inf}\{\norm{x+y}:y \in M\}$ since $\ker f$ is closed. Let $T:X/\ker f\rightarrow \F$ be a linear isomorphism, so $T$ is continuous. Thus, if $g = T\circ Q:X\rightarrow \F$, $g$ is continuous and $\ker f = \ker g$. Hence, $f = \alpha g$ for some $\alpha \in \F$, so $f$ is continuous.
+\end{proof}
+
+If $f:X\rightarrow \F$ is a continuous linear functional it is bounded so $$\norm{f} = \sup\{|f(x)|:\norm{x}\leq 1\} < \infty$$
+Let $X^* = $ the collection of all bounded linear functionals on $X$. If $f,g \in X^*$ and $\alpha \in \F$, define $(\alpha f+g)(x) = \alpha f(x)+g(x)$; $X^*$ is called the \textbf{dual space} of $X$. Note $X^* = \mathscr{B}(X,\F)$.
+
+\begin{prop}
+    If $X$ is a normed space, $X^*$ is a Banach space.
+\end{prop}
+\begin{proof}
+    To show $X^*$ is complete, let $B = \{x \in X:\norm{x} \leq 1\}$. If $f \in X^*$, define $\rho(f) = f\vert_B$. Note that $\rho:X^*\rightarrow C_b(B)$ is a linear isometry. Thus, to show that $X^*$ is complete it suffices, since $C_b(B)$ is complete, to show that $\rho(X^*)$ is closed. Let $\{f_n\} \subseteq X^*$ and suppose $g \in C_b(B)$ such that $\norm{\rho(f_n) - g}\rightarrow 0$ as $n\rightarrow \infty$. Let $x \in X$. If $\alpha,\beta \in \F$, $\alpha,\beta \neq 0$, such that $\alpha x,\beta x \in B$, then $\alpha^{-1}g(\alpha x) = \lim \alpha^{-1}f_n(\alpha x) = \lim \beta^{-1}f_n(\beta x) = \beta^{-1}g(\beta x)$. Define $f:X\rightarrow \F$ by letting $f(x) = \alpha^{-1}g(\alpha x)$ for any $\alpha \neq 0$ such that $\alpha x \in B$.
+
+    For $x \in B$ we have that $f(x) = g(x)$, so $\rho(f) = g$. \textbf{TBC}
+\end{proof}
+
+\begin{thm}
+    Let $(X,\Omega,\mu)$ be a measure space and let $1 < p < \infty$. If $1/p+1/q = 1$ and $g \in L^q(X,\Omega,\mu)$, define $F_g:L^p(\mu)\rightarrow \F$ by $$F_g(f) = \int_X fgd\mu$$
+    Then $F_g \in L^p(\mu)^*$ and the map $g\mapsto F_g$ defines an isometric isomorphism of $L^q(\mu)$ onto $L^p(\mu)^*$.
+\end{thm}
+
+
+\begin{thm}
+    If $(X,\Omega,\mu)$ is a $\sigma$-finite measure space and $g \in L^{\infty}(X,\Omega,\mu)$, define $F_g:L^1(\mu)\rightarrow \F$ by $$F_g(f) = \int_Xfg d\mu$$
+    Then $F_g \in L^1(\mu)^*$ and the map $g \mapsto F_g$ defines an isometric isomorphism of $L^{\infty}(\mu)$ onto $L^1(\mu)^*$.
+\end{thm}
+
+Note that this theorem is false if the measure space is not assumed to be $\sigma$-finite.
+
+If $X$ is a locally compact space, $M(X)$ denotes the space of all $\F$-valued regular Borel measures on $X$ with total variation norm.
+
+\begin{defn}
+    If $\mu$ is a measure on $(X,\Omega)$ and $\Delta \in \Omega$, define the \textbf{variation} of $\mu$, $|\mu|$, by $$|\mu|(\Delta) = \sup\left\{\sum_{j=1}^m|\mu(E_j)|:\{E_j\}_{j=1}^m\text{ is a measurable partition of $\Delta$}\right\}$$
+\end{defn}
+
+
+\begin{defn}
+    If $\mu$ is a measure on $(X,\Omega)$ and $v$ is a positive measure on $(X,\Omega)$, say that $\mu$ is \textbf{absolutely continuous} with respect to $v$ ($\mu \ll v$) if $\mu(\Delta) = 0$ whenever $v(\Delta) = 0$. If $v$ is complex valued, $\mu \ll v$ means $\mu \ll |v|$.
+\end{defn}
+
+The absolute variation of a measure $\mu$ is given by $\norm{\mu} \equiv |\mu|(X)$.
+
+\begin{nthm}{Riesz Representation Theorem}
+    If $X$ is a locally compact space and $\mu \in M(X)$, define $F_{\mu}:C_0(X)\rightarrow \F$ by $$F_{\mu}(f) = \int_Xf d\mu$$
+    Then $F_{\mu} \in C_0(X)^*$ and the map $\mu\rightarrow F_{\mu}$ is an isometric isomorphism of $M(X)$ onto $C_0(X)^*$.
+\end{nthm}
+
+\begin{eg}
+    The dual of $c_0(I)$ ($C_0(I)$ for $I$ discrete topology) is isometrically isomorphic to $l^1$. In fact, $c_0 = C_0(\N)$, if $\N$ is given the discrete topology, and $l^1 = M(\N)$.
+\end{eg}
+
+\begin{eg}
+    The dual of $l^1$ is isometrically isomorphic to $l^{\infty}$. In fact, $l^1 = L^1(\N,2^{\N},\mu)$, where $\mu$ is the counting measure. Also, $l^{\infty} = L^{\infty}(\N,2^{\N},\mu)$.
+\end{eg}
+
+\begin{eg}
+    If $1 < p <\infty$, the dual of $l^p$ is $l^q$, where $1 = 1/p+1/q$.
+\end{eg}
+
+
+\section{The Hahn-Banach Theorem}
+\label{sec:HanhBanach}
+
+\begin{defn}
+    If $X$ is a vector space, a \textbf{sublinear functional} is a function $q:X\rightarrow \R$ such that \begin{enumerate}
+        \item[(a)] $q(x+y) \leq q(x)+q(y)$ for all $x,y \in X$;
+        \item[(b)] $q(\alpha x)=\alpha q(x)$ for all $x \in X$, $\alpha \geq 0$
+    \end{enumerate}
+\end{defn}
+
+Note that every seminorm is a sublinear functional. 
+
+\begin{nthm}{The Hahn-Banach Theorem}
+    Let $X$ be a vector space over $\R$ and let $q$ be a sublinear functional on $X$. If $M$ is a linear manifold in $X$ and $f:M\rightarrow \R$ is a linear functional such that $f(x) \leq q(x)$ for all $x \in M$, then there is a linear function $F:X\rightarrow \R$ such that $F\vert_M = f$ and $F(x) \leq q(x)$ for all $x \in X$.
+\end{nthm}
+
+Note the importance of the theorem is not the existence of an extension, but the existence of an extension still dominated by $q$. Let us see some of its immediate corollaries before proceeding with the proof. Note that if $X$ is a vector space over $\C$, it is also a vector space over $\R$. If $f:X\rightarrow \C$ is $\C$-linear, then $\text{Re}f:X\rightarrow \R$ is $\R$-linear. The lemma is the converse:
+
+\begin{lem}
+    Let $X$ be a vector space over $\C$. \begin{enumerate}
+        \item[(a)] If $f:X\rightarrow \R$ is an $\R$-linear functional, then $\widetilde{f}(x) = f(x) - if(ix)$ is a $\C$-linear functional and $f = \text{Re}\widetilde{f}$.
+        \item[(b)] If $g :X\rightarrow \C$ is $\C$-linear, $f = \text{Re}g$, then $\widetilde{f} = g$
+        \item[(c)] if $p$ is a seminorm on $X$ and $f$ and $\widetilde{f}$ are as in (a), then $|f(x)| \leq p(x)$ for all $x$ if and only if $|\widetilde{f}(x)| \leq p(x)$ for all $x$
+        \item[(d)] If $X$ is a normed space and $f$ and $\widetilde{f}$ are as in (a), then $\norm{f} = \norm{\widetilde{f}}$.
+    \end{enumerate}
+\end{lem}
+\begin{proof}
+    For (a), by construction $f = \text{Re}\widetilde{f}$. Now, for $x,y \in X$, $a+bi \in \C$, we have $$\widetilde{f}(ax+ibx+y) = f(ax+ibx+y)-if(iax-bx+iy) = af(x)+ibf(x)+f(y)-iaf(ix)-i^2bf(ix)-if(iy) = (a+ib)\widetilde{f}(x)+\widetilde{f}(y)$$
+    Next, for (b) let $g:X\rightarrow \C$ be $\C$ linear with $f = \text{Re}g$. Then for $x \in X$, $g(x) = re^{i\theta}$, so $g(e^{-i\theta}x) = r$. Then $g(e^{-i\theta}x) = f(e^{-i\theta}x)$. But, $$\widetilde{f}(e^{-i\theta}x) = f(e^{-i\theta}x)-if(ie^{-i\theta}x)$$
+    and $f(ie^{-i\theta}x) = \text{Re}g(ie^{-i\theta}x) = \text{Re}ig(e^{-i\theta}x) = 0$, since $g(e^{-i\theta}x) \in \R$. Thus, $\widetilde{f}(e^{-i\theta}x) = g(e^{-i\theta}x)$, so by $\C$-linearity $\widetilde{f}(x) = g(x)$.
+
+    Now, to prove (c) suppose first $|\widetilde{f}(x)| \leq p(x)$ for all $x$. Then $f(x) = \text{Re}\widetilde{f}(x) \leq |\widetilde{f}(x)| \leq p(x)$, and $-f(x) = \text{Re}\widetilde{f}(-x) \leq |\widetilde{f}(-x)| \leq p(x)$. Hence, $|f(x)| \leq p(x)$. Conversely, if $|f(x)| \leq p(x)$. Choose $\theta$ such that $\widetilde{f}(x) = e^{i\theta}|\widetilde{f}(x)|$. Hence $$|\widetilde{f}(x)| = \widetilde{f}(e^{-i\theta}x) = \text{Re}\widetilde{f}(e^{-i\theta}x) = f(e^{-i\theta}x) \leq p(e^{-i\theta}x) = p(x)$$
+
+    Part (d) follows immediately from (c).
+\end{proof}
+
+\begin{cor}
+    Let $X$ be a vector space, let $M$ be a linear manifold in $X$, and let $p:X\rightarrow [0,\infty)$ be a seminorm. If $f:M\rightarrow \F$ is a linear functional such that $|f(x)| \leq p(x)$ for all $x \in M$, then there is a linear functional $F:X\rightarrow \F$ such that $F\vert_M = f$ and $|F(x)| \leq p(x)$ for all $x \in X$.
+\end{cor}
+\begin{proof}
+    If $\F = \R$, this is a special case of the Hahn-Banach theorem applied to seminorms.
+
+    Otherwise, if $\F = \C$ let $f_1 = \text{Re}f$. By the previous Lemma $|f_1| \leq p$, so by Case 1, there is an $\R$-linear functional $F_1:X\rightarrow \R$ such that $F_1\vert_M = f_1$ and $|F_1| \leq p$. Let $F(x) = F_1(x) - iF_1(ix)$ for all $x \in X$. Then again by the Lemma $|F| \leq p$ and $F\vert_M = f$.
+\end{proof}
+
+\begin{cor}\label{cor:boundedExt}
+    If $X$ is a normed space, $M$ is a linear manifold in $X$, and $f:M\rightarrow \F$ is a bounded linear functional, then there is an $F$ in $X^*$ such that $F\vert_M = f$ and $\norm{F} = \norm{f}$.
+\end{cor}
+\begin{proof}
+    Use the previous Corollary with $p(x) = \norm{f}\norm{x}$
+\end{proof}
+
+\begin{cor}
+    If $X$ is a normed space, $\{x_1,...,x_d\}$ is a linearly independent subset of $X$, and $\alpha_1,...,\alpha_d$ are arbitrary scalrs, then there is an $f$ in $X^*$ such that $f(x_j) = \alpha_j$ for $1\leq j \leq d$.
+\end{cor}
+\begin{proof}
+    Let $M = \text{span}\{x_1,...,x_d\}$ and define $g:M\rightarrow \F$ by $g(\sum_j\beta_jx_j) = \sum_j\beta_j\alpha_j$. So $g$ is linear. Since $M$ is finite dimensional, $g$ is continuous. Le t$f$ be a continuous extension of $g$ to $X$.
+\end{proof}
+
+\begin{cor}
+    If $X$ is a normed space and $x \in X$, then $$\norm{x} = \sup\{|f(x)|:f \in X^*\text{ and }\norm{f}\leq 1\}$$
+    Moreover, this supremum is attained.
+\end{cor}
+\begin{proof}
+    Let $\alpha = \sup\{|f(x)|:f\in X^*\text{ and }\norm{f} \leq 1\}$. If $f \in X^*$ and $\norm{f} \leq 1$, then $|f(x)| \leq \norm{f}\norm{x} \leq \norm{x}$; hence $\alpha \leq \norm{x}$. Now, let $M = \{\beta x: \beta \in \F\}$ and define $g:M\rightarrow \F$ by $g(\beta x) = \beta\norm{x}$. Then $g \in M^*$ and $\norm{g} = 1$. By Corollary \ref{cor:boundedExt}, there is an $f \in X^*$ such that $\norm{f} = 1$ and $f(x) = g(x) = \norm{x}$.
+\end{proof}
+
+\begin{cor}\label{cor:distFunc}
+    If $X$ is a normed space, $M \leq X$, $x_0 \in X\backslash M$, and $d = \text{dist}(x_0,M)$, then there is an $f \in X^*$ such that $f(x_0) = 1, f(x) = 0$, for all $x \in M$, and $\norm{f} = d^{-1}$.
+\end{cor}
+\begin{proof}
+    Let $Q:X\rightarrow X/M$ be the natural projection. Since $\norm{x_0+M} = d$, by the preceding corollary there is a $g$ in $(X/M)^*$ such that $g(x_0+M) = d$ and $\norm{g} = 1$. Let $f = d^{-1}g\circ Q:X\rightarrow \F$. Then $f$ is continuous, $f(x) = 0$ for $x \in M$, and $f(x_0) = 1$. Also, $$|f(x)| = d^{-1}|g(Q(x))| \leq d^{-1}\norm{Q(x)} \leq d^{-1}\norm{x}$$
+    hence $\norm{f} \leq d^{-1}$. On the other hand, $\norm{g} = 1$< so there is a sequence $\{x_n\}$ such that $|g(x_n+M)|\rightarrow 1$ and $\norm{x_n+M} < 1$ for all $n$. Let $y_n \in M$ such that $\norm{x_n+y_n} < 1$. Then $|f(x_n+y_n)| = d^{-1}|g(x_n+M)|\rightarrow d^{-1}$, so $\norm{f} = d^{-1}$.
+\end{proof}
+
+
+To prove the Hahn-Banach Theorem we begin with a simpler case.
+
+\begin{lem}
+    Suppose the hypothesis of the Hahn-Banach theorem, and in addition, $\dim X/M = 1$. Then the conclusion of the Hahn-Banach Theorem is valid.
+\end{lem}
+\begin{proof}
+    Fix $x_0 \in X\backslash M$; so $X = M\land \{x_0\}$. For the moment assume that the extension $F:X\rightarrow \R$ of $f$ exists with $F \leq q$. Let's see what $F$ must look like. Put $\alpha_0 = F(x_0)$. If $t > 0$ and $y_1 \in M$, then $F(tx_0+y_1) = t\alpha_0+f(y_1) \leq q(tx_0+y_1)$. Hence, $$\alpha_0 \leq -t^{-1}f(y_1)+t^{-1}q(tx_0+y_1) = -f(y_1/t)+q(x_0+y_1/t)$$
+    for every $y_1 \in M$. Since $y_1/t \in M$, this gives that $$\alpha_0\leq -f(y_1) + q(x_0+y_1)$$
+    for all $y_1 \in M$.
+
+    If $t \geq 0$ and $y_2 \in M$ and if $F$ exists, then $$F(-tx_0+y_2) = -t\alpha_0+f(y_2) \leq q(-tx_0+y_2)$$
+    As above this implies $$\alpha_0 \geq f(y_2)-q(-x_0+y_2)$$
+    for all $y_2 \in M$. 
+
+    Combining these we see that we must show that $\alpha_0$ can be chosen such that $$f(y_2) - q(-x_0+y_2)\leq \alpha_0\leq -f(y_1)+q(x_0+y_1)$$
+    for all $y_1,y_2 \in M$. This is equivalent to showing $f(y_1+y_2) \leq q(x_0+y_1)+q(-x_0+y_2)$. But \begin{align*}
+        f(y_1+y_2) &\leq q(y_1+y_2) = q((y_1+x_0)+(-x_0+y_2)) \\
+        &\leq q(y_1+x_0)+q(-x_0+y_2)
+    \end{align*}
+    If $\alpha_0$ is chosen with $$\sup\{f(y_2)-q(-x_0+y_2):y_2 \in M\}\leq \alpha_0\leq \inf\{-f(y_1)+q(x_0+y_1):y_1 \in M\}$$
+    and $F(tx_0+y) := t\alpha_0+f(y_1)$, then $F$ satisfies the conclusion.
+\end{proof}
+
+We now prove the Hahn-Banach Theorem:
+
+\begin{proof}
+    Let $\mathscr{S}$ be the collection of all pairs $(M_1,f_1)$ where $M_1$ is a linear manifold in $X$ such that $M_1 \supseteq M$ and $f_1:M_1\rightarrow \R$ is a linear functional with $f_1\vert_M = f$ and $f_1 \leq q$ on $M_1$. If $(M_1,f_1)$ and $(M_2,f_2) \in \mathscr{S}$, define $(M_1,f_1) \preceq (M_2,f_2)$ to mean that $M_1 \subseteq M_2$ and $f_2\vert_M_1 = f_1$. So $(\mathscr{S},\preceq)$ is a partially ordered set. Suppose $\mathscr{C} = \{(M_i,f_i):i \in I\}$ is a chain in $\mathscr{S}$. If $N = \bigcup\{M_i:i \in I\}$, then the fact that $\mathscr{C}$ is a chain implies $N$ is a linear manifold. Define $F:N\rightarrow \R$ by setting $F(x) = f_i(x)$ if $x \in M_i$. As $\mathscr{C}$ is a chain $F$ is well-defined, linear, and satisfies $F\leq q$ on $N$. So $(N,F) \in \mathscr{S}$ and $(N,F)$ is an upper bound for $\mathscr{C}$. By Zorn's Lemma $\mathscr{S}$ has a maximal element $(\mathscr{Y},F)$. But the preceding lemma implies $\mathscr{Y} = X$. Hence $F$ is the desired extension.
+\end{proof}
+
+
+\begin{thm}
+    If $X$ is a normed space and $M$ is a linear manifold in $X$, then $$\text{cl}M = \bigcap\{\ker f :f \in X^*\text{ and }M \subseteq \ker f\}$$
+\end{thm}
+\begin{proof}
+    Let $N = \bigcap\{\ker f:f \in X^*\text{ and }M \subseteq \ker f\}$. If $f \in X^*$ and $M \subseteq \ker f$, then the continuity of $f$ implies that $\text{cl}M \subseteq \ker f$. Hence $\text{cl}M \subseteq N$. If $x_0 \notin \text{cl}M$, then $d = \text{dist}(x_0,M) > 0$. By Corollary \ref{cor:distFunc} there is an $f \in X^*$ such that $f(x_0) = 1$ and $f(x) = 0$ for every $x \in M$. Hence $x_0 \notin N$. Thus $N \subseteq \text{cl}M$, and the proof is complete.
+\end{proof}
+
+\begin{cor}
+    If $X$ is a normed space and $M$ is a linear manifold in $X$, then $M$ is dense in $X$ if and only if the only bounded linear functional on $X$ that annihilates $M$ is the zero functional.
+\end{cor}
+
+
+\section{The Dual of a Quotient Space and a Subspace}
+\label{sec:dualQuot}
+
+Let $X$ be a normed space and $M \leq X$. If $f \in X^*$, then $f\vert_M$, the restriction of $f$ to $M$, belongs to $M^*$ and $\norm{f\vert_M} \leq \norm{f}$. According to the Hahn-Banach Theorem, every bounded linear functional on $M$ is obtainable as a restriction of a functional from $X^*$. In fact, more can be said.
+
+Note that if $M^{\perp} := \{g \in X^*:g(M) = 0\}$ (note the analogy with Hilbert space notation); then $M^{\perp}$ is a closed subspace of the Banach space $X^*$. Hence $X^*/M^{\perp}$ is a Banach space. Moreover, if $f+M^{\perp} \in X^*/M^{\perp}$, then $f+M^{\perp}$ induces a linear functional on $M$, namely $f\vert_M$.
+
+\begin{thm}
+    If $M \leq X$ and $M^{\perp} = \{g \in X^*:g(M) = 0\}$, then the map $\rho:X^*/M^{\perp}\rightarrow M^*$ defined by $$\rho(f+M^{\perp}) = f\vert_M$$
+    is an isometric isomorphism.
+\end{thm}
+\begin{proof}
+    Note that by definition of $M^{\perp}$ $\rho$ is well-defined, as is it linear and injective. If $f \in X^*$ and $g \in M^{\perp}$, then $$\norm{f\vert_M} = \norm{(f+g)\vert_M} \leq \norm{f+g}$$
+    Taking the infimum over all $g$ we have that $$\norm{f\vert_M} \leq \norm{f+M^{\perp}$$
+    Suppose $\phi \in M^*$. The Hahn-Banach Theorem implies that there is an $f \in X^*$ such that $f\vert_M = \phi$ and $\norm{f} = \norm{\phi}$. Hence, $\phi = \rho(f+M^{\perp})$ and $\norm{\phi}=\norm{f} \geq \norm{f+M^{\perp}}$.
+\end{proof}
+
+Now consider $X/M$; what is $(X/M)^*$? Let $Q:X\rightarrow X/M$ be the antural map. If $f \in (X/M)^*$, then $f\circ Q \in X^*$ and $\norm{f\circ Q} \leq \norm{f}$. This gives a way of mapping $(X/M)^*\rightarrow X^*$.
+
+\begin{thm}
+    If $M \leq X$ and $Q:X\rightarrow X/M$ is the natural projection, then $\rho(f) = f\circ Q$ defines an isometric isomorphism of $(X/M)^*$ onto $M^{\perp}$.
+\end{thm}
+\begin{proof}
+    If $f \in (X/M)^*$ and $y \in M$, then $f\circ Q(y) = 0$, so $f\circ Q \in M^{\perp}$. Again, $\rho$ is linear and $\norm{\rho(f)} \leq \norm{f}$. Let $\{x_n+M\}$ be a sequence in $X/M$ such that $\norm{x_n+M} < 1$ and $|f(x_n+M)| \rightarrow \norm{f}$. For each $n$ there is a $y_n \in M$ such that $\norm{x_n+y_n} < 1$. Thus $$\norm{\rho(f)} \geq |\rho(f)(x_n+y_n)| = |f(x_n+M)| \rightarrow \norm{f}$$
+    so $\rho$ is an isometry.
+
+    To see that $\rho$ is surjective, let $g \in M^{\perp}$; then $g \in X^*$ and $g(M) = 0$. Then we have a unique $f:X/M\rightarrow \F$ such that $f(x+M) = g(x)$. Also, $$|f(x+M)| = |g(x)| = |g(x+y)| \leq \norm{g}\norm{x+y}$$
+    for any $x\in X,y\in M$, so taking the infimum over all $y \in M$ gives $$|f(x+M)| \leq \norm{g}\norm{x+M}$$
+    Hence $f \in (X/M)^*$, $\rho(f) = g$, and $\norm{f} \leq \norm{\rho(f)}$.
+\end{proof}
+
+
+\section{Reflexive Spaces}
+\label{sec:reflSpace}
+
+If $X$ is a normed space, then we have seen that $X^*$ is aBanach space. Because $X^*$ is a Banach space, $(X^*)^* =: X^{**}$ is again a Banach space.
+
+Observe that if $x \in X$, then $x$ defines an element $\hat{x} \in X^{**}$ by $$\hat{x}(f) = f(x)$$
+for all $f \in X^*$. Now, observe that $$\norm{\hat{x}} = \sup\{|f(x)|:f \in X^*,\norm{f} \leq 1\} = \norm{x}$$
+from a previosu corollary. The map $x\mapsto\hat{x}$ of $X\rightarrow X^{**}$ is called the \textbf{natural map} of $X$ into its \textbf{second dual}.
+
+\begin{defn}
+    A normed space $X$ is \textbf{reflexive} if $X^{**} = \{\hat{x}:x\in X\}$.
+\end{defn}
+
+Note a reflexive space $X$ is isometrically isomorphic to $X^{**}$, and hence must be a Banach space. The converse need not hold.
+
+\begin{eg}
+    If $1 < p < \infty$, $L^p(X,\Omega,\mu)$ is reflexive.
+\end{eg}
+
+\begin{eg}
+    $c_0$ is not reflexive. We know that $c_0^* = l^1$, so $c_0^{**} = (l^1)^* = l^{\infty}$. With these identifications the natural map $c_0\rightarrow c_0^{**}$ is precisely the inclusion map $c_0\rightarrow l^{\infty}$.
+\end{eg}
+
+
+
+\section{The Open Mapping and Closed Graph Theorems}
+\label{sec:OpClosMaps}
+
+\begin{nthm}{The Open Mapping Theorem}
+    If $X,Y$ are Banach spaces and $A:X\rightarrow Y$ is a continuous linear surjection, then $A$ is an open mapping.
+\end{nthm}
+\begin{proof}
+    For $r > 0$, let $B(r) = \{x \in X:\norm{x} < r\}$. Note that because $A$ is surjective, $Y = \bigcup_{k=1}^{\infty}\overline{A(B(kr/2))} = \bigcup_{k=1}^{\infty}k\overline{A(B(r/2))}$. By the Baire Category Theorem, there is a $k \geq 1$ such that $k\overline{A(B(r/2))}$ has nonempty interior. Thus, $V = \text{int}\overline{A(B(r/2))} \neq \emptyset$. If $y_0 \in V$, let $s > 0$ such that $\{y \in Y:\norm{y-y_0} < s\} \subseteq V\subseteq \overline{A(B(r/2))}$. Let $y \in Y$, $\norm{y} < s$. Since $y_0 \in \overline{A(B(r/2))}$, there is a sequence $\{x_n\}$ in $B(r/2)$ such that $A(x_n)\rightarrow y_0$. There is also a sequence $\{z_n\}$ in $B(r/2)$ such that $A(z_n)\rightarrow y_0+y$. Thus $A(z_n-x_n)\rightarrow y$ and $\{z_n-x_n\}\subseteq B(r)$; that is, $\{y \in Y:\norm{y} < s\} \subseteq \overline{A(B(r))}$. 
+
+    It will now be shown that $$\overline{A(B(r/2))} \subseteq A(B(r))$$
+    Fix $y_1 \in \overline{A(B(r/2))}$. Now $0 \in \text{int}\overline{A(B(2^{-2}r))}$. Hence $$[y_1-\overline{A(B(2^{-2}r))}]\cap A(B(r/2)) \neq \emptyset$$
+    Let $x_1 \in B(r/2)$ such that $A(x_1) \in [y_1 - \overline{A(B(2^{-2}r))}]$; now $A(x_1) = y_1-y_2$, where $y_2 \in \overline{A(B(2^{-2}r))}$. Using induction, we obtain a sequence $\{x_n\}$ in $X$ and a sequence $\{y_n\}$ in $Y$ such that \begin{enumerate}
+        \item[(i)] $x_n \in B(2^{-n}r)$
+        \item[(ii)] $y_n \in \overline{A(B(2^{-n}r))}$
+        \item[(iii)] $y_{n+1} = y_n -A(x_n)$
+    \end{enumerate}
+    But $\norm{x_n} < 2^{-n}r$, so $\sum_{n=1}^{\infty}\norm{x_n} < \infty$; hence $x = \sum_{n=1}^{\infty}x_n$ exists in $X$ and $\norm{x} < r$. Also $$\sum_{k=1}^nA(x_k) = \sum_{k=1}^n(y_k-y_{k+1}) = y_1-y_{n+1}$$
+    But bullet (ii) implies $\norm{y_n} \leq \norm{A}2^{-2}r$; hence $y_n\rightarrow 0$. Therefore, $y_1 = \sum_{k=1}^{\infty}A(x_k) = A(x) \in A(B(r))$, proving $\overline{A(B(r/2))} \subseteq A(B(r))$.
+
+    This implies $0 \in \text{int}A(B(r))$ for any $r > 0$. Now if $G$ is an open subset of $X$, then for every $x \in G$, let $r_x > 0$ such that $B(x;r_x) \subseteq G$. But $0 \in \text{int}A(B(r_x))$, and so $A(x) \in \text{int}A(B(x;r_x))$. Thus there is an $s_x > 0$ such that $$U_x = \{y \in Y:\norm{y-A(x)} < s_x\} \subseteq A(B(x;r_x))$$
+    Therefore $A(G) \supseteq \bigcup\{U_x:x \in G\} \supseteq A(G)$, and hence $A(G)$ is open.
+\end{proof}
+
+
+\begin{nthm}{The Inverse Mapping Theorem}
+    If $X$ and $Y$ are Banach spaces and $A:X\rightarrow Y$ is a bounded linear transformation that is bijective, then $A^{-1}$ is bounded.
+\end{nthm}
+\begin{proof}
+    Because $A$ is continuous, bijective, and open by the Open Mapping Theorem, $A$ is a homeomorphism.
+\end{proof}
+
+\begin{nthm}{The Closed Graph Theorem}
+    If $X$ and $Y$ are Banach spaces and $A:X\rightarrow Y$ is a linear transformation such that the graph of $A$ is $$\text{gr}(A) := \{(x,Ax) \in X\oplus Y:x \in X\}$$
+    then $A$ is continuous if and only if $\text{gr}(A)$ is closed.
+\end{nthm}
+\begin{proof}
+    First suppose $A$ is continuous. Then the map $g := A\pi_1-\pi_2:X\oplus Y\rightarrow Y$ is a continuous linear mapping since $\mathscr{B}(X,Y)$ is a vector space, and the composites of continuous maps are continuous. Further, $\text{gr}(A) = \ker g$, and hence is closed.
+
+    Now suppose the graph is closed. Since $X\oplus Y$ is a Banach space and the graph is a closed linear subspace, the graph is a Banach space. Let $P$ be the restriction of the projection mapping to the graph. Then the restriction is bounded and surjective, and is also injective since $A$ is a function. By the Inverse Mapping Theorem, $P^{-1}$ is continous. As $A = \pi_2\circ P^{-1}$, $A$ is also continuous.
+\end{proof}
+
+
+\begin{prop}
+    If $X$ and $Y$ are normed spaces and $A:X\rightarrow Y$ is a linear transformation, then $\text{gr}(A)$ is closed if and only if whenever $x_n\rightarrow 0$ and $Ax_n\rightarrow y$, it must be that $y = 0$.
+\end{prop}
+
+\begin{defn}
+    If $X,Y$ are Banach spaces, an \textbf{isomorphism} of $X$ and $Y$ is a linear bijection $T:X\rightarrow Y$ that is a homeomorphism. Say that $X$ and $Y$ are \textbf{isomorphic} if there is an isomorphism of $X$ onto $Y$.
+\end{defn}
+
+
+\section{Complemented Subspaces of a Banach Space}
+\label{sec:comp}
+
+If $X$ is a Banach space and $M\leq X$, say that $M$ is \textbf{algebraically complemented} in $X$ if there is an $N \leq X$ such that $M\cap N = \{0\}$ and $M+N = X$. If $M$ and $N$ are algebraically complemented closed subspaces of a normed space $X$, then $A:M\oplus N\rightarrow X$ defined by $A(m,n) = m+n$ is a linear bijection. Also, $\norm{A(m,n)} = \norm{m+n}\leq \norm{m}+\norm{n} = \norm{(m,n)}$. Hence $A$ is bounded. Say that $M$ and $N$ are \textbf{topologically complemented} if $A$ is a homeomorphism. If $X$ is a Banach space, then the Inverse Mapping Theorem implies $A$ is a homeomorphism. This proves the following.
+
+\begin{thm}
+    If two subspaces of a Banach space are algebraically complementary, then they are topologically complementary.
+\end{thm}
+
+\begin{thm}
+    If $M$ and $N$ are complementary subspaces of a Banach space $X$ and $E:X\rightarrow X$ is defined by $E(m+n) = m$ for $m \in M$, $n \in N$, then $E$ is a continuous linear operator such that $E^2 = E$, $\text{ran}E = M$, and $\ker E = N$.
+
+    If $E \in \mathscr{B}(X)$ and $E^2=E$, then $M =\text{ran}E$ and $N = \ker E$ are complementary subspaces of $X$.
+\end{thm}
+
+If $X$ is a Hilbert space, then all closed subspaces are complemented. Lindenstrauss and Tzafriri proved that if $X$ is a Banach space and every subspace of $X$ is complemented, then $X$ is isomorphic to a Hilbert space.
+
+
+\section{The Principle of Uniform Boundedness}
+\label{sec:unifBound}
+
+
+\begin{nthm}{Principle of Uniform Boundedness (PUB)}
+    Let $X$ be a Banach space and $Y$ a normed space. If $\mathscr{A} \subseteq \mathscr{B}(X,Y)$ such that for each $x \in X$, $\sup\{\norm{Ax}:A\in\mathscr{A}\} < \infty$, then $\sup\{\norm{A}:A\in\mathscr{A}\} < \infty$.
+\end{nthm}
+\begin{proof}
+    For each $x \in X$, let $M(x) = \sup\{\norm{Ax}:A\in \mathscr{A}\}$, so $\norm{Ax} \leq M(x)$ for all $x \in X$. Suppose $\sup\{\norm{A}:A\in\mathscr{A}\} = \infty$. Then there is a sequence $\{A_n\}\subseteq \mathscr{A}$ and a sequence $\{x_n\}$ of vectors in $X$ such that $\norm{x_n} = 1$ and $\norm{A_nx_n} > 4^n$. Let $y_n = 2^{-n}x_n$, so $\norm{y_n} = 2^{-n}$ and $\norm{A_ny_n} > 2^n$.
+
+    We claim there is a subsequence $\{y_{n_k}\}$ such that for $k \geq 1$, \begin{enumerate}
+        \item[(a)] $\norm{A_{n_{k+1}}y_{n_{k+1}}} > 1 + k + \sum_{j=1}^kM(y_{n_j})$
+        \item[(b)] $\norm{y_{n_{k+1}}} < 2^{-k-1}[\sup\{\norm{A_{n_j}}:1\leq j \leq k\}]^{-1}$
+    \end{enumerate}
+    We proceed by induction. Let $n_1 = 1$. Then we choose $n_2\geq 4+\log_2(\max\{1,M(y_1),\sup\{\norm{A_1}\}\})$. Then $$\norm{A_{n_2}y_{n_2}} > 2^{n_2} = 2^42^{\log_2(\max\{1,M(y_1),\sup\{\norm{A_1}\}\})} \geq 4+M(y_1) > 1+1+M(y_1)$$
+    and \textbf{TBC}
+
+    Since $\sum_k\norm{y_{n_k}} <\infty, \sum_ky_{n_k} = y \in X$. Now for any $k \geq 1$, \begin{align*}
+        \norm{A_{n_{k+1}}y} &= \norm{\sum_{j=1}^kA_{n_{k+1}}y_{n_j}+A_{n_{k+1}}y_{n_{k+1}}+\sum_{j=k+2}^{\infty}A_{n_{k+1}}y_{n_j}} \\
+        &= \norm{A_{n_{k+1}}y_{n_{k+1}}-\left[-\sum_{j=1}^kA_{n_{k+1}}y_{n_j}-\sum_{j=k+2}^{\infty}A_{n_{k+1}}y_{n_j}\right]} \\
+        &\geq \norm{A_{n_{k+1}}y_{n_{k+1}}} - \norm{\sum_{j=1}^kA_{n_{k+1}}y_{n_j}+\sum_{j=k+2}^{\infty}A_{n_{k+1}}y_{n_j}} \\
+        &\geq 1+k+\sum_{j=1}^kM(y_{n_j})-\left[\sum_{j=1}^kM(y_{n_j})+\sum_{j=k+2}^{\infty}\norm{A_{n_{k+1}}}\norm{y_{n_j}}\right] \\
+        &\geq 1+k-\sum_{j=k+2}^{\infty}2^{-j} \\
+        &\geq k
+    \end{align*}
+    That is, $M(y) \geq k$ for all $k$, a contradiction.
+\end{proof}
+
+
+\begin{cor}
+    If $X$ is a normed space and $A \subseteq X$, then $A$ is a bounded set if and only if for every $f$ in $X^*$, $\sup\{|f(a)|:a \in A\} < \infty$.
+\end{cor}
+\begin{proof}
+    Consider $X$ as a subset of $\mathscr{B}(X^*,\F) = X^{**}$, by letting $\hat{x}(f) = f(x)$ for all $f \in X^*$. Since $X^*$ is a Banach space and $\norm{x} = \norm{\hat{x}}$ for all $x$ the corollary is a special case of the PUB.
+\end{proof}
+
+
+\begin{cor}
+    If $X$ is a Banach space and $A \subseteq X^*$, then $A$ is a bounded set if and only if for every $x\in X$, $\sup\{|f(x)|:f \in A\} < \infty$.
+\end{cor}
+\begin{proof}
+    Consider $X^*$ as $\mathscr{B}(X,\F)$.
+\end{proof}
+
+\begin{cor}
+    If $X$ is a Banach space and $Y$ is a normed space and if $\mathscr{A} \subseteq \mathscr{B}(X,Y)$ such that for every $x \in X$ and $g \in Y^*$, $$\sup\{|g(A(x))|:A\in\mathscr{A}\} < \infty$$
+    then $\sup\{\norm{A}:A\in\mathscr{A}\} < \infty$.
+\end{cor}
+\begin{proof}
+    Fix $x \in X$. By the hypothesis and the first Corollary to PUB, $\sup\{\norm{A(x)}:A \in \mathscr{A}\} < \infty$. By PUB, $\sup\{\norm{A}:A\in\mathscr{A}\} < \infty$.
+\end{proof}
+
+\begin{nthm}{The Banach-Steinhaus Theorem}
+    If $X$ and $Y$ are Banach spaces and $\{A_n\}$ is a sequence in $\mathscr{B}(X,Y)$ with the property that for every $x \in X$ there is a $y \in Y$ such that $\norm{A_nx-y}\rightarrow 0$, then there is an $A \in \mathscr{B}(X,Y)$ such that $\norm{A_nx-Ax}\rightarrow 0$ for every $x \in X$ and $\sup\norm{A_n} < \infty$.
+\end{nthm}
+\begin{proof}
+    If $x \in X$, let $Ax = \lim A_nx$. By hypothesis $A:X\rightarrow Y$ is defined and by linearity of limits is itself linear. To show that $A$ is bounded, note that the PUB implis that there is $M > 0$ such that $\norm{A_n} \leq M$ for all $n$. If $x \in X$ and $\norm{x} \leq 1$, then for any $n \geq 1$, $\norm{Ax} \leq \norm{Ax-A_nx}+\norm{A_nx} \leq \norm{Ax-A_nx}+M$. Letting $n\rightarrow \infty$ shows that $\norm{Ax} \leq M$, whenever $\norm{x}\leq 1$.
+\end{proof}
+
+\begin{prop}
+    Let $X$ be locally compact and let $\{f_n\}$ be a sequence in $C_0(X)$. Then $\int f_nd\mu \rightarrow \int fd\mu$ for every $\mu \in M(X)$ if and only if $\sup_n\norm{f_n}< \infty$ and $f_n(x)\rightarrow f(x)$ for every $x \in X$.
+\end{prop}
+
+
+
+
+% Problems or Exercises should be sorted chapterwise
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+%
+% Use the following environment.
+% Don't forget to label each problem;
+% the label is needed for the solutions' environment
+\begin{prob}
+\label{prob1}
+A given problem or Excercise is described here. The
+problem is described here. The problem is described here.
+\end{prob}
+
+
+% \begin{prob}
+% \label{prob2}
+% \textbf{Problem Heading}\\
+% (a) The first part of the problem is described here.\\
+% (b) The second part of the problem is described here.
+% \end{prob}
+
+\input{Part1/references1}
