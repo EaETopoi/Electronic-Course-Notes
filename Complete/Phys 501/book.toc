@@ -26,4 +26,47 @@
 \contentsline {subsection}{\numberline {2.5.4}Addition of Velocities}{14}{subsection.2.5.4}%
 \contentsline {section}{\numberline {2.6}Units}{15}{section.2.6}%
 \contentsline {section}{Problems}{15}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Special Relativistic Mechanics}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Four-Vectors}{16}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Basis Four-Vecotrs}{16}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Scalar Product}{17}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Special Relativistic Kinematics}{17}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Special Relativistic Dynamics}{19}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Equation of Motion}{19}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Energy-Momentum}{20}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Variational Principle for Newtonian Mechanics}{21}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Variational Principle for Free Particle Motion}{22}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Light Rays}{23}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Zero Rest Mass Particles}{23}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Energy, Momentum, Frequency, and Wave Vector}{23}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Doppler Shift and Relativistic Beaming}{24}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.7}Observers and Observations}{25}{section.3.7}%
+\contentsline {section}{Appendix}{27}{tcb@cnt@eg.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.1}Magnetism as a Relativistic Phenomenon}{27}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}How the Fields Transform}{28}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}The Field Tensor}{29}{subsection.3.7.3}%
+\contentsline {section}{Problems}{30}{tcb@cnt@nthm.3.7.1}%
+\contentsline {chapter}{\numberline {4}Gravity as Geometry}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Equivalence Principle}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Clocks in a Gravitational Field}{31}{section.4.2}%
+\contentsline {section}{\numberline {4.3}The Global Positioning System}{32}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Spacetime is Curved}{32}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Newtonian Gravity in Spacetime Terms}{32}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Rates of Emission and Reception}{32}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Newtonian Motion in Spacetime Terms}{33}{subsection.4.5.2}%
+\contentsline {section}{Appendix}{34}{table.4.1}%
+\contentsline {section}{Problems}{34}{table.4.1}%
+\contentsline {chapter}{\numberline {5}Description of Curved Spacetime}{35}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Coordinates}{35}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Metric}{35}{section.5.2}%
+\contentsline {section}{\numberline {5.3}The Summation Convention}{35}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Light Cones and World Lines}{36}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Length, Area, Volume, and Four-Volume for Diagonal Metrics}{36}{section.5.5}%
+\contentsline {section}{Appendix}{37}{section.5.5}%
+\contentsline {section}{Problems}{37}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Geodesics}{38}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The Geodesic Equation}{38}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Solving the Geodesic Equation--Symmetries and Conservation Laws}{39}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Null Geodesics}{39}{section.6.3}%
+\contentsline {section}{Problems}{40}{section.6.3}%
 \contentsfinish 

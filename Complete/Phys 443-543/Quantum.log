@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.5.11)  14 DEC 2022 12:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.23)  30 AUG 2023 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1555,7 +1555,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 ...ine {4.4.1}Spin 1/2}{48}{subsection.4.4.1}
+l.38 ...ine {4.4.1}Spin 1/2}{50}{subsection.4.4.1}
                                                   % [1] [2])
 \tf@toc=\write5
 \openout5 = `Quantum.toc'.
@@ -6977,16 +6977,13 @@ Chapter 12.
 
 
 ] (./Quantum.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Quantum.out' has not changed.
 (rerunfilecheck)             Checksum: 70EBB2734D5D524AC0BEABF2CD8FF21E;16770.
  ) 
 Here is how much of TeX's memory you used:
  28227 strings out of 478287
  517150 string characters out of 5849289
- 818619 words of memory out of 5000000
+ 818617 words of memory out of 5000000
  45608 multiletter control sequences out of 15000+600000
  538959 words of font info for 190 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -7011,7 +7008,7 @@ e/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
 times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Quantum.pdf (88 pages, 902682 bytes).
+Output written on Quantum.pdf (88 pages, 902792 bytes).
 PDF statistics:
  1089 PDF objects out of 1200 (max. 8388607)
  944 compressed objects within 10 object streams

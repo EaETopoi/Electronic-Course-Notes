@@ -1,0 +1,7 @@
+\contentsline {chapter}{\numberline {1}Number Fields}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Basic Concepts}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}The Cyclotomic Fields}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Embeddings in $\mathbb C$}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}The Trace and the Norm}{4}{section.1.4}%
+\contentsline {section}{Problems}{5}{tcb@cnt@eg.1.4.1}%
+\contentsfinish 

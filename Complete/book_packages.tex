@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%% Book Formatting Comments:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% for Part
+
+%%%%%%%%%%%%%%%%%%%%%% for chapter
+
+%%%%%%%%%%%%%%%%%%%% for section
+
+
+
+
+
+
+
+
+%%%%%% PACKAGES %%%%%%%
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{amsmath} % Math display options
+\usepackage{amssymb} % Math symbols
+\usepackage{amsfonts} % Math fonts
+\usepackage{amsthm}
+\usepackage{mathtools} % General math tools
+\usepackage{array} % Allows you to write arrays
+\usepackage{empheq} % For boxing equations
+\usepackage{mathabx}
+\usepackage{mathrsfs}
+\usepackage{nameref}
+
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+
+\usepackage{txfonts}
+\usepackage{cancel}
+\usepackage[toc, page]{appendix}
+\usepackage{titletoc,tocloft}
+\setlength{\cftchapindent}{1em}
+\setlength{\cftsecindent}{2em}
+\setlength{\cftsubsecindent}{3em}
+\setlength{\cftsubsubsecindent}{4em}
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\fontsize{25}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\section}
+  {\normalfont\fontsize{20}{15}\bfseries}{\thesubsection}{1em}{}
+\setcounter{secnumdepth}{2}  
+  
+  
+
+\newcommand\numberthis{\refstepcounter{equation}\tag{\theequation}} % For equation labelling
+\usepackage[framemethod=tikz]{mdframed}
+
+\usepackage{tikz} % For drawing commutative diagrams
+\usetikzlibrary{cd}
+\usetikzlibrary{calc}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75p
+
+\usepackage{datetime}
+\usepackage[margin=1in]{geometry}
+\setlength{\parskip}{1em}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt} 
+\pagestyle{fancy}
+\lhead[\leftmark]{}
+\rhead[]{\leftmark}
+
+\usepackage{enumitem}
+
+\usepackage{url}
+\allowdisplaybreaks
+
+%%%%%% ENVIRONMENTS %%%
+\definecolor{purp}{rgb}{0.29, 0, 0.51}
+\definecolor{bloo}{rgb}{0, 0.13, 0.80}
+
+
+
+%%\newtheoremstyle{note}% hnamei
+%{3pt}% hSpace above
+%{3pt}% hSpace belowi
+%{}% hBody fonti
+%{}% hIndent amounti
+%{\itshape}% hTheorem head fonti
+%{:}% hPunctuation after theorem headi
+%{.5em}% hSpace after theorem headi
+%{}% hTheorem head spec (can be left empty, meaning ‘normal’)i
+
+
+%%%%%%%%%%%%% THEOREM STYLES
+
+\newtheoremstyle{BigTheorem}
+{20pt}
+{20pt}
+{\slshape}
+{}
+{\Large\color{purp}\bfseries}
+{.}
+{\newline}
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+
+
+\newtheoremstyle{TheoremClassic}
+{15pt}
+{15pt}
+{\slshape}
+{}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+\newtheoremstyle{Definitions}
+{15pt}
+{15pt}
+{\slshape}
+{}
+{\bfseries}
+{.}
+{.5em}
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+
+\newtheoremstyle{Remarks}
+{10pt}
+{10pt}
+{\upshape}
+{}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+\newtheoremstyle{Examples}
+{10pt}
+{10pt}
+{\upshape}
+{}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+
+%%%%%%%%%%%%% THEOREM DEFINITIONS
+
+\theoremstyle{BigTheorem}
+\newtheorem{namthm}{Theorem}
+\newtheorem{conj}[namthm]{Conjecture}
+
+\theoremstyle{TheoremClassic}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{claim}[thm]{Claim}
+
+
+\theoremstyle{Definitions}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{axi}[defn]{Axiom}
+\newtheorem{cust}[defn]{}
+\newtheorem{cons}[defn]{Construction}
+\newtheorem{props}[defn]{Properties}
+\newtheorem{proc}[defn]{Process}
+\newtheorem*{law}{Law}
+
+
+\theoremstyle{Examples}
+\newtheorem{eg}{Example}[section]
+\newtheorem{noneg}[eg]{Non-Example}
+\newtheorem{xca}[eg]{Exercise}
+
+
+\theoremstyle{Remarks}
+\newtheorem{rmk}{Remark}[section]
+\newtheorem{qst}[rmk]{Question}
+\newtheorem*{ans}{Answer}
+\newtheorem{obs}[rmk]{Observation}
+\newtheorem{rec}[rmk]{Recall}
+\newtheorem{summ}[rmk]{Summary}
+\newtheorem{nota}[rmk]{Notation}
+\newtheorem{note}[rmk]{Note}
+
+
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+\numberwithin{equation}{section}
+
+\newenvironment{qest}{
+    \begin{center}
+        \em
+    }
+    {
+    \end{center}
+    }
+
+%%%%%% MACROS %%%%%%%%%
+%% New Commands
+\newcommand{\ip}[1]{\langle#1\rangle} %%% Inner product
+\newcommand{\abs}[1]{\lvert#1\rvert} %%% Modulus
+\newcommand\diag{\operatorname{diag}} %%% diag matrix
+\newcommand\tr{\mbox{tr}\.} %%% trace
+\newcommand\C{\mathbb C} %%% Complex numbers
+\newcommand\R{\mathbb R} %%% Real numbers
+\newcommand\Z{\mathbb Z} %%% Integers
+\newcommand\Q{\mathbb Q} %%% Rationals
+\newcommand\N{\mathbb N} %%% Naturals
+\newcommand\F{\mathbb F} %%% An arbitrary field
+\newcommand\ste{\operatorname{St}} %%% Steinberg Representation
+\newcommand\GL{\mathbf{GL}} %%% General Linear group
+\newcommand\SL{\mathbf{SL}} %%% Special linear group
+\newcommand\gl{\mathfrak{gl}} %%% General linear algebra
+\newcommand\G{\mathbf{G}} %%% connected reductive group
+\newcommand\g{\mathfrak{g}} %%% Lie algebra of G
+\newcommand\Hbf{\mathbf{H}} %%% Theta fixed points of G
+\newcommand\X{\mathbf{X}} %%% Symmetric space X
+\newcommand{\catname}[1]{\normalfont\textbf{#1}}
+\newcommand{\Set}{\catname{Set}} %%% Category set
+\newcommand{\Grp}{\catname{Grp}} %%% Category group
+\newcommand{\Rmod}{\catname{R-Mod}} %%% Category r-modules
+\newcommand{\Mon}{\catname{Mon}} %%% Category monoid
+\newcommand{\Ring}{\catname{Ring}} %%% Category ring
+\newcommand{\Topp}{\catname{Top}} %%% Category Topological spaces
+\newcommand{\Vect}{\catname{Vect}_{k}} %%% category vector spaces'
+\newcommand\Hom{\mathbf{Hom}} %%% Arrows
+
+\newcommand{\map}[2]{\begin{array}{c} #1 \\ #2 \end{array}}
+
+\newcommand{\Emph}[1]{\textbf{\ul{\emph{#1}}}}
+
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+
+
+%% Math operators
+\DeclareMathOperator{\ran}{Im} %%% image
+\DeclareMathOperator{\aut}{Aut} %%% Automorphisms
+\DeclareMathOperator{\spn}{span} %%% span
+\DeclareMathOperator{\ann}{Ann} %%% annihilator
+\DeclareMathOperator{\rank}{rank} %%% Rank
+\DeclareMathOperator{\ch}{char} %%% characteristic
+\DeclareMathOperator{\ev}{\bf{ev}} %%% evaluation
+\DeclareMathOperator{\sgn}{sign} %%% sign
+\DeclareMathOperator{\id}{Id} %%% identity
+\DeclareMathOperator{\supp}{Supp} %%% support
+\DeclareMathOperator{\inn}{Inn} %%% Inner aut
+\DeclareMathOperator{\en}{End} %%% Endomorphisms
+\DeclareMathOperator{\sym}{Sym} %%% Group of symmetries
+
+
+%% Diagram Environments
+\iffalse
+\begin{center}
+    \begin{tikzpicture}[baseline= (a).base]
+        \node[scale=1] (a) at (0,0){
+          \begin{tikzcd}
+           
+          \end{tikzcd}
+        };
+    \end{tikzpicture}
+\end{center}
+\fi
+
+
+
+
+\newdateformat{monthdayyeardate}{%
+    \monthname[\THEMONTH]~\THEDAY, \THEYEAR}
+%%%%%%%%%%%%%%%%%%%%%%%

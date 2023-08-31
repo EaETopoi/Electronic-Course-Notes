@@ -2,75 +2,75 @@
 \contentsline {section}{\numberline {1.1}\textsection Introduction to Probability and Inference}{5}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}\textsection Combinatorial Tools}{6}{subsection.1.1.1}%
 \contentsline {section}{\numberline {1.2}\textsection Conditional Probability}{7}{section.1.2}%
-\contentsline {section}{\numberline {1.3}\textsection Laws of Probability}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.3}\textsection Laws of Probability}{7}{section.1.3}%
 \contentsline {section}{\numberline {1.4}\textsection The Event-Comparison Method}{8}{section.1.4}%
-\contentsline {section}{\numberline {1.5}\textsection Bayes Theorem and The Law of Total Probability}{9}{section.1.5}%
-\contentsline {section}{\numberline {1.6}\textsection Numerical Events and Random Sampling}{10}{section.1.6}%
+\contentsline {section}{\numberline {1.5}\textsection Bayes Theorem and The Law of Total Probability}{8}{section.1.5}%
+\contentsline {section}{\numberline {1.6}\textsection Numerical Events and Random Sampling}{9}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Discrete Random Variables}{11}{chapter.2}%
 \contentsline {section}{\numberline {2.1}\textsection Basic Definitions: DRV}{11}{section.2.1}%
 \contentsline {section}{\numberline {2.2}\textsection Probability Distribution Definition for a DRV}{11}{section.2.2}%
 \contentsline {section}{\numberline {2.3}\textsection Functions of a Random Variable}{12}{section.2.3}%
-\contentsline {section}{\numberline {2.4}\textsection The Binomial Probability Distribution}{15}{section.2.4}%
-\contentsline {section}{\numberline {2.5}\textsection The Geometric Probability Distribution}{17}{section.2.5}%
+\contentsline {section}{\numberline {2.4}\textsection The Binomial Probability Distribution}{14}{section.2.4}%
+\contentsline {section}{\numberline {2.5}\textsection The Geometric Probability Distribution}{16}{section.2.5}%
 \contentsline {section}{\numberline {2.6}\textsection Negative Binomial Distribution}{18}{section.2.6}%
-\contentsline {section}{\numberline {2.7}\textsection The Hypergeometric Probability Distribution}{19}{section.2.7}%
-\contentsline {section}{\numberline {2.8}\textsection The Poisson Probability Distribution}{19}{section.2.8}%
-\contentsline {section}{\numberline {2.9}\textsection Moments and Moment-Generating Functions}{21}{section.2.9}%
-\contentsline {section}{\numberline {2.10}\textsection Tchebysheff's Theorem (Discrete)}{23}{section.2.10}%
-\contentsline {chapter}{\numberline {3}Continuous Random Variables}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}\textsection The Probability Distribution for a Continuous Random Variable}{25}{section.3.1}%
-\contentsline {section}{\numberline {3.2}\textsection Expected Values for Continuous Random Variables}{27}{section.3.2}%
-\contentsline {section}{\numberline {3.3}\textsection The Uniform Probability Distribution}{27}{section.3.3}%
-\contentsline {section}{\numberline {3.4}\textsection The Normal Probability Distribution}{29}{section.3.4}%
-\contentsline {section}{\numberline {3.5}\textsection The Gamma Probability Distribution}{29}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}The Chi-Square Probability Distribution}{31}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}The Exponential Probability Distribution}{31}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}\textsection The Beta Probability Distribution}{32}{section.3.6}%
-\contentsline {section}{\numberline {3.7}\textsection Tchebysheff's Theorem (Continuous)}{34}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Multivariate Probability Distributions}{37}{chapter.4}%
-\contentsline {section}{\numberline {4.1}\textsection Bivariate and Multivariate Probability Distributions}{37}{section.4.1}%
-\contentsline {section}{\numberline {4.2}\textsection Marginal and Conditional Probability Distributions}{38}{section.4.2}%
-\contentsline {section}{\numberline {4.3}\textsection Independent Variables}{40}{section.4.3}%
-\contentsline {section}{\numberline {4.4}\textsection The Covariance of Two Random Variables}{41}{section.4.4}%
-\contentsline {section}{\numberline {4.5}\textsection The Expected Value and Variance of Linear Functions of Random Variables}{43}{section.4.5}%
-\contentsline {section}{\numberline {4.6}\textsection Bivariate Normal Distribution}{45}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Functions of Random Variables}{47}{chapter.5}%
-\contentsline {section}{\numberline {5.1}\textsection Probability Distributions of Functions of Random Variables}{47}{section.5.1}%
-\contentsline {section}{\numberline {5.2}\textsection The Method of Distribution Functions}{47}{section.5.2}%
-\contentsline {section}{\numberline {5.3}\textsection The Method of Transformations}{49}{section.5.3}%
-\contentsline {section}{\numberline {5.4}\textsection Method of Moment-Generating Functions}{51}{section.5.4}%
-\contentsline {section}{\numberline {5.5}\textsection Multivariate Transformations}{53}{section.5.5}%
-\contentsline {section}{\numberline {5.6}\textsection Order Statistics}{54}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Central Limit Theorem and Sampling}{57}{chapter.6}%
-\contentsline {section}{\numberline {6.1}\textsection Sampling Distributions Related to the Normal Distribution}{57}{section.6.1}%
-\contentsline {section}{\numberline {6.2}\textsection The Central Limit Theorem}{60}{section.6.2}%
-\contentsline {chapter}{\numberline {7}Estimation}{63}{chapter.7}%
-\contentsline {section}{\numberline {7.1}\textsection The Bias and Mean Square Error of Point Estimators}{63}{section.7.1}%
-\contentsline {section}{\numberline {7.2}\textsection Common Unbiased Point Estimators}{64}{section.7.2}%
-\contentsline {section}{\numberline {7.3}\textsection Evaluating the Goodness of a Point Estimator}{65}{section.7.3}%
-\contentsline {section}{\numberline {7.4}\textsection Confidence Intervals}{66}{section.7.4}%
-\contentsline {section}{\numberline {7.5}\textsection Large-Sample Confidence Intervals}{67}{section.7.5}%
-\contentsline {section}{\numberline {7.6}\textsection Selecting the Sample Size}{69}{section.7.6}%
-\contentsline {section}{\numberline {7.7}\textsection Small-Sample Confidence Intervals for Means and Mean Differences}{70}{section.7.7}%
-\contentsline {section}{\numberline {7.8}\textsection Large Normally Distributed Data and Two Sample Confidence Intervals}{72}{section.7.8}%
-\contentsline {section}{\numberline {7.9}\textsection Confidence Intervals for Variance}{73}{section.7.9}%
-\contentsline {chapter}{\numberline {8}Properties of Point Estimators and Methods of Estimation}{75}{chapter.8}%
-\contentsline {section}{\numberline {8.1}\textsection Relative Efficiency}{75}{section.8.1}%
-\contentsline {section}{\numberline {8.2}\textsection Consistency}{75}{section.8.2}%
-\contentsline {section}{\numberline {8.3}\textsection The Method of Moments}{77}{section.8.3}%
-\contentsline {section}{\numberline {8.4}\textsection The Method of Maximum Likelihood}{78}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Hypothesis Testing}{81}{chapter.9}%
-\contentsline {section}{\numberline {9.1}\textsection Common Large-Sample Tests}{84}{section.9.1}%
-\contentsline {section}{\numberline {9.2}\textsection Common Confidence Intervals}{85}{section.9.2}%
-\contentsline {section}{\numberline {9.3}\textsection The Power of a Statistical Test}{88}{section.9.3}%
-\contentsline {section}{\numberline {9.4}\textsection Power of Tests and the Neyman-Pearson Lemma}{88}{section.9.4}%
-\contentsline {section}{\numberline {9.5}\textsection Likelihood Ratio Test}{89}{section.9.5}%
-\contentsline {chapter}{\numberline {10}Linear Models and Estimation by Least Squares}{91}{chapter.10}%
-\contentsline {section}{\numberline {10.1}\textsection Linear Statistical Models}{91}{section.10.1}%
-\contentsline {section}{\numberline {10.2}\textsection Method of Least Squares}{92}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Evaluating the Quality of the Linear Relationship}{94}{subsection.10.2.1}%
-\contentsline {section}{\numberline {10.3}\textsection Inferences Concerning the Parameters}{95}{section.10.3}%
-\contentsline {section}{\numberline {10.4}\textsection Simple Linear Regression}{96}{section.10.4}%
-\contentsline {section}{\numberline {10.5}\textsection Correlation}{98}{section.10.5}%
-\contentsline {section}{\numberline {10.6}\textsection Simple Linear Regressio: Bivariate Data}{99}{section.10.6}%
+\contentsline {section}{\numberline {2.7}\textsection The Hypergeometric Probability Distribution}{18}{section.2.7}%
+\contentsline {section}{\numberline {2.8}\textsection The Poisson Probability Distribution}{18}{section.2.8}%
+\contentsline {section}{\numberline {2.9}\textsection Moments and Moment-Generating Functions}{20}{section.2.9}%
+\contentsline {section}{\numberline {2.10}\textsection Tchebysheff's Theorem (Discrete)}{21}{section.2.10}%
+\contentsline {chapter}{\numberline {3}Continuous Random Variables}{23}{chapter.3}%
+\contentsline {section}{\numberline {3.1}\textsection The Probability Distribution for a Continuous Random Variable}{23}{section.3.1}%
+\contentsline {section}{\numberline {3.2}\textsection Expected Values for Continuous Random Variables}{25}{section.3.2}%
+\contentsline {section}{\numberline {3.3}\textsection The Uniform Probability Distribution}{25}{section.3.3}%
+\contentsline {section}{\numberline {3.4}\textsection The Normal Probability Distribution}{27}{section.3.4}%
+\contentsline {section}{\numberline {3.5}\textsection The Gamma Probability Distribution}{27}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}The Chi-Square Probability Distribution}{29}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}The Exponential Probability Distribution}{29}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}\textsection The Beta Probability Distribution}{29}{section.3.6}%
+\contentsline {section}{\numberline {3.7}\textsection Tchebysheff's Theorem (Continuous)}{31}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Multivariate Probability Distributions}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}\textsection Bivariate and Multivariate Probability Distributions}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.2}\textsection Marginal and Conditional Probability Distributions}{34}{section.4.2}%
+\contentsline {section}{\numberline {4.3}\textsection Independent Variables}{35}{section.4.3}%
+\contentsline {section}{\numberline {4.4}\textsection The Covariance of Two Random Variables}{36}{section.4.4}%
+\contentsline {section}{\numberline {4.5}\textsection The Expected Value and Variance of Linear Functions of Random Variables}{38}{section.4.5}%
+\contentsline {section}{\numberline {4.6}\textsection Bivariate Normal Distribution}{40}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Functions of Random Variables}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}\textsection Probability Distributions of Functions of Random Variables}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}\textsection The Method of Distribution Functions}{41}{section.5.2}%
+\contentsline {section}{\numberline {5.3}\textsection The Method of Transformations}{43}{section.5.3}%
+\contentsline {section}{\numberline {5.4}\textsection Method of Moment-Generating Functions}{44}{section.5.4}%
+\contentsline {section}{\numberline {5.5}\textsection Multivariate Transformations}{47}{section.5.5}%
+\contentsline {section}{\numberline {5.6}\textsection Order Statistics}{47}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Central Limit Theorem and Sampling}{49}{chapter.6}%
+\contentsline {section}{\numberline {6.1}\textsection Sampling Distributions Related to the Normal Distribution}{49}{section.6.1}%
+\contentsline {section}{\numberline {6.2}\textsection The Central Limit Theorem}{52}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Estimation}{55}{chapter.7}%
+\contentsline {section}{\numberline {7.1}\textsection The Bias and Mean Square Error of Point Estimators}{55}{section.7.1}%
+\contentsline {section}{\numberline {7.2}\textsection Common Unbiased Point Estimators}{56}{section.7.2}%
+\contentsline {section}{\numberline {7.3}\textsection Evaluating the Goodness of a Point Estimator}{57}{section.7.3}%
+\contentsline {section}{\numberline {7.4}\textsection Confidence Intervals}{58}{section.7.4}%
+\contentsline {section}{\numberline {7.5}\textsection Large-Sample Confidence Intervals}{59}{section.7.5}%
+\contentsline {section}{\numberline {7.6}\textsection Selecting the Sample Size}{60}{section.7.6}%
+\contentsline {section}{\numberline {7.7}\textsection Small-Sample Confidence Intervals for Means and Mean Differences}{61}{section.7.7}%
+\contentsline {section}{\numberline {7.8}\textsection Large Normally Distributed Data and Two Sample Confidence Intervals}{63}{section.7.8}%
+\contentsline {section}{\numberline {7.9}\textsection Confidence Intervals for Variance}{65}{section.7.9}%
+\contentsline {chapter}{\numberline {8}Properties of Point Estimators and Methods of Estimation}{67}{chapter.8}%
+\contentsline {section}{\numberline {8.1}\textsection Relative Efficiency}{67}{section.8.1}%
+\contentsline {section}{\numberline {8.2}\textsection Consistency}{67}{section.8.2}%
+\contentsline {section}{\numberline {8.3}\textsection The Method of Moments}{68}{section.8.3}%
+\contentsline {section}{\numberline {8.4}\textsection The Method of Maximum Likelihood}{69}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Hypothesis Testing}{71}{chapter.9}%
+\contentsline {section}{\numberline {9.1}\textsection Common Large-Sample Tests}{74}{section.9.1}%
+\contentsline {section}{\numberline {9.2}\textsection Common Confidence Intervals}{75}{section.9.2}%
+\contentsline {section}{\numberline {9.3}\textsection The Power of a Statistical Test}{77}{section.9.3}%
+\contentsline {section}{\numberline {9.4}\textsection Power of Tests and the Neyman-Pearson Lemma}{77}{section.9.4}%
+\contentsline {section}{\numberline {9.5}\textsection Likelihood Ratio Test}{78}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Linear Models and Estimation by Least Squares}{81}{chapter.10}%
+\contentsline {section}{\numberline {10.1}\textsection Linear Statistical Models}{81}{section.10.1}%
+\contentsline {section}{\numberline {10.2}\textsection Method of Least Squares}{82}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Evaluating the Quality of the Linear Relationship}{83}{subsection.10.2.1}%
+\contentsline {section}{\numberline {10.3}\textsection Inferences Concerning the Parameters}{85}{section.10.3}%
+\contentsline {section}{\numberline {10.4}\textsection Simple Linear Regression}{86}{section.10.4}%
+\contentsline {section}{\numberline {10.5}\textsection Correlation}{88}{section.10.5}%
+\contentsline {section}{\numberline {10.6}\textsection Simple Linear Regressio: Bivariate Data}{88}{section.10.6}%
 \contentsfinish 

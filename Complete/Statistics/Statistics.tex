@@ -33,7 +33,7 @@
     \monthdayyeardate\today \\
     \vspace*{5.0\baselineskip}
     
-    {\scshape\Large Elijah Thompson, \\ Physics and Math Honors\\}
+    {\scshape\Large E/Ea Thompson(they/them), \\ Physics and Math Honors\\}
     
     \vspace{1.0\baselineskip}
     \textit{Solo Pursuit of Learning}
@@ -226,7 +226,7 @@
         P(A) = \sum\limits_{i=1}^kP(A\vert B_i)P(B_i)
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Note any subset $A$ of $S$ can be written as \begin{equation*}
         A = A\cap S = \bigcup\limits_{i=1}^k(A\cap B_i)
     \end{equation*}
@@ -238,7 +238,7 @@
         &= \sum\limits_{i=1}^lP(A\vert B_i)P(B_i)
     \end{align*}
     as desired.
-\end{proof*}
+\end{proof}
 
 
 \begin{namthm}{Bayes' Rule}{}
@@ -286,9 +286,9 @@
 
 \section{\textsection Probability Distribution Definition for a DRV}
 
-\begin{nota*}{}{}
+\begin{nota}{}{}
     For a random variable $Y$ and a specified observed value $y$, the expression $(Y=y)$ denotes \emph{the set of all points in $S$ assigned the value of $y$ by the random variable $Y$}.
-\end{nota*}
+\end{nota}
 
 \begin{defn}{}{}
     The probability that $Y$ takes on the value $y$, $P(Y=y)$, is defined as the \emph{sum of the probabilites of all sample points in $S$} that are assigned the value of $y$. We sometimes denote $P(Y=y)$ by $p(y)$, and call $P$ the \emph{probability function} for $Y$.
@@ -329,7 +329,7 @@
         E[g(Y)] = \sum\limits_{\text{all }y}g(y)p(y)
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     We prove the case for $Y$'s codomain being finite; $y_1,y_2,...,y_n$. Because the function $g(y)$ may not be one-to-one, suppose $g(Y)$ takes on values $g_1,g_2,...,g_m$, where $m \leq n$. It follows that $g(Y)$ is a random variable cuh that for $i = 1,2,...,m$, \begin{equation*}
         P[g(Y)=g_i] = \sum\limits_{\begin{array}{c} \text{all } y_j\text{ such that} \\ g(y_j) = g_i\end{array}}p(y_j) = p^*(g_i)
     \end{equation*}
@@ -339,7 +339,7 @@
         &= \sum\limits_{i=1}^m\sum\limits_{\begin{array}{c} \text{all } y_j\text{ such that} \\ g(y_j) = g_i\end{array}}g_ip(y_j) \\
             &= \sum\limits_{j=1}^ng(y_j)p(y_j)
     \end{align*}
-\end{proof*}
+\end{proof}
 
 \begin{defn}{}{}
     If $Y$ is a random variable with mean $E(Y) = \mu$, the \Emph{varianve} of a random variable $Y$ is defined to be the expected value of $(Y-\mu)^2$. That is, \begin{equation*}
@@ -355,12 +355,12 @@
 \begin{thm}{}{}
     Let $Y$ be a discrete random variable with probability function $p(y)$ and let $c$ be a constant. Then $E(c) = c$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Consider the function $g(Y) \equiv c$. By our previous theorem \begin{equation*}
         E(c) = \sum_ycp(y) = c\sum_yp(y)
     \end{equation*}
     But $\sum_yp(y) = 1$, and hence $E(c) = c$.
-\end{proof*}
+\end{proof}
 
 
 \begin{thm}{}{}
@@ -368,11 +368,11 @@
         E[cg(Y)] = cE[g(Y)]
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     By our preceding theorems, \begin{equation*}
         E[cg(Y)] = \sum_ycg(y)p(y) = c\sum_yg(y)p(y) = cE[g(Y)]
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 \begin{thm}{}{}
@@ -380,14 +380,14 @@
         E[g_1(Y)+g_2(Y) + ... + g_k(Y)] = E[g_1(Y)] + E[g_2(Y)] + ... + E[g_k(Y)]
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Observe that \begin{align*}
         E\left[\sum\limits_{i=1}^kg_i(Y)\right] &= \sum\limits_y\left[\sum\limits_{i=1}^kg_i(y)\right]p(y) \\
         &=\sum\limits_y\sum\limits_{i=1}^kg_i(y)p(y) \\
         &=\sum\limits_{i=1}^k\sum\limits_yg_i(y)p(y) \\
         &= \sum\limits_{i=1}^kE[g_i(Y)]
     \end{align*}
-\end{proof*}
+\end{proof}
 
 
 \begin{thm}{}{}
@@ -395,7 +395,7 @@
         V(Y) = \sigma^2 = E[(Y-\mu)^2] = E(Y^2) - \mu^2
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Observe that \begin{align*}
         \sigma^2 &= E[(Y-\mu)^2] \\
         &= E(Y^2-2\mu Y+\mu^2) \\
@@ -407,7 +407,7 @@
     But, $\mu = E(Y)$, so \begin{equation*}
         \sigma^2 = E(Y^2)-2\mu^2+\mu^2 = E(Y^2)-\mu^2
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 \section{\textsection The Binomial Probability Distribution}
@@ -441,7 +441,7 @@
         \mu = E(Y) = np\;\;\text{ and }\;\;\sigma^2 = V(Y) = npq
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     By definition we have that \begin{equation*}
         E(Y) = \sum\limits_y yp(y) = \sum\limits_{y=0}^ny\binom{n}{y}p^yq^{n-y}
     \end{equation*}
@@ -483,7 +483,7 @@
     and finally \begin{equation*}
         V(Y) = E(Y^2)-E(Y)^2 = n(n-1)p^2+np-n^2p^2 = np(1-p) = npq
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 \section{\textsection The Geometric Probability Distribution}
@@ -510,7 +510,7 @@
         E(Y) = \frac{1}{p}\;\;\text{ and }\;\;V(Y) = \frac{1-p}{p^2}
     \end{equation*}
 \end{thm}
-\begin{proof*}
+\begin{proof}
     First note that,
     \begin{align*}
         E(Y) &= \sum\limits_{y=1}^{\infty}yq^{y-1}p = p\sum\limits_{y=1}^{\infty}yq^{y-1}
@@ -543,7 +543,7 @@
         &= \frac{q}{p^2}
     \end{align*}
     as desired.
-\end{proof*}
+\end{proof}
 
 \section{\textsection Negative Binomial Distribution}
 
@@ -577,9 +577,9 @@
         \sum\limits_{i=0}^{n}\binom{r}{i}\binom{N-r}{n-i} = \binom{N}{n}
     \end{equation*}
 \end{claim}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     (To be completed)
-\end{proof*}
+\end{proof}
 
 
 \begin{thm}{}{}
@@ -625,7 +625,7 @@ Due to the limiting factor of the Poisson distribution from the binomial distrib
         \mu = E[Y] = \lambda\;\;\text{ and }\;\;\sigma^2 = V[Y] = \lambda
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     By definition, \begin{equation*}
         E[Y] = \sum_yyp(y) = \sum\limits_{y=0}^{\infty}y\frac{\lambda^ye^{-\lambda}}{y!}
     \end{equation*}
@@ -649,7 +649,7 @@ Due to the limiting factor of the Poisson distribution from the binomial distrib
         &= \lambda
     \end{align*}
     as desired.
-\end{proof*}
+\end{proof}
 
 
 \section{\textsection Moments and Moment-Generating Functions}
@@ -852,7 +852,7 @@ Intuitively a random variable has a uniform distribution if in some interval the
         \mu = E[Y] = \frac{\theta_1+\theta_2}{2}\;\;and\;\;\sigma^2 = VAR[Y] = \frac{(\theta_2-\theta_1)^2}{12}
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     By definition: \begin{align*}
         E[Y] &= \int_{-\infty}^{\infty}yf(y)dy \\
         &= \int_{\theta_1}^{\theta_2}y\left(\frac{1}{\theta_2-\theta_1}\right)dy \\
@@ -873,7 +873,7 @@ Intuitively a random variable has a uniform distribution if in some interval the
         &= \frac{\theta_2^2-2\theta_2\theta_1+\theta_1^2}{12} \\
         &= \frac{(\theta_2-\theta_1)^2}{12}
     \end{align*}
-\end{proof*}
+\end{proof}
 
 \section{\textsection The Normal Probability Distribution}
 
@@ -930,7 +930,7 @@ for $0 < c < d < \infty$.
         \mu = E[Y] = \alpha\beta\;\text{ and }\;\sigma^2 = VAR[Y] = \alpha\beta^2
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     By definition we have that \begin{equation*}
         E[Y] = \int_{-\infty}^{\infty}yf(y)dy = \int_0^{\infty}y\left(\frac{y^{\alpha - 1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)}\right)dy
     \end{equation*}
@@ -957,7 +957,7 @@ for $0 < c < d < \infty$.
     Then it follows that \begin{equation*}
         VAR[Y] = E[Y^2]-E[Y]^2 = \alpha\beta^2
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 \subsection{The Chi-Square Probability Distribution}
@@ -1030,7 +1030,7 @@ The beta density function can apply to a random variable defined on the interval
         \mu = E[Y] = \frac{\alpha}{\alpha + \beta} \;\;\text{ and }\;\;\sigma^2 = VAR[Y] = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     By definition we have that \begin{align*}
         E[Y] &= \int_{-\infty}^{\infty}yf(y)dy \\
         &= \int_0^1y\left[\frac{y^{\alpha-1}(1-y)^{\beta-1}}{B(\alpha,\beta)}\right]dy \\
@@ -1056,7 +1056,7 @@ The beta density function can apply to a random variable defined on the interval
         &= \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
     \end{align*}
     as claimed.
-\end{proof*}
+\end{proof}
 
 
 
@@ -1067,7 +1067,7 @@ The beta density function can apply to a random variable defined on the interval
         P(|Y-\mu|<k\sigma) \geq 1 - \frac{1}{k^2}\;\;or\;\;P(|Y-\mu|\geq k\sigma) \leq \frac{1}{k^2}
     \end{equation*}
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Let $f(y)$ denote the density function of $Y$. Then \begin{align*}
         V[Y] &= \int_{-\infty}^{\infty}(y-\mu)^2f(y)dy \\
         &= \int_{-\infty}^{\mu-k\sigma}(y-\mu)^2f(y)dy + \int_{\mu-k\sigma}^{\mu+k\sigma}(y-\mu)^2f(y)dy \\
@@ -1088,7 +1088,7 @@ The beta density function can apply to a random variable defined on the interval
     or, equivalently, \begin{equation*}
         P(|Y-\mu| < k\sigma) \geq 1 - \frac{1}{k^2}
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 
@@ -1269,14 +1269,14 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
         COV(Y_1,Y_2) = E[(Y_1-\mu_1)(Y_2-\mu_2)] = E[Y_1Y_2] - E[Y_1]E[Y_2]
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     \begin{align*}
         COV(Y_1,Y_2) &= E[(Y_1-\mu_1)(Y_2-\mu_2)] \\
         &= E[Y_1Y_2-\mu_1Y_2-\mu_2Y_1+\mu_1\mu_2] \\
         &= E[Y_1Y_2] - E[Y_1]E[Y_2] - E[Y_1]E[Y_2] + E[Y_1]E[Y_2] \\
         &= E[Y_1Y_2] - E[Y_1]E[Y_2]
     \end{align*}
-\end{proof*}
+\end{proof}
 
 
 \begin{defn}{}{}
@@ -1304,7 +1304,7 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
     \end{equation*}
     provided the expectations exist.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     We shall prove the result for the continuous case. Let $f(y_1,y_2)$ denote the joint density function of $Y_1$ and $Y_2$. The product $g(Y_1)h(Y_2)$ is a function of $Y_1$ and $Y_2$. Hence, \begin{align*}
         E[g(Y_1)h(Y_2)] &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(y_1)h(y_2)f(y_1,y_2)dy_2dy_1 \\
         &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(y_1)h(y_2)f_1(y_1)f_2(y_2)dy_2dy_1 \\
@@ -1313,7 +1313,7 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
         &= E[h(Y_2)]\int_{-\infty}^{\infty}g(y_1)f_1(y_1)dy_1 \\
         &= E[h(Y_2)]E[g(Y_1)] \\
     \end{align*}
-\end{proof*}
+\end{proof}
 
 
 \begin{thm}{}{}
@@ -1322,13 +1322,13 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
     \end{equation*}
     Thus, indepedent random variables must be uncorrelated.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     \begin{align*}
         COV(Y_1,Y_2) &= E[Y_1Y_2] - E[Y_1]E[Y_2] \\
         &= E[Y_1]E[Y_2] -E[Y_1]E[Y_2] \\
         &= 0
     \end{align*}
-\end{proof*}
+\end{proof}
 
 
 \section{\textsection The Expected Value and Variance of Linear Functions of Random Variables}
@@ -1343,7 +1343,7 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
         \item $COV(U_1,U_2) = \sum\limits_{i=1}^n\sum\limits_{j=1}^ma_ib_jCOV(Y_i,X_j)$
     \end{enumerate}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     $1.$ follows directly from the linearity of the expected value function. To proceed with $2.$ we appeal to the definition of variance and write: \begin{align*}
         V[U_1] &= E[(U_1 - E(U_1))^2] = E\left[\left(\sum\limits_{i=1}^na_iY_i - \sum\limits_{i=1}^na_i\mu_i\right)^2\right] \\
         &= E\left[\left(\sum\limits_{i=1}^na_i(Y_i - \mu_i)\right)^2\right] \\
@@ -1365,7 +1365,7 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
         &= \sum\limits_{i=1}^n\sum\limits_{j=1}^ma_ib_jCOV(Y_i,X_j)
     \end{align*}
     On observing $COV(Y_i,Y_i) = V(Y_i)$, we see that $2.$ is a special case of $3.$.
-\end{proof*}
+\end{proof}
 
 \begin{claim}{}{}
     Let $Y_1,..,Y_n$ be independent random variables with $E[Y_i] = \mu$ and $V[Y_i] = \sigma^2$. Define \begin{equation*}
@@ -1373,7 +1373,7 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
     \end{equation*}
     then $E[\overline{Y}] = \mu$ and $V[\overline{Y}] = \sigma^2/n$.
 \end{claim}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Since $\overline{Y}$ is a linear function of random variables we have that \begin{equation*}
         E[\overline{Y}] = \frac{1}{n}\sum\limits_{i=1}^nE[Y_i] = \frac{1}{n}n\mu = \mu
     \end{equation*}
@@ -1383,7 +1383,7 @@ $\rho = +1$ implies perfect correlation, with all points falling on a straight l
     But each $Y_i$ and $Y_j$ are independent for $i\neq j$, so $COV(Y_i,Y_j) = 0$ for all $ i \neq j$. Thus \begin{equation*}
         V[\overline{Y}] = \frac{1}{n^2}\sum\limits_{i=1}^n\sigma^2 = \frac{1}{n^2}n\sigma^2 = \frac{\sigma^2}{n}
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 \section{\textsection Bivariate Normal Distribution}
@@ -1568,7 +1568,7 @@ The first step in using this theorem is to find the moment-generating function o
         m_U(t) = m_{Y_1}(t)\cdot m_{Y_2}(t)\cdot ... \cdot m_{Y_n}(t)
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Recall that since the random variables $Y_1,Y_2,...,Y_n$ are independent, \begin{align*}
         m_U(t) &= E[e^{t(Y_1+...+Y_n)}] \\
         &= E[e^{tY_1}e^{tY_2}...e^{tY_n}] \\
@@ -1577,7 +1577,7 @@ The first step in using this theorem is to find the moment-generating function o
     Thus by definition of moment-generating functions:\begin{equation*}
         m_U(t) = m_{Y_1}(t)\cdot m_{Y_1}(t)\cdot ... \cdot m_{Y_n}(t)
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 The method of moment-generating functions can also be used to establish interesting and useful results about the distributions of functions of normally distributed random variables.
 
@@ -1592,7 +1592,7 @@ The method of moment-generating functions can also be used to establish interest
         V[U] = \sum\limits_{i=1}^na_i^2\sigma_i^2
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Because $Y_i$ is normally distributed with mean $\mu_i$ and variance $\sigma_i^2$, $Y_i$ has moment-generating function given by \begin{equation*}
         m_{Y_i}(t) = \exp\left\{\mu_i t + \frac{\sigma_i^2t^2}{2}\right\}
     \end{equation*}
@@ -1605,7 +1605,7 @@ The method of moment-generating functions can also be used to establish interest
         &= \exp\left(t\sum\limits_{i=1}^na_i\mu_i + \frac{t^2}{2}\sum\limits_{i=1}^na_i^2\sigma_i^2\right)
     \end{align*}
     Thus, $U$ has a normal distribution with mean $\sum\limits_{i=1}^na_i\mu_i$ and variance $\sum\limits_{i=1}^na_i^2\sigma_i^2$.
-\end{proof*}
+\end{proof}
 
 \begin{thm}{}{}
     Let $Y_1,Y_2,...,Y_n$ be independent normally distributed random variables with $E[Y_i] = \mu_i$ and $V[Y_i] = \sigma_i^2$, for $i \in \{1,2,...,n\}$. Define $Z_i$ by \begin{equation*}
@@ -1613,7 +1613,7 @@ The method of moment-generating functions can also be used to establish interest
     \end{equation*}
     Then $\sum\limits_{i=1}^nZ_i^2$ has a $\chi^2$ distribution with $n$ degrees of freedom.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Note each $Z_i$ is normally distributed with mean $0$ and variance $1$. It can be shown that $Z_i$ has a $\chi^2$ distribution with $1$ degree of freedom. That is, \begin{equation*}
         m_{Z_i^2}(t) = (1-2t)^{-1/2}
     \end{equation*}
@@ -1622,7 +1622,7 @@ The method of moment-generating functions can also be used to establish interest
         &= (1-2t)^{-1/2} \cdot ...\cdot (1-2t)^{-1/2} = (1-2t)^{-n/2}
     \end{align*}
     Because moment-generating functions are unique, $V$ has a $\chi^2$ distribution with $n$ degrees of freedom.
-\end{proof*}
+\end{proof}
 
 \begin{defn}{Moment-Generating Function Method}{}
     Let $U$ be a function of the random variables $Y_1,...,Y_n$. \begin{enumerate}
@@ -1737,7 +1737,7 @@ Statistics are used to make inferences (estimates or decisions) about unknown po
     \end{equation*}
     is normally distributed with mean $\mu_{\overline{Y}} = \mu$ and variance $\sigma^2_{\overline{Y}} = \sigma^2/n$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Because $Y_1,...,Y_n$ is a random sample from a normal distribution with mean $\mu$ and variance $\sigma^2$, $Y_i$ ($i \in \{1,2,...,n\}$) are independent, normally distributed variables, with $E[Y_1] = \mu$ and $VAR[Y_i] = \sigma^2$. Further, \begin{equation*}
         \overline{Y} = \frac{1}{n}\sum\limits_{i=1}^nY_i
     \end{equation*}
@@ -1748,7 +1748,7 @@ Statistics are used to make inferences (estimates or decisions) about unknown po
         VAR[\overline{Y}] = VAR\left[\frac{1}{n}\sum\limits_{i=1}^nY_i\right] = \frac{1}{n^2}\sum\limits_{i=1}^n\sigma^2 = \sigma^2/n
     \end{equation*}
     since the $Y_i$ are independent. That is, the sampling distribution of $\overline{Y}$ is normal with mean $\mu_{\overline{Y}} = \mu$ and variance $\sigma^2_{\overline{Y}} = \sigma^2/n$.
-\end{proof*}
+\end{proof}
 
 \begin{cor}{}{}
     $Z = \frac{\overline{Y}-\mu}{\sigma/\sqrt{n}} \sim normal(\mu = 0, \sigma = 1)$
@@ -1762,9 +1762,9 @@ Statistics are used to make inferences (estimates or decisions) about unknown po
     \end{equation*}
     has a $\chi^2$ distribution with $n$ degrees of freedom.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Since the $Y_i$ is a random sample from a normal distribution with mean $\mu$ and variance $\sigma^2$, each of the $Z_i = (Y_i-\mu)/\sigma$ have a standard normal distribution. Further, the random variables $Z_i$ are independent because the random variables $Y_i$ are independent. The fact that $\sum_{i=1}^nZ_i^2$ has a $\chi^2$ distribution with $n$ degrees of freedom follows from a previous theorem.
-\end{proof*}
+\end{proof}
 
 
 \begin{thm}{Cochran's Theorem}{}
@@ -1859,7 +1859,7 @@ has an $F$ distribution with $(n_1-1)$ numerator degrees of freedom and $(n_2-1)
 
 We now sketch a proof of the Central Limit Theorem:
 
-\begin{proof*}{}{}
+\begin{proof}{}{}
     Write \begin{equation*}
         U_n = \sqrt{n}\left(\frac{\overline{Y}-\mu}{\sigma}\right) = \frac{1}{\sqrt{n}}\left(\frac{\sum_{i=1}^nY_i - n\mu}{\sigma}\right) = \frac{1}{\sqrt{n}}\sum\limits_{i=1}^nZ_i
     \end{equation*}
@@ -1887,7 +1887,7 @@ We now sketch a proof of the Central Limit Theorem:
         \lim\limits_{n\rightarrow \infty}m_{U_n}(t) = \lim\limits_{n\rightarrow \infty}\left[1+\frac{m''_{Z_1}(\xi_n)t^2/2}{n}\right]^n = e^{t^2/2}
     \end{equation*}
     the moment-generating function for a standard normal random variable. Applying the previous theorem, we conclude that $U_n$ has a distribution function that converges to the distribution function of the standard normal random variable.
-\end{proof*}
+\end{proof}
 
 Let $Y\sim binomial(n,p)$. Then $Y$ can be viewed as the sum $Y = \sum\limits_{i=1}^nX_i$, where each $X_i$ is an independent Bernoulli random variable with probability of success $p$. That is $E[X_i] = p$ and $V[X_i] = p(1-p)$ for each $i$, so consequently when $n$ is large, the sample fraction of successes \begin{equation*}
     \frac{Y}{n} = \frac{1}{n}\sum\limits_{i=1}^nX_i = \overline{X}
@@ -2355,7 +2355,7 @@ If $eff(\hat{\theta}_1,\hat{\theta}_2) > 1$, then $V(\hat{\theta}_2) > V(\hat{\t
         \lim\limits_{n\rightarrow \infty}V(\hat{\theta}_n) = 0
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}{}{}
     If $Y$ is a random variable with $E[Y] = \mu$ and $V[Y] = \sigma^2 < \infty$, and if $k$ is a nonnegative constant, Tchebysheff's Theorem implies that \begin{equation*}
         P(|Y-\mu| > k\sigma) \leq \frac{1}{k^2} \iff P(|Y-\mu|\leq k\sigma) \geq 1 - \frac{1}{k^2}
     \end{equation*}
@@ -2369,7 +2369,7 @@ If $eff(\hat{\theta}_1,\hat{\theta}_2) > 1$, then $V(\hat{\theta}_2) > V(\hat{\t
         0 = \lim\limits_{n\rightarrow \infty} 0 \leq \lim\limits_{n\rightarrow \infty}P(|\hat{\theta}_n-\theta| > \varepsilon) \leq \lim\limits_{n\rightarrow \infty}\frac{V(\hat{\theta}_n)}{\varepsilon^2} = 0
     \end{equation*}
     Thus $\hat{\theta}_n$ is a consistent estimator of $\theta$.
-\end{proof*}
+\end{proof}
 
 \begin{thm}{}{}
     Suppose $\hat{\theta}_n$ converges in probability to $\theta$ and $\hat{\theta}_n'$ converges in probability to $\theta'$: \begin{itemize}
@@ -2480,7 +2480,7 @@ If $eff(\hat{\theta}_1,\hat{\theta}_2) > 1$, then $V(\hat{\theta}_2) > V(\hat{\t
 
 Support for one theory is obtained by showing lack of support for its converse-like a proof by contradiction.
 
-\begin{cust*}{Elements of a Statistical Test}{}
+\begin{cust}{Elements of a Statistical Test}{}
     \leavevmode
     \begin{itemize}
         \item The null hypothesis $H_0$
@@ -2494,7 +2494,7 @@ Support for one theory is obtained by showing lack of support for its converse-l
                 \item Specifies the values of the test statistic for which the null hypothesis is to be rejected in favour of the alternative hypothesis. i.e. Sample falls in RR, reject $H_0$ and accept $H_a$, sample doesn't fall in RR accept $H_0$
         \end{itemize}
     \end{itemize}
-\end{cust*}
+\end{cust}
 
 
 \begin{defn}{}{}
