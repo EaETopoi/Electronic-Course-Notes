@@ -1,0 +1,168 @@
+\contentsline {part}{I\hspace {1em}Uncertainty and Measurement}{6}{part.1}%
+\contentsline {chapter}{\numberline {1}Naive Undergraduate Uncertainty}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Uncertainty and Measurement}{7}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Type A Uncertainty}{8}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Quantifying Standard Uncertainties}{9}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Type B Uncertainties}{10}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Combining Uncertainties}{11}{subsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.1.5}Reporting Uncertainties}{11}{subsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.1.6}Comparing a Measurement with an Expected Value}{11}{subsection.1.1.6}%
+\contentsline {subsection}{\numberline {1.1.7}Line Fitting}{12}{subsection.1.1.7}%
+\contentsline {subsection}{\numberline {1.1.8}Line Fitting with Measurement Uncertainty}{13}{subsection.1.1.8}%
+\contentsline {chapter}{\numberline {2}Advanced Uncertainty Analysis Using GUM}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{15}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}The laser}{15}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Measurement Fundamentals}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Proportional uncertainty}{16}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Terms used in measurement}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Measurement and related terms}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Calibration}{16}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Value}{16}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}error}{17}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Uncertainty}{17}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Repeatability and Reproducibility}{17}{subsection.2.3.6}%
+\contentsline {section}{\numberline {2.4}An introduction to uncertainty in measurement}{18}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Measurement and error}{18}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Dispersion of Data}{18}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Uncertainty in the estimate of uncertainty}{19}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Combining standard uncertainties}{19}{subsection.2.4.4}%
+\contentsline {section}{\numberline {2.5}Statistical Concepts}{20}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Residuals and degrees of freedom}{20}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Least-squares modeling}{21}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Standard uncertainties of estimates}{21}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Covariance and correlation}{22}{subsection.2.5.4}%
+\contentsline {section}{\numberline {2.6}Systematic error}{22}{section.2.6}%
+\contentsline {part}{II\hspace {1em}Scientific Communication}{23}{part.2}%
+\contentsline {chapter}{\numberline {3}General Advice}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}How To Speak}{24}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Writing A Scientific Paper}{24}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}10 Steps}{24}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}First-Class Paper Writing}{26}{subsection.3.2.2}%
+\contentsline {part}{III\hspace {1em}Phys 497 Laboratories}{27}{part.3}%
+\contentsline {chapter}{\numberline {4}Pendulum}{28}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Background}{28}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Experimental Procedure}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Preliminary Measurements}{28}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Main Data Collection}{29}{subsection.4.2.2}%
+\contentsline {chapter}{\numberline {5}Pendulum II}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Background}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Experimental Procedure}{32}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Preliminary Measurements}{32}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Main Data Collection}{32}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Data Analysis}{33}{section.5.3}%
+\contentsline {chapter}{\numberline {6}AC Measurements and Sources}{34}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Background}{34}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}DC Voltage Measurements}{34}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}AC Voltage Measurement}{35}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}AC and DC Measurements}{37}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}The Function Generator}{37}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}The Oscilloscope}{38}{subsection.6.1.5}%
+\contentsline {section}{\numberline {6.2}Error Analysis}{41}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Oscilloscope}{41}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Experimental Procedure}{41}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Traveling Waves}{43}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Background}{43}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Experimental Procedure}{46}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Error Analysis}{48}{section.7.3}%
+\contentsline {chapter}{\numberline {8}X-Ray Diffraction}{49}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Background}{49}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Experimental Procedure}{58}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Error Analysis}{60}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Spectroscopy}{62}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Background}{62}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}The Spectroscope}{62}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Diffraction Gratings}{63}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Spectral Sources}{64}{subsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.1.4}The Hydrogen Atom}{65}{subsection.9.1.4}%
+\contentsline {section}{\numberline {9.2}Experimental Procedure}{66}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Error Analysis}{68}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Voltage Dividers and Sources}{69}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Background}{69}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Experimental Procedure}{76}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Error Analysis}{78}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Fourier Series}{80}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Background}{80}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Experimental Procedure}{85}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Error Analysis}{88}{section.11.3}%
+\contentsline {chapter}{\numberline {12}AC Circuit and RLC Resonance}{89}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Background}{89}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Series RLC Circuits}{90}{subsection.12.1.1}%
+\contentsline {section}{\numberline {12.2}Experimental Procedure}{92}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Error Analysis}{93}{section.12.3}%
+\contentsline {chapter}{\numberline {13}AC Circuits and Voltage Dividers}{95}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Resistor-Capacitor Filters}{95}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Attenuator Probe Adjustments and Compensations}{95}{section.13.2}%
+\contentsline {chapter}{\numberline {14}AC Circuits, Waveforms, and Phase}{97}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Measurement of Sine Wave Amplitudes}{97}{section.14.1}%
+\contentsline {section}{\numberline {14.2}RC Circuit Current and Voltage Relationships}{97}{section.14.2}%
+\contentsline {chapter}{\numberline {15}Inductor-Resistor-Capacitor Filters}{98}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Quality Factor}{98}{section.15.1}%
+\contentsline {subsection}{\numberline {15.1.1}Important formulas}{98}{subsection.15.1.1}%
+\contentsline {chapter}{\numberline {16}Transformer Voltage Gain, Ground Isolation}{100}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Intro to Operational Amplifiers}{101}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Inductor-Resistor-Capacitor Filters}{102}{chapter.18}%
+\contentsline {chapter}{\numberline {19}Bandwidth and Stability}{103}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Lecture Notes}{103}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Frequency Rolloff}{104}{subsection.19.1.1}%
+\contentsline {chapter}{\numberline {20}Basic OpAmp Difference Amplifier}{105}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Lecture Notes: Common Mode Refection}{105}{section.20.1}%
+\contentsline {chapter}{\numberline {21}Operational Amplifier Comparator}{106}{chapter.21}%
+\contentsline {chapter}{\numberline {22}Active Filters and Anti-Aliasing Filters}{107}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Lecture Notes: Sampling, Aliasing, and Analog Filters}{107}{section.22.1}%
+\contentsline {subsection}{\numberline {22.1.1}Filters}{107}{subsection.22.1.1}%
+\contentsline {chapter}{\numberline {23}Swept Frequency Waveform Generator, DFT}{108}{chapter.23}%
+\contentsline {section}{\numberline {23.1}Spectrum Analyzer}{108}{section.23.1}%
+\contentsline {chapter}{\numberline {24}Lock-In Detector}{110}{chapter.24}%
+\contentsline {part}{IV\hspace {1em}Circuit Theory}{111}{part.4}%
+\contentsline {chapter}{\numberline {25}Introductory Examples}{112}{chapter.25}%
+\contentsline {section}{\numberline {25.1}Direct Current and Circuit Laws}{112}{section.25.1}%
+\contentsline {subsection}{\numberline {25.1.1}Resistance}{113}{subsection.25.1.1}%
+\contentsline {subsection}{\numberline {25.1.2}Circuit Laws}{113}{subsection.25.1.2}%
+\contentsline {subsection}{\numberline {25.1.3}Voltmeters and Ammeters}{115}{subsection.25.1.3}%
+\contentsline {subsection}{\numberline {25.1.4}Th\'{e}venin Theorems}{115}{subsection.25.1.4}%
+\contentsline {section}{\numberline {25.2}RLC Circuits}{116}{section.25.2}%
+\contentsline {subsection}{\numberline {25.2.1}Phasors}{116}{subsection.25.2.1}%
+\contentsline {subsection}{\numberline {25.2.2}Capacitors}{116}{subsection.25.2.2}%
+\contentsline {subsection}{\numberline {25.2.3}Inductor}{116}{subsection.25.2.3}%
+\contentsline {subsection}{\numberline {25.2.4}AC Current}{117}{subsection.25.2.4}%
+\contentsline {subsection}{\numberline {25.2.5}Series RLC Circuit}{117}{subsection.25.2.5}%
+\contentsline {chapter}{\numberline {26}AC Sources, Waveforms}{118}{chapter.26}%
+\contentsline {section}{\numberline {26.1}Loaded Ideal AC Voltage Generator}{119}{section.26.1}%
+\contentsline {section}{\numberline {26.2}Three Fundamental Circuits}{120}{section.26.2}%
+\contentsline {chapter}{\numberline {27}Phasor Analysis}{122}{chapter.27}%
+\contentsline {section}{\numberline {27.1}Phasors and Complex Sinusoids}{122}{section.27.1}%
+\contentsline {section}{\numberline {27.2}Kirchhoff's Rules}{123}{section.27.2}%
+\contentsline {section}{\numberline {27.3}Phasor Summary}{124}{section.27.3}%
+\contentsline {section}{\numberline {27.4}Complex Impedance}{124}{section.27.4}%
+\contentsline {chapter}{\numberline {28}Impedances in Series}{126}{chapter.28}%
+\contentsline {section}{\numberline {28.1}Impedances of Simple Linear Devices}{126}{section.28.1}%
+\contentsline {section}{\numberline {28.2}The Voltage Divider}{127}{section.28.2}%
+\contentsline {section}{\numberline {28.3}The RC Series Circuit}{127}{section.28.3}%
+\contentsline {chapter}{\numberline {29}The Series RLC Circuit}{131}{chapter.29}%
+\contentsline {section}{\numberline {29.1}Differential Equation for the RLC circuit}{131}{section.29.1}%
+\contentsline {section}{\numberline {29.2}Resonance in the Series RLC Circuit}{132}{section.29.2}%
+\contentsline {section}{\numberline {29.3}Voltage Characteristics}{133}{section.29.3}%
+\contentsline {chapter}{\numberline {30}Impedances in Parallel}{134}{chapter.30}%
+\contentsline {chapter}{\numberline {31}Models of Real AC Sources; Th\'{e}venin's Theorem}{135}{chapter.31}%
+\contentsline {chapter}{\numberline {32}Power Dissipation}{136}{chapter.32}%
+\contentsline {part}{V\hspace {1em}Operational Amplifiers, Linear Systems, and the Fourier Transform}{137}{part.5}%
+\contentsline {chapter}{\numberline {33}Operational Amplifiers}{138}{chapter.33}%
+\contentsline {chapter}{\numberline {34}Linear Two-ports: Transfer Function, Impulse Response}{139}{chapter.34}%
+\contentsline {chapter}{\numberline {35}Time and Frequency Domains}{140}{chapter.35}%
+\contentsline {chapter}{\numberline {36}Data Sampling}{141}{chapter.36}%
+\contentsline {chapter}{\numberline {37}Analog Filter Design}{142}{chapter.37}%
+\contentsline {part}{VI\hspace {1em}Semiconductors, Diodes, and Transistors}{143}{part.6}%
+\contentsline {part}{VII\hspace {1em}Laboratory Designs and Theory}{144}{part.7}%
+\contentsline {section}{\numberline {37.A}Traveling Waves Theory}{145}{section.1.37.A}%
+\contentsline {section}{\numberline {37.B}X-Ray Theory}{145}{section.1.37.B}%
+\contentsline {section}{\numberline {37.C}Spectroscopy Theory}{145}{section.1.37.C}%
+\contentsline {chapter}{Appendices}{146}{section*.1}%
+\contentsline {section}{\numberline {.1}Graphing and Lab Reports}{147}{section.2..1}%
+\contentsline {section}{\numberline {.2}Presentation Tips}{148}{section.2..2}%
+\contentsline {section}{\numberline {.3}Paper Tips}{149}{section.2..3}%
+\contentsline {subsection}{\numberline {.3.1}Writing a Research Proposal}{149}{subsection.2..3.1}%
+\contentsline {subsection}{\numberline {.3.2}References}{149}{subsection.2..3.2}%
+\contentsline {subsubsection}{Bibliographies}{149}{subsection.2..3.2}%
+\contentsline {subsection}{\numberline {.3.3}Example-Outline}{150}{subsection.2..3.3}%
+\contentsline {subsection}{\numberline {.3.4}Peer Reviewing}{150}{subsection.2..3.4}%
+\contentsfinish 

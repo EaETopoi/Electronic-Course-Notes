@@ -1,0 +1,464 @@
+\chapter{Naive Undergraduate Uncertainty}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section A.1
+\section{Uncertainty and Measurement}
+
+Measurement is a process that results in a value that can be attributed to a quantitative property of a phenomenon, object or substance. The object of the measurement (\Emph{measurand}) has the property that it has a numerical magnitude and a reference that gives its meaning (its \Emph{unit}). The process involves a comparison with an accepted standard, unless one does not yet exist. Instruments for measurement need to be calibrated so that they properly relate to the relevant standard.
+
+\begin{qst}
+    How do we know if our measurements are adequate? 
+\end{qst}
+
+In a scientific experiment, measurement uncertainty is critical for determining whether an experiment agrees with a theoretical prediction or not. The BIPM (Bureau International des Poids et Mesures) ``Guide to the expression of uncertainty in measurement" (GUM) is a widely accepted standard.
+
+\begin{defn}
+    \Emph{Uncertainty} in a measurement is a parameter that characterizes the dispersion of values that could reasonably be attributed to the measured quantity.
+
+    The term ``\Emph{standard uncertainty}" should be used to refer to uncertanties calculated according to the GUM guidelines.
+\end{defn}
+
+Uncertainty is a quantification of the doubt about the measurement result. 
+
+\begin{rmk}
+    \textbf{Note:} Uncertainty is distinct from \Emph{error}, which is the (generally unknown) difference between the measured value and the `true value' of the measured quantity. \Emph{Random errors} cause values to be randomly distributed above and below the true value. \Emph{Systematic errors} causes all measurements to be consistently over or underestimate.
+\end{rmk}
+
+Many factors may contribute to the uncertainty, including those arising from imperfect knowledge of systematic effects. Uncertainty creeps in many direction (see GUM 3.3.2). First we have limits to our \Emph{measurement devices}:
+\begin{itemize}
+    \item Your measuring device has a limited \Emph{resolution}.
+    \item Your measuring device has a \Emph{calibration uncertainty}. How close is a millimeter on your ruler to an exact millimeter? Are there other factors factors (``influence quantities") such as temperature that might affect that uncertainty?
+\end{itemize}
+\noindent Even if your measuring device is arbitrarily precise, and well-calibrated, there are still \Emph{inherent errors} that cannot be avoided:
+\begin{itemize}
+    \item Errors often arise due to \Emph{incomplete definition} of the quantity being measured, or due to \Emph{imperfect realization} of that definition. For example, your height varies considerably based on your posture. Similarly, exactly which points on the feet and ehad are being considered will also affect the measurement of your height. If those factors aren't part of the definition of your ``height," or if they aren't perfectly controlled during the measurement, then they become a source of uncertainty.
+    \item There may be \Emph{systematic effects} on the measurement that can only be corrected to a limited perfection. Systematic effects should always be corrected to the best of the experimenter's ability during analysis. Nonetheless, there will always be a limit to how well you know the systematic effects, and on how well you can correct the results. This contributes to an uncertainty due to incomplete knowledge of the required value of the correction. \Emph{Note:} the measurement uncertainty reflects your uncertainty in applying that correction, not the magnitude of the correction. Explicitly apply the correction during the analysis, not when writing down the raw data, and \Emph{always explain the correction in your report}.
+\end{itemize}
+
+
+
+
+\subsection{Type A Uncertainty}
+
+Repeated measurements under apparently identical conditions often give variable results. There are limits on both \Emph{repeatability} (under exactly the same conditions in a short time) and \Emph{reproducibility} (under slightly different conditions or over a long time). The variance in repeated measurements gives a rigorous way to quantify many types of uncertainty.
+
+\begin{defn}
+    \Emph{Type A} uncertainty is derived through repeated measurements and statistical methods.
+
+    \Emph{Type B} uncertainties include all methods of estimating uncertainty that are not included in Type A.
+\end{defn}
+
+
+The following are common statistical methods used for estimating Type A uncertainties:
+
+\begin{defn}
+    The arithmetic sample mean (average) of $n$ independent samples $X_1,...,X_n$ is $$\overline{X} =  \frac{\sum_{k=1}^nX_n}{n}$$
+\end{defn}
+
+\begin{defn}
+    The best unbiased estimator for the \Emph{standard deviation} of a sample of $n$ independent random variables $X_1,...,X_n$ of sample mean $\overline{X}$ is $$s(X_k) = \sigma = \sqrt{\frac{\sum_{k=1}^n(X_k-\overline{X})^2}{n-1}}$$
+    In excel, we can use \Emph{STDEV.S()}
+\end{defn}
+
+\begin{defn}
+    The best estimate for the standard deviation, or standard uncertainty, of the mean $\overline{X}$ of a sample of $n$ independent random variables $X_1,...,X_n$ is $$u(\overline{X}) = \frac{s(X_k)}{\sqrt{n}}$$
+\end{defn}
+
+From these formulations we observe that Type A uncertainties decrease as sample sizes tend to infinity, which is a statement of the central limit theorem.
+
+If repeated measurements are impractical, but some sources of uncertainty simply cannot be estimated through repeated measurements, Type B uncertainties are used. For example, calibration uncertainty is a Type B uncertainty that cannot be revealed through repeated measurements without access to a reference standard. Similarly, imperfect corrections for systematic effects typically result in Type B uncertainties.
+
+\subsection{Quantifying Standard Uncertainties}
+
+The Central Limit Theorem is the statement that in the limit as $n$ goes to infinite for a sample of $n$ independent identically distributed random variables $X_1,...,X_n$, the distribution of the sample means $\overline{X}$ follows a Gaussian or normal distribution with mean equal to the true mean of the $X_i$, and uncertainty equal to $\sigma/\sqrt{n}$, for $\sigma = s(X_k)$. 
+
+In relation to the standard deviation for Type A uncertainties, we have the following rules of thumb:
+
+\begin{prop}
+    One can expect the measurement error, the unknown difference between the measurement error and the true value, to be less than the standard deviation about $68\%$ of the time. For two standard deviations we have a $95.4\%$ certainty, and for three standard deviations we have about a $99.7\%$ certainty.
+\end{prop}
+
+Note that uncertainties are not safety factors, nor confidence intervals. Often we want large than a $68\%$ confidence, so we multiply the standard deviation by a \Emph{coverage factor} $k$ to obtain a ``expanded uncertainty" with a higher level of confidence. For example, the discovery of the Higgs Boson used a coverage factor of $k = 5$ (corresponding to a $99.99994\%$ confidence)
+
+\subsection{Type B Uncertainties}
+
+Most uncertainties are Type B, simply because Type A uncertainties are often impractical. For example, the manufacturer's quoted uncertainty for a measurement device is a Type B uncertainty. Type B uncertainties should be honestly estimated to conform to the same definition of ``uncertainty" as for Type A, with the same amount of confidence (for example $68\%$). Rigorously this requires estimating the probability distribution and then assessing its standard deviation.
+
+When evaluating a Type B uncertainty you should think ``\Emph{what range am I about $68\%$ sure that the measurement fallse in?}" Evidently, this is not something you can typically estimate to high accuracy, but an honest experiment requires an honest effort to evaluate the Type B uncertainties. \Emph{There is no rigorous recipe for how to estimate Type B uncertainties.} There is no one right way at estimation, but here are some examples:
+
+\begin{eg}[Digital Quantization]
+    With a digital instrument, there is always an uncertainty in the last digit. Assuming that every value in the range $[x-\Delta,x+\Delta]$ is equally likely, for $\Delta$ half the size of the unit of the last digit (i.e. half the size of the length between last digit values), we have a uniform distribution with uncertainty $u = (x+\Delta - (x-\Delta))^2/12 = \Delta/\sqrt{3}$. More approximately, $68\%$ of the probability is contained in the range $x \pm 0.68\Delta$, giving $u \approx 0.68\Delta$.
+\end{eg}
+
+\begin{eg}[Rulers and Analog Meters]
+    This is a case where there is no ``right way." It will depend on how small the divisions on the ruler are, how good your eyesight is, and how closely you can align the object with the ruler.
+\end{eg}
+
+\begin{eg}[Half-Division Example]
+    It is common to see uncertainty reported as half the smallest division on an analog instrument or half the last digit of a digital instrument. While frequent, this is not actually part of the GUM standard. Uncertainty of half a division is about typical for many analog measurements, and slightly too large for most digital measurements. It is usually a reasonable starting point, but should be avoided as a hard fast rule.
+\end{eg}
+
+\begin{eg}[Calibration Reports]
+    Manufacturers may issue calibration reports for their instruments stating the uncertainty in its calibration. It may be stated as a standard uncertainty, but more often will be stated as a $95\%$ confidence interval $x \pm \Delta$, or sometimes even a $99\%$ confidence interval. In these cases we can use the standard rule of thumb to convert these to the standard uncertainty by taking either half or one third.
+\end{eg}
+
+\begin{eg}[Systematic Effects]
+    You should always correct measurements for known systematic effects. The uncertainty reflects the uncertainty in that correction, not its magnitude.
+\end{eg}
+
+\begin{eg}[Event Counting]
+    Counting the number of random events that occur in a given time is subject to statistical fluctuation. Some intervls will naturally have more events than others. This leads to an uncertainty in the measured event rate. The appropriate statistical distribution in this case is the Poisson distribution, which has a standard deviation equal to the square root of the mean. Therefore, if the observed count rate is $n$ then its uncertainty is $\sqrt{n}$.
+\end{eg}
+
+
+\subsection{Combining Uncertainties}
+
+Often we will have multiple sources of uncertainty, $u_i$, that contribute to an overall total uncertainty in a measurement. Assuming these uncertainties are uncorrelated, they can be combined into a \Emph{combined standard uncertainty} $u_c$, defined by $$u_c = \sqrt{\sum_{i=1}^Nu_i^2}$$
+In practice, one uncertainty source often dominates over the others, in which case the combined uncertainty is essentially just the dominant uncertainty.
+
+It is important not to ``double-count" your uncertainties. The final uncertainty should be an honest assessment of your doubt about the measurement result, neither unrealistically large nor unrealistically small.
+
+Sometimes the quantity of interest must be calculated from one or more measurements. In these cases we use a process of \Emph{propagation} of uncertainty.
+
+\begin{defn}
+    If the final quantity $r$ is a function of $N$ independent uncorrelated variables, $x_1,...,x_N$, with uncertainties $u(x_1),...,u(x_N)$, then the propagated standard uncertainty is $$u_c(r) = \sqrt{\sum_{i=1}^N\left(\frac{\partial r}{\partial x_i}\right)^2u(x_i)^2}$$
+\end{defn}
+
+\subsection{Reporting Uncertainties}
+
+Reporting a measurement with a precision that greatly exceeds its measuremetn uncertainty gives a false sense of accuracy, and should be avoided. Unless there are good reasons to do otherwise, uncertainties should be reported to one significant digit. Measurements and uncertainties should be reported in the same units, and with the same number of decimal places. Using scientific notation if appropriate is advised.
+
+\subsection{Comparing a Measurement with an Expected Value}
+
+Experiments comparing a measured value $x$ to an expected value $\mu$ are often called \Emph{hypothesis tests} in statistics, where we test $x = \mu$ by asking ``what is the likelihood that $x$ and $\mu$ differ by at least the amount observed?" That is, we ask what is the likelihood that $x = \mu$, and they differ by the amount observed. This is often known as the Null Hypothesis, and if the likelihood is very low, say less than $5\%$ as standard, then the hypothesis is rejected and the values are said to disagree. In measured likelihood is called the $p$-value.
+
+If the experiment is dominated by well-characterized Type A errors, then there is a mathematically rigorous way to test the hypothesis known as a ``Student's t-test". However, experiments are often not dominated by Type A errors. Instead we often use some reasonable approximations. First calculate the normalized difference $$t = \frac{x-\mu}{u_c(x)}$$ where $u_c(x)$ is the uncertainty in $x$. A large value of $t$ means that $x$ and $\mu$ are dissimilar, while a small value of $t$ means that $x$ is very similar to $\mu$. 
+
+We then take the assumption that $x$ follows a normal distribution. Although not rigorously justified, we have constructed $u_c(x)$ specifically to make this assumption as defensible as possible. Under the normal assumption, there is an $\approx 68\%$ chance of observing $|t| < 1$, an $\approx 95.4\%$ chance of observing $|t| < 2$, and an $\approx 99.7\%$ chance of observing $|t| < 3$. If $|t|$ is extremely small, there is a high chance something went wrong in the experiment, and you have overestimated your uncertanties.
+
+If we want to compare two measurements with uncertanties, we can use the modified $t$ value $$t = \frac{x_1 - x_2}{\sqrt{u_c(x_1)^2+u_c(x_2)^2}}$$ which is again an approximation so as to be reasonable for not just Type A uncertainties but Type B uncertanties as well.
+
+
+\subsection{Line Fitting}
+
+Often we want to quantify a linear relationship between two quantities. \Emph{Line fitting} is the problem of finding a line that describes the data well. Intuitively, the problem is equivalent to minimizing the distances between the points and the line. The most commonly-used method is ``least-squares" fitting, where the minimized quantity is the sum of the squares of the vertical distances between the data points and the fit line: $$\chi^2 = \sum_{i=1}^n[y_i - (mx_i + b)]^2$$ for data points $(x_i,y_i)$ and fit $y = mx+b$.
+
+The closed form of the minimization for these parameters of the least squares fit is $$m = \frac{\sum_{i=1}^n(x_i-\overline{x})(y_i - \overline{y})}{\sum_{i=1}^n(x_i-\overline{x})^2}$$ and $$b = \overline{y} - m\overline{x}$$ These solutions turn out to be the most probable line if the errors in $y$ are normally-distributed and the errors in $x$ are negligible. In Excel this is implemented using the LINEST function. The LINEST function takes in arguments $$LINEST(known-ys,known-xs,const = TRUE,stats = TRUE)$$ If dealing with a general polynomial, we raise $known-xs$ to $\{...\}$ with the powers of $x$ inside, or $known-xs^COLUMN(\$a:\$n)$ for $n$ the highest power. We can also apply $ln$ to $known-xs$ for logarithmic fits. This command will return an array of values, the first row being coefficients, going from $a_n$ to $a_0$ (left to right), and then uncertainties left to right in the second row, and the $R^2$ value in the third row.
+
+When dealing with a nonlinear function, we often attempt to convert it to a linear form by changing the dependent/independent variables being graphed on either axis, and possibly taking logarithms if dealing with exponential relationships.
+
+There is evidently an uncertainty associated with the values of the fitted coefficients $m$ and $b$. We can define a Type A uncertainty in $m$ based on the scatter of repeated measurements about a line. Intuitively, this makes sense: we should become less certain about $m$ as the scatter of the points about the line increases. This Type $A$ uncertainty is given by $$u(m) = \frac{\sum_{i=1}^n[y_i-(mx_i+b)]^2}{(n-2)\sum_{i=1}^n(x_i-\overline{x})^2}\;\;\;u(b) = u(m)\sqrt{\frac{1}{n}\sum_{i=1}^nx_i^2}$$ This is also implemented as part of the LINEST function in Excel.
+
+\subsection{Line Fitting with Measurement Uncertainty}
+
+The uncertainty estimate in the previous section has a few important restrictions:
+\begin{itemize}
+    \item It is strictly Type-A, and cannot account for fundamentally Type-B uncertainties such as uncertainties in calibration or uncertainties in correcting for a systematic effect.
+    \item It weights all points equally, assuming they all have the same uncertainty
+    \item It assumes the $x_i$ values are exact, attributing all uncertainty to $y_i$
+\end{itemize}
+These restrictions can affect both the uncertainties and the values of the $m$ and $b$. We can lift the first two restrictions in the list by propagating uncertainty values through the linear lin-fitting equations, which allows for inclusion of Type-B uncertanties and unequal uncertanties for individual points. 
+
+The last restriction in the list comes from using the vertical distances instead of the uncertainty-weighted shortest distances in the definition of $\chi^2$. It becomes a valid assumption only if $$u(y) \gg\frac{dy}{dx}u(x)$$ which is only sometimes true. If the converse is true, consider simply reversing $x$ and $y$. If the uncertainties are comparable then you may combine the uncertainty in $u(x)$ with the uncertainty in $u(y)$ $$\sigma_i = \sqrt{u(y_i)^2+\left[\frac{dy}{dx}u(x_i)\right]^2}$$ and then use $\sigma$ in place of $u(y)$.
+
+If the uncertainty in $x$, $u(x)$, is significant, then the combined uncertainty $\sigma_i$ should be calculated using the last equation. Otherwise, let $\sigma_i = u(y_i)$, and then compute $$\Delta = \sum_{i=1}^n\frac{1}{\sigma_i^2}\sum_{i=1}^n\frac{x_i^2}{\sigma_i^2} - \left(\sum_{i=1}^n \frac{x_i}{\sigma_i^2}\right)^2$$ Next, compute $m$ and $b$ as \begin{align*}
+    m &= \frac{1}{\Delta}\left(\sum_{i=1}^n\frac{1}{\sigma_i^2}\sum_{i=1}^n\frac{x_iy_i}{\sigma_i^2} - \sum_{i=1}^n \frac{x_i}{\sigma_i^2}\sum_{i=1}^n\frac{y_i}{\sigma_i^2}\right)^2 \\
+    b &= \frac{1}{\Delta}\left(\sum_{i=1}^n\frac{x_i^2}{\sigma_i^2}\sum_{i=1}^n\frac{y_i}{\sigma_i^2} - \sum_{i=1}^n \frac{x_i}{\sigma_i^2}\sum_{i=1}^n\frac{x_iy_i}{\sigma_i^2}\right)^2
+\end{align*}
+and the uncertainties are \begin{align*}
+    u(m) &= \sqrt{\frac{1}{\Delta}\sum_{i=1}^n\frac{1}{\sigma_i^2}} \\
+    u(b) &= \sqrt{\frac{1}{\Delta}\sum_{i=1}^n\frac{x_i^2}{\sigma_i^2}}
+\end{align*}
+
+For lines fitted in this manner, data can be expected to lie within the range $$y = mx+b \pm k\sqrt{[u(b)]^2+[(x-\overline{x}_i)u(m)]^2}$$
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Advanced Uncertainty Analysis Using GUM}
+
+
+\section{Introduction}
+
+The branch of science concerned with maintaining and increasing the accuracy of measurement is known as \textbf{metrology}. 
+
+
+\subsection{The laser}
+
+The laser (`light amplification by stimulated emission of radiation'), invented and developed in the early 1960s, offers very high accuracy in length measurement in research and industry.
+
+
+\section{Measurement Fundamentals}
+
+When experimental values with varying numbers of significant figures are brought together there are several rules that allow us to quote answers to a defensible number of significant figures.
+
+\begin{itemize}
+    \item[1.] In the absence of any explicit statement about the uncertainty of a quoted value, the approximate uncertainty in a value can be estimated as half the possible range of values with an extra decimal place that are all consistent, after rounding, with the quoted value.
+    \item[2.] When values are multiplied or divided, quote the answer to the number of significant digits that implies a proportional uncertainty closest to the greater of the component proportional uncertainties
+    \item[3.] When numbers are added or subtracted, quote the answer to the number of significant digits that implies a proportional uncertainty closest to the greater of the component proportional uncertainties.
+    \item[4.] When a quantity with proportional uncertainty $p$ is raised to the power $n$, the resultant proportional uncertainty is $|np|$ and the quoted number of significant figures should reflect this.
+\end{itemize}
+
+
+
+\subsection{Proportional uncertainty}
+
+To obtain a proportional uncertainty for a measurement we can divide the uncertainty by the measured value. This can be expressed in terms of parts per million or even parts per billion.
+
+
+\section{Terms used in measurement}
+
+\subsection{Measurement and related terms}
+
+\textbf{Measurement} is a process by which a value of a particular quantity such as the temperature of a water bath or the pH of a solution is obtained. A particular quantity determined through measurement is called a \textbf{measurand}. 
+
+\subsection{Calibration}
+
+\textbf{Calibration} is essential for establishing the traceability of the instrument or artefact to a primary standard. During calibration, a value measured by an instrument or provided by an artefact is compared with that obtained from a standard instrument or artefact. If there is a discrepancy between the value as indicated by the instrument or artefact and the corresponding standard, then the difference between the two is quoted as a correction to the instrument or artefact. The correction \textbf{always} has a stated associated uncertainty.
+
+The result of a measurement is said to be \textbf{traceable} if, through an unbroken chain of comparisons often involving working and secondary standards, the result can be compared with a primary standard. A requirement of traceability is that the chain of comparisons be documented.
+
+
+\subsection{Value}
+
+The process of measurement yields a \textbf{value} of a particular quantity. In many cases we assume that there is an `actual' or \textbf{true} value of a quantity, such as the value of the charge of an electron. It is the true value that we would like to establish through measurement.
+
+Though we are unable to find the true value of a quantity through measurement, we are able to obtain an \textbf{estimate} of the true value. When only random sources act to influence the values obtained, the \textbf{best estimate} of the true value is taken to be the mean of $n$ values:
+%%
+\begin{equation}
+    \overline{x} = \frac{1}{n}\sum_{i=1}^nx_i
+\end{equation}
+%%
+
+
+\subsection{error}
+
+\textbf{Error} is defined as the difference between the measured value and the true value. Since the true value of the quantity cannot be know neither can a measurement's error. It is recognised that sources of error fall into two categories, depending upon how they affect measurement.
+
+
+Errors causing values to be randomly distributed above and below the true value are termed \textbf{random erros}. Errors with a consistent fault, such as being consistently above or below, is referred to as \textbf{systematic}, since it causes all measured values to be consistently under- or over-estimated.
+
+
+In situations where we believe that the measured value is close to the true value, we say that the measured value is \textbf{accurate}. Note it is impossible to truly quantify accuracy. When values obtained by repeated measurements of a particular quantity exhibit little variability, we say that those values are \textbf{precise}. Precision, like accuracy, is a \textbf{qualitative} term. Care must be exercised when measurements are precise since, if a systematic error has not been accounted for, all the values could be misleading.
+
+
+\subsection{Uncertainty}
+
+Errors are key and unavoidable ingredients of the measurement process. Their net effect is to create an \textbf{uncertainty} in the value of the measurand. Uncertainty has a number and (most often) a unit associated with it.
+
+
+\subsection{Repeatability and Reproducibility}
+
+Measurements which are made under (as far as is possible) identical conditions are spoken of as being \textbf{repeatable}, resulting in the possibility of the values obtained exhibiting little variation or scatter.
+
+
+If a measurand is well defined there is an expectation that, wherever a measurement is made and whatever techniques are used, the same value should be obtained for the measurand irrespective of who makes the measurement and which instrument is used. If there is consistency between values obtained by different experimenters, we say that the value is \textbf{reproducible}.
+
+
+
+\section{An introduction to uncertainty in measurement}
+
+\subsection{Measurement and error}
+
+Errors that fluctuate because of the variability in our measurements even under what we consider to be the same conditions are called \textbf{random} errors. Random errors arise because of our lack of total control over the environment or measurand.
+
+
+In brief, the environment has a basic randomness or `noise' that we are unable to eliminate completely. In the presence of only random errors, a sequence of reasonably stable measurements allows for the possibility of obtaining a more accurate value through the mean, where the random errors will tend to cancel out in the limit of large sampling.
+
+
+However, during any measurement there will probably be an error that remains constant when the measurement is repeated under the same conditions. Such \textbf{systematic} errors cannot be reduced by repeating the measurements and taking their mean. An instrument may have a systematic error other than simply an offset. For example there is a possibility of multiplicative systematic errors, referred to as \textbf{gain errors}.
+
+
+Systematic errors may be revealed by manufacturer or supplier specifications for a device, or look-up tables of physical constants of materials, and previously reported measurements against higher-accuracy devices. Any discrepancy between this specific information and the result of the present measurement suggests that there is a systematic error in the present measurement.
+
+
+Random errors can be revealed when we repeat the measurement while trying to keep the conditions constant. Systematic errors can be revealed when we vary the conditions, whether deliberately or unintentionally. In general, the bigger the change, the greater the chance of uncovering systematic errors. 
+
+
+After the existence and cause of a systematic error have been established, an experimental routine can often be developed that automatically takes it into account and eliminates it from the final result. Since the magnitude of the systematic error cannot be known exactly, this process of elimination must itself leave an uncertainty. We can regard errors associated with the correction as random errors scattered around the correction.
+
+
+\subsection{Dispersion of Data}
+
+The dispersion of data is characterized numerically by a standard deviation. The uncertainty is usually assigned to an integer multiple of the standard deviation. 
+
+There are different types of uncertainty. The scatter around the mean of repeated measurements contributes a \textbf{Type A} uncertainty to the uncertainty of the mean. A \textbf{Type B} uncertainty may be determined by looking up specific information about a measurand such as that found in a calibration report or data book. The calibrated value can tell us how much systematic error would exist if we ignored the calibration report and obtaining this information is the primary purpose of calibrating a device. The uncertainty of the calibrated value is always Type B. The reason is that no statistical analysis can or needs to be done when reading the report. The values summarised in the report were presumably obtained from repeated measurements with an associated Type A uncertainty. This uncertainty will therefore have a Type A component.
+
+The act of writing the report `fossilises' a Type A uncertainty into a Type B uncertainty. 
+
+
+If there are $n$ values of a quantity, $x_1,...,x_n$, the approximate standard deviation, $s$, of these $n$ values is given by
+%%
+\begin{equation}
+    s = \sqrt{\frac{\sum_{i=1}^n(x_i-\overline{x})^2}{n-1}}
+\end{equation}
+%%
+where $\overline{x}$ is the mean of the $n$ measurements. The square, $s^2$, is known as the \textbf{unbiased estimate of the variance} of the entire population of the $x$'s of which our $n$ values, $x_i$, form a sample. In metrology the standard deviation is referred to as the \textbf{standard uncertainty}. 
+
+The standard uncertainty, $u(\overline{x})$, of the mean may be expected to be less than $s$. This is correct if the values $x_i$ are \textbf{uncorrelated}. If they are uncorrelated, then
+%%
+\begin{equation}
+    u(\overline{x}) = s/\sqrt{n}
+\end{equation}
+%%
+If there is, for example, a steady drift in the values over time, then this high correlation implies the experimental standard deviation of the mean will not be significantly less than $s$, and in fact is closely equal to it.
+
+
+\subsection{Uncertainty in the estimate of uncertainty}
+
+If the standard uncertainty is denoted by $s$, then its own uncertainty is
+%%
+\begin{equation}
+    u(s) \sim \frac{s}{\sqrt{2\nu}}
+\end{equation}
+%%
+where $\nu$ is the number of `degrees of freedom'. $\nu$ is equal to the number of values, $n$, minus the number of quantities determined using the values. In the case where the mean is the only quantity determined using the values, $\nu = n-1$. Expressed as a percentage uncertainty
+%%
+\begin{equation}
+    \frac{u(s)}{s}\times 100\%\sim \frac{1}{\sqrt{2\nu}}\times 100\%
+\end{equation}
+%%
+This equation is particularly useful for the Type B category of uncertainty. Often the value of $\nu$ for a Type $B$ uncertainty will not exceed $10$, implying a reliability in the estimated uncertainty of no better than about $20\%$. 
+
+
+\subsection{Combining standard uncertainties}
+
+If $y  = f(x_1,...,x_n)$ is the measurand with input quantities $x_i$, the standard uncertainty, $u(y)$, in $y$ resulting from the standard uncertainties $u(x_i)$ is obtained by addition in quadrature:
+%%
+\begin{equation}
+    u(y) = \sqrt{\sum_{i=1}^n\left(\frac{\partial y}{\partial x_i}\right)^2u(x_i)^2}
+\end{equation}
+%%
+This equation is \textbf{only valid} if the $x_i$ are mutually uncorrelated. A correlation exists if, for example, two or more of the $x_i$ have been measured using the same instrument that has a systematic error with a significant associated uncertainty.
+
+
+No distinction between Type A and B is made when evaluating the standard uncertainty of the measurand, $y$.
+
+
+
+
+\section{Statistical Concepts}
+
+
+The \textbf{population} refers to the number of possible measured values. We can usually only ever draw a sample, hoping and expecting that the sample is representative of the population. The quantities of interest obtained from the sample, \textbf{sample statistics}, should reliably represent corresponding parameters in the population, \textbf{population parameters}. 
+
+
+
+Suppose we have a random variable described by a measurable function $X:(\Omega,\mathcal{F},\mathbb{P})\rightarrow E$ between measurable spaces, where $\mathbb{P}$ is a probability and $\mathcal{F}$ is a $\sigma$-algebra on $\Omega$. If $E = \R$ with the borel or Lebesgue measure, then the expected value of $X$ is given via integration with respect to its probability measure:
+%%
+\begin{equation}
+    E[X] = \int_\Omega X\,d\mathbb{P}
+\end{equation}
+%%
+In particular, this function is linear. Given a function of random variables, $f:\mathcal{M}(\Omega)\rightarrow \mathcal{M}(\Omega)$, we may define its moment $E[f(X)]$. A particular moment of interest is given by the population variance, $X\mapsto (X-E[X])^2$. The sample variance, given by the mean of this function over a sample data set, is a biased estimate of the true variance $\sigma^2$. In order to obtain an unbiased estimate we must replace the devisor by $n-1$ in the computation of the sample mean.
+
+
+The standard deviation is given by the square root of the variance. The sample standard deviation, as previously defined, is now only an approximately unbiased estimate of hte population standard deviation. Note that the variance and standard deviation, whether of a sample or of a population, are \textbf{location-independent}.
+
+
+\subsection{Residuals and degrees of freedom}
+
+Suppose we calculate the mean, $\overline{X}$ of $n$ values $X_i$. Using the mean, we calculate the $n$ resulting residuals $r_i$, where 
+%%
+\begin{equation}
+    r_i := X_i-\overline{X}
+\end{equation}
+%%
+In general, for a sample of size $n$ the sum of the residuals is $0$. This implies that the residuals are not independent as they satisfy a joint constraint. If $n-1$ values are known, the $n$th is immediate. This is why we say that the $n$ residuals have degrees of freedom 
+%%
+\begin{equation}
+    \nu = n-1
+\end{equation}
+%%
+
+
+\subsection{Least-squares modeling}
+
+In least squares we consider a modeling function $f(x,\beta)$ where $\beta$ consists of adjustable parameters and $x$ consists of independent variables in a measurement setting. If $y$ are the dependent or measured quantities corresponding to the $x$, we define `residuals' $\epsilon_i := y_i - f(x_i,\beta)$, and define the quantity
+%%
+\begin{equation}
+    S := \sum_{i=1}^n\epsilon_i^2
+\end{equation}
+%%
+We then adjust the $\beta$ parameters in order to minimize $S$, which can be approached using gradients and other methods. We can, for example, use this to estimate the mean when $f(x,\beta)$ is a constant function. 
+
+
+Whenever a straight line is fitted by least-squares, the residuals have two degrees of freedom fewer than the number of original values, so now we have $\nu = n-2$.
+
+
+In general, for a linear fit, $y=a+bx$, the intercept and slope have the following forms from least-square fitting:
+%%
+\begin{equation}
+    a = \frac{\left(\sum_{i=1}^ny_i\right)\left(\sum_{i=1}^nx_i^2\right)-\left(\sum_{i=1}^nx_iy_i\right)\left(\sum_{i=1}^nx_i\right)}{n\sum_{i=1}^nx_i^2-\left(\sum_{i=1}^nx_i\right)^2}
+\end{equation}
+%%
+and
+%%
+\begin{equation}
+    b = \frac{n\sum_{i=1}^nx_iy_i-\left(\sum_{i=1}^nx_i\right)\left(\sum_{i=1}^ny_i\right)}{n\sum_{i=1}^nx_i^2-\left(\sum_{i=1}^nx_i\right)^2}
+\end{equation}
+%%
+while the residuals are computed as $\epsilon_i = y_i-a-bx_i$, and their root-mean-square value as
+%%
+\begin{equation}
+    s = \sqrt{\frac{\sum_{i=1}^n\epsilon_i^2}{n-2}}
+\end{equation}
+%%
+
+
+\subsection{Standard uncertainties of estimates}
+
+The standard uncertainty, $s_{\overline{X}}$, of the mean for $n$ mutually uncorrelated values is given by $s/\sqrt{n}$, where $s$ is the rms value of the residuals.
+
+When a straight line is fitted to data the standard uncertainties of the intercept $a$ and slope $b$ are
+%%
+\begin{equation}
+    s_a = s\sqrt{\frac{\sum_{i=1}^nx_i^2}{D}}
+\end{equation}
+%%
+and
+%%
+\begin{equation}
+    s_b = s\sqrt{\frac{n}{D}}
+\end{equation}
+%%
+where $D = n\sum_{i=1}^nx_i^2-\left(\sum_{i=1}^nx_i\right)^2$.
+
+
+In general, the difference between our sample size, $n$, and the number of parameters, $q$, in our least-squares fit is the degrees of freedom, $\nu = n-q$. The smaller the number of degrees of freedom, the less reliable our least-squares fit. We need, in other words, more `redundancy'.
+
+\subsection{Covariance and correlation}
+
+
+If in a linear fit, $y = a+bx$, the value of $b$ is considerably greater in absolute magnitude than its own standard uncertainty, then $x$ and $y$ have a significant mutual correlation. The mutual covariance of two random variables $X$ and $Y$ defined on the same parameter space is
+%%
+\begin{equation}
+    E[(X-E[X])(Y-E[Y])]
+\end{equation}
+%%
+which for a prescribed sample is
+%%
+\begin{equation}
+    \text{cov}(X,Y) = \frac{\sum_{i=1}^n(X_i-\overline{X})(Y_i-\overline{Y})}{n-1}
+\end{equation}
+%%
+Then the \textbf{linear correlation coefficient} can be expressed as
+%%
+\begin{equation}
+    r := \frac{\text{cov}(X,Y)}{\sqrt{\text{var}(X)\text{var}(Y)}}
+\end{equation}
+%%
+$r \in [-1,1]$, where $-1$ is perfect negatie correlation, and $+1$ is perfect positive correlation. $r$, excepts for its sign, is independent of the slope, and instead depends on the scatter of the data.
+
+
+In general, independence implies zero correlation, but zero correlation need not imply independence.
+
+
+\section{Systematic error}

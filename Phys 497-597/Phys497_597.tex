@@ -1,0 +1,244 @@
+\documentclass[12pt, a4paper, oneside, openright, titlepage]{book}
+\usepackage[utf8]{inputenc}
+\raggedbottom
+\usepackage{import}
+
+
+\input{../book_packages}
+
+%%% Specific Macros %%%
+
+
+%%%%%% BEGIN %%%%%%%%%%
+
+
+\begin{document}
+
+%%%%%% TITLE PAGE %%%%%
+
+\begin{titlepage}
+    \centering
+    \scshape
+    \vspace*{\baselineskip}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}
+    
+    \vspace{0.75\baselineskip}
+    
+    {\LARGE Physics Lab Techniques}
+    
+    \vspace{0.75\baselineskip}
+    
+    \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+    \rule{\textwidth}{1.6pt}
+    
+    \vspace{2\baselineskip}
+    Phys 497-597 \\
+    \vspace*{3\baselineskip}
+    \monthdayyeardate\today \\
+    \vspace*{5.0\baselineskip}
+    
+    {\scshape\Large E/Ea Thompson(they/them), \\ Physics and Math Honors\\}
+    
+    \vspace{1.0\baselineskip}
+    \textit{Solo Pursuit of Learning}
+    \vfill
+    \enlargethispage{1in}
+    \begin{figure}[b!]
+    \makebox[\textwidth]{\includegraphics[width=\paperwidth, height =10cm]{../Crab.jpg}}
+    \end{figure}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 0
+\part{Uncertainty and Measurement}
+
+\input{Uncertainty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 0.5
+\part{Scientific Communication}
+
+\input{ScienceComm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 1
+\part{Phys 497 Laboratories}
+
+\input{Phys497Labs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 2
+\part{Circuit Theory}
+
+\input{CircuitTheory}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 3
+\part{Operational Amplifiers, Linear Systems, and the Fourier Transform}
+
+
+\input{OpAmps}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 4
+\part{Semiconductors, Diodes, and Transistors}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 
+\part{Laboratory Designs and Theory}
+
+%%%%%%%%%%%%%%%%%%%%%% Chapter .1
+
+
+\begin{subappendices}
+
+    \section{Traveling Waves Theory}
+
+
+    \section{X-Ray Theory}
+
+    \section{Spectroscopy Theory}
+
+
+\end{subappendices}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% - Appendices
+\begin{appendices}
+    
+
+    
+
+    %%%%%%%%%%%%%%%%%%%% Section A.2
+    \section{Graphing and Lab Reports}
+
+    Tables should be numbered and captioned \Emph{above}. Figures are numbered and captioned \Emph{below} - explain the figure as a whole, what the data points represent, and what the line (if there is one represents). That is explan all elements in the graph in its caption.
+
+    A standard lab report should have the following:
+
+    \begin{itemize}
+        \item \textbf{Cover Page:} Includes a title, names, UCIDs (School IDs), Section, Group number, TA's name, Date, and Location
+        \item \textbf{Objective:} 2-3 sentences stating the purpose of the experiment/goals to be accomplished\begin{itemize}
+                \item ``to determine..."
+                \item ``to calculate..."
+                \item ``to compare..."
+                \item ``to investigate..."
+        \end{itemize}
+        \item \textbf{Theory:} (\Emph{NOT} a textbook chapter) Should include the most important theory relevant to the experiment. Quote \Emph{all} equations you will use, and \Emph{reference sources}.
+        \item \textbf{Experimental Methods (Methods and Materials):} Lists are welcome. Brief descriptions. Feel free to include sketches, and figures (with captions) of the experimental set up if necessary. Briefly describe materials and equipment you will use.
+        \item \textbf{Data:} In tables (numbered \& labeled). Include uncertainties and units. 
+        \item \textbf{Data Analysis:} Any and all needed calculations. Sample uncertainty calculations. Additional tables (comparisons, graphing, tables, slope/intercept etc.) and graphs.
+        \item \textbf{Discussions:} Comparisons of data. Reasoning, discrepancies/agreements, commentary, sources of errors, classification of errors as systematic and random. Compare the obtained values to the expected ones (possibly using a test like the t-test). Comment on the agreement and on possible sources of errors (both random and systematic). Make sure the errors are reasonable given your results.
+        \item \textbf{Conclusions:} (Include final values) Appropriate commentary on the agreement/disagreement of derived values. Report your values again and comment on their agreement with accepted values
+        \item \textbf{References:}
+    \end{itemize}
+
+    \begin{defn}
+        A \Emph{Hypothesis} is a supposition or proposed explanation made on the basis of limited evidence as a starting point for the future investigation.
+    \end{defn}
+
+
+
+
+
+
+
+    %%%%%%%%%%%%%%%%%%%% Section A.3
+    \section{Presentation Tips}
+
+    The fundamentals of a good talk are a\begin{itemize}
+        \item Good story: Clear beginning (describe the BIG PICTURE), clear plan (describe your topics and sub-topics if any), and clear answers (present the results and supporting evidence)
+        \item Good slides: The three T's - Tell them what you are going to tell them (have a title page and outline slide), tell them (present the main slides), tell them what you told them (have a summary slide)
+        \item Good presence: Dress for success (avoid wearing distracting items), engage the audience (look and talk to the audience), don't read the slides (and try to avoid reading from notes), body positioning and body language, and talk \Emph{WITH} not to.
+    \end{itemize}
+
+    In a normal talk you would usually budget $1$ slide per minute, maximum. Text should be at least $22$ pt, and you should avoid full sentences or lots of text on any given slide. Images should convey at most one or two concepts. Use reasonable colour contrast. Don't use unnecessary flashiness. KEEP IT SIMPLE SILLY.
+
+    Good powerpoint design:
+
+    \begin{itemize}
+        \item Keep it simple/consistent
+        \item Use meaningful visuals
+        \item Use predetermined colors/templates
+        \item Don't overcomplicate/confuse
+        \item Be distinctive or be related
+    \end{itemize}
+
+    When building a slide deck, have most of the work done already and let the template do the heavy lifting. Take your audience on a visual journey - go bolder on visuals and let the audience focus on you, not text. Know your key-takeaways - leave the audience something to take-away and make it obvious.
+
+    Repetition is a powerful and often useful tool in longer talks/presentations to remind audiences of your key takeaways. Progress bars or numbers can be powerful visual tools for guiding the audience. Use space appropriately, and leave suitable white-space between visuals/text. Less can often be more - use line animation when suitable to help guide visually. Make sure to establish a clear heirarchy in slides to guide the audience's eyes - animation can be a useful guide. Try to align visuals appropriately with suitable white spacing between columns.
+
+    Know your audience - what is their knowledge level? what level of professionalism do they expect?
+
+    
+    %%%%%%%%%%%%%%%%%%%% Section A.4
+    \section{Paper Tips}
+
+    Basic notes/points: \begin{itemize}
+        \item Remember to reference the theory section properly
+        \item The literature review is thorough - we compare with multiple pear-reviewed papers.
+        \item Explain what every variable in an equation means
+        \item Every statement that is not your own stated in the theory should be supported by pear-reviewed papers
+        \item All equations must be referenced, and definitions should be referenced
+        \item If steps aren't shown, the result must be referenced. 
+        \item Reference textbooks for definitions of basic terms.
+        \item It is recommended to have 3-5 references per page of the report.
+    \end{itemize}
+
+
+    \subsection{Writing a Research Proposal}
+
+    What is it? It is a document intended to convince others that you have interesting and important research. Why do you need it? To convince the reader of the value of your project/idea, and your \Emph{competence}. It is also to give yourself an opportunity to think through your research project, refine your ideas, and predict any challenges that may arise.
+
+    How to write one: (follow the instructions if given)i break down your proposal into point form. Choose your headings/subheadings. Lay out in point form what you will discuss. Use appropriate clean plain language.
+
+    \subsection{References}
+
+    Follow the \Emph{Journal of Applied Physics} guidelines, \url{https://aip.scitation.org/jap/authors/manuscript}, \url{https://publishing.aip.org/authors/preparing-your-manuscript}, \url{https://aip.scitation.org/journal/jap}, \url{https://publishing.aip.org/wp-content/uploads/2021/03/AIP_Style_4thed.pdf}, and \url{https://paperpile.com/s/journal-of-applied-physics-citation-style/}. It is often best to use alphabetically listed references. For miscellaneous items that don't always appear it may be a good idea to see how APA does it before returning to the JAP guidelines. Choose how the numbering looks to be consistent.
+
+    \subsubsection{Bibliographies}
+
+    For an annotated bibliography, look at the \Emph{Purdue} and \Emph{Cornell} guides for how to build and annotate the bibliographies. Annotations are for you. Mention if its useful to you and if it is trustworthy. You cite yourself like any other source (in square brackets put that it is a lab manual and unpublished). 
+
+    An annotated bibliography is a list of citations, where each citation is followed by an annotation - a brief (100-150 words) descriptive and evaluative paragraph. 
+
+
+    \subsection{Example-Outline}
+
+    A large centered or left aligned title followed by names of the authors with footnotes referencing their affiliations. Date the paper, and include a centered clear abstract (at most 10 sentences), with keywords after the abstract. An experimental paper should include:
+    \begin{itemize}
+        \item \Emph{Introduction:}
+        \item \Emph{Methods:}
+        \item \Emph{Results and Discussions:}
+        \item \Emph{Conclusions:}
+    \end{itemize}
+
+    Methods may be replaced with \Emph{Theory} if a non-experimental paper is being designed.
+
+
+
+    \subsection{Peer Reviewing}
+
+    Helpful feedback follows the four following principles: \begin{itemize}
+        \item \Emph{Goal Referenced:} Is linked to the goal specified by the reciever. Improving/developing presentation/writing skills.
+        \item \Emph{Transparent:} Making the ``how, what and why" behind editorial decisions clear to everyone - if possible/provided include page/line numbers for specific feedback. Content of the review is known not the identity of the reviewer.
+        \item \Emph{Actionable:} Comment on things that actually can be improved. Provide feedback that strengthens the work.
+        \item \Emph{User-Friendly:} Be objective. Back up each statement with an example. Be honest.
+    \end{itemize}
+
+
+
+
+\end{appendices}
+
+
+\end{document}
+
+
+%%%%%% END %%%%%%%%%%%%%
